@@ -1,0 +1,13 @@
+.is-system-panel {
+  width: 100%;
+  background-color: #27374a;
+}
+.system-panel-section-left {
+  display: inline-block;
+  height: 3.25em;
+  border-right: 1px;
+  border-color: #fff;
+}
+.system-toolbar-icon {
+  width: 3em;
+}

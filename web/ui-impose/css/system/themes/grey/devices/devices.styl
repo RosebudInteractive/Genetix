@@ -1,0 +1,51 @@
+/*
+.is-content.is-device-bar-hidden div.is-device-icon
+  display none
+*/
+.is-device-bar
+  box-sizing border-box
+  -moz-box-sizing border-box
+  -webkit-box-sizing border-box
+  height 100%
+  background: linear-gradient(to right, #445368 0px, #4f5e73 1.5em, #4f5e73 100%)
+  /*background-color #4f5e73*/
+  display table-cell
+  width 7.125em
+  float right
+  -webkit-transition: width 0.5s ease
+  -moz-transition: width 0.5s ease
+  -ms-transition: width 0.5s ease
+  -o-transition: width 0.5s ease
+  transition: width 0.5s ease
+  overflow hidden
+
+.is-content.is-device-bar-hidden div.is-device-bar
+  width 0px
+
+.is-device-wrapper
+  height 100%
+.is-device-icon
+  height 52px
+  padding-top 12px
+  padding-bottom 12px
+  &:first-child
+    padding-top 26px
+
+.is-device-icon.is-pressed
+  background-color #27374a
+.is-device-icon:hover div.is-device-icon-wrapper
+  opacity 1
+.is-device-icon:hover div.is-device-text
+  color #ffffff
+
+.is-device-icon-wrapper
+  height 38px
+  width auto
+  padding-left 38px
+  opacity 0.8
+.is-device-text
+  text-align center
+  color #d7dade
+  font-size 0.75em
+  overflow hidden
+  width 9.5em

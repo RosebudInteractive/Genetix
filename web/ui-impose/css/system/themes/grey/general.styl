@@ -1,0 +1,53 @@
+@import "./toolbar/toolbar"
+@import "./toolbar/footer"
+@import "../../../../fonts/osans"
+@import "./content"
+
+/* запрет выделения текста */
+body
+  margin 0px
+  font-family 'OpenSansRegular', 'sans-serif'
+  background-color #d9e1ee
+
+.is-disableselect
+  user-select: none
+  -ms-user-select: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -webkit-touch-callout: none
+  -webkit-user-drag: none
+
+.has-right-border
+  border-color #4e5b6d
+  border-right-width 1px
+  border-right-style solid
+
+html, body
+  height 100%
+
+.container-front
+  box-sizing border-box
+
+.has-left-margin
+  margin-left 0.75em
+
+.is-main-container
+  height 100%
+
+.is-content
+  height: 100%;
+  box-sizing border-box
+  -moz-box-sizing border-box
+  -webkit-box-sizing border-box
+
+.is-content-wrapper
+  box-sizing border-box
+  -moz-box-sizing border-box
+  -webkit-box-sizing border-box
+  padding-top 3.25em
+  padding-bottom 1.875em
+  height 100%
+  width 100%
+  display table
+
