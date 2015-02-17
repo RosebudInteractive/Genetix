@@ -341,6 +341,13 @@ div.system-toolbar-menu-item:last-child {
   width: auto;
   padding-left: 38px;
   opacity: 0.8;
+  color: #fff;
+}
+.is-device-icon.is-green div.is-device-icon-wrapper {
+  color: #35c367;
+}
+.is-device-icon.is-blue div.is-device-icon-wrapper {
+  color: #5195e5;
 }
 .is-device-text {
   text-align: center;
@@ -371,6 +378,7 @@ body {
   margin: 0px;
   font-family: 'OpenSansRegular', 'sans-serif';
   background-color: #d9e1ee;
+  fill: currentColor;
 }
 .is-disableselect {
   user-select: none;
