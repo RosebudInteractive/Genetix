@@ -45,7 +45,36 @@ define(
                     '<table class="table-bl" cellspacing="0" cellpadding="0"><tbody></tbody></table>' +
                     '</div></div>'+
                     '</div>'+
-                    '<div class="grid-paginator-b"><div class="text-with-icon-b"><div class="text-be">10</div></div></div>'+
+                    '<div class="grid-paginator-b">' +
+                    '  <div class="grid-footer-icon">' +
+                    '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
+                    '      <use xlink:href="./images/system/themes/grey/controls/controls.svg#arrow-right1"></use>' +
+                    '    </svg>' +
+                    '  </div>' +
+                    '  <div class="grid-footer-icon">' +
+                    '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
+                    '      <use xlink:href="./images/system/themes/grey/controls/controls.svg#arrow-right"></use>' +
+                    '    </svg>' +
+                    '  </div>' +
+                    '  <div class="grid-footer-icon">' +
+                    '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
+                    '      <use xlink:href="./images/system/themes/grey/controls/controls.svg#arrow-left"></use>' +
+                    '    </svg>' +
+                    '  </div>' +
+                    '  <div class="grid-footer-icon">' +
+                    '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
+                    '      <use xlink:href="./images/system/themes/grey/controls/controls.svg#arrow-left1"></use>' +
+                    '    </svg>' +
+                    '  </div>' +
+                    '  <div class="text-with-icon-b"><div class="text-with-icon-b-wrapper">' +
+                    '    <div class="text-be">10</div>' +
+                    '  </div></div>' +
+                    '  <div class="grid-footer-icon">' +
+                    '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
+                    '      <use xlink:href="./images/system/themes/grey/controls/controls.svg#hamburger"></use>' +
+                    '    </svg>' +
+                    '  </div>' +
+                    '</div>'+
                     '</div>');
                 grid.attr('title', this.options.hint);
                 this._headTable = grid.find('.header-bl .table-bl thead');
@@ -95,12 +124,17 @@ define(
             renderHeader: function(){
                 this._headTable.empty();
                 var that = this;
+                this._colCount = 0;
 
                 if (this.options.columns.length > 0) {
                     var tr = $('<tr></tr>');
 
+                    // отступ
+                    var th = $('<th class="grid-th-bh is-margin"></th>');
+                    th.data('GridHeaders', {data:{}, type:'margin'});
+                    tr.append(th);
                     // чекбокс
-                    var th = $('<th width="40" class="grid-th-bh is-checkedcolumn" style="width:40px"><div class="checkbox-b is-bordered th-checkbox-bh"><input type="checkbox"><div class="check-sign-e"></div></div></th>');
+                    th = $('<th width="40" class="grid-th-bh is-checkedcolumn" style="width:40px"><div class="checkbox-b is-bordered th-checkbox-bh"><input type="checkbox"><div class="check-sign-e"></div></div></th>');
                     th.data('GridHeaders', {data:{}, type:'checkbox'});
                     if (!this.options.checkedColumn)
                         th.hide();
@@ -114,11 +148,17 @@ define(
                         tr.append(th);
                         th.data('idx', i);
                     }
+                    // отступ
+                    th = $('<th class="grid-th-bh is-margin" ></th>');
+                    th.data('GridHeaders', {data:{}, type:'margin'});
+                    tr.append(th);
+                    this._colCount = this.options.columns.length + (this.options.checkedColumn ? 1 : 0);
                 } else {
                     var tr = $('<tr tabindex="1"><th class="grid-th-bh"><div class="th-text-be text-ellipsis-gm">&nbsp;</div></th></tr>');
                 }
 
                 this._headTable.append(tr);
+                this._fackeHeader = $(tr.html());
             },
 // добавляет пустую строку с пустыми клетками и расставляет ссылки кэша на колонки и клетки
             addEmptyRow: function () {
@@ -126,23 +166,36 @@ define(
                 var tr = $('<tr class="grid-tr-bh"></tr>');
                 tr.click(function(){
                     that._selectrow($(this));
+                    $(this).focus();
                 });
                 tr.colRef = [];
                 tr.cells = [];
-                // чекбокс
-                var td = $('<td class="grid-body-td-bh is-checkbox is-checkedcolumn" style="width:40px"><div class="checkbox-b is-bordered"><input type="checkbox"><div class="check-sign-e"></div></div></td>');
-                if (!this.options.checkedColumn)
-                    td.hide();
+                // отступ
+                var td = $('<td class="grid-body-td-bh is-margin" style="width: 24px"></td>');
                 tr.append(td);
                 tr.cells[0] = td;
                 tr.colRef[0] = -1;
+                // чекбокс
+                td = $('<td class="grid-body-td-bh is-checkbox is-checkedcolumn" style="width:40px"><div class="checkbox-b is-bordered"><input type="checkbox"><div class="check-sign-e"></div></div></td>');
+                if (!this.options.checkedColumn)
+                    td.hide();
+                tr.append(td);
+                tr.cells[1] = td;
+                tr.colRef[1] = -1;
                 // остальные поля
                 for (var i = 0; i < this.options.columns.length; i++) {
                     td = $('<td class="grid-body-td-bh"><div class="content-bhl"></div></td>');
                     tr.append(td);
-                    tr.cells[i+1] = td;
-                    tr.colRef[i+1] = i;
+                    tr.cells[i+2] = td;
+                    tr.colRef[i+2] = i;
                 }
+
+                // отступ
+                var td = $('<td class="grid-body-td-bh is-margin"></td>');
+                tr.append(td);
+                tr.cells[i+3] = td;
+                tr.colRef[i+3] = -1;
+
                 this._bodyTable.append(tr);
                 if (this._rowHeight == 0) this._rowHeight = tr[0].clientHeight;
                 return tr;
@@ -178,8 +231,9 @@ define(
             },
 
             renderData: function () {
+                //this._bodyTable.append(this._fackeHeader);
                 if (!this._topDiv) {
-                    this._topDiv= $('<tr style="height:0px"></tr>');
+                    this._topDiv= $('<tr><td class="is-margin"/><td colspan="' + this._colCount + '"/><td class="is-margin"/></tr>');//$(this._fackeHeader.html()).height(0);//
                     this._bodyTable.append(this._topDiv);
                 };
                 if (this.options.columns.length==0)

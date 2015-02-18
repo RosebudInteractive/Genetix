@@ -13,7 +13,6 @@
     <script src="LibScripts/require.js"></script>
     <script src="LibScripts/iscroll.js"></script>
     <script src="LibScripts/wGrid.js"></script>
-    <script src="LibScripts/iscroll.js"></script>
     <script>
     $( document ).ready(function() {
         var opt = {
@@ -892,15 +891,17 @@
 </head>
 <body>
     <div id="scrollerPos" style="float:none;height:20px;width:100px;background-color:maroon;"></div>
-    <div id="topDivH" style="float:top;height:20px;width:100px;color:black;background-color:#99FF00;">TEST</div>
+    <div id="topDivH" style="float:none;height:20px;width:100px;color:black;background-color:#99FF00;">TEST</div>
     <div id="paramsDiv" style="font-size: 0.75em">
         <table>
             <tr>
                 <td><input type="checkbox" onchange="$('#maingrid .grid-b').toggleClass('white-header')"/>Переключение цвета заголовка</td>
-                <td><input type="checkbox" onchange="$('#maingrid .grid-b').toggleClass('no-alter-rows')"/Выделение строк фоном</td>
+                <td><input type="checkbox" onchange="$('#maingrid .grid-b').toggleClass('no-alter-rows')"/>Выделение строк фоном</td>
+                <td><input type="checkbox" checked="true" onchange="$('#maingrid .grid-b').toggleClass('has-no-paginator')"/>Переключение футера</td>
+                <!--td><input type="checkbox" onchange="$('#maingrid .grid-b').toggleClass('is-focused')"/>Переключение фокуса</td-->
             </tr>
         </table>
     </div>
-    <div id="maingrid" style="height:auto;width:100%;background-color:white;"></div>
+    <div id="maingrid" class="is-disableselect" style="height:auto;width:100%;background-color:white;"></div>
 </body>
 </html>
