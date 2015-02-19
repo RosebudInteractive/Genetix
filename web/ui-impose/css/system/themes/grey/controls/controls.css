@@ -11,6 +11,9 @@
   line-height: 1.5em;
   cursor: pointer;
 }
+.grid-b.is-big {
+  line-height: 2em;
+}
 .grid-b .table-bl {
   width: 100%;
   table-layout: fixed;
@@ -34,6 +37,12 @@
 .grid-b.has-no-paginator .grid-paginator-b {
   display: none;
 }
+.grid-b.has-horizontal-lines td.grid-body-td-bh {
+  border-bottom: solid 1px #d7e2f5;
+}
+.grid-b.has-vertical-lines td.grid-body-td-bh:not(.is-last) {
+  border-right: solid 1px #d7e2f5;
+}
 .grid-th-bh.is-margin,
 .grid-b table.table-bl td.is-margin {
   width: 1.5em;
@@ -41,6 +50,11 @@
 .grid-b .header-bl {
   position: absolute;
   top: 0px;
+  z-index: 4;
+}
+.grid-b.is-big .header-bl,
+.grid-b.is-big .header-bl tr {
+  height: 2.25em;
 }
 .grid-b table thead tr th {
   border-bottom: solid 1px #d7e2f5;
@@ -49,13 +63,16 @@
 .grid-th-bh .th-text-be {
   font-size: 0.75em;
   font-weight: normal;
-  padding-left: 0.375em;
+  padding-left: 0.5em;
   position: relative;
   width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   text-align: left;
+}
+.grid-b.is-big .grid-th-bh .th-text-be {
+  padding-left: 0.75em;
 }
 .grid-b table th div {
   font-size: 0.75em;
@@ -74,7 +91,7 @@
 .grid-th-bh {
   position: relative;
 }
-.grid-th-bh:after {
+.grid-th-bh:not(.is-last):after {
   content: '';
   width: 0.0625em;
   height: 100%;
@@ -83,7 +100,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  top: -1px;
+  top: 0px;
   right: -0.0625em;
   background: #bcc2c9;
   background: -moz-linear-gradient(bottom, #bcc2c9 0%, #ebf1fe 50%);
@@ -96,7 +113,7 @@
 .grid-b .content-bhl {
   font-size: 0.75em;
   text-overflow: ellipsis;
-  padding-left: 6px;
+  padding-left: 0.4601em;
   -webkit-text-overflow: ellipsis;
   -moz-text-overflow: ellipsis;
   -khtml-text-overflow: ellipsis;
@@ -106,9 +123,20 @@
   overflow: hidden;
   white-space: nowrap;
 }
+.grid-b.is-big .content-bhl {
+  padding-left: 0.6902em;
+}
 .grid-body-td-bh {
   height: 1.55em;
   position: relative;
+}
+.grid-b.is-big .content-bhl {
+  font-size: 0.815em;
+}
+.grid-b.is-big .grid-body-td-bh,
+.grid-b.is-big .grid-tr-bh {
+  height: 2.25em;
+/* футер */
 }
 .grid-b .grid-paginator-b {
   bottom: 0;
@@ -122,6 +150,7 @@
   box-sizing: border-box;
   padding-right: 1.5em;
   border-top: solid 1px #d7e2f5;
+  line-height: 1.5em;
 }
 .grid-b .text-with-icon-b {
   height: 100%;
@@ -148,8 +177,12 @@
   border-right: 0.25em solid transparent;
 }
 .grid-tr-bh:focus,
-.grid-tr-bh.is-check {
+.grid-tr-bh.is-check:focus {
   background-color: #5195e5 !important;
+  color: #fff;
+}
+.grid-tr-bh.is-check {
+  background-color: #7b8daa !important;
   color: #fff;
 }
 .grid-tr-bh:focus:hover,
@@ -179,6 +212,12 @@
   box-sizing: border-box;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
+}
+.grid-b.is-big .scrollable-bl {
+  padding-top: 2.25em;
+}
+.grid-b.has-no-paginator .scrollable-bl {
+  padding-bottom: 0px;
 }
 .grid-b .scrollable-bl .scrollable-bll {
   -webkit-box-sizing: border-box;

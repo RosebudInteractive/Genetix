@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/system/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="css/system/jquery.jscrollpane.css">
     <link rel="stylesheet" type="text/css" href="css/system/themes/grey/controls/controls.css">
+    <link rel="stylesheet" type="text/css" href="css/custom/gridColumns.css">
     <script type="text/javascript" src="./LibScripts/jquery-1.11.0.min.js"></script>
     <script src="./LibScripts/jquery-ui.js" type="text/javascript"></script>
     <script src="LibScripts/require.js"></script>
@@ -871,7 +872,7 @@
                 snapStepY: 23,
                 scrollX: true,
                 bottomPadding:28,
-                topPadding:28,
+                topPadding: 28,
                 resize: true,
                 scrollbars: true,
                 mouseWheel: true,
@@ -898,7 +899,9 @@
                 <td><input type="checkbox" onchange="$('#maingrid .grid-b').toggleClass('white-header')"/>Переключение цвета заголовка</td>
                 <td><input type="checkbox" onchange="$('#maingrid .grid-b').toggleClass('no-alter-rows')"/>Выделение строк фоном</td>
                 <td><input type="checkbox" checked="true" onchange="$('#maingrid .grid-b').toggleClass('has-no-paginator')"/>Переключение футера</td>
-                <!--td><input type="checkbox" onchange="$('#maingrid .grid-b').toggleClass('is-focused')"/>Переключение фокуса</td-->
+                <td><input type="checkbox" onchange="$('#maingrid .grid-b').toggleClass('has-horizontal-lines')"/>горизонтальное разделение</td>
+                <td><input type="checkbox" onchange="$('#maingrid .grid-b').toggleClass('has-vertical-lines')"/>вертикальное разделение</td>
+                <td><input type="checkbox" onchange="$('#maingrid .grid-b').toggleClass('is-big')"/>увеличение</td>
             </tr>
         </table>
     </div>

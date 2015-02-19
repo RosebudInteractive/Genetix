@@ -128,37 +128,49 @@ define(
 
                 if (this.options.columns.length > 0) {
                     var tr = $('<tr></tr>');
+                    var fakeHeader = $('<tr class="fake-header"></tr>');
 
                     // отступ
-                    var th = $('<th class="grid-th-bh is-margin"></th>');
+                    var th = $('<th class="grid-th-bh is-margin is-last"></th>');
+                    var ftd = $('<td class="is-margin"/>');
                     th.data('GridHeaders', {data:{}, type:'margin'});
                     tr.append(th);
+                    fakeHeader.append(ftd);
                     // чекбокс
                     th = $('<th width="40" class="grid-th-bh is-checkedcolumn" style="width:40px"><div class="checkbox-b is-bordered th-checkbox-bh"><input type="checkbox"><div class="check-sign-e"></div></div></th>');
+                    ftd = $('<td style="width:40px"/>');
                     th.data('GridHeaders', {data:{}, type:'checkbox'});
-                    if (!this.options.checkedColumn)
+                    if (!this.options.checkedColumn) {
                         th.hide();
+                        ftd.hide();
+                    }
                     tr.append(th);
                     // остальные столбцы
                     for (var i = 0; i < this.options.columns.length; i++) {
-                        th = $('<th class="grid-th-bh is-clickable-eff"></th>');
+                        th = $('<th class="grid-th-bh is-clickable-eff ' + this.options.columns[i].text +'"></th>');
+                        if (i == (this.options.columns.length -1))
+                            th.addClass("is-last");
                         th.data('GridHeaders', {data:this.options.columns[i], type:'item'});
                         var text = $('<div class="th-text-be text-ellipsis-gm"></div>').html(this.options.columns[i].text);
                         th.append(text);
                         tr.append(th);
                         th.data('idx', i);
+                        ftd = $('<td class="' + this.options.columns[i].text + '"/>');
+                        fakeHeader.append(ftd);
                     }
                     // отступ
                     th = $('<th class="grid-th-bh is-margin" ></th>');
                     th.data('GridHeaders', {data:{}, type:'margin'});
                     tr.append(th);
+                    ftd = $('<td class="is-margin"/>');
+                    fakeHeader.append(ftd);
                     this._colCount = this.options.columns.length + (this.options.checkedColumn ? 1 : 0);
                 } else {
                     var tr = $('<tr tabindex="1"><th class="grid-th-bh"><div class="th-text-be text-ellipsis-gm">&nbsp;</div></th></tr>');
                 }
 
                 this._headTable.append(tr);
-                this._fackeHeader = $(tr.html());
+                this._fackeHeader = fakeHeader;
             },
 // добавляет пустую строку с пустыми клетками и расставляет ссылки кэша на колонки и клетки
             addEmptyRow: function () {
@@ -171,7 +183,7 @@ define(
                 tr.colRef = [];
                 tr.cells = [];
                 // отступ
-                var td = $('<td class="grid-body-td-bh is-margin" style="width: 24px"></td>');
+                var td = $('<td class="grid-body-td-bh is-margin is-last" style="width: 24px"></td>');
                 tr.append(td);
                 tr.cells[0] = td;
                 tr.colRef[0] = -1;
@@ -188,6 +200,8 @@ define(
                     tr.append(td);
                     tr.cells[i+2] = td;
                     tr.colRef[i+2] = i;
+                    if (i == (this.options.columns.length - 1))
+                        td.addClass("is-last");
                 }
 
                 // отступ
@@ -233,7 +247,7 @@ define(
             renderData: function () {
                 //this._bodyTable.append(this._fackeHeader);
                 if (!this._topDiv) {
-                    this._topDiv= $('<tr><td class="is-margin"/><td colspan="' + this._colCount + '"/><td class="is-margin"/></tr>');//$(this._fackeHeader.html()).height(0);//
+                    this._topDiv= $(this._fackeHeader[0].outerHTML);//$('<tr><td class="is-margin"/><td colspan="' + this._colCount + '"/><td class="is-margin"/></tr>');//
                     this._bodyTable.append(this._topDiv);
                 };
                 if (this.options.columns.length==0)
