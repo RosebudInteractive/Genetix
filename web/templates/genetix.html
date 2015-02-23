@@ -1,0 +1,231 @@
+        <div class="is-system-panel clearfix">
+            <div class="system-panel-section-left no-spaces">
+                <div class="system-toolbar-icon is-pressed" onclick="$(this).toggleClass('is-pressed')">
+                    <div class="system-toolbar-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#coral"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+                    <div class="system-toolbar-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#process"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+                    <div class="system-toolbar-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#compass"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+                    <div class="system-toolbar-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#eye"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-toolbar-icon"
+                     onclick="
+                        var d = $(this).find('div');
+                        d.find('svg').width('22px').height('22px');
+                        var h=d.html();
+                        if (h.indexOf('unsaved_interface') >= 0)
+                            h = h.replace('unsaved_interface', 'saved_interface');
+                        else
+                            h = h.replace('saved_interface', 'unsaved_interface');
+                        d.html(h);"
+                        >
+                    <div class="system-toolbar-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#unsaved_interface"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="system-panel-section-left no-spaces is-last">
+                <div class="stretch-element">
+                    <div  class="system-toolbar-menu-item is-active" onclick="$(this).toggleClass('is-pressed')">
+                        <div class="system-toolbar-icon-wrapper">
+                            <div class="system-toolbar-menu-item-text">
+                                <div>Документы</div>
+                                <div class="is-dot is-green">
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#dot"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="system-toolbar-menu-item is-active" onclick="$(this).toggleClass('is-pressed')">
+                        <div class="system-toolbar-icon-wrapper">
+                            <div class="system-toolbar-menu-item-text">
+                                <div>CRM</div>
+                                <div class="is-dot">
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#dot"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="system-toolbar-menu-item" onclick="$(this).toggleClass('is-pressed')">
+                        <div class="system-toolbar-icon-wrapper">
+                            <div class="system-toolbar-menu-item-text">
+                                <div>ЭМК</div>
+                                <div class="is-dot">
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#dot"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="system-toolbar-menu-item">
+                        <div class="system-toolbar-icon-wrapper">
+                            <div class="system-toolbar-menu-item-text">
+                                <div>Редактирование</div>
+                                <div class="is-dot">
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#dot"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="system-toolbar-menu-item">
+                        <div class="system-toolbar-icon-wrapper">
+                            <div class="system-toolbar-menu-item-text">
+                                <div>И еще документ</div>
+                                <div class="is-dot">
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#dot"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="system-panel-section-right no-spaces">
+                <div class="system-toolbar-icon has-right-border" onclick="$(this).toggleClass('is-pressed')">
+                    <div class="system-toolbar-icon-wrapper is-dots">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#dots"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-toolbar-menu-item is-combo">
+                    <div class="system-toolbar-icon-wrapper is-user-combo">
+                        <div class="text-btn-e is-arrow-drop">Edgar Poe</div>
+                    </div>
+                </div>
+                <div class="system-toolbar-icon" onclick="
+                        var d = $(this).find('div');
+                        d.find('svg').width('22px').height('22px');
+                        var h=d.html();
+                        if (h.indexOf('device_open') >= 0) {
+                            $('.is-content').removeClass('is-device-bar-hidden');
+                            h = h.replace('device_open', 'device_close');
+                        } else {
+                            $('.is-content').addClass('is-device-bar-hidden');
+                            h = h.replace('device_close', 'device_open');
+                        }
+                        d.html(h);"
+                    >
+                    <div class="system-toolbar-icon-wrapper is-device-icon">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#device_close"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="is-content">
+            <div class="is-content-wrapper">
+                <div class="is-left-content">
+
+                </div>
+                <div class="is-device-bar">
+                    <div class="is-device-wrapper">
+                        <div class="is-device-icon is-green" onclick="$(this).toggleClass('is-pressed')">
+                            <div class="is-device-icon-wrapper">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="38px" height="38px" viewBox="0 0 38 38" xml:space="preserve">
+                                    <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#pc"></use>
+                                </svg>
+                            </div>
+                            <div class="is-device-text">
+                                My notebook
+                            </div>
+                        </div>
+                        <div class="is-device-icon is-blue" onclick="$(this).toggleClass('is-pressed')">
+                            <div class="is-device-icon-wrapper">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="38px" height="38px" viewBox="0 0 38 38" xml:space="preserve">
+                                    <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#tablet"></use>
+                                </svg>
+                            </div>
+                            <div class="is-device-text">
+                                iPad
+                            </div>
+                        </div>
+                        <div class="is-device-icon" onclick="$(this).toggleClass('is-pressed')">
+                            <div class="is-device-icon-wrapper">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="38px" height="38px" viewBox="0 0 38 38" xml:space="preserve">
+                                    <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#phone"></use>
+                                </svg>
+                            </div>
+                            <div class="is-device-text">
+                                Phone
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="is-system-footer clearfix">
+            <div class="is-system-footer-section-left no-spaces">
+                <div class="system-footer-icon">
+                    <div class="system-footer-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                            <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#question"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="is-system-footer-section-left is-pressed no-spaces">
+                <div class="system-footer-icon is-pressed">
+                    <div class="system-footer-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                            <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#lamp"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-footer-text is-pressed">
+                    <span>10</span>
+                </div>
+            </div>
+            <div class="is-system-footer-section-left no-spaces is-last">
+                <div class="system-footer-text has-left-margin is-grey-text">
+                    <span>22/10 11:30 AM - Meeting - Media Ocean</span>
+                </div>
+            </div>
+            <div class="is-system-footer-section-right no-spaces">
+                <div class="system-footer-icon has-right-border">
+                    <div class="system-footer-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#bird"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-footer-icon is-last-icon">
+                    <div class="system-footer-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="./ui-impose/images/system/themes/grey/toolbar/Genetix.svg#arrow_up"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
