@@ -56,7 +56,6 @@ $(document).ready( function() {
                         that.showLogin();
                     else {
                         that.showMainForm();
-                        window.subscribeRootSys();
                     }
                 },
                 renderRoot: that.renderRoot,
@@ -89,6 +88,7 @@ $(document).ready( function() {
                 var session = $.cookie('session_'+name)? JSON.parse($.cookie('session_'+name)): {id:uccelloClt.getSession().id, deviceName:'MyComputer', deviceType:'C', deviceColor:'#ff0000'};
                 uccelloClt.getClient().authenticate(name, pass, session, function(result){
                     if (result.user) {
+                        window.subscribeRootSys();
                         $.cookie('session_'+name, JSON.stringify(session), { expires: 30 });
                         uccelloClt.setSession(result.user.session);
                         uccelloClt.pvt.guids.sysRootGuid = result.user.guid;
