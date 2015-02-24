@@ -48,7 +48,7 @@ $(document).ready( function() {
             };
 
             uccelloClt = new UccelloClt({
-                host:"ws://"+url('hostname')+":8081",
+                host:"ws://"+url('hostname')+":8082",
                 container:'#result0',
                 callback: function(){
                     var user = uccelloClt.getLoggedUser();

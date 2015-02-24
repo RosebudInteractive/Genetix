@@ -53,7 +53,7 @@ var config = {
     dataPath: __dirname+'/../../Genetix/data/',
     uccelloPath: __dirname+'/../../Uccello/'
 };
-var uccelloServ = new UccelloServ({port:8081, authenticate:fakeAuthenticate, config:config});
+var uccelloServ = new UccelloServ({port:8082, authenticate:fakeAuthenticate, config:config});
 
 // запускаем http сервер
 http.createServer(app).listen(1326);
