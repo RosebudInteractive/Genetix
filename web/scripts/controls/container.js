@@ -4,9 +4,9 @@ if (typeof define !== 'function') {
 }
 
 define(
-    [],
-    function() {
-        var Container = Class.extend({
+    [UCCELLO_CONFIG.uccelloPath+'controls/aControl'],
+    function(AControl) {
+        var Container = AControl.extend({
 
             className: "Container",
             classGuid: "1d95ab61-df00-aec8-eff5-0f90187891cf",

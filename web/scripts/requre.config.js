@@ -4,10 +4,11 @@
  * Time: 15:02
  */
 requirejs.config({
-    baseUrl: 'lib',
+    baseUrl: 'scripts',
     nodeRequire: require,
     paths: {
-        text       : '/lib/uccello/uses/text',
-        underscore : '/lib/uccello/uses/underscore'
+        text       : '/scripts/lib/uccello/uses/text',
+        underscore : '/scripts/lib/uccello/uses/underscore',
+        wGrid      : '/scripts/widjets/wGrid'
     }
 });

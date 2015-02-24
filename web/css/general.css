@@ -363,7 +363,7 @@ div.system-toolbar-menu-item:last-child {
   height: 100%;
   display: table-cell;
   width: 100%;
-  padding-right: 7.125em;
+/*padding-right 7.125em*/
   -webkit-transition: padding-right 0.5s ease;
   -moz-transition: padding-right 0.5s ease;
   -ms-transition: padding-right 0.5s ease;

@@ -22,13 +22,11 @@ app.get('/genetix', function(req, res){
 
 // статические данные и модули для подгрузки на клиент
 app.use("/ui-impose", express.static(__dirname + '/ui-impose'));
-app.use("/lib", express.static(__dirname + '/lib'));
 app.use("/css", express.static(__dirname + '/css'));
 app.use("/fonts", express.static(__dirname + '/fonts'));
 app.use("/images", express.static(__dirname + '/images'));
-app.use("/lib/uccello", express.static(__dirname + '/../../Uccello'));
 app.use("/scripts", express.static(__dirname + '/scripts'));
-app.use("/templates", express.static(__dirname + '/templates'));
+app.use("/scripts/lib/uccello", express.static(__dirname + '/../../Uccello'));
 
 
 /**
@@ -47,10 +45,19 @@ function fakeAuthenticate(user, pass, done) {
 
 var config = {
     controls:[
-        {className:'Container',component:'container', viewsets:[], guid:'1d95ab61-df00-aec8-eff5-0f90187891cf'}
+        {className:'DataContact', component:'../DataControls/dataContact', guid:'73596fd8-6901-2f90-12d7-d1ba12bae8f4'},
+        {className:'DataContract', component:'../DataControls/dataContract', guid:'08a0fad1-d788-3604-9a16-3544a6f97721'},
+        {className:'DataCompany', component:'../DataControls/dataCompany', guid:'59583572-20fa-1f58-8d3f-5114af0f2c514'},
+        {className:'DataAddress', component:'../DataControls/dataAddress', guid:'16ec0891-1144-4577-f437-f98699464948'},
+        {className:'DataLead', component:'../DataControls/dataLead', guid:'86c611ee-ed58-10be-66f0-dfbb60ab8907'},
+        {className:'DataIncomeplan', component:'../DataControls/dataIncomeplan', guid:'56cc264c-5489-d367-1783-2673fde2edaf'},
+        {className:'Container',component:'container', viewsets:['simpleview'], guid:'1d95ab61-df00-aec8-eff5-0f90187891cf'},
+        {className:'Form', component:'form', viewsets:['simpleview'], guid:'7f93991a-4da9-4892-79c2-35fe44e69083'},
+        {className:'DataColumn', component:'dataColumn', guid:'100f774a-bd84-8c46-c55d-ba5981c09db5'},
+        {className:'DataGrid', component:'dataGrid', viewsets:['simpleview'], guid:'ff7830e2-7add-e65e-7ddf-caba8992d6d8'}
     ],
-    controlsPath: __dirname+'/../../Genetix/web/scripts/controls/',
-    dataPath: __dirname+'/../../Genetix/data/',
+    controlsPath: __dirname+'/scripts/controls/',
+    dataPath: __dirname+'/data/',
     uccelloPath: __dirname+'/../../Uccello/'
 };
 var uccelloServ = new UccelloServ({port:8082, authenticate:fakeAuthenticate, config:config});

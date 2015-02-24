@@ -125,10 +125,11 @@ define(
                 this._headTable.empty();
                 var that = this;
                 this._colCount = 0;
+                var fakeHeader = $('<tr class="fake-header"></tr>');
 
                 if (this.options.columns.length > 0) {
                     var tr = $('<tr></tr>');
-                    var fakeHeader = $('<tr class="fake-header"></tr>');
+
 
                     // отступ
                     var th = $('<th class="grid-th-bh is-margin is-last"></th>');
@@ -153,9 +154,13 @@ define(
                         th.data('GridHeaders', {data:this.options.columns[i], type:'item'});
                         var text = $('<div class="th-text-be text-ellipsis-gm"></div>').html(this.options.columns[i].text);
                         th.append(text);
+                        if (this.options.columns[i].width)
+                            th.css({width: this.options.columns[i].width});
                         tr.append(th);
                         th.data('idx', i);
                         ftd = $('<td class="' + this.options.columns[i].text + '"/>');
+                        if (this.options.columns[i].width)
+                            ftd.css({width: this.options.columns[i].width});
                         fakeHeader.append(ftd);
                     }
                     // отступ
