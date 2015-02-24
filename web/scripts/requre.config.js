@@ -4,10 +4,10 @@
  * Time: 15:02
  */
 requirejs.config({
-    baseUrl: 'LibScripts',
+    baseUrl: 'lib',
     nodeRequire: require,
     paths: {
-        text       : '/LibScripts/uccello/uses/text',
-        underscore : '/LibScripts/uccello/uses/underscore'
+        text       : '/lib/uccello/uses/text',
+        underscore : '/lib/uccello/uses/underscore'
     }
 });

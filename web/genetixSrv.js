@@ -22,8 +22,11 @@ app.get('/genetix', function(req, res){
 
 // статические данные и модули для подгрузки на клиент
 app.use("/ui-impose", express.static(__dirname + '/ui-impose'));
-app.use("/LibScripts", express.static(__dirname + '/LibScripts'));
-app.use("/LibScripts/uccello", express.static(__dirname + '/../../Uccello'));
+app.use("/lib", express.static(__dirname + '/lib'));
+app.use("/css", express.static(__dirname + '/css'));
+app.use("/fonts", express.static(__dirname + '/fonts'));
+app.use("/images", express.static(__dirname + '/images'));
+app.use("/lib/uccello", express.static(__dirname + '/../../Uccello'));
 app.use("/scripts", express.static(__dirname + '/scripts'));
 app.use("/templates", express.static(__dirname + '/templates'));
 

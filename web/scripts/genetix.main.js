@@ -56,6 +56,7 @@ $(document).ready( function() {
                         that.showLogin();
                     else {
                         that.showMainForm();
+                        window.subscribeRootSys();
                     }
                 },
                 renderRoot: that.renderRoot,

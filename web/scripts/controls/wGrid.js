@@ -48,22 +48,22 @@ define(
                     '<div class="grid-paginator-b">' +
                     '  <div class="grid-footer-icon">' +
                     '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
-                    '      <use xlink:href="./images/system/themes/grey/controls/controls.svg#arrow-right1"></use>' +
+                    '      <use xlink:href="/images/controls.svg#arrow-right1"></use>' +
                     '    </svg>' +
                     '  </div>' +
                     '  <div class="grid-footer-icon">' +
                     '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
-                    '      <use xlink:href="./images/system/themes/grey/controls/controls.svg#arrow-right"></use>' +
+                    '      <use xlink:href="/images/controls.svg#arrow-right"></use>' +
                     '    </svg>' +
                     '  </div>' +
                     '  <div class="grid-footer-icon">' +
                     '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
-                    '      <use xlink:href="./images/system/themes/grey/controls/controls.svg#arrow-left"></use>' +
+                    '      <use xlink:href="/images/controls.svg#arrow-left"></use>' +
                     '    </svg>' +
                     '  </div>' +
                     '  <div class="grid-footer-icon">' +
                     '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
-                    '      <use xlink:href="./images/system/themes/grey/controls/controls.svg#arrow-left1"></use>' +
+                    '      <use xlink:href="/images/controls.svg#arrow-left1"></use>' +
                     '    </svg>' +
                     '  </div>' +
                     '  <div class="text-with-icon-b"><div class="text-with-icon-b-wrapper">' +
@@ -71,7 +71,7 @@ define(
                     '  </div></div>' +
                     '  <div class="grid-footer-icon">' +
                     '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
-                    '      <use xlink:href="./images/system/themes/grey/controls/controls.svg#hamburger"></use>' +
+                    '      <use xlink:href="/images/controls.svg#hamburger"></use>' +
                     '    </svg>' +
                     '  </div>' +
                     '</div>'+
