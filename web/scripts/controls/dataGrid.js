@@ -10,7 +10,13 @@ define(
 
             className: "DataGrid",
             classGuid: "ff7830e2-7add-e65e-7ddf-caba8992d6d8",
-            metaFields: [ ],
+            metaFields: [
+                {fname:"Alternate", ftype:"boolean"},
+                {fname:"HorizontalLines", ftype:"boolean"},
+                {fname:"VerticalLines", ftype:"boolean"},
+                {fname:"BigSize", ftype:"boolean"},
+                {fname:"WhiteHeader", ftype:"boolean"}
+            ],
             metaCols: [ {"cname": "Columns", "ctype": "DataColumn"}],
 
             /**
@@ -21,6 +27,25 @@ define(
             init: function(cm, params) {
                 this._super(cm,params);
                 this.params = params;
+            },
+
+            /**
+             * Свойсва
+             */
+            alternate: function(value) {
+                return this._genericSetter("Alternate", value);
+            },
+            horizontalLines: function(value) {
+                return this._genericSetter("HorizontalLines", value);
+            },
+            verticalLines: function(value) {
+                return this._genericSetter("VerticalLines", value);
+            },
+            bigSize: function(value) {
+                return this._genericSetter("BigSize", value);
+            },
+            whiteHeader: function(value) {
+                return this._genericSetter("WhiteHeader", value);
             },
 
             /**

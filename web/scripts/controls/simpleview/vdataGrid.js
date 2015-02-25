@@ -41,7 +41,33 @@ define(
                 vDataGrid._iscroll = null;
 
             }
+            // Отрендерим св-ва
+            if (this.whiteHeader())
+                grid.addClass("white-header");
+            else
+                grid.removeClass("white-header");
 
+            if (this.horizontalLines())
+                grid.addClass("has-horizontal-lines");
+            else
+                grid.removeClass("has-horizontal-lines");
+
+            if (this.verticalLines())
+                grid.addClass("has-vertical-lines");
+            else
+                grid.removeClass("has-vertical-lines");
+
+            if (this.bigSize())
+                grid.addClass("is-big");
+            else
+                grid.removeClass("is-big");
+
+            if (!(this.alternate()))
+                grid.addClass("no-alter-rows");
+            else
+                grid.removeClass("no-alter-rows");
+
+            // отобразим данные
             vDataGrid._reloading(this);
 
             //grid.css({top: this.top() + 'px', left: this.left() + 'px', width: this.width() + 'px', height: this.height() + 'px'});
@@ -145,11 +171,11 @@ define(
                 //this._grid.grid("renderHeader");
                 //this._grid.grid("renderData");
                 this._grid.grid("reloading", gridColumns, this._source);
-                this._refreshScroll();
+                this._refreshScroll(o);
             }
         }
 
-        vDataGrid._refreshScroll = function() {
+        vDataGrid._refreshScroll = function(o) {
             if (this._iscroll) {
                 this._iscroll.refresh();
             } else {
@@ -159,7 +185,7 @@ define(
                     snapStepY: 23,
                     scrollX: true,
                     bottomPadding:28,
-                    topPadding:28,
+                    topPadding: o.bigSize() ? 38 : 28,
                     resize: true,
                     scrollbars: true,
                     mouseWheel: true,
