@@ -5,12 +5,56 @@
  */
 var uccelloClt = null;
 var formGuid = "88b9280f-7cce-7739-1e65-a883371cd498";
+var form2Guid = "e7613a67-c36c-4ff5-a999-4d143bebc97c";
 $(document).ready( function() {
     require(
         ['./lib/uccello/uccelloClt'],
         function(UccelloClt){
 
             var that = this;
+            this.currRoot=null;
+            this.rootsGuids=[];
+            this.rootsContainers={};
+
+            /**
+             * Выбрать контекст
+             * @param guid
+             */
+            this.selectContext = function(params) {
+                $("#root-form-container").empty();
+                uccelloClt.setContext(params, function(result) {
+                    that.setAutoSendDeltas();
+                });
+            }
+
+
+            /**
+             * Получить контексты и отобразить в комбо
+             */
+            this.getContexts = function() {
+                var sel = $('#userContext');
+                sel.empty();
+
+                for (var i = 0, len = uccelloClt.getSysDB().countRoot(); i < len; i++) {
+                    var root = uccelloClt.getSysDB().getRoot(i);
+                    var obj = root.obj;
+                    for (var j = 0, len2 = obj.countCol(); j < len2; j++) {
+                        var col = obj.getCol(j);
+                        var name = col.getName();
+                        if (name == "VisualContext") {
+                            for (var k = 0, len3 = col.count(); k < len3; k++) {
+                                var item = col.get(k);
+                                var option = $('<option/>');
+                                option.data('ContextGuid', item.get('ContextGuid'));
+                                option.val(item.get('DataBase')).html(item.get('Name'));
+                                sel.append(option);
+                            }
+                            sel.val(uccelloClt.getContext()? uccelloClt.getContext().masterGuid(): null);
+                            return;
+                        }
+                    }
+                }
+            }
 
             /**
              * Рендер переключателя рута
@@ -22,10 +66,10 @@ $(document).ready( function() {
             }
 
 
-            this.setAutoSendDeltas = function(check) {
-                var cm = uccelloClt.getContextCM(formGuid);
+            this.setAutoSendDeltas = function() {
+                var cm = uccelloClt.getContextCM(currRoot);
                 if (cm)
-                    cm.autoSendDeltas(check);
+                    cm.autoSendDeltas(true);
             }
             var config = {
                 controls: [
@@ -62,7 +106,33 @@ $(document).ready( function() {
                     // подпишемся на клики
                     $("#documents-menu-item").click(function() {
                         window.createContext([formGuid])
-                    })
+                    });
+                    $("#crm-menu-item").click(function() {
+                        window.createContext([form2Guid])
+                    });
+
+                    $("#coral-button").click(function() {
+                        if ($(this).hasClass("is-pressed")) {
+                            that.getContexts();
+                            $("#context-list-wrapper").show();
+                        } else
+                            $("#context-list-wrapper").hide();
+                    });
+
+                    $('#userContext').change(function(){
+
+                        var currContext = $(this).val();
+                        var vc = $(this).find('option[value="'+currContext+'"]').data('ContextGuid');
+
+                        // создавать при выборе контекста
+                        var createForm = false;
+
+                        // запросить гуиды рутов
+                        uccelloClt.getClient().socket.send({action:"getRootGuids", db:currContext, rootKind:'res', type:'method'}, function(result) {
+                            that.rootsGuids = result.roots;
+                            that.selectContext({masterGuid: currContext, vc:vc,  side: "server"});
+                        });
+                    });
                 });
             };
 
@@ -72,7 +142,7 @@ $(document).ready( function() {
              */
             window.createContext = function(formGuids) {
                 uccelloClt.createContext('server', formGuids, function(result){
-                    that.setAutoSendDeltas(true);
+                    that.setAutoSendDeltas();
                     //that.getContexts();
                 });
             }
@@ -86,7 +156,7 @@ $(document).ready( function() {
                 if (!formGuids) return;
                 that.clearTabs();
                 uccelloClt.createContext('client', formGuids, function(result){
-                    that.setAutoSendDeltas(true);
+                    that.setAutoSendDeltas();
                     that.getContexts();
                 });
             }

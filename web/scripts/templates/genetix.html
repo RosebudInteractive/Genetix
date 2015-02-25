@@ -1,6 +1,6 @@
         <div class="is-system-panel clearfix">
             <div class="system-panel-section-left no-spaces">
-                <div class="system-toolbar-icon is-pressed" onclick="$(this).toggleClass('is-pressed')">
+                <div id="coral-button" class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
                     <div class="system-toolbar-icon-wrapper">
                         <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
                             <use xlink:href="/images/Genetix.svg#coral"></use>
@@ -60,7 +60,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="system-toolbar-menu-item is-active" onclick="$(this).toggleClass('is-pressed')">
+                    <div id="crm-menu-item" class="system-toolbar-menu-item is-active" onclick="$(this).toggleClass('is-pressed')">
                         <div class="system-toolbar-icon-wrapper">
                             <div class="system-toolbar-menu-item-text">
                                 <div>CRM</div>
@@ -229,3 +229,6 @@
                 </div>
             </div>
         </div>
+                <span id="context-list-wrapper" style="position: absolute; top: 49px; left: 5px; display: none; z-index: 100">
+                    <select id="userContext"></select>
+                </span>
