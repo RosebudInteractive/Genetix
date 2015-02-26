@@ -15,7 +15,8 @@ define(
                 {fname:"HorizontalLines", ftype:"boolean"},
                 {fname:"VerticalLines", ftype:"boolean"},
                 {fname:"BigSize", ftype:"boolean"},
-                {fname:"WhiteHeader", ftype:"boolean"}
+                {fname:"WhiteHeader", ftype:"boolean"},
+                {fname:"HasFooter", ftype:"boolean"}
             ],
             metaCols: [ {"cname": "Columns", "ctype": "DataColumn"}],
 
@@ -46,6 +47,9 @@ define(
             },
             whiteHeader: function(value) {
                 return this._genericSetter("WhiteHeader", value);
+            },
+            hasFooter: function(value) {
+                return this._genericSetter("HasFooter", value);
             },
 
             /**

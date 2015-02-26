@@ -132,7 +132,8 @@
                                 "Dataset": "061b1347-18a2-a829-fcce-ba59058b4bdf",
                                 "BigSize": true,
                                 "Alternate": false,
-                                "HorizontalLines": true
+                                "HorizontalLines": true,
+                                "HasFooter": false
                             },
                             "collections": {
                                 "Columns": [

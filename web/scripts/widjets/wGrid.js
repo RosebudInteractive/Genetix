@@ -184,6 +184,10 @@ define(
                 tr.click(function(){
                     that._selectrow($(this));
                     $(this).focus();
+                }).hover(function() {
+                    $(this).next().find("td").css({"box-shadow": "none"})
+                }).mouseleave(function() {
+                    $(this).next().find("td").css({"box-shadow": ""})
                 });
                 tr.colRef = [];
                 tr.cells = [];

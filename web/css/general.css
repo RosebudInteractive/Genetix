@@ -296,6 +296,13 @@ div.system-toolbar-menu-item:last-child {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'OpenSansLight';
+  src: url("../../../../fonts/opensans-light.eot");
+  src: url("../../../../fonts/opensans-light.eot?#iefix") format('embedded-opentype'), url("../../../../fonts/opensans-light.woff") format('woff'), url("../../../../fonts/opensans-light.ttf") format('truetype'), url("../../../../fonts/opensans-light.svg#OpenSansCondensedLight") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 .is-device-bar {
   box-sizing: border-box;
   -moz-box-sizing: border-box;

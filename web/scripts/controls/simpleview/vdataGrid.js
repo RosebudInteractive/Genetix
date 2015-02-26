@@ -67,6 +67,11 @@ define(
             else
                 grid.removeClass("no-alter-rows");
 
+            if (!(this.hasFooter()))
+                grid.addClass("has-no-paginator");
+            else
+                grid.removeClass("has-no-paginator");
+
             // отобразим данные
             vDataGrid._reloading(this);
 
@@ -173,6 +178,8 @@ define(
                 this._grid.grid("reloading", gridColumns, this._source);
                 this._refreshScroll(o);
             }
+
+
         }
 
         vDataGrid._refreshScroll = function(o) {
@@ -184,7 +191,7 @@ define(
                 var _iscroll = new IScroll(this._grid.find('.scrollable-bll').get(0), {
                     snapStepY: 23,
                     scrollX: true,
-                    bottomPadding:28,
+                    bottomPadding: o.hasFooter() ? 28 : 0,
                     topPadding: o.bigSize() ? 38 : 28,
                     resize: true,
                     scrollbars: true,

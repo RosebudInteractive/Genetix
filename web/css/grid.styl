@@ -31,8 +31,11 @@
   background-color #ffffff
 .grid-b.has-no-paginator .grid-paginator-b
   display none
-.grid-b.has-horizontal-lines td.grid-body-td-bh
-  border-bottom solid 1px #d7e2f5
+.grid-b.has-horizontal-lines tr.grid-tr-bh:not(.is-check):not(:hover):not(:first-child) td.grid-body-td-bh
+  box-shadow inset 0 0.0625em 0 #d7e2f5
+.grid-b.has-horizontal-lines tr.grid-tr-bh:hover + tr.grid-tr-bh td.grid-body-td-bh
+  box-shadow none
+/*border-bottom solid 1px #d7e2f5*/
 .grid-b.has-vertical-lines td.grid-body-td-bh:not(.is-last)
   border-right solid 1px #d7e2f5
 
@@ -187,7 +190,8 @@
 .grid-tr-bh.is-check:hover td:last-child
   box-shadow inset -0.0625em 0 0 #fff, inset 0 0.0625em 0 #fff, inset 0 -0.0625em 0 #fff;
 .grid-tr-bh:hover
-  outline: 0.0625em solid #6ca9f0;
+  outline 0.0625em solid #6ca9f0
+  z-index 3005
 
 /* прокрука */
 .grid-b .scrollable-bl
