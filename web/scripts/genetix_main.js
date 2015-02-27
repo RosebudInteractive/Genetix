@@ -8,13 +8,14 @@ var formGuid = "89f42efa-b160-842c-03b4-f3b536ca09d8";
 var form2Guid = "e7613a67-c36c-4ff5-a999-4d143bebc97c";
 $(document).ready( function() {
     require(
-        ['./lib/uccello/uccelloClt'],
-        function(UccelloClt){
+        ['./lib/uccello/uccelloClt', "devices"],
+        function(UccelloClt, Devices){
 
-            var that = this;
             this.currRoot=null;
             this.rootsGuids=[];
             this.rootsContainers={};
+            this.devices = new Devices();
+            var that = this;
 
             /**
              * Выбрать контекст
@@ -102,6 +103,7 @@ $(document).ready( function() {
                 require(["text!templates/genetix.html"], function (mainTemplate) {
                     $("#mainContent").empty();
                     $("#mainContent").append($(mainTemplate));
+                    window.getSessions();
 
                     // подпишемся на клики
                     $("#documents-menu-item").click(function() {
@@ -222,6 +224,18 @@ $(document).ready( function() {
                 });
             }
 
+            /**
+             * Получить  получить на клиент от сервера структуру - все сессии с номерами и когда созданы,
+             * все коннекты этих сессий - с номерами и когда созданы
+             */
+            window.getSessions = function() {
+                uccelloClt.getClient().socket.send({action:"getSessions", type:'method'}, function(result){
+                    that.devices.sessions(result);
+                    $("#tabs-placeholder").click(function () {
+                        window.getSessions();
+                    });
+                });
+            }
         }
     );
 });
