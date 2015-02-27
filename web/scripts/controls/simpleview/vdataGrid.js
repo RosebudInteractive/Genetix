@@ -8,7 +8,7 @@ define(
             datatype: "json",
             datafields: [],
             localdata: '{}',
-            id:'id'
+            id:'Id'
         };
 
         /**
@@ -34,7 +34,20 @@ define(
                     columns: [],
                     source: this.source,
                     selectrow: function (event, row, obj) {
-                        console.log("grid.selectRow");
+                        if ('Id' in row[0]) {
+                            event.stopPropagation();
+                            that.getControlMgr().userEventHandler(that, function(){
+                                var ds = that.getControlMgr().getByGuid(that.dataset());
+                                if (ds.cursor() != row[0].Id) ds.cursor(row[0].Id);
+                            });
+
+                            setTimeout(function () {
+                                if (vDataGrid._iscroll && obj) {
+                                    vDataGrid._iscroll.scrollToElementVisible(obj.get(0), 0);
+                                }
+                            }, 0);
+
+                        }
                     }
                 };
                 vDataGrid._grid = grid.grid(opt);
@@ -176,6 +189,7 @@ define(
                 //this._grid.grid("renderHeader");
                 //this._grid.grid("renderData");
                 this._grid.grid("reloading", gridColumns, this._source);
+                if (cursor) this._grid.grid("selectrow", cursor);
                 this._refreshScroll(o);
             }
 
@@ -200,7 +214,8 @@ define(
                     interactiveScrollbars: true,
                     keyBindings: false,
                     click: true,
-                    probeType: 3
+                    probeType: 3,
+                    rightPadding: 0
                 });
                 _iscroll.on('scroll', function () {
                     //gr.data("grid").updatePosition(this.y);
@@ -217,10 +232,9 @@ define(
          * @param id
          */
         vDataGrid.renderCursor = function(id) {
-            var table = $('#' + this.getLid()).find('.table');
-            var rowTr = table.find('.row.data[data-id='+id+']');
-            table.find('.row.active').removeClass('active');
-            rowTr.addClass('active');
+            if (!id) return false;
+            var that = this;
+            vDataGrid._grid.grid('selectrow', id, true);
         }
 
         /**

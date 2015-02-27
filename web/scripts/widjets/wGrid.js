@@ -182,7 +182,7 @@ define(
                 var that = this;
                 var tr = $('<tr class="grid-tr-bh"></tr>');
                 tr.click(function(){
-                    that._selectrow($(this));
+                    that._selectrow($(this), true);
                     $(this).focus();
                 }).hover(function() {
                     $(this).next().find("td").css({"box-shadow": "none"})
@@ -253,7 +253,7 @@ define(
                 this.renderData();
             },
 
-            renderData: function () {
+            renderData: function (trigger) {
                 //this._bodyTable.append(this._fackeHeader);
                 if (!this._topDiv) {
                     this._topDiv= $(this._fackeHeader[0].outerHTML);//$('<tr><td class="is-margin"/><td colspan="' + this._colCount + '"/><td class="is-margin"/></tr>');//
@@ -286,7 +286,8 @@ define(
                             r.attr('tabindex', 1);
                             r.addClass('is-check');
                             this.selectedrow = {data:d, el:r};
-                            this._trigger("selectrow", null, [d, r]);
+                            if (trigger || trigger === undefined)
+                                this._trigger("selectrow", null, [d, r]);
                         } else {
                             if (r.hasClass('is-check')){
                                 r.removeClass('is-check');
@@ -306,12 +307,26 @@ define(
             },
 
             selectrow: function(id){
+                //if (this.selectedrow.data && id == this.selectedrow.data[this.options.source.id])
+                //    return;
                 var rows = this._bodyTable.find('tr');
+                var found = false;
                 for (var i = 0; i < rows.length; i++) {
                     var data = $(rows[i]).data('GridRows');
                     if (data && id == data[this.options.source.id]) {
-                        this._selectrow($(rows[i]));
+                        this._selectrow($(rows[i]), false);
+                        found = true;
                         break;
+                    }
+                }
+                if (!found) {
+                    for (var i = 0, len = this.options.source.localdata.length; i < len; i++) {
+                        var item = this.options.source.localdata[i];
+                        if (item[this.options.source.id] == id) {
+                            this.selectedrow.data = item;
+                            this.renderData(false);
+                            break;
+                        }
                     }
                 }
             },
@@ -320,7 +335,7 @@ define(
                 var that = this;
                 var tr = $('<tr class="grid-tr-bh"></tr>');
                 tr.click(function(){
-                    that._selectrow($(this));
+                    that._selectrow($(this), true);
                 });
                 // чекбокс
                 var td = $('<td class="grid-body-td-bh is-checkbox is-checkedcolumn" style="width:40px"><div class="checkbox-b is-bordered"><input type="checkbox"><div class="check-sign-e"></div></div></td>');
@@ -465,29 +480,14 @@ define(
                 //this._trigger("sort", null, [datafield, dir]);
             },
 
-            _selectrow: function(obj){
-                if (!this.options.ds || (this.options.ds && this.options.ds.canMoveCursor())) {
-                    var data = obj.data('GridRows');
-                    // просто устанавливаем новую выделенную строку, присваивая ее data в selectedrow
-                    this.selectedrow = {data:data, el:obj};
-                    // полный рендер сам разберется, где убрать выделение, где поставить
-                    this.renderData();
+            _selectrow: function(obj, trigger){
+                var data = obj.data('GridRows');
+                // просто устанавливаем новую выделенную строку, присваивая ее data в selectedrow
+                this.selectedrow = {data:data, el:obj};
+                // полный рендер сам разберется, где убрать выделение, где поставить
+                this.renderData(trigger);
+                if (trigger || (trigger === undefined))
                     this._trigger("selectrow", null, [data, obj]);
-                }
-                // убираем подсветку и добавляем новую
-                // if ('el' in this.selectedrow) {
-                // this.selectedrow.el.removeClass('is-check');
-                // this.selectedrow.el.attr('tabindex', null);
-                // this._headTable.children('tr').attr('tabindex', null);
-                // }
-                // obj.attr('tabindex', 1);
-                // obj.addClass('is-check');
-
-                // // выбираем другую строчку
-                // var data = obj.data('GridRows');
-                // this.selectedrow = {data:data, el:obj};
-                // this._trigger("selectrow", null, [data, obj]);
-                // }
             },
 
             _setcolumnproperty: function (datafield, propertyname, value) {

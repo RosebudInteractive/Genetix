@@ -1555,7 +1555,7 @@ var IScroll = (function (window, document, Math) {
         var type = options.scrollbars;
         var bottomPadding = options.bottomPadding? options.bottomPadding: 2;
         var topPadding = options.topPadding? options.topPadding: 2;
-        var rightPadding = options.rightPadding? options.rightPadding: 3;
+        var rightPadding = options.rightPadding? options.rightPadding: 0;
         var scrollbar = document.createElement('div'),
             indicator = document.createElement('div');
 

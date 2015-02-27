@@ -141,6 +141,7 @@ $(document).ready( function() {
              * @param formGuids массив гуидов ресурсов, который загружается в контекст
              */
             window.createContext = function(formGuids) {
+                $("#root-form-container").empty();
                 uccelloClt.createContext('server', formGuids, function(result){
                     that.setAutoSendDeltas();
                     //that.getContexts();
