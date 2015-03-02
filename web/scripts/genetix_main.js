@@ -168,12 +168,16 @@ $(document).ready( function() {
                 host:"ws://"+url('hostname')+":8082",
                 container:'#result0',
                 callback: function(){
-                    var user = uccelloClt.getLoggedUser();
+                    var user = uccelloClt.getUser();
                     if (!user)
                         that.showLogin();
                     else {
-                        that.showMainForm();
-                        window.subscribeRootSys();
+                        uccelloClt.subscribeUser(function(result2) {
+                            if (result2)
+                                that.showMainForm();
+                            else
+                                $(".is-login-form .login-l").addClass("has-errors");
+                        });
                     }
                 },
                 renderRoot: that.renderRoot,
@@ -211,13 +215,15 @@ $(document).ready( function() {
              */
             window.login = function(name, pass){
                 var session = $.cookie('session_'+name)? JSON.parse($.cookie('session_'+name)): {id:uccelloClt.getSession().id, deviceName:'MyComputer', deviceType:'C', deviceColor:'#ff0000'};
-                uccelloClt.getClient().authenticate(name, pass, session, function(result){
+                uccelloClt.getClient().authenticate({user:name, pass:pass, session:session}, function(result){
                     if (result.user) {
-                        window.subscribeRootSys();
                         $.cookie('session_'+name, JSON.stringify(session), { expires: 30 });
-                        uccelloClt.setSession(result.user.session);
-                        uccelloClt.pvt.guids.sysRootGuid = result.user.guid;
-                        window.showMainForm();
+                        uccelloClt.subscribeUser(function(result2){
+                            if (result2)
+                                that.showMainForm();
+                            else
+                                $(".is-login-form .login-l").addClass("has-errors");
+                        });
                     } else {
                         $(".is-login-form .login-l").addClass("has-errors");
                     }
@@ -229,12 +235,8 @@ $(document).ready( function() {
              * все коннекты этих сессий - с номерами и когда созданы
              */
             window.getSessions = function() {
-                uccelloClt.getClient().socket.send({action:"getSessions", type:'method'}, function(result){
-                    that.devices.sessions(result);
-                    $("#tabs-placeholder").click(function () {
-                        window.getSessions();
-                    });
-                });
+                var user = uccelloClt.getUser();
+                that.devices.sessions(user);
             }
         }
     );

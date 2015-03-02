@@ -11,25 +11,24 @@ define(
 
         var DevicesControl = Class.extend({
 
-            _Sessions: null,
             /**
              * Конструктор
              * @param obj - ожъект сессий
              */
             init: function(obj) {
-                this._Sessions = obj || null;
+                this._User = obj || null;
             },
 
             /**
              * Проперти сессии. При установке вызывает перерисовку
-             * @param sessions
+             * @param user
              */
-            sessions: function(sessions) {
-                console.log(sessions);
-                if (sessions === undefined)
-                    return this._Sessions;
+            sessions: function(user) {
+                console.log(user);
+                if (user === undefined)
+                    return this._User;
                 else {
-                    this._Sessions = sessions.sessions;
+                    this._User = user;
                     this.render();
                 }
 
@@ -48,14 +47,34 @@ define(
              */
             _renderDevices: function(mainPanel) {
                 // если сессии пустые, то все чистим
-                if (!(this._Sessions)) {
+                if (!(this._User)) {
                     mainPanel.find(".is-device-icon").remove(":not(#tabs-placeholder)");
                     return;
                 }
 
                 var sessions = {};
-                for (var i = 0; i < this._Sessions.length; i++)
-                    sessions[this._Sessions[i].id] = this._Sessions[i];
+                var curSessionId = uccelloClt.getSessionGuid();
+                var sessionsCount = this._User.countChild("Sessions");
+                var curSession = null;
+                for (var i = 0; i <sessionsCount; i++) {
+                    var sessionObj = this._User.getChild(i, "Sessions");
+                    sessions[sessionObj.sessionGuid()] = sessionObj;
+                    if (sessionObj.sessionGuid() == curSessionId) curSession = sessionObj;
+                }
+
+
+                // разберемся с текущим девайсом
+                var curSessionIcon = mainPanel.find("#" + curSessionId);
+
+                if (curSessionIcon.length == 0) {
+                    if (curSession.deviceType() == "C")
+                        curSessionIcon = $(templates["pc"]).attr("id", curSessionId);
+                    else
+                        curSessionIcon = $(templates["tablet"]).attr("id", curSessionId);
+
+                    curSessionIcon.find(".is-device-text").text(curSession.deviceName());
+                    mainPanel.append(curSessionIcon);
+                }
 
                 // очистим удаленные устройства
                 mainPanel.find(".is-device-icon:not(#tabs-placeholder)").each(function (i) {
@@ -65,16 +84,22 @@ define(
 
                 // добавин новые в конец
                 for (var id in sessions) {
+                    if (id == curSessionId) continue;
                     var session = sessions[id];
                     var existing = mainPanel.find("#" + id);
                     // если элемент не найден, то добавим
-                    if (existing.length == 0)
-                        existing = $(templates["pc"]).attr("id", id);
-                    if (session.connects.length != 0)
+                    if (existing.length == 0) {
+                        if (session.deviceType() == "C")
+                            existing = $(templates["pc"]);
+                        else
+                            existing = $(templates["tablet"]);
+                        existing.attr("id", session.sessionGuid());
+                    }
+                    if (session.countChild("Connects") != 0)
                         existing.addClass("is-pressed");
                     else
                         existing.removeClass("is-pressed");
-                    existing.find(".is-device-text").text(session.date);
+                    existing.find(".is-device-text").text(session.deviceName());
                     mainPanel.append(existing);
                 }
 
