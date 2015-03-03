@@ -121,7 +121,7 @@ define(
                     $("body").append(popupDiv);
                     this._tabsPopup = popupDiv.genetixPopup({
                         buttonControl: this._tabsIcon,
-                        offsetX: 28,
+                        offsetX: 26,
                         click: function (event, data) {
                             var currContext = data.id;
                             var vc = data.custom.contextGuid;

@@ -327,12 +327,9 @@ div.system-toolbar-menu-item:last-child {
   height: 100%;
 }
 .is-device-icon {
-  height: 52px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-.is-device-icon:first-child {
-  padding-top: 26px;
+  height: 3.25em;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
 }
 .is-device-icon.is-pressed {
   background-color: #27374a;
@@ -344,11 +341,18 @@ div.system-toolbar-menu-item:last-child {
   color: #fff;
 }
 .is-device-icon-wrapper {
-  height: 38px;
+  height: 2.375em;
   width: auto;
-  padding-left: 38px;
+  padding-left: 2.375em;
   opacity: 0.8;
   color: #fff;
+}
+.is-device-icon.is-tabs {
+  padding-top: 1em;
+  height: 1.375em;
+}
+.is-device-icon.is-tabs .is-device-icon-wrapper {
+  padding-left: 2.875em;
 }
 .is-device-icon.is-green div.is-device-icon-wrapper {
   color: #35c367;

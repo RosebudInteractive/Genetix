@@ -71,6 +71,7 @@ define(
                         this.element.append(itemEl);
                         itemEl.children(".dropdown-menu-item-wrapper").click(data, function (event) {
                             that._trigger("click", null, event.data);
+                            that.hide();
                         });
                     }
                     itemEl.find(".dropdown-menu-item-wrapper .text-bl").text(data.title);
@@ -99,7 +100,7 @@ define(
                 // TODO добавить интелекта к позиционированию
                 this.element.addClass("is-right is-top ");
                 var cRight = this.options.buttonControl.offset().left +  this.options.buttonControl.width();
-                var cBott = this.options.buttonControl.offset().top +  this.options.buttonControl.height();
+                var cBott = this.options.buttonControl.offset().top +  this.options.buttonControl.innerHeight();
 
                 this.element.css({
                     right: $('body').innerWidth() - cRight + this.options.offsetX,
@@ -111,7 +112,8 @@ define(
                 else
                     this.element.removeClass("big-interval");
 
-                this.element.css({ display: "block"})
+                if (this.options.menuItems.length != 0)
+                    this.element.css({ display: "block"})
 
             },
 
