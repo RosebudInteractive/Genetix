@@ -126,9 +126,6 @@ $(document).ready( function() {
                         var currContext = $(this).val();
                         var vc = $(this).find('option[value="'+currContext+'"]').data('ContextGuid');
 
-                        // создавать при выборе контекста
-                        var createForm = false;
-
                         // запросить гуиды рутов
                         uccelloClt.getClient().socket.send({action:"getRootGuids", db:currContext, rootKind:'res', type:'method'}, function(result) {
                             that.rootsGuids = result.roots;

@@ -9,6 +9,7 @@ requirejs.config({
     paths: {
         text       : '/scripts/lib/uccello/uses/text',
         underscore : '/scripts/lib/uccello/uses/underscore',
-        wGrid      : '/scripts/widjets/wGrid'
+        wGrid      : '/scripts/widgets/wGrid',
+        gPopup     : '/scripts/widgets/popup'
     }
 });

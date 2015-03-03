@@ -296,6 +296,7 @@
   background-color: #fff;
   border-radius: 0.25em;
   cursor: default;
+  z-index: 5;
 }
 .dropdown2-b .top-padding {
   height: 0.5625em;
@@ -358,6 +359,12 @@
 }
 .dropdown-menu-item2-b .content-bl .text-bl {
   padding-left: 3.5em;
+}
+.dropdown-menu-item2-b .right-icon svg {
+  color: #848995;
+}
+.dropdown-menu-item2-b .right-icon svg:hover {
+  color: #508ce6;
 }
 .dropdown2-b .dropdown-menu-item-wrapper:hover {
   background-color: #ebf0fa;
