@@ -110,6 +110,10 @@ $(document).ready( function() {
                     $("#mainContent").append($(mainTemplate));
                     window.getSessions();
 
+                    // выведем текущего пользователя
+                    var user = uccelloClt.getUser();
+                    $("#userName-combo").text(user.name());
+
                     // подпишемся на клики
                     $("#documents-menu-item").click(function() {
                         window.createContext([formGuid])
@@ -124,6 +128,9 @@ $(document).ready( function() {
                             $("#context-list-wrapper").show();
                         } else
                             $("#context-list-wrapper").hide();
+                    });
+                    $("#process-button").click(function() {
+                        window.logout();
                     });
 
                     $('#userContext').change(function(){
@@ -239,6 +246,12 @@ $(document).ready( function() {
             window.getSessions = function() {
                 var user = uccelloClt.getUser();
                 that.devices.sessions(user);
+            }
+
+            window.logout = function(){
+                uccelloClt.deauthenticate(function(result){
+                    that.showLogin();
+                });
             }
         }
     );

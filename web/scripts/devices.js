@@ -48,6 +48,7 @@ define(
              */
             _renderDevices: function(mainPanel) {
                 // если сессии пустые, то все чистим
+                var that = this;
                 if (!(this._User)) {
                     mainPanel.find(".is-device-icon").remove(":not(#tabs-placeholder)");
                     return;
@@ -103,6 +104,12 @@ define(
                     existing.find(".is-device-text").text(session.deviceName());
                     mainPanel.append(existing);
                 }
+
+                // клик на девайсы пока что их рефрешит
+                $(".is-device-icon.is-device").off().click(function () {
+                    var user = uccelloClt.getUser();
+                    that.sessions(user);
+                });
 
             },
 
