@@ -211,7 +211,7 @@ $(document).ready( function() {
              * @param pass
              */
             window.login = function(name, pass){
-                var session = $.cookie('session_'+name)? JSON.parse($.cookie('session_'+name)): {id:uccelloClt.getSession().id, deviceName:'MyComputer', deviceType:'C', deviceColor:'#ff0000'};
+                var session = $.cookie('session_'+name)? JSON.parse($.cookie('session_'+name)): {guid:uccelloClt.getSessionGuid(), deviceName:'MyComputer', deviceType:'C', deviceColor:'#6ca9f0'};
                 uccelloClt.getClient().authenticate({user:name, pass:pass, session:session}, function(result){
                     if (result.user) {
                         $.cookie('session_'+name, JSON.stringify(session), { expires: 30 });
