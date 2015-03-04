@@ -6,6 +6,11 @@
 var uccelloClt = null;
 var formGuid = "89f42efa-b160-842c-03b4-f3b536ca09d8";
 var form2Guid = "e7613a67-c36c-4ff5-a999-4d143bebc97c";
+
+var uri = window.location.href;
+if (uri.charAt(uri.length - 1) == "/")
+    window.history.pushState("", "", uri.substring(0, uri.length - 1));
+
 $(document).ready( function() {
     require(
         ['./lib/uccello/uccelloClt', "devices"],
