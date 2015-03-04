@@ -16,7 +16,7 @@ var app = express();
 // обработчик файлов html будет шаблонизатор ejs
 app.engine('html', require('ejs').renderFile);
 // обработка /genetix
-app.get('/', function(req, res){
+app.get('/genetix', function(req, res){
     res.render('genetix.html');
 });
 
