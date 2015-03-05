@@ -3,8 +3,6 @@
  * Date: 20.02.2015
  * Time: 19:22
  */
-var UccelloServ = require('../../Uccello/uccelloServ');
-
 // Модули nodejs
 var http = require('http');
 var express = require('express');
