@@ -18,6 +18,8 @@ define(
             init: function(obj) {
                 this._User = obj || null;
                 this._currRoot = null;
+                this._tabsPopup = null;
+                this._OpenOnDevicePopup = null;
             },
 
             /**
@@ -133,19 +135,95 @@ define(
                             var currContext = data.id;
                             var vc = data.custom.contextGuid;
 
-                                uccelloClt.getClient().socket.send({action:"getRootGuids", db:currContext, rootKind:'res', type:'method'}, function(result) {
-                            that.rootsGuids = result.roots;
                             that._selectContext({masterGuid: currContext, vc:vc,  side: "server"});
-                        });
 
+                        },
+                        righticonclick: function (event, data) {
+                            if (!that._OpenOnDevicePopup) {
+                                var devPopupDiv = $("<div></div>");
+                                $("body").append(devPopupDiv);
+                                that._OpenOnDevicePopup = devPopupDiv.genetixPopup({
+                                    buttonControl: data.button,
+                                    title: "Открыть на устройстве",
+                                    offsetX: 26,
+                                    leftIcons: true,
+                                    rightIcons: false,
+                                    click: function (event, data) {
+                                        that._openOnDevice(data);
+                                    }
+                                });
+                            } else {
+                                that._OpenOnDevicePopup.genetixPopup("buttonControl", data.button);
+                            }
+                            var oodData = that._prepareOODData(data);
+                            that._OpenOnDevicePopup.genetixPopup("show", oodData);
                         }
                     });
+
 
                     tabsIcon.click(function () {
                         var popupData = that._preparePopupData();
                         that._tabsPopup.genetixPopup("show", popupData);
                     });
                 }
+            },
+
+            _openOnDevice: function (data) {
+                var formGuids = 'all';
+                uccelloClt.getClient().newTab(data.custom.parent.data.custom.contextGuid, url('#database'), formGuids, data.custom.sessionId);
+            },
+
+            _prepareOODData: function(parentData) {
+                var that = this;
+                if (!(this._User)) return;
+                var contexts = [];
+
+                var sessions = {};
+                var curSessionId = uccelloClt.getSessionGuid();
+                var sessionsCount = this._User.countChild("Sessions");
+                var curSession = null;
+                for (var i = 0; i <sessionsCount; i++) {
+                    var sessionObj = this._User.getChild(i, "Sessions");
+                    sessions[sessionObj.sessionGuid()] = sessionObj;
+                    if (sessionObj.sessionGuid() == curSessionId) curSession = sessionObj;
+                }
+
+
+                // разберемся с текущим девайсом
+                var cnt = {
+                    id: "OODpopup-" + curSessionId,
+                    title: curSession.deviceName(),
+                    subTree: [],
+                    leftIcon: (curSession.deviceType() == "C" ? "/images/Genetix.svg#pc" : "/images/Genetix.svg#tablet"),
+                    leftIconColor: curSession.deviceColor(),
+                    custom: {
+                        type: "device",
+                        sessionId: curSessionId,
+                        parent: parentData
+                    }
+                };
+                contexts.push(cnt);
+
+                // добавин новые в конец
+                for (var id in sessions) {
+                    if (id == curSessionId) continue;
+                    var session = sessions[id];
+                    var cnt = {
+                        id: "OODpopup-" + session.sessionGuid(),
+                        title: session.deviceName(),
+                        subTree: [],
+                        leftIcon: (session.deviceType() == "C" ? "/images/Genetix.svg#pc" : "/images/Genetix.svg#tablet"),
+                        leftIconColor: session.deviceColor(),
+                        custom: {
+                            type: "device",
+                            sessionId: session.sessionGuid(),
+                            parent: parentData
+                        }
+                    };
+                    contexts.push(cnt);
+                }
+
+                return contexts;
             },
 
             /**
@@ -183,16 +261,51 @@ define(
                 return contexts;
             },
             _selectContext: function(params) {
-                var that = this;
                 $("#root-form-container").empty();
-                uccelloClt.setContext(params, function(result) {
-                    that._setAutoSendDeltas();
-                });
+                var that = this;
+
+                var formGuids = 'all';
+                if (url('#formGuids')) {
+                    formGuids = url('#formGuids').split(',');
+                }  else {
+                    // выборочная подписка
+                    var selSub = $('#selSub').is(':checked');
+                    if (selSub) {
+                        formGuids = $('#selForm').val();
+                    }
+                }
+
+                if (formGuids == 'all') {
+                    // запросить гуиды рутов
+                    uccelloClt.getClient().socket.send({action:"getRootGuids", db:params.masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result) {
+                        that.rootsGuids = result.roots;
+                        uccelloClt.setContext(params, function(result) {
+                            that._setContextUrl(params.vc, params.masterGuid, formGuids);
+                            that._setAutoSendDeltas(true);
+                        });
+                    });
+                } else {
+                    that.rootsGuids = formGuids;
+                    params.formGuids = formGuids;
+                    uccelloClt.setContext(params, function(result) {
+                        that._setContextUrl(params.vc, params.masterGuid, formGuids);
+                        that._setAutoSendDeltas(true);
+                    });
+                }
             },
             _setAutoSendDeltas: function() {
                 var cm = uccelloClt.getContextCM(currRoot);
                 if (cm)
                     cm.autoSendDeltas(true);
+            },
+            _setContextUrl: function(context, database, formGuids) {
+                document.location = this._getContextUrl(context, database, formGuids);
+            },
+
+            _getContextUrl: function(context, database, formGuids) {
+                var location = document.location.href;
+                location = location.replace(/#.*/, '');
+                return location+'#database='+database+'&context='+context+'&formGuids='+(!formGuids || formGuids=='all'?'all':formGuids.join(','))
             }
         });
 

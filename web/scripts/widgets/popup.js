@@ -59,6 +59,7 @@ define(
 
             _renderContent: function() {
                 var popupData = this.options.menuItems;
+                var that = this;
 
                 for (i = 0; i < popupData.length; i++) {
                     var data = popupData[i];
@@ -73,6 +74,11 @@ define(
                             that._trigger("click", null, event.data);
                             that.hide();
                         });
+                        itemEl.children(".dropdown-menu-item-wrapper").find(".right-icon").click(data, function (event) {
+                            that._trigger("righticonclick", null, {button: $(this), data: event.data});
+                            return false;
+                        });
+
                     }
                     itemEl.find(".dropdown-menu-item-wrapper .text-bl").text(data.title);
                     itemEl.data("itemData", data);
@@ -81,7 +87,6 @@ define(
                         itemEl.children(".arrow-be").hide();
                     else
                         itemEl.children(".arrow-be").show();
-                    var that = this;
                 }
             },
 

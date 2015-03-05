@@ -28,9 +28,36 @@ $(document).ready( function() {
              */
             this.selectContext = function(params) {
                 $("#root-form-container").empty();
-                uccelloClt.setContext(params, function(result) {
-                    that.setAutoSendDeltas();
-                });
+
+                var formGuids = 'all';
+                if (url('#formGuids')) {
+                    formGuids = url('#formGuids').split(',');
+                }  else {
+                    // выборочная подписка
+                    var selSub = $('#selSub').is(':checked');
+                    if (selSub) {
+                        formGuids = $('#selForm').val();
+                    }
+                }
+
+                if (formGuids == 'all') {
+                    // запросить гуиды рутов
+                    uccelloClt.getClient().socket.send({action:"getRootGuids", db:params.masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result) {
+                        that.rootsGuids = result.roots;
+                        uccelloClt.setContext(params, function(result) {
+                            that.setContextUrl(params.vc, params.masterGuid, formGuids);
+                            that.setAutoSendDeltas(true);
+                        });
+                    });
+                } else {
+                    that.rootsGuids = formGuids;
+                    params.formGuids = formGuids;
+                    uccelloClt.setContext(params, function(result) {
+                        that.setContextUrl(params.vc, params.masterGuid, formGuids);
+                        that.setAutoSendDeltas(true);
+                    });
+                }
+
             }
 
 
@@ -56,6 +83,11 @@ $(document).ready( function() {
                                 sel.append(option);
                             }
                             sel.val(uccelloClt.getContext()? uccelloClt.getContext().masterGuid(): null);
+
+                            var masterGuid = uccelloClt.getContext()? uccelloClt.getContext().masterGuid(): null;
+                            if (masterGuid) {
+                                that.setContextUrl($(sel.find('option[value='+masterGuid+']')).data('ContextGuid'), masterGuid, 'all');
+                            }
                             return;
                         }
                     }
@@ -94,15 +126,46 @@ $(document).ready( function() {
                 uccelloPath: 'lib/uccello/'
             };
 
+            /**
+             * Логин
+             * @param name
+             * @param pass
+             */
+            window.login = function(name, pass){
+                var session = $.cookie('session_'+name)? JSON.parse($.cookie('session_'+name)): {guid:uccelloClt.getSessionGuid(), deviceName:'MyComputer', deviceType:'C', deviceColor:'#6ca9f0'};
+                uccelloClt.getClient().authenticate({user:name, pass:pass, session:session}, function(result){
+                    if (result.user) {
+                        $.cookie('session_'+name, JSON.stringify(session), { expires: 30 });
+                        uccelloClt.subscribeUser(function(result2){
+                            if (result2)
+                                that.showMainForm();
+                            else
+                                $(".is-login-form .login-l").addClass("has-errors");
+                        });
+                    } else {
+                        $(".is-login-form .login-l").addClass("has-errors");
+                    }
+                });
+            }
+
             this.showLogin = function() {
                 require(["text!templates/login.html"], function (loginTemplate) {
                     $("#mainContent").empty();
                     $("#mainContent").append($(loginTemplate));
                     $(".login-enter-btn").click(function () {
-                        window.login($("#login").val(), $("#password").val());
+                        window.login($("#login-edit").val(), $("#password-edit").val());
                     });
                 });
             };
+
+            /**
+             * Получить  получить на клиент от сервера структуру - все сессии с номерами и когда созданы,
+             * все коннекты этих сессий - с номерами и когда созданы
+             */
+            window.getSessions = function() {
+                var user = uccelloClt.getUser();
+                that.devices.sessions(user);
+            }
 
             this.showMainForm = function() {
                 require(["text!templates/genetix.html"], function (mainTemplate) {
@@ -144,6 +207,17 @@ $(document).ready( function() {
                             that.selectContext({masterGuid: currContext, vc:vc,  side: "server"});
                         });
                     });
+
+                    uccelloClt.getController().event.on({
+                        type: 'endApplyDeltas',
+                        subscriber: this,
+                        callback: function(args){
+                            if (args.db.getName() != "System") return;
+                            var user = uccelloClt.getUser();
+                            that.devices.sessions(user);
+                        }
+                    });
+
                 });
             };
 
@@ -153,9 +227,10 @@ $(document).ready( function() {
              */
             window.createContext = function(formGuids) {
                 $("#root-form-container").empty();
+
                 uccelloClt.createContext('server', formGuids, function(result){
                     that.setAutoSendDeltas();
-                    //that.getContexts();
+                    that.getContexts();
                 });
             }
 
@@ -190,11 +265,13 @@ $(document).ready( function() {
                     }
                 },
                 renderRoot: that.renderRoot,
-                config:config
+                config:config,
+                newTabCallback: that.newTab
             });
 
-
-
+            this.newTab = function(data) {
+                window.open(that.getContextUrl(data.contextGuid, data.dbGuid, data.resGuids));
+            }
 
             // --------------------------------------------------------------------------------------------------------
             // --------------------- Глобальные методы для кнопок управления -----------------------------------------
@@ -217,42 +294,28 @@ $(document).ready( function() {
                 uccelloClt.createRoot(guids, "res");
             }
 
-            /**
-             * Логин
-             * @param name
-             * @param pass
-             */
-            window.login = function(name, pass){
-                var session = $.cookie('session_'+name)? JSON.parse($.cookie('session_'+name)): {guid:uccelloClt.getSessionGuid(), deviceName:'MyComputer', deviceType:'C', deviceColor:'#6ca9f0'};
-                uccelloClt.getClient().authenticate({user:name, pass:pass, session:session}, function(result){
-                    if (result.user) {
-                        $.cookie('session_'+name, JSON.stringify(session), { expires: 30 });
-                        uccelloClt.subscribeUser(function(result2){
-                            if (result2)
-                                that.showMainForm();
-                            else
-                                $(".is-login-form .login-l").addClass("has-errors");
-                        });
-                    } else {
-                        $(".is-login-form .login-l").addClass("has-errors");
-                    }
-                });
-            }
-
-            /**
-             * Получить  получить на клиент от сервера структуру - все сессии с номерами и когда созданы,
-             * все коннекты этих сессий - с номерами и когда созданы
-             */
-            window.getSessions = function() {
-                var user = uccelloClt.getUser();
-                that.devices.sessions(user);
-            }
-
             window.logout = function(){
                 uccelloClt.deauthenticate(function(result){
                     that.showLogin();
                 });
             }
+
+            this.setContextUrl = function(context, database, formGuids) {
+                document.location = that.getContextUrl(context, database, formGuids);
+            }
+
+            this.getContextUrl = function(context, database, formGuids) {
+                var location = document.location.href;
+                location = location.replace(/#.*/, '');
+                return location+'#database='+database+'&context='+context+'&formGuids='+(!formGuids || formGuids=='all'?'all':formGuids.join(','))
+            }
+
+            $(window).on('hashchange', function() {
+                var masterGuid = url('#database');
+                var vc = url('#context');
+                if(masterGuid && vc)
+                    $('#userContext').val(masterGuid).change();
+            });
         }
     );
 });
