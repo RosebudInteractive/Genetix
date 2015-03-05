@@ -6,6 +6,7 @@
 var uccelloClt = null;
 var formGuid = "89f42efa-b160-842c-03b4-f3b536ca09d8";
 var form2Guid = "e7613a67-c36c-4ff5-a999-4d143bebc97c";
+var form3Guid = "4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9";
 
 var uri = window.location.href;
 if (uri.charAt(uri.length - 1) == "/")
@@ -26,7 +27,10 @@ $(document).ready( function() {
                     {className:'Container', component:'container', viewsets:['simpleview'], guid:'1d95ab61-df00-aec8-eff5-0f90187891cf'},
                     {className:'Form', component:'form', viewsets:['simpleview'], guid:'7f93991a-4da9-4892-79c2-35fe44e69083'},
                     {className:'DataColumn', component:'dataColumn', guid:'100f774a-bd84-8c46-c55d-ba5981c09db5'},
-                    {className:'DataGrid', component:'dataGrid', viewsets:['simpleview'], guid:'ff7830e2-7add-e65e-7ddf-caba8992d6d8'}
+                    {className:'DataGrid', component:'dataGrid', viewsets:['simpleview'], guid:'ff7830e2-7add-e65e-7ddf-caba8992d6d8'},
+                    {className:'Label', component:'label', viewsets:['simpleview'], guid:'32932036-3c90-eb8b-dd8d-4f19253fabed'},
+                    {className:'DataEdit', component:'dataEdit', viewsets:['simpleview'], guid:'affff8b1-10b0-20a6-5bb5-a9d88334b48e'},
+                    {className:'Button', component:'button', viewsets:['simpleview'], guid:'af419748-7b25-1633-b0a9-d539cada8e0d'},
                 ],
                 controlsPath: 'controls/',
                 uccelloPath: 'lib/uccello/'
@@ -187,6 +191,9 @@ $(document).ready( function() {
                             });
                             $("#crm-menu-item").click(function() {
                                 window.createContext([form2Guid])
+                            });
+                            $("#emk-menu-item").click(function() {
+                                window.createContext([form3Guid])
                             });
 
                             $("#coral-button").click(function() {

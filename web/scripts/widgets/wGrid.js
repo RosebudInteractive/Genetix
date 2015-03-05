@@ -36,6 +36,10 @@ define(
                 this.layouts = ['is-striped-bg', 'is-horizontal-div', 'is-vertical-div'];
                 this.lineHeights = ['is-normal', 'is-enlarged'];
                 this.element.css({width: this.options.width, height: this.options.height});
+                if (("top" in this.options) || "left" in this.options) {
+                    this.element.css({position: "relative", left: this.options.left, top: this.options.top});
+                }
+
                 var grid = $('<div class="grid-b is-footer">'+
                     '<div class="header-bl">'+
                     '<table class="table-bl" cellspacing="0" cellpadding="0"><thead><tr tabindex="1"><th class="grid-th-bh"><div class="th-text-be text-ellipsis-gm">&nbsp;</div></th></tr></thead></table>'+
@@ -82,6 +86,8 @@ define(
                 this._grid = grid;
                 this._rowHeight = 0;
                 this.element.append(grid);
+
+                grid.height(grid.parent().height()).children(".scrollable-bl").height(grid.parent().height());
                 this.clearPageCache();
             },
 

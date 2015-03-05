@@ -29,8 +29,8 @@ define(
                 $(parent).append(grid);
 
                 var opt = {
-                    width: '100%',
-                    height: $(parent).height(),
+                    height: this.height() ? this.height() : $(parent).height(),
+                    width: this.width() ? this.width() : "100%",
                     columns: [],
                     source: this.source,
                     selectrow: function (event, row, obj) {
@@ -50,6 +50,12 @@ define(
                         }
                     }
                 };
+
+                if (this.top())
+                    opt.top = this.top();
+                if (this.left())
+                    opt.left = this.left();
+
                 vDataGrid._grid = grid.grid(opt);
                 vDataGrid._iscroll = null;
 

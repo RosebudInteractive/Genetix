@@ -12,6 +12,8 @@ define(
             }
             var p = $(parent);
             item.css({top: 0 + 'px', left: 0 + 'px', width: 100 + '%', height: p.height() + 'px'});
+            if (this.background())
+                item.css({"background-color" : this.background()});
             //item.css({top: this.top() + 'px', left: this.left() + 'px', width: this.width() + 'px', height: this.height() + 'px'});
 
             // убираем удаленные объекты

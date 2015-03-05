@@ -125,10 +125,8 @@
                             "fields": {
                                 "Id": 22,
                                 "Name": "DataGridCompany",
-                                "Top": "0",
-                                "Left": "0",
-                                "Width": 100,
-                                "Height": 100,
+                                "Width": "100%",
+                                "Height": "100%",
                                 "Dataset": "061b1347-18a2-a829-fcce-ba59058b4bdf",
                                 "BigSize": true,
                                 "Alternate": false,

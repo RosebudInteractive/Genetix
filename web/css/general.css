@@ -372,7 +372,6 @@ div.system-toolbar-menu-item:last-child {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   height: 100%;
-  display: table-cell;
   width: 100%;
 /*padding-right 7.125em*/
   -webkit-transition: padding-right 0.5s ease;
@@ -432,7 +431,7 @@ body {
   padding-bottom: 1.875em;
   height: 100%;
   width: 100%;
-  display: table;
+  display: flex;
 }
 ::selection {
   background-color: #48ada3;

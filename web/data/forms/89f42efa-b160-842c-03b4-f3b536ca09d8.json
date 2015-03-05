@@ -184,10 +184,8 @@
                             "fields": {
                                 "Id": 2005,
                                 "Name": "DataGridLead",
-                                "Top": 10,
-                                "Left": 10,
-                                "Width": 100,
-                                "Height": 100,
+                                "Width": "100%",
+                                "Height": "100%",
                                 "Dataset": "c2de9609-237a-c3b3-12ac-43bf5b35c169",
                                 "BigSize": true,
                                 "Alternate": false,

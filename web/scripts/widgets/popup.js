@@ -54,7 +54,7 @@ define(
                     titleEl = $(templates["title"]);
                     this.element.prepend(titleEl);
                 }
-                titleEl.text(this.options.title)
+                titleEl.find(".text-bl").text(this.options.title)
             },
 
             _renderContent: function() {
