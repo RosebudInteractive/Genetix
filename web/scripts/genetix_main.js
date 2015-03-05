@@ -252,6 +252,10 @@ $(document).ready( function() {
                         });
                     }
 
+                    this.newTab = function(data) {
+                        window.open(that.getContextUrl(data.contextGuid, data.dbGuid, data.resGuids));
+                    }
+
                     uccelloClt = new UccelloClt({
                         host:"ws://"+url('hostname')+":8082",
                         callback: function(){
@@ -271,9 +275,7 @@ $(document).ready( function() {
                         newTabCallback: that.newTab
                     });
 
-                    this.newTab = function(data) {
-                        window.open(that.getContextUrl(data.contextGuid, data.dbGuid, data.resGuids));
-                    }
+
 
                     // --------------------------------------------------------------------------------------------------------
                     // --------------------- Глобальные методы для кнопок управления -----------------------------------------
