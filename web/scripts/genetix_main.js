@@ -162,6 +162,17 @@ $(document).ready( function() {
                             $("#mainContent").append($(loginTemplate));
                             $(".login-enter-btn").click(function () {
                                 window.login($("#login-edit").val(), $("#password-edit").val());
+                            }).mousedown(function () {
+                                $(this).css({"background-color": "#38465a"})
+                            }).mouseup(function () {
+                                $(this).css({"background-color": ""})
+                            }).hover(function (event) {
+                                if (event.which == 1)
+                                    $(this).css({"background-color": "#38465a"});
+                                else
+                                    $(this).css({"background-color": ""});
+                            }, function () {
+                                $(this).css({"background-color": ""});
                             });
                         });
                     };

@@ -69,6 +69,12 @@
   box-sizing: border-box;
   color: #fff;
 }
+.is-login-form .login-enter-btn:hover {
+  background-color: #2cbe62;
+}
+.is-login-form .login-enter-btn:focus {
+  outline: none;
+}
 .is-login-form .login-enter-btn .text-be {
   font-size: 1.5em;
   font-weight: 600;
