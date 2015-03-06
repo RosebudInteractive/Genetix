@@ -141,11 +141,12 @@ define(
                         righticonclick: function (event, data) {
                             if (!that._OpenOnDevicePopup) {
                                 var devPopupDiv = $("<div></div>");
-                                $("body").append(devPopupDiv);
+                                popupDiv.append(devPopupDiv);
                                 that._OpenOnDevicePopup = devPopupDiv.genetixPopup({
                                     buttonControl: data.button,
                                     title: "Открыть на устройстве",
-                                    offsetX: 26,
+                                    offsetX: -52,
+                                    offsetY: 6,
                                     leftIcons: true,
                                     rightIcons: false,
                                     click: function (event, data) {

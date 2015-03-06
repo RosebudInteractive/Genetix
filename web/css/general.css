@@ -310,18 +310,16 @@ div.system-toolbar-menu-item:last-child {
   height: 100%;
   background: linear-gradient(to right, #445368 0px, #4f5e73 1.5em, #4f5e73 100%);
 /*background-color #4f5e73*/
-  display: table-cell;
-  width: 7.125em;
-  float: right;
-  -webkit-transition: width 0.5s ease;
-  -moz-transition: width 0.5s ease;
-  -ms-transition: width 0.5s ease;
-  -o-transition: width 0.5s ease;
-  transition: width 0.5s ease;
+  -webkit-transition: flex 0.5s ease;
+  -moz-transition: flex 0.5s ease;
+  -ms-transition: flex 0.5s ease;
+  -o-transition: flex 0.5s ease;
+  transition: flex 0.5s ease;
   overflow: hidden;
+  flex: 0 0 7.125em;
 }
 .is-content.is-device-bar-hidden div.is-device-bar {
-  width: 0px;
+  flex: 0 0 0px;
 }
 .is-device-wrapper {
   height: 100%;
@@ -379,6 +377,7 @@ div.system-toolbar-menu-item:last-child {
   -ms-transition: padding-right 0.5s ease;
   -o-transition: padding-right 0.5s ease;
   transition: padding-right 0.5s ease;
+  flex: 1 1 auto;
 }
 .is-content.is-device-bar-hidden div.is-left-content {
   padding-right: 0;

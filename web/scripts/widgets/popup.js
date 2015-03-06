@@ -104,8 +104,16 @@ define(
 
                 // TODO добавить интелекта к позиционированию
                 this.element.addClass("is-right is-top ");
-                var cRight = this.options.buttonControl.offset().left +  this.options.buttonControl.width();
-                var cBott = this.options.buttonControl.offset().top +  this.options.buttonControl.innerHeight();
+                var cRight = 0;
+                var cBott = 0;
+                var parentIsBody = this.element.parent().is('body');
+                if (parentIsBody) {
+                    cRight = this.options.buttonControl.offset().left +  this.options.buttonControl.width();
+                    cBott = this.options.buttonControl.offset().top +  this.options.buttonControl.innerHeight();
+                } else {
+                    cRight = this.options.buttonControl.offset().left + this.options.buttonControl.width();
+                    cBott = this.options.buttonControl.position().top +  this.options.buttonControl.innerHeight();
+                }
 
                 this.element.css({
                     right: $('body').innerWidth() - cRight + this.options.offsetX,
@@ -117,8 +125,10 @@ define(
                 else
                     this.element.removeClass("big-interval");
 
-                if (this.options.menuItems.length != 0)
+                if (this.options.menuItems.length != 0) {
+                    this.element.find(".dropdown2-b").hide();
                     this.element.css({ display: "block"})
+                }
 
             },
 
