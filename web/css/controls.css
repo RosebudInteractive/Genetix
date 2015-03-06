@@ -365,6 +365,12 @@
 .dropdown-menu-item2-b .right-icon svg:hover {
   color: #508ce6;
 }
+.dropdown-menu-item2-b .dropdown-menu-item-wrapper .right-icon.is-pressed {
+  opacity: 1;
+}
+.dropdown-menu-item2-b .dropdown-menu-item-wrapper .right-icon.is-pressed svg {
+  color: #508ce6;
+}
 .dropdown2-b .dropdown-menu-item-wrapper:hover {
   background-color: #ebf0fa;
 }

@@ -75,6 +75,7 @@ define(
                             that.hide();
                         });
                         itemEl.children(".dropdown-menu-item-wrapper").find(".right-icon").click(data, function (event) {
+                            $(this).addClass("is-pressed");
                             that._trigger("righticonclick", null, {button: $(this), data: event.data});
                             return false;
                         });
@@ -104,6 +105,8 @@ define(
 
                 // TODO добавить интелекта к позиционированию
                 this.element.addClass("is-right is-top ");
+
+                this.element.children(".dropdown-menu-item2-b").find(".right-icon").removeClass("is-pressed");
                 var cRight = 0;
                 var cBott = 0;
                 var parentIsBody = this.element.parent().is('body');
