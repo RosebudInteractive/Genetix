@@ -191,6 +191,7 @@ $(document).ready( function() {
                             $("#mainContent").empty();
                             $("#mainContent").append($(mainTemplate));
                             window.getSessions();
+                            that.getContexts();
 
                             // выведем текущего пользователя
                             var user = uccelloClt.getUser();
@@ -229,6 +230,12 @@ $(document).ready( function() {
                                     that.selectContext({masterGuid: currContext, vc:vc,  side: "server"});
                                 });
                             });
+
+                            // выбрать контекст если указаны параметры
+                            var masterGuid = url('#database');
+                            var vc = url('#context');
+                            if(masterGuid && vc)
+                                $('#userContext').val(masterGuid).change();
 
                             uccelloClt.getController().event.on({
                                 type: 'endApplyDeltas',
