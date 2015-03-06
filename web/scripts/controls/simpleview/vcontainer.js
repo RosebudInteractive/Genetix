@@ -11,10 +11,32 @@ define(
                 $(parent).append(item);
             }
             var p = $(parent);
-            item.css({top: 0 + 'px', left: 0 + 'px', width: 100 + '%', height: p.height() + 'px'});
+            if (this.width())
+                item.css({width: this.width()});
+            if (this.height())
+                item.css({height: this.height()});
+            if (this.position() == "center") {
+                item.css({
+                    margin: "0",
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    "box-shadow": "1px 1px 0.75em 1px #3c4251",
+                    "border-radius": "0.25em"
+            });
+
+            } else {
+                if (this.left())
+                    item.css({left: this.left()});
+                if (this.top())
+                    item.css({top: this.top()});
+                if (!(this.left()) && !(this.top()) && !(this.width()) && !(this.height()))
+                    item.css({top: 0 + 'px', left: 0 + 'px', width: 100 + '%', height: p.height() + 'px'});
+            }
+
             if (this.background())
                 item.css({"background-color" : this.background()});
-            //item.css({top: this.top() + 'px', left: this.left() + 'px', width: this.width() + 'px', height: this.height() + 'px'});
 
             // убираем удаленные объекты
             var del = this.getObj().getLogCol('Children').del;

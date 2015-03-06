@@ -83,11 +83,54 @@ define(
                     }
                     itemEl.find(".dropdown-menu-item-wrapper .text-bl").text(data.title);
                     itemEl.data("itemData", data);
-                    itemEl.children(".content-bl").hide();
-                    if (!(data.subTree) || data.subTree.length == 0)
+                    var subContent = itemEl.children(".content-bl");
+                    itemEl.children(".arrow-be").click(subContent, function(event) {
+                        var opened = $(this).parent().hasClass("is-open");
+                        if (opened) {
+                            event.data.hide();
+                            $(this).parent().removeClass("is-open");
+                        } else {
+                            event.data.show();
+                            $(this).parent().addClass("is-open");
+                        }
+                    });
+                    subContent.hide();
+                    if (!(data.subTree) || data.subTree.length == 0) {
                         itemEl.children(".arrow-be").hide();
-                    else
+                        itemEl.removeClass("is-header");
+                    }
+                    else {
                         itemEl.children(".arrow-be").show();
+                        itemEl.addClass("is-header");
+
+                        for (var j = 0; j < data.subTree.length; j++) {
+                            var subItemData = data.subTree[j];
+                            var subItemEl = $("#" + subItemData.id);
+                            if (subItemEl.length == 0) {
+                                var curTemplate2 = templates["menuItem"];
+                                curTemplate2 = curTemplate2.replace("###RIGHT_ICON_REF###", subItemData.rightIcon);
+                                subItemEl = $(curTemplate);
+                                subItemEl.attr("id", subItemData.id);
+                                subContent.append(subItemEl);
+                                subItemEl.children(".dropdown-menu-item-wrapper").click(subItemData, function (event) {
+                                    that._trigger("click", null, event.data);
+                                    that.hide();
+                                });
+                                subItemEl.children(".dropdown-menu-item-wrapper").find(".right-icon").click(subItemData, function (event) {
+                                    $(this).addClass("is-pressed");
+                                    that._trigger("righticonclick", null, {button: $(this), data: event.data});
+                                    return false;
+                                });
+
+                            }
+                            subItemEl.find(".dropdown-menu-item-wrapper .text-bl").text(subItemData.title);
+                            subItemEl.data("itemData", subItemData);
+                            var subContent2 = itemEl.children(".content-bl");
+                            subContent2.hide();
+                            subItemEl.children(".arrow-be").hide();
+                            subItemEl.removeClass("is-header");
+                        }
+                    }
                 }
             },
 

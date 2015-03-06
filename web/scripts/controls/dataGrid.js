@@ -28,6 +28,13 @@ define(
             init: function(cm, params) {
                 this._super(cm,params);
                 this.params = params;
+
+                this._source = {
+                    datatype: "json",
+                    datafields: [],
+                    localdata: '{}',
+                    id:'Id'
+                };
             },
 
             /**

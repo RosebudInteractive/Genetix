@@ -137,7 +137,7 @@ define(
                         buttonControl: this._tabsIcon,
                         offsetX: 26,
                         click: function (event, data) {
-                            var currContext = data.id;
+                            var currContext = data.custom.dbGuid;
                             var vc = data.custom.contextGuid;
                             var formGuid = data.custom.formGuid;
                             that._selectContext({masterGuid: currContext, vc:vc,  side: "server", formGuid: formGuid});
@@ -214,6 +214,7 @@ define(
                 for (var id in sessions) {
                     if (id == curSessionId) continue;
                     var session = sessions[id];
+                    if (session.countChild("Connects") == 0) continue;
                     var cnt = {
                         id: "OODpopup-" + session.sessionGuid(),
                         title: session.deviceName(),
@@ -257,10 +258,32 @@ define(
                                     custom: {
                                         type: "context",
                                         contextGuid: contGuid,
+                                        dbGuid: item.get('DataBase'),
                                         formGuid: (contGuid == url("#context") ? this._CurrentRoot : null)
                                     }
                                 };
                                 contexts.push(cnt);
+
+                                if (contGuid == url("#context")) {
+                                    var rootForm = uccelloClt.getContextCM(this._CurrentRoot).getByGuid(this._CurrentRoot);
+                                    for (var f = 0, len5 = rootForm.countChild("SubForms"); f < len5; f++) {
+                                        var subFrmItem = rootForm.getChild(f, "SubForms");
+
+                                        var cnt2 = {
+                                            id: "SubFrm-" + item.get('DataBase'),
+                                            title: subFrmItem.name(),
+                                            subTree: [],
+                                            rightIcon: "/images/controls.svg#hamburger",
+                                            custom: {
+                                                type: "context",
+                                                contextGuid: contGuid,
+                                                dbGuid: item.get('DataBase'),
+                                                formGuid: subFrmItem.formGuid()
+                                            }
+                                        };
+                                        cnt.subTree.push(cnt2);
+                                    }
+                                }
                             }
                             return contexts;
                         }
@@ -312,6 +335,8 @@ define(
                     cm.autoSendDeltas(true);
             },
             _setContextUrl: function(context, database, formGuids) {
+                if (formGuids[0] != "all")
+                    this._CurrentRoot = formGuids[0];
                 document.location = this._getContextUrl(context, database, formGuids);
             },
 

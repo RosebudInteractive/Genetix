@@ -24,6 +24,19 @@
                 "collections": {}
             }
         ],
+        "SubForms": [
+            {
+                "$sys": {
+                    "guid": "ce777eb3-9bb7-157d-948d-687fc9704adf",
+                    "typeGuid": "d7785c24-0b96-76ee-46a7-b0103cda4aa0"
+                },
+                "fields": {
+                    "Id": 2006,
+                    "Name": "Lead edit",
+                    "FormGuid": "4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9"
+                }
+            }
+        ],
         "Children": [
             {
                 "$sys": {
@@ -183,9 +196,61 @@
                                             "Name": "DatasetIncomeplan",
                                             "Root": "8770f400-fd42-217c-90f5-507ca52943c2",
                                             "Active": true,
-                                            "Master": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a"
+                                            "Master": "c2de9609-237a-c3b3-12ac-43bf5b35c169"
                                         },
                                         "collections": {
+                                            "Fields": [
+                                                {
+                                                    "$sys": {
+                                                        "guid": "b78d2606-9c24-416c-8dc7-e8a1aa3b7b80",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 8001,
+                                                        "Name": "Id"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "cc1e3e82-0577-4b3f-8713-022bfb2df995",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 8002,
+                                                        "Name": "leadId"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "6bf3081f-5337-4e7c-beea-a15340285f7b",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 8003,
+                                                        "Name": "date"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "f1f4533f-4d03-45e4-97be-803b713eb368",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 8004,
+                                                        "Name": "amount"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "e1f2eb84-516d-4971-966c-6f411f4b2310",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 8005,
+                                                        "Name": "comment"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
@@ -200,7 +265,7 @@
                                 "Id": 2005,
                                 "Name": "DataGridLead",
                                 "Width": "100%",
-                                "Height": "100%",
+                                "Height": "50%",
                                 "Dataset": "c2de9609-237a-c3b3-12ac-43bf5b35c169",
                                 "BigSize": true,
                                 "Alternate": false,
@@ -315,6 +380,63 @@
                                             "Name": "DataColumnContact",
                                             "Label": "User",
                                             "Field": "f2a0a2e2-1361-4cf3-a07e-2bb891a18f03"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "$sys": {
+                                "guid": "af1ce00d-6d7c-4a8f-a7a0-7d4df9cfbba9",
+                                "typeGuid": "ff7830e2-7add-e65e-7ddf-caba8992d6d8"
+                            },
+                            "fields": {
+                                "Id": 2006,
+                                "Name": "DataGridPlan",
+                                "Width": "100%",
+                                "Height": "50%",
+                                "Dataset": "da185853-e1aa-8b58-2de5-7cbc0d685501",
+                                "BigSize": true,
+                                "Alternate": false,
+                                "HorizontalLines": true,
+                                "HasFooter": false
+                            },
+                            "collections": {
+                                "Columns": [
+                                    {
+                                        "$sys": {
+                                            "guid": "54654fc8-7576-4dc3-804b-2d5f32ba01f7",
+                                            "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
+                                        },
+                                        "fields": {
+                                            "Id": 9001,
+                                            "Name": "DataColumnDate",
+                                            "Label": "Date",
+                                            "Field": "6bf3081f-5337-4e7c-beea-a15340285f7b"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "6e686567-b4f9-437c-ae11-b61e6615eb68",
+                                            "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
+                                        },
+                                        "fields": {
+                                            "Id": 9002,
+                                            "Name": "DataColumnAmount",
+                                            "Label": "Amount",
+                                            "Field": "f1f4533f-4d03-45e4-97be-803b713eb368"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "fc16bb62-0125-4a92-8f81-5448afbbedb1",
+                                            "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
+                                        },
+                                        "fields": {
+                                            "Id": 9003,
+                                            "Name": "DataColumnComment",
+                                            "Label": "Comment",
+                                            "Field": "e1f2eb84-516d-4971-966c-6f411f4b2310"
                                         }
                                     }
                                 ]

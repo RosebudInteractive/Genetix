@@ -12,7 +12,8 @@ define(
             classGuid: "1d95ab61-df00-aec8-eff5-0f90187891cf",
             metaCols: [ {"cname": "Children", "ctype": "control"} ],
             metaFields: [
-                {fname:"Background", ftype:"string"}
+                {fname:"Background", ftype:"string"},
+                {fname:"Position", ftype:"string"}
             ],
 
             init: function(cm, params) {
@@ -22,6 +23,9 @@ define(
 
             background: function(value) {
                 return this._genericSetter("Background", value);
+            },
+            position: function(value) {
+                return this._genericSetter("Position", value);
             }
         });
         return Container;

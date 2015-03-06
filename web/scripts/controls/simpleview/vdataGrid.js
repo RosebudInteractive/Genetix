@@ -4,12 +4,6 @@ define(
         var vDataGrid = {};
         vDataGrid._templates = template.parseTemplate(tpl);
 
-        vDataGrid._source = {
-            datatype: "json",
-            datafields: [],
-            localdata: '{}',
-            id:'Id'
-        };
 
         /**
          * Рендер DOM грида
@@ -42,8 +36,8 @@ define(
                             });
 
                             setTimeout(function () {
-                                if (vDataGrid._iscroll && obj) {
-                                    vDataGrid._iscroll.scrollToElementVisible(obj.get(0), 0);
+                                if (that._iscroll && obj) {
+                                    that._iscroll.scrollToElementVisible(obj.get(0), 0);
                                 }
                             }, 0);
 
@@ -56,8 +50,8 @@ define(
                 if (this.left())
                     opt.left = this.left();
 
-                vDataGrid._grid = grid.grid(opt);
-                vDataGrid._iscroll = null;
+                this._grid = grid.grid(opt);
+                this._iscroll = null;
 
             }
             // Отрендерим св-ва
@@ -188,27 +182,24 @@ define(
             }
 
 
-            this._source.datafields = datafields;
-            this._source.localdata = data;
+            o._source.datafields = datafields;
+            o._source.localdata = data;
 
-            if (this._grid) {
-                //this._grid.grid("renderHeader");
-                //this._grid.grid("renderData");
-                this._grid.grid("reloading", gridColumns, this._source);
-                if (cursor) this._grid.grid("selectrow", cursor);
-                this._refreshScroll(o);
+            if (o._grid) {
+                o._grid.grid("reloading", gridColumns, o._source);
+                if (cursor) o._grid.grid("selectrow", cursor);
+                vDataGrid._refreshScroll(o);
             }
 
 
         }
 
         vDataGrid._refreshScroll = function(o) {
-            if (this._iscroll) {
-                this._iscroll.refresh();
+            if (o._iscroll) {
+                o._iscroll.refresh();
             } else {
-                var that = this;
 
-                var _iscroll = new IScroll(this._grid.find('.scrollable-bll').get(0), {
+                var _iscroll = new IScroll(o._grid.find('.scrollable-bll').get(0), {
                     snapStepY: 23,
                     scrollX: true,
                     bottomPadding: o.hasFooter() ? 28 : 0,
@@ -225,10 +216,10 @@ define(
                 });
                 _iscroll.on('scroll', function () {
                     //gr.data("grid").updatePosition(this.y);
-                    if (that._grid)
-                        that._grid.grid("updatePosition", this.y);
+                    if (o._grid)
+                        o._grid.grid("updatePosition", this.y);
                 });
-                this._iscroll = _iscroll;
+                o._iscroll = _iscroll;
             }
 
         }
@@ -239,8 +230,7 @@ define(
          */
         vDataGrid.renderCursor = function(id) {
             if (!id) return false;
-            var that = this;
-            vDataGrid._grid.grid('selectrow', id, true);
+            this._grid.grid('selectrow', id, true);
         }
 
         /**

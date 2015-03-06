@@ -34,7 +34,10 @@
                 "fields": {
                     "Id": 3002,
                     "Name": "MainContainer",
-                    "Background": "#ffffff"
+                    "Background": "#ffffff",
+                    "Position": "center",
+                    "Width": "39em",
+                    "Height": "19em"
                 },
                 "collections": {
                     "Children": [
@@ -548,7 +551,7 @@
                                 "Left": 25,
                                 "Width": 100,
                                 "Height": 20,
-                                "Label": "Lead Edit Form",
+                                "Label": "Lead Edit",
                                 "FontSize": "1em",
                                 "Color": "#000000"
                             }
