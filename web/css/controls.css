@@ -462,6 +462,7 @@
   border: 1px inset;
   padding: 0.3em 0.9em 0.3em 0.9em;
   box-shadow: none;
+  outline: none;
 }
 .control.button input {
   background-color: #fff;
