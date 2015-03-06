@@ -125,6 +125,7 @@ $(document).ready( function() {
                      * @returns {object}
                      */
                     this.renderRoot = function(rootGuid){
+                        devices.currentRoot(rootGuid);
                         return {rootContainer: "#root-form-container"};
                     }
 

@@ -17,9 +17,14 @@ define(
              */
             init: function(obj) {
                 this._User = obj || null;
-                this._currRoot = null;
                 this._tabsPopup = null;
                 this._OpenOnDevicePopup = null;
+                this._CurrentRoot = null;
+            },
+
+            currentRoot: function (value) {
+                if (value !== undefined) this._CurrentRoot = value;
+                return this._CurrentRoot;
             },
 
             /**
@@ -134,8 +139,8 @@ define(
                         click: function (event, data) {
                             var currContext = data.id;
                             var vc = data.custom.contextGuid;
-
-                            that._selectContext({masterGuid: currContext, vc:vc,  side: "server"});
+                            var formGuid = data.custom.formGuid;
+                            that._selectContext({masterGuid: currContext, vc:vc,  side: "server", formGuid: formGuid});
 
                         },
                         righticonclick: function (event, data) {
@@ -242,6 +247,8 @@ define(
                         if (name == "VisualContext") {
                             for (var k = 0, len3 = col.count(); k < len3; k++) {
                                 var item = col.get(k);
+                                var contGuid = item.get('ContextGuid');
+
                                 var cnt = {
                                     id: item.get('DataBase'),
                                     title: item.get('Name'),
@@ -249,7 +256,8 @@ define(
                                     rightIcon: "/images/controls.svg#hamburger",
                                     custom: {
                                         type: "context",
-                                        contextGuid: item.get('ContextGuid')
+                                        contextGuid: contGuid,
+                                        formGuid: (contGuid == url("#context") ? this._CurrentRoot : null)
                                     }
                                 };
                                 contexts.push(cnt);
@@ -266,7 +274,11 @@ define(
                 var that = this;
 
                 var formGuids = 'all';
-                if (url('#formGuids')) {
+                if (params.vc == url("#context")) {
+                    if (params.formGuid) formGuids = [params.formGuid];
+                }
+
+                /*if (url('#formGuids')) {
                     formGuids = url('#formGuids').split(',');
                 }  else {
                     // выборочная подписка
@@ -274,7 +286,7 @@ define(
                     if (selSub) {
                         formGuids = $('#selForm').val();
                     }
-                }
+                }*/
 
                 if (formGuids == 'all') {
                     // запросить гуиды рутов

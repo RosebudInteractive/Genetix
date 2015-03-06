@@ -172,6 +172,21 @@
                                                 }
                                             ]
                                         }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "da185853-e1aa-8b58-2de5-7cbc0d685501",
+                                            "typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
+                                        },
+                                        "fields": {
+                                            "Id": 2005,
+                                            "Name": "DatasetIncomeplan",
+                                            "Root": "8770f400-fd42-217c-90f5-507ca52943c2",
+                                            "Active": true,
+                                            "Master": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a"
+                                        },
+                                        "collections": {
+                                        }
                                     }
                                 ]
                             }
