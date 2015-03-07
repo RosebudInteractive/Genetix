@@ -45,6 +45,7 @@ $(document).ready( function() {
                     this.rootsGuids=[];
                     this.rootsContainers={};
                     this.devices = new Devices();
+                    this.hashchange = true;
                     var that = this;
 
                     /**
@@ -55,14 +56,16 @@ $(document).ready( function() {
                         $("#root-form-container").empty();
 
                         var formGuids = 'all';
-                        if (url('#formGuids')) {
-                            formGuids = url('#formGuids').split(',');
-                        }  else {
-                            // выборочная подписка
-                            var selSub = $('#selSub').is(':checked');
-                            if (selSub) {
-                                formGuids = $('#selForm').val();
-                            }
+                        var urlGuids = url('#formGuids');
+                        if (urlGuids != null) {
+                            formGuids = urlGuids.split(',');
+                        }
+
+                        // выборочная подписка
+                        var selSub = $('#selSub').is(':checked');
+                        if (selSub) {
+                            formGuids = $('#selForm').val();
+                            formGuids = formGuids!=null? formGuids: [];
                         }
 
                         if (formGuids == 'all') {
@@ -235,8 +238,31 @@ $(document).ready( function() {
                             // выбрать контекст если указаны параметры
                             var masterGuid = url('#database');
                             var vc = url('#context');
-                            if(masterGuid && vc)
+                            if(masterGuid && vc) {
                                 $('#userContext').val(masterGuid).change();
+                                var formGuids = 'all';
+                                var urlGuids = url('#formGuids');
+                                if (urlGuids != null) {
+                                    formGuids = urlGuids.split(',');
+                                }
+                                if (formGuids != 'all') {
+                                    uccelloClt.getClient().socket.send({action:"getRootGuids", db:masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result) {
+                                        var newFormGuids = [];
+                                        for(var i in formGuids) {
+                                            var found = false;
+                                            for(var j in result.roots) {
+                                                if (result.roots[j] == formGuids[i])
+                                                    found = true;
+                                            }
+                                            if (!found)
+                                                newFormGuids.push(formGuids[i]);
+                                        }
+                                        if (newFormGuids.length > 0)
+                                            uccelloClt.createRoot(newFormGuids, "res");
+                                    });
+                                }
+                            }
+
 
                             uccelloClt.getController().event.on({
                                 type: 'endApplyDeltas',
@@ -359,7 +385,9 @@ $(document).ready( function() {
                     }
 
                     this.setContextUrl = function(context, database, formGuids) {
+                        that.hashchange = false;
                         document.location = that.getContextUrl(context, database, formGuids);
+
                     }
 
                     this.getContextUrl = function(context, database, formGuids) {
@@ -369,10 +397,13 @@ $(document).ready( function() {
                     }
 
                     $(window).on('hashchange', function() {
-                        var masterGuid = url('#database');
-                        var vc = url('#context');
-                        if(masterGuid && vc)
-                            $('#userContext').val(masterGuid).change();
+                        if (that.hashchange) {
+                            var masterGuid = url('#database');
+                            var vc = url('#context');
+                            if(masterGuid && vc)
+                                $('#userContext').val(masterGuid).change();
+                        }
+                        that.hashchange = true;
                     });
                 }
             );
