@@ -187,7 +187,7 @@ $(document).ready( function() {
                         that.devices.sessions(user);
                     }
 
-                    this.showMainForm = function() {
+                    this.showMainForm = function(callback) {
                         require(["text!templates/genetix.html"], function (mainTemplate) {
                             $("#mainContent").empty();
                             $("#mainContent").append($(mainTemplate));
@@ -247,7 +247,7 @@ $(document).ready( function() {
                                     that.devices.sessions(user);
                                 }
                             });
-
+                            if (callback) callback();
                         });
                     };
 
@@ -289,11 +289,39 @@ $(document).ready( function() {
                             if (!user)
                                 that.showLogin();
                             else {
-                                uccelloClt.subscribeUser(function(result2) {
-                                    if (result2)
-                                        that.showMainForm();
-                                    else
-                                        $(".is-login-form .login-l").addClass("has-errors");
+                                that.showMainForm(function () {
+                                    uccelloClt.subscribeUser(function(result2) {
+                                        if (result2) {
+                                            var masterGuid = url('#database');
+                                            var vc = url('#context');
+                                            if(masterGuid && vc) {
+                                                $('#userContext').val(masterGuid).change();
+                                                var formGuids = 'all';
+                                                var urlGuids = url('#formGuids');
+                                                if (urlGuids != null) {
+                                                    formGuids = urlGuids.split(',');
+                                                }
+                                                if (formGuids != 'all') {
+                                                    uccelloClt.getClient().socket.send({action:"getRootGuids", db:masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result) {
+                                                        var newFormGuids = [];
+                                                        for(var i in formGuids) {
+                                                            var found = false;
+                                                            for(var j in result.roots) {
+                                                                if (result.roots[j] == formGuids[i])
+                                                                    found = true;
+                                                            }
+                                                            if (!found)
+                                                                newFormGuids.push(formGuids[i]);
+                                                        }
+                                                        if (newFormGuids.length > 0)
+                                                            uccelloClt.createRoot(newFormGuids, "res");
+                                                    });
+                                                }
+                                            }
+                                        }
+                                        else
+                                            that.showLogin();
+                                    });
                                 });
                             }
                         },

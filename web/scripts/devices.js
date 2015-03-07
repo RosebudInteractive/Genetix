@@ -175,7 +175,8 @@ define(
             },
 
             _openOnDevice: function (data) {
-                var formGuids = 'all';
+                var formGuids = data.custom.parent.data.custom.formGuid || 'all';
+                if (formGuids != 'all') formGuids = [formGuids];
                 uccelloClt.getClient().newTab(data.custom.parent.data.custom.contextGuid, url('#database'), formGuids, data.custom.sessionId);
             },
 
