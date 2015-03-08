@@ -12,11 +12,11 @@ define(
                 $(parent).append(item);
 
                 // сохранять при потере фокуса
-                item.blur(function () {
+                item.find("input").blur(function () {
                     if (that.dataset() && that.dataField()) {
                         that.getControlMgr().userEventHandler(that, function () {
                             var dataset = that.getControlMgr().getByGuid(that.dataset());
-                            dataset.setField(that.dataField(), item.val());
+                            dataset.setField(that.dataField(), item.find("input").val());
                         });
                     }
                 });

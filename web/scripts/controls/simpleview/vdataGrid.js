@@ -241,20 +241,7 @@ define(
          * @param value
          */
         vDataGrid.renderCell = function(id, datafield, value) {
-            var index=null, columns = this.getObj().getCol('Columns');
-            if (columns) {
-                for (var i = 0, len = columns.count(); i < len; i++) {
-                    if (columns.get(i).get('Field') == datafield) {
-                        index = i;
-                        break;
-                    }
-                }
-                if (index) {
-                    var table = $('#' + this.getLid()).find('.table');
-                    var rowTr = table.find('.row.data[data-id='+id+']');
-                    $(rowTr.children()[index]).html(value);
-                }
-            }
+            vDataGrid._reloading(this);
         }
         return vDataGrid;
     }
