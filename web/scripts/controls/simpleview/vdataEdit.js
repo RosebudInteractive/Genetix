@@ -28,7 +28,7 @@ define(
             // устанавливаем значение
             if (this.dataset() && this.dataField()) {
                 var dataset = that.getControlMgr().getByGuid(that.dataset());
-                item.val(dataset? dataset.getField(this.dataField()): '');
+                item.find("input").val(dataset? dataset.getField(this.dataField()): '');
             }
         }
         return vDataEdit;
