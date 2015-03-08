@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/devices.js" afterPath="$PROJECT_DIR$/scripts/devices.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/genetix_main.js" afterPath="$PROJECT_DIR$/scripts/genetix_main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -30,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="genetix_main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="genetix_main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3120" max-vertical-offset="7072">
-              <caret line="203" column="42" selection-start-line="203" selection-start-column="42" selection-end-line="203" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.4987775" vertical-offset="4148" max-vertical-offset="7089">
+              <caret line="256" column="69" selection-start-line="256" selection-start-column="69" selection-end-line="256" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -133,11 +132,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="devices.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="devices.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/devices.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6650367" vertical-offset="2890" max-vertical-offset="6205">
-              <caret line="186" column="16" selection-start-line="186" selection-start-column="16" selection-end-line="186" selection-end-column="16" />
+            <state vertical-scroll-proportion="-6.12" vertical-offset="2890" max-vertical-offset="6205">
+              <caret line="179" column="39" selection-start-line="179" selection-start-column="39" selection-end-line="179" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -296,8 +295,8 @@
         <option value="$PROJECT_DIR$/scripts/widgets/popup.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vdataGrid.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vdataEdit.js" />
-        <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
         <option value="$PROJECT_DIR$/scripts/devices.js" />
+        <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
       </list>
     </option>
   </component>
@@ -877,7 +876,7 @@
       <workItem from="1425570904906" duration="2489000" />
       <workItem from="1425581298063" duration="64208000" />
       <workItem from="1425682478618" duration="27586000" />
-      <workItem from="1425825499735" duration="15908000" />
+      <workItem from="1425825499735" duration="17255000" />
     </task>
     <task id="LOCAL-00001" summary="Старт">
       <created>1423481621359</created>
@@ -1059,11 +1058,15 @@
       <created>1425849917563</created>
       <updated>1425849917563</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="открытие на закладке не текущего контекса">
+      <created>1425851363547</created>
+      <updated>1425851363547</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="480277000" />
+    <option name="totallyTimeSpent" value="481624000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1114,7 +1117,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="грид" />
     <MESSAGE value="логин" />
     <MESSAGE value="натяжка дизайна" />
     <MESSAGE value="рефактор структуры" />
@@ -1139,7 +1141,8 @@
     <MESSAGE value="синхронизация зависимой формы" />
     <MESSAGE value="открытый треугольник" />
     <MESSAGE value="обновление грида при редактировании" />
-    <option name="LAST_COMMIT_MESSAGE" value="обновление грида при редактировании" />
+    <MESSAGE value="открытие на закладке не текущего контекса" />
+    <option name="LAST_COMMIT_MESSAGE" value="открытие на закладке не текущего контекса" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1249,6 +1252,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
           <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1547,18 +1551,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
+    <entry file="file://$PROJECT_DIR$/scripts/devices.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3120" max-vertical-offset="7072">
-          <caret line="203" column="42" selection-start-line="203" selection-start-column="42" selection-end-line="203" selection-end-column="42" />
+        <state vertical-scroll-proportion="-6.12" vertical-offset="2890" max-vertical-offset="6205">
+          <caret line="179" column="39" selection-start-line="179" selection-start-column="39" selection-end-line="179" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/devices.js">
+    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6650367" vertical-offset="2890" max-vertical-offset="6205">
-          <caret line="186" column="16" selection-start-line="186" selection-start-column="16" selection-end-line="186" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.4987775" vertical-offset="4148" max-vertical-offset="7089">
+          <caret line="256" column="69" selection-start-line="256" selection-start-column="69" selection-end-line="256" selection-end-column="69" />
           <folding />
         </state>
       </provider>

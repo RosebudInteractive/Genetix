@@ -248,12 +248,13 @@ $(document).ready( function() {
                             });
 
                             $('#userContext').change(function(){
+                                var masterGuid = $(this).val();
                                 var currContext = $(this).val();
                                 var vc = $(this).find('option[value="'+currContext+'"]').data('ContextGuid');
                                 if(masterGuid && vc)
                                     that.selectContext({masterGuid: currContext, vc:vc,  side: "server"});
                                 else
-                                    that.clearTabs();
+                                    $("#root-form-container").empty();
                             });
 
 
