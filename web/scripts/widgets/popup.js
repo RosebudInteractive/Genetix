@@ -104,12 +104,14 @@ define(
                             $(this).parent().addClass("is-open");
                         }
                     });
-                    subContent.hide();
-                    subContent.parent().removeClass("is-open");
+                    subContent.show();
+                    subContent.parent().addClass("is-open");
 
                     if (!(data.subTree) || data.subTree.length == 0) {
                         itemEl.children(".arrow-be").hide();
                         itemEl.removeClass("is-header");
+                        subContent.hide();
+                        subContent.parent().removeClass("is-open");
                     }
                     else {
                         itemEl.children(".arrow-be").show();
@@ -121,7 +123,7 @@ define(
                             if (subItemEl.length == 0) {
                                 var curTemplate2 = templates["menuItem"];
                                 curTemplate2 = curTemplate2.replace("###RIGHT_ICON_REF###", subItemData.rightIcon);
-                                subItemEl = $(curTemplate);
+                                subItemEl = $(curTemplate2);
                                 subItemEl.attr("id", subItemData.id);
                                 subContent.append(subItemEl);
                                 subItemEl.children(".dropdown-menu-item-wrapper").click(subItemData, function (event) {
@@ -137,7 +139,7 @@ define(
                             }
                             subItemEl.find(".dropdown-menu-item-wrapper .text-bl").text(subItemData.title);
                             subItemEl.data("itemData", subItemData);
-                            var subContent2 = itemEl.children(".content-bl");
+                            var subContent2 = subItemEl.children(".content-bl");
                             subContent2.hide();
                             subItemEl.children(".arrow-be").hide();
                             subItemEl.removeClass("is-header");
@@ -147,7 +149,7 @@ define(
             },
 
 
-            show: function(popupData, buttonControl) {
+            show: function(popupData, buttonControl, firstItem) {
                 // Если не передано, то пытаемся использовать старые данные
                 // иначе запоминаем новые и используем их
                 if (popupData)
@@ -190,6 +192,9 @@ define(
                     this.element.css({ display: "block"})
                 }
 
+                if (firstItem) {
+                    $("#" + firstItem).prependTo(this.element);
+                }
             },
 
             hide: function() {

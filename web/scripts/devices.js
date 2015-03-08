@@ -171,7 +171,7 @@ define(
 
                     tabsIcon.click(function () {
                         var popupData = that._preparePopupData();
-                        that._tabsPopup.genetixPopup("show", popupData);
+                        that._tabsPopup.genetixPopup("show", popupData, null, url("#database"));
                     });
                 }
             },
