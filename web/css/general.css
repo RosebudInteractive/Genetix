@@ -157,9 +157,9 @@ div.system-toolbar-menu-item.is-combo {
 div.system-toolbar-menu-item {
   float: left;
 }
-.system-panel-section-right div.system-toolbar-icon:last-child,
-div.system-toolbar-menu-item:last-child {
-  margin-right: 1.5em;
+.system-panel-section-right .system-toolbar-icon.is-device-close-icon {
+  margin-left: 1.5em;
+  padding-right: 1.5em;
 }
 .is-system-footer {
   width: 100%;
@@ -332,17 +332,14 @@ div.system-toolbar-menu-item:last-child {
 .is-device-icon.is-pressed {
   background-color: #27374a;
 }
-.is-device-icon:hover div.is-device-icon-wrapper {
-  opacity: 1;
-}
-.is-device-icon:hover div.is-device-text {
-  color: #fff;
+.is-device-icon:hover {
+  background-color: #27374a;
 }
 .is-device-icon-wrapper {
   height: 2.375em;
   width: auto;
   padding-left: 2.375em;
-  opacity: 0.8;
+  opacity: 1;
   color: #fff;
 }
 .is-device-icon.is-tabs {
@@ -360,7 +357,7 @@ div.system-toolbar-menu-item:last-child {
 }
 .is-device-text {
   text-align: center;
-  color: #d7dade;
+  color: #fff;
   font-size: 0.75em;
   overflow: hidden;
   width: 9.5em;

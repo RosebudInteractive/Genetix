@@ -19,6 +19,7 @@ define(
                 buttonControl: null,
                 offsetX: 0,
                 offsetY: 0,
+                leftViewBoxSize: 38,
                 menuItems: {}
             },
 
@@ -28,7 +29,10 @@ define(
 
 
                 if (this.options.bigArrowInterval)
-                    this.element.addClass(" big-interval");
+                    this.element.addClass("big-interval");
+                if (this.options.leftIcons)
+                    this.element.addClass("has-left-icons");
+
                 var that = this;
                 this.element.mouseleave(function () {
                     that.hide();
@@ -67,22 +71,28 @@ define(
                     if (itemEl.length == 0) {
                         var curTemplate = templates["menuItem"];
                         curTemplate = curTemplate.replace("###RIGHT_ICON_REF###", data.rightIcon);
+                        curTemplate = curTemplate.replace("###LEFT_ICON_REF###", data.leftIcon);
                         itemEl = $(curTemplate);
                         itemEl.attr("id", data.id);
+                        itemEl.find(".left-icon svg").each(function () {
+                            $(this)[0].setAttribute("viewBox", "0 0 " + that.options.leftViewBoxSize + " " + that.options.leftViewBoxSize);
+                        });
                         this.element.append(itemEl);
-                        itemEl.children(".dropdown-menu-item-wrapper").click(data, function (event) {
-                            that._trigger("click", null, event.data);
-                            that.hide();
-                        });
-                        itemEl.children(".dropdown-menu-item-wrapper").find(".right-icon").click(data, function (event) {
-                            $(this).addClass("is-pressed");
-                            that._trigger("righticonclick", null, {button: $(this), data: event.data});
-                            return false;
-                        });
-
+                        itemEl.find(".left-icon").css({color: data.leftIconColor});
                     }
                     itemEl.find(".dropdown-menu-item-wrapper .text-bl").text(data.title);
                     itemEl.data("itemData", data);
+
+                    itemEl.children(".dropdown-menu-item-wrapper").off("click").click(data, function (event) {
+                        that._trigger("click", null, event.data);
+                        that.hide();
+                    });
+                    itemEl.children(".dropdown-menu-item-wrapper").find(".right-icon").off("click").click(data, function (event) {
+                        $(this).addClass("is-pressed");
+                        that._trigger("righticonclick", null, {button: $(this), data: event.data});
+                        return false;
+                    });
+
                     var subContent = itemEl.children(".content-bl");
                     itemEl.children(".arrow-be").click(subContent, function(event) {
                         var opened = $(this).parent().hasClass("is-open");
@@ -95,6 +105,8 @@ define(
                         }
                     });
                     subContent.hide();
+                    subContent.parent().removeClass("is-open");
+
                     if (!(data.subTree) || data.subTree.length == 0) {
                         itemEl.children(".arrow-be").hide();
                         itemEl.removeClass("is-header");
@@ -135,11 +147,13 @@ define(
             },
 
 
-            show: function(popupData) {
+            show: function(popupData, buttonControl) {
                 // Если не передано, то пытаемся использовать старые данные
                 // иначе запоминаем новые и используем их
                 if (popupData)
                     this.options.menuItems = popupData;
+                if (buttonControl)
+                    this.options.buttonControl = buttonControl;
 
                 this._renderContent();
 
@@ -158,7 +172,7 @@ define(
                     cBott = this.options.buttonControl.offset().top +  this.options.buttonControl.innerHeight();
                 } else {
                     cRight = this.options.buttonControl.offset().left + this.options.buttonControl.width();
-                    cBott = this.options.buttonControl.position().top +  this.options.buttonControl.innerHeight();
+                    cBott = this.options.buttonControl.offset().top +  this.options.buttonControl.innerHeight();
                 }
 
                 this.element.css({
@@ -180,6 +194,7 @@ define(
 
             hide: function() {
                 this.element.css({ display: "none"});
+                this._trigger("hide", null, this);
             }
 
         });

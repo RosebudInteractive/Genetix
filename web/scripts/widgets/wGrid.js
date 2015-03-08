@@ -31,6 +31,7 @@ define(
 
             // Функция, вызываемая при активации виджета на элементе
             _create: function() {
+                var that = this;
                 this.selectedrow = {}; // выбранная строчка
                 this.sort = {el:null, datafield:null, dir:null}; // текущая сортировка
                 this.layouts = ['is-striped-bg', 'is-horizontal-div', 'is-vertical-div'];
@@ -86,9 +87,17 @@ define(
                 this._grid = grid;
                 this._rowHeight = 0;
                 this.element.append(grid);
-
-                grid.height(grid.parent().height()).children(".scrollable-bl").height(grid.parent().height());
+                this.fixHeight();
                 this.clearPageCache();
+                $(window).resize(function () {
+                    that.fixHeight();
+                });
+            },
+
+            fixHeight: function () {
+                var pad = this._grid.children(".scrollable-bl").padding();
+                var h = this._grid.parent().height() - pad.top - pad.bottom;
+                this._grid.height(this._grid.parent().height()).children(".scrollable-bl").height(h);
             },
 
             getVisiblePortion: function() {

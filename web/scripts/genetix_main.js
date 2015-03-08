@@ -12,6 +12,13 @@ var uri = window.location.href;
 if (uri.charAt(uri.length - 1) == "/")
     window.history.pushState("", "", uri.substring(0, uri.length - 1));
 
+jQuery.browser = {};
+jQuery.browser.mozilla = /mozilla/.test(navigator.userAgent.toLowerCase()) && !/webkit/.test(navigator.userAgent.toLowerCase());
+jQuery.browser.webkit = /webkit/.test(navigator.userAgent.toLowerCase());
+jQuery.browser.opera = /opera/.test(navigator.userAgent.toLowerCase());
+jQuery.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());
+jQuery.browser.chrome = /chrome/.test(navigator.userAgent.toLowerCase());
+
 $(document).ready( function() {
     require(
         ["./lib/uccello/config/config"],
@@ -171,7 +178,7 @@ $(document).ready( function() {
                             }).mouseup(function () {
                                 $(this).css({"background-color": ""})
                             }).hover(function (event) {
-                                if (event.which == 1)
+                                if ((!(jQuery.browser.mozilla) && event.which == 1) || (jQuery.browser.mozilla && event.buttons == 1))
                                     $(this).css({"background-color": "#38465a"});
                                 else
                                     $(this).css({"background-color": ""});

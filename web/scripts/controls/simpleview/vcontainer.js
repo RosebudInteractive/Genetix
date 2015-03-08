@@ -4,13 +4,19 @@ define(
         var vContainer = {};
         vContainer._templates = template.parseTemplate(tpl);
         vContainer.render = function(options) {
+            var that = this;
             var item = $('#' + this.getLid());
+            var parent = (this.getParent()? '#' + this.getParent().getLid(): options.rootContainer);
+            var p = $(parent);
             if (item.length == 0) {
                 item = $(vContainer._templates['container']).attr('id', this.getLid());
-                var parent = (this.getParent()? '#' + this.getParent().getLid(): options.rootContainer);
-                $(parent).append(item);
+                p.append(item);
+                $(window).resize(function (e, obj) {
+                    if (that.position() != "center" && !(that.height())) {
+                        item.css({height: p.height() + 'px'});
+                    }
+                });
             }
-            var p = $(parent);
             if (this.width())
                 item.css({width: this.width()});
             if (this.height())

@@ -9,12 +9,12 @@ define(
                 item = $(vForm._templates['form']).attr('id', this.getLid());
                 var parent = (this.getParent()? '#' + this.getParent().getLid(): options.rootContainer);
                 $(parent).append(item);
+                var p = $(parent)
+                item.css({top: 0 + 'px', left: 0 + 'px', width: 100 + '%', height: p.innerHeight() + 'px'});
+                $(window).resize(function (e, obj) {
+                    item.css({top: 0 + 'px', left: 0 + 'px', width: 100 + '%', height: p.innerHeight() + 'px'});
+                });
             }
-
-            //if (this.top())
-            var p = $(parent)
-            item.css({top: 0 + 'px', left: 0 + 'px', width: 100 + '%', height: p.innerHeight() + 'px'});
-            //item.css({top: this.top() + 'px', left: this.left() + 'px', width: this.width() + 'px', height: this.height() + 'px'});
 
             // убираем удаленные объекты
             var del = this.getObj().getLogCol('Children').del;

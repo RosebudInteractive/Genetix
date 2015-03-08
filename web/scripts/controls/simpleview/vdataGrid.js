@@ -53,6 +53,7 @@ define(
                 this._grid = grid.grid(opt);
                 this._iscroll = null;
 
+
             }
             // Отрендерим св-ва
             if (this.whiteHeader())

@@ -85,6 +85,7 @@ define(
                     mainPanel.append(curSessionIcon);
                 }
 
+
                 // очистим удаленные устройства
                 mainPanel.find(".is-device-icon:not(#tabs-placeholder)").each(function (i) {
                     if (!($(this).attr("id") in sessions))
@@ -150,19 +151,20 @@ define(
                                 that._OpenOnDevicePopup = devPopupDiv.genetixPopup({
                                     buttonControl: data.button,
                                     title: "Открыть на устройстве",
-                                    offsetX: -52,
-                                    offsetY: 6,
+                                    offsetX: -49,
+                                    offsetY: -105,
                                     leftIcons: true,
                                     rightIcons: false,
                                     click: function (event, data) {
                                         that._openOnDevice(data);
+                                    },
+                                    hide:function () {
+                                        popupDiv.find(".dropdown-menu-item2-b").find(".right-icon").removeClass("is-pressed");
                                     }
                                 });
-                            } else {
-                                that._OpenOnDevicePopup.genetixPopup("buttonControl", data.button);
                             }
                             var oodData = that._prepareOODData(data);
-                            that._OpenOnDevicePopup.genetixPopup("show", oodData);
+                            that._OpenOnDevicePopup.genetixPopup("show", oodData, data.button);
                         }
                     });
 
