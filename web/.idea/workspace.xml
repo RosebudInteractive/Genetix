@@ -2,7 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/jquery.sizes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-10.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-11.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-12.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-13.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-14.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-15.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-16.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-17.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-18.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-19.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-2.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-20.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-3.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-4.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-5.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-6.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-7.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-8.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/tables/incomeplan-9.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-1.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead.json" afterPath="$PROJECT_DIR$/data/tables/lead.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -125,8 +145,8 @@
       <file leaf-file-name="devices.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/devices.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66748166" vertical-offset="2396" max-vertical-offset="6120">
-              <caret line="157" column="25" selection-start-line="157" selection-start-column="25" selection-end-line="157" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.5427873" vertical-offset="2396" max-vertical-offset="6120">
+              <caret line="154" column="23" selection-start-line="154" selection-start-column="23" selection-end-line="154" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -480,6 +500,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -880,7 +932,7 @@
       <workItem from="1425570904906" duration="2489000" />
       <workItem from="1425581298063" duration="64208000" />
       <workItem from="1425682478618" duration="27586000" />
-      <workItem from="1425825499735" duration="4927000" />
+      <workItem from="1425825499735" duration="7569000" />
     </task>
     <task id="LOCAL-00001" summary="Старт">
       <created>1423481621359</created>
@@ -1042,11 +1094,15 @@
       <created>1425837058966</created>
       <updated>1425837058966</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="мелкие исправления">
+      <created>1425837279446</created>
+      <updated>1425837279446</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="469296000" />
+    <option name="totallyTimeSpent" value="471938000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1292,6 +1348,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.461538" vertical-offset="51" max-vertical-offset="816">
           <caret line="19" column="25" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1533,8 +1590,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/devices.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66748166" vertical-offset="2396" max-vertical-offset="6120">
-          <caret line="157" column="25" selection-start-line="157" selection-start-column="25" selection-end-line="157" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.5427873" vertical-offset="2396" max-vertical-offset="6120">
+          <caret line="154" column="23" selection-start-line="154" selection-start-column="23" selection-end-line="154" selection-end-column="23" />
           <folding />
         </state>
       </provider>
