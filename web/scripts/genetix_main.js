@@ -200,6 +200,8 @@ $(document).ready( function() {
                             }, function () {
                                 $(this).css({"background-color": ""});
                             });
+
+                            $("#login-edit").focus();
                         });
                     };
 

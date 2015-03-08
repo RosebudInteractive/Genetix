@@ -155,8 +155,8 @@ define(
                                     offsetY: -105,
                                     leftIcons: true,
                                     rightIcons: false,
-                                    click: function (event, data) {
-                                        that._openOnDevice(data);
+                                    click: function (event, data2) {
+                                        that._openOnDevice(data2);
                                     },
                                     hide:function () {
                                         popupDiv.find(".dropdown-menu-item2-b").find(".right-icon").removeClass("is-pressed");
@@ -179,7 +179,12 @@ define(
             _openOnDevice: function (data) {
                 var formGuids = data.custom.parent.data.custom.formGuid || 'all';
                 if (formGuids != 'all') formGuids = [formGuids];
-                uccelloClt.getClient().newTab(data.custom.parent.data.custom.contextGuid, url('#database'), formGuids, data.custom.sessionId);
+                uccelloClt.getClient().newTab(
+                    data.custom.parent.data.custom.contextGuid,
+                    data.custom.parent.data.custom.dbGuid,
+                    formGuids,
+                    data.custom.sessionId
+                );
             },
 
             _prepareOODData: function(parentData) {
