@@ -75,7 +75,8 @@ $(document).ready( function() {
                             formGuids = formGuids!=null? formGuids: [];
                         }
 
-                        if (formGuids == 'all') {
+
+                        if (formGuids == null || formGuids == 'all') {
                             // запросить гуиды рутов
                             uccelloClt.getClient().socket.send({action:"getRootGuids", db:params.masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result) {
                                 that.rootsGuids = result.roots;
@@ -245,16 +246,14 @@ $(document).ready( function() {
                             });
 
                             $('#userContext').change(function(){
-
                                 var currContext = $(this).val();
                                 var vc = $(this).find('option[value="'+currContext+'"]').data('ContextGuid');
-
-                                // запросить гуиды рутов
-                                uccelloClt.getClient().socket.send({action:"getRootGuids", db:currContext, rootKind:'res', type:'method'}, function(result) {
-                                    that.rootsGuids = result.roots;
+                                if(masterGuid && vc)
                                     that.selectContext({masterGuid: currContext, vc:vc,  side: "server"});
-                                });
+                                else
+                                    that.clearTabs();
                             });
+
 
                             // выбрать контекст если указаны параметры
                             var masterGuid = url('#database');
