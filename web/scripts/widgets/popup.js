@@ -20,22 +20,33 @@ define(
                 offsetX: 0,
                 offsetY: 0,
                 leftViewBoxSize: 38,
-                menuItems: {}
+                extendedClass: "",
+                menuItems: []
             },
 
             _create: function() {
                 this._clearContent();
                 this._renderTitle();
-
+                this._MouseInside = false;
 
                 if (this.options.bigArrowInterval)
                     this.element.addClass("big-interval");
                 if (this.options.leftIcons)
                     this.element.addClass("has-left-icons");
+                if (this.options.extendedClass != "")
+                    this.element.addClass(this.options.extendedClass);
+
 
                 var that = this;
+
                 this.element.mouseleave(function () {
-                    that.hide();
+                    that._MouseInside = false;
+                    setTimeout(function () {
+                        if (!that._MouseInside)
+                            that.hide();
+                    }, 500);
+                }).mouseenter(function () {
+                    that._MouseInside = true;
                 });
             },
 
@@ -69,16 +80,24 @@ define(
                     var data = popupData[i];
                     var itemEl = $("#" + data.id);
                     if (itemEl.length == 0) {
-                        var curTemplate = templates["menuItem"];
-                        curTemplate = curTemplate.replace("###RIGHT_ICON_REF###", data.rightIcon);
-                        curTemplate = curTemplate.replace("###LEFT_ICON_REF###", data.leftIcon);
+
+                        var curTemplate = "";
+                        if (data.type == "separator")
+                            curTemplate = templates["separator"];
+                        else {
+                            curTemplate = templates["menuItem"];
+                            curTemplate = curTemplate.replace("###RIGHT_ICON_REF###", data.rightIcon);
+                            curTemplate = curTemplate.replace("###LEFT_ICON_REF###", data.leftIcon);
+                        }
                         itemEl = $(curTemplate);
                         itemEl.attr("id", data.id);
-                        itemEl.find(".left-icon svg").each(function () {
-                            $(this)[0].setAttribute("viewBox", "0 0 " + that.options.leftViewBoxSize + " " + that.options.leftViewBoxSize);
-                        });
                         this.element.append(itemEl);
-                        itemEl.find(".left-icon").css({color: data.leftIconColor});
+                        if (data.type != "separator") {
+                            itemEl.find(".left-icon svg").each(function () {
+                                $(this)[0].setAttribute("viewBox", "0 0 " + that.options.leftViewBoxSize + " " + that.options.leftViewBoxSize);
+                            });
+                            itemEl.find(".left-icon").css({color: data.leftIconColor});
+                        }
                     }
                     itemEl.find(".dropdown-menu-item-wrapper .text-bl").text(data.title);
                     itemEl.data("itemData", data);
@@ -187,18 +206,19 @@ define(
                 else
                     this.element.removeClass("big-interval");
 
-                if (this.options.menuItems.length != 0) {
-                    this.element.find(".dropdown2-b").hide();
-                    this.element.css({ display: "block"})
-                }
-
                 if (firstItem) {
                     $("#" + firstItem).prependTo(this.element);
                 }
+
+                if (this.options.menuItems.length != 0) {
+                    this.element.find(".dropdown2-b").hide();
+                    this.element.show("fast");
+                }
+
             },
 
             hide: function() {
-                this.element.css({ display: "none"});
+                this.element.hide();
                 this._trigger("hide", null, this);
             }
 

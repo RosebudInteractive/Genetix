@@ -273,6 +273,63 @@ $(document).ready( function() {
                                     that.devices.sessions(user);
                                 }
                             });
+
+
+                            if (that._userPopup == null) {
+                                var popupDiv = $("<div></div>");
+                                $("body").append(popupDiv);
+                                that._userPopup = popupDiv.genetixPopup({
+                                    buttonControl: $("#userName-combo"),
+                                    offsetX: -32,
+                                    offsetY: 3,
+                                    click: function (event, data) {
+                                        if (data.id != "user-info-menu") {
+                                            window.logout();
+                                        }
+                                    },
+                                    leftIcons: true,
+                                    rightIcons: false,
+                                    bigArrowInterval: false,
+                                    leftViewBoxSize: 16,
+                                    extendedClass: "is-gray-menu",
+                                    menuItems: [{
+                                        id: "user-info-menu",
+                                        title: "User info",
+                                        subTree: [],
+                                        leftIcon: "/images/Genetix.svg#userInfo",
+                                        leftIconColor: "#BCC0C9",
+                                        custom: {}
+                                    }, {
+                                        id: "login-as-menu",
+                                        title: "Login as...",
+                                        subTree: [],
+                                        leftIcon: "/images/Genetix.svg#loginAs",
+                                        leftIconColor: "#BCC0C9",
+                                        custom: {}
+                                    }, {
+                                        id: "user-menu-separator",
+                                        type: "separator"
+                                    }, {
+                                        id: "logout-menu",
+                                        title: "Logout",
+                                        subTree: [],
+                                        leftIcon: "/images/Genetix.svg#logout",
+                                        leftIconColor: "#BCC0C9",
+                                        custom: {}
+                                    }, {
+                                        id: "logoutAll-menu",
+                                        title: "Logout all sessions",
+                                        subTree: [],
+                                        leftIcon: "/images/Genetix.svg#logoutAll",
+                                        leftIconColor: "#BCC0C9",
+                                        custom: {}
+                                    }]
+                                });
+
+                            }
+                            $("#userName-combo").parent().parent().click(function () {
+                                that._userPopup.genetixPopup("show", null, $("#userName-combo"));
+                            });
                             if (callback) callback();
                         });
                     };

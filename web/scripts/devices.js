@@ -104,20 +104,34 @@ define(
                         else
                             existing = $(templates["tablet"]);
                         existing.attr("id", session.sessionGuid());
+                        mainPanel.append(existing);
                     }
-                    if (session.countChild("Connects") != 0)
-                        existing.find("svg").css({color: session.deviceColor()});
-                    else
-                        existing.find("svg").css({color: "#ffffff"});
+                    if (session.countChild("Connects") != 0) {
+                        existing.find("svg").css({color: session.deviceColor(), opacity: "1"});
+                        existing.find(".is-device-text").css({opacity: "1"});
+                    }
+                    else {
+                        existing.find("svg").css({color: "#ffffff", opacity: "0.8"});
+                        existing.find(".is-device-text").css({opacity: "0.8"});
+                    }
                     existing.find(".is-device-text").text(session.deviceName());
-                    mainPanel.append(existing);
                 }
 
+                // переместим неактивные в конец
+                for (var id in sessions) {
+                    if (id == curSessionId) continue;
+                    var session = sessions[id];
+                    if (session.countChild("Connects") != 0) continue;
+                    var existing = mainPanel.find("#" + id);
+                    existing.appendTo(mainPanel);
+                }
+
+
                 // клик на девайсы пока что их рефрешит
-                $(".is-device-icon.is-device").off().click(function () {
+                /*$(".is-device-icon.is-device").off().click(function () {
                     var user = uccelloClt.getUser();
                     that.sessions(user);
-                });
+                });*/
 
             },
 
