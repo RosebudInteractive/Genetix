@@ -161,6 +161,9 @@ div.system-toolbar-menu-item {
   margin-left: 1.5em;
   padding-right: 1.5em;
 }
+.system-toolbar-menu-item .is-dot svg {
+  margin-top: 0.25em;
+}
 .is-system-footer {
   width: 100%;
   overflow: hidden;

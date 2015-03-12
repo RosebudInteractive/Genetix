@@ -18,6 +18,8 @@ define(
                 item.find("input").css({"color" : this.color()});
             if (this.borderColor())
                 item.find("input").css({"border-color" : this.borderColor()});
+            if (this.extendedClass())
+                item.addClass(this.extendedClass());
         }
         return vButton;
     }

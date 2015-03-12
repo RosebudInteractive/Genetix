@@ -517,9 +517,7 @@
                                 "Top": "255",
                                 "Left": "25",
                                 "Caption": "Save",
-                                "Background": "#35c367",
-                                "Color": "#ffffff",
-                                "BorderColor": "#009c48"
+                                "ExtendedClass": "is-green"
                             },
                             "collections": {
                             }
@@ -553,6 +551,7 @@
                                 "Height": 20,
                                 "Label": "Lead Edit",
                                 "FontSize": "1em",
+                                "FontFamily": "OpenSansSemiboldRegular",
                                 "Color": "#000000"
                             }
                         }

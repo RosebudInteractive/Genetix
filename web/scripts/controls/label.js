@@ -13,7 +13,8 @@ define(
             metaFields: [
                 {fname:"Label",ftype:"string"},
                 {fname:"FontSize",ftype:"string"},
-                {fname:"Color",ftype:"string"}
+                {fname:"Color",ftype:"string"},
+                {fname:"FontFamily",ftype:"string"}
             ],
 
             /**
@@ -35,6 +36,9 @@ define(
             },
             color: function(value) {
                 return this._genericSetter("Color", value);
+            },
+            fontFamily: function(value) {
+                return this._genericSetter("FontFamily", value);
             }
         });
         return Label;

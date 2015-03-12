@@ -15,6 +15,10 @@ define(
                 item.css({"font-size": this.fontSize()});
             if (this.color())
                 item.css({"color": this.color()});
+            if (this.fontFamily())
+                item.css({"font-family": this.fontFamily()});
+            else
+                item.css({"font-family": "OpenSansSemiboldRegular"});
 
         }
         return vLabel;

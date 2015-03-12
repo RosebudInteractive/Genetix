@@ -200,9 +200,17 @@ define(
                     that._selectrow($(this), true);
                     $(this).focus();
                 }).hover(function() {
-                    $(this).next().find("td").css({"box-shadow": "none"})
+                    $(this).next().find("td").css({
+                        "box-shadow": "none",
+                        "-webkit-box-shadow" : "none",
+                        "-moz-box-shadow" : "none"
+                    });
                 }).mouseleave(function() {
-                    $(this).next().find("td").css({"box-shadow": ""})
+                    $(this).next().find("td").css({
+                        "box-shadow": "",
+                        "-webkit-box-shadow" : "",
+                        "-moz-box-shadow" : ""
+                    });
                 });
                 tr.colRef = [];
                 tr.cells = [];

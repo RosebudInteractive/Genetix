@@ -14,7 +14,8 @@ define(
                 {fname:"Caption",ftype:"string"},
                 {fname:"Background",ftype:"string"},
                 {fname:"Color",ftype:"string"},
-                {fname:"BorderColor",ftype:"string"}
+                {fname:"BorderColor",ftype:"string"},
+                {fname:"ExtendedClass",ftype:"string"}
             ],
 
             /**
@@ -42,6 +43,9 @@ define(
 
             borderColor: function(value) {
                 return this._genericSetter("BorderColor", value);
+            },
+            extendedClass: function(value) {
+                return this._genericSetter("ExtendedClass", value);
             }
         });
         return Button;
