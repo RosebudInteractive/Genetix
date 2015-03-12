@@ -41,10 +41,10 @@ define(
 
                 this.element.mouseleave(function () {
                     that._MouseInside = false;
-                    setTimeout(function () {
+                    /*setTimeout(function () {
                         if (!that._MouseInside)
                             that.hide();
-                    }, 500);
+                    }, 500); */
                 }).mouseenter(function () {
                     that._MouseInside = true;
                 });
@@ -113,7 +113,7 @@ define(
                     });
 
                     var subContent = itemEl.children(".content-bl");
-                    itemEl.children(".arrow-be").click(subContent, function(event) {
+                    itemEl.children(".arrow-be-wrapper").click(subContent, function(event) {
                         var opened = $(this).parent().hasClass("is-open");
                         if (opened) {
                             event.data.hide();
@@ -127,13 +127,13 @@ define(
                     subContent.parent().addClass("is-open");
 
                     if (!(data.subTree) || data.subTree.length == 0) {
-                        itemEl.children(".arrow-be").hide();
+                        itemEl.children(".arrow-be-wrapper").hide();
                         itemEl.removeClass("is-header");
                         subContent.hide();
                         subContent.parent().removeClass("is-open");
                     }
                     else {
-                        itemEl.children(".arrow-be").show();
+                        itemEl.children(".arrow-be-wrapper").show();
                         itemEl.addClass("is-header");
 
                         for (var j = 0; j < data.subTree.length; j++) {
@@ -160,7 +160,7 @@ define(
                             subItemEl.data("itemData", subItemData);
                             var subContent2 = subItemEl.children(".content-bl");
                             subContent2.hide();
-                            subItemEl.children(".arrow-be").hide();
+                            subItemEl.children(".arrow-be-wrapper").hide();
                             subItemEl.removeClass("is-header");
                         }
                     }
