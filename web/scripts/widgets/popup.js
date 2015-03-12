@@ -41,10 +41,10 @@ define(
 
                 this.element.mouseleave(function () {
                     that._MouseInside = false;
-                    /*setTimeout(function () {
+                    setTimeout(function () {
                         if (!that._MouseInside)
                             that.hide();
-                    }, 500); */
+                    }, 500);
                 }).mouseenter(function () {
                     that._MouseInside = true;
                 });

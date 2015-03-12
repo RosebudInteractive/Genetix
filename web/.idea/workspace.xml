@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/controls.css" afterPath="$PROJECT_DIR$/css/controls.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/templates/genetix.html" afterPath="$PROJECT_DIR$/scripts/templates/genetix.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/widgets/templates/popup.html" afterPath="$PROJECT_DIR$/scripts/widgets/templates/popup.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/widgets/popup.js" afterPath="$PROJECT_DIR$/scripts/widgets/popup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/popup.styl" afterPath="$PROJECT_DIR$/css/popup.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -73,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="popup.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="popup.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/widgets/popup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.56" vertical-offset="1417" max-vertical-offset="3961">
-              <caret line="118" column="50" selection-start-line="118" selection-start-column="46" selection-end-line="118" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.44017094" vertical-offset="525" max-vertical-offset="3961">
+              <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -146,11 +142,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="popup.styl" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="popup.styl" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/popup.styl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2542735" vertical-offset="629" max-vertical-offset="3128">
-              <caret line="44" column="10" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="3128">
+              <caret line="61" column="45" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -322,8 +318,8 @@
         <option value="$PROJECT_DIR$/scripts/devices.js" />
         <option value="$PROJECT_DIR$/scripts/templates/genetix.html" />
         <option value="$PROJECT_DIR$/scripts/widgets/templates/popup.html" />
-        <option value="$PROJECT_DIR$/scripts/widgets/popup.js" />
         <option value="$PROJECT_DIR$/css/popup.styl" />
+        <option value="$PROJECT_DIR$/scripts/widgets/popup.js" />
       </list>
     </option>
   </component>
@@ -883,7 +879,7 @@
       <workItem from="1425682478618" duration="27586000" />
       <workItem from="1425825499735" duration="18310000" />
       <workItem from="1425972046527" duration="20690000" />
-      <workItem from="1426062657651" duration="23731000" />
+      <workItem from="1426062657651" duration="24491000" />
     </task>
     <task id="LOCAL-00001" summary="Старт">
       <created>1423481621359</created>
@@ -1093,11 +1089,15 @@
       <created>1426158692309</created>
       <updated>1426158692309</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="треугольничек">
+      <created>1426165455335</created>
+      <updated>1426165455335</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="527100000" />
+    <option name="totallyTimeSpent" value="527860000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1123,7 +1123,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24711168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24711168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32267037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1148,7 +1148,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Встраивание грида" />
     <MESSAGE value="Проперти грида" />
     <MESSAGE value="контексты" />
     <MESSAGE value="Линии в гриде и форма лидов" />
@@ -1173,7 +1172,8 @@
     <MESSAGE value="Меню пользователя" />
     <MESSAGE value="ишибки верстки" />
     <MESSAGE value="анимация девайсов" />
-    <option name="LAST_COMMIT_MESSAGE" value="анимация девайсов" />
+    <MESSAGE value="треугольничек" />
+    <option name="LAST_COMMIT_MESSAGE" value="треугольничек" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1600,18 +1600,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/widgets/popup.js">
+    <entry file="file://$PROJECT_DIR$/css/popup.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.56" vertical-offset="1417" max-vertical-offset="3961">
-          <caret line="118" column="50" selection-start-line="118" selection-start-column="46" selection-end-line="118" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="3128">
+          <caret line="61" column="45" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/popup.styl">
+    <entry file="file://$PROJECT_DIR$/scripts/widgets/popup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2542735" vertical-offset="629" max-vertical-offset="3128">
-          <caret line="44" column="10" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.44017094" vertical-offset="525" max-vertical-offset="3961">
+          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
           <folding />
         </state>
       </provider>
