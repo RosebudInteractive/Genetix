@@ -55,7 +55,6 @@ define(
              */
             _renderDevices: function(mainPanel) {
                 // если сессии пустые, то все чистим
-                var that = this;
                 if (!(this._User)) {
                     mainPanel.find(".is-device-icon").remove(":not(#tabs-placeholder)");
                     return;
@@ -88,8 +87,14 @@ define(
 
                 // очистим удаленные устройства
                 mainPanel.find(".is-device-icon:not(#tabs-placeholder)").each(function (i) {
-                    if (!($(this).attr("id") in sessions))
-                        $(this).remove();
+                    if (!($(this).attr("id") in sessions)) {
+                        $(this).find("svg").css({opacity: 0});
+                        $(this).find("is-device-text").css({opacity: 0});
+                        var that2 = this;
+                        setTimeout(function () {
+                            $(that2).remove();
+                        }, 500);
+                    }
                 });
 
                 // добавин новые в конец
@@ -104,35 +109,43 @@ define(
                         else
                             existing = $(templates["tablet"]);
                         existing.attr("id", session.sessionGuid());
+                        // сначала спрячем их
+                        // а потом прекрасно покажем
+                        existing.find("svg").css({opacity: 0});
+                        existing.find("is-device-text").css({opacity: 0});
                         mainPanel.append(existing);
                     }
-                    if (session.countChild("Connects") != 0) {
-                        existing.find("svg").css({color: session.deviceColor(), opacity: "1"});
-                        existing.find(".is-device-text").css({opacity: "1"});
-                    }
-                    else {
-                        existing.find("svg").css({color: "#ffffff", opacity: "0.8"});
-                        existing.find(".is-device-text").css({opacity: "0.8"});
-                    }
                     existing.find(".is-device-text").text(session.deviceName());
+
+                    function slowShow(el, s) {
+                        setTimeout(function() {
+                            if (s.countChild("Connects") != 0) {
+                                el.find("svg").css({color: s.deviceColor(), opacity: "1"});
+                                el.find(".is-device-text").css({opacity: "1"});
+                            }
+                            else {
+                                el.find("svg").css({color: "#ffffff", opacity: "0.8"});
+                                el.find(".is-device-text").css({opacity: "0.8"});
+                            }
+                        }, 0);
+                    }
+
+                    slowShow(existing, session);
+
+
                 }
 
-                // переместим неактивные в конец
-                for (var id in sessions) {
-                    if (id == curSessionId) continue;
-                    var session = sessions[id];
-                    if (session.countChild("Connects") != 0) continue;
-                    var existing = mainPanel.find("#" + id);
-                    existing.appendTo(mainPanel);
-                }
-
-
-                // клик на девайсы пока что их рефрешит
-                /*$(".is-device-icon.is-device").off().click(function () {
-                    var user = uccelloClt.getUser();
-                    that.sessions(user);
-                });*/
-
+                /* перемещение будет с задержкой, чтобы не мешать анимации */
+                setTimeout(function() {
+                    // переместим неактивные в конец
+                    for (var id in sessions) {
+                        if (id == curSessionId) continue;
+                        var session = sessions[id];
+                        if (session.countChild("Connects") != 0) continue;
+                        var existing = mainPanel.find("#" + id);
+                        existing.appendTo(mainPanel);
+                    }
+                }, 500);
             },
 
             /**

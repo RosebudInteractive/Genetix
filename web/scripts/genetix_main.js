@@ -37,7 +37,7 @@ $(document).ready( function() {
                     {className:'DataGrid', component:'dataGrid', viewsets:['simpleview'], guid:'ff7830e2-7add-e65e-7ddf-caba8992d6d8'},
                     {className:'Label', component:'label', viewsets:['simpleview'], guid:'32932036-3c90-eb8b-dd8d-4f19253fabed'},
                     {className:'DataEdit', component:'dataEdit', viewsets:['simpleview'], guid:'affff8b1-10b0-20a6-5bb5-a9d88334b48e'},
-                    {className:'Button', component:'button', viewsets:['simpleview'], guid:'af419748-7b25-1633-b0a9-d539cada8e0d'},
+                    {className:'Button', component:'button', viewsets:['simpleview'], guid:'af419748-7b25-1633-b0a9-d539cada8e0d'}
                 ],
                 controlsPath: 'controls/',
                 uccelloPath: 'lib/uccello/'
@@ -45,12 +45,11 @@ $(document).ready( function() {
             UCCELLO_CONFIG = new Config(config);
 
             require(
-                ['./lib/uccello/uccelloClt', "devices", ],
+                ['./lib/uccello/uccelloClt', "devices" ],
                 function(UccelloClt, Devices){
 
                     this.currRoot=null;
                     this.rootsGuids=[];
-                    this.rootsContainers={};
                     this.devices = new Devices();
                     this.hashchange = true;
                     var that = this;
@@ -80,7 +79,7 @@ $(document).ready( function() {
                             // запросить гуиды рутов
                             uccelloClt.getClient().socket.send({action:"getRootGuids", db:params.masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result) {
                                 that.rootsGuids = result.roots;
-                                uccelloClt.setContext(params, function(result) {
+                                uccelloClt.setContext(params, function() {
                                     that.setContextUrl(params.vc, params.masterGuid, formGuids);
                                     that.setAutoSendDeltas(true);
                                 });
@@ -88,7 +87,7 @@ $(document).ready( function() {
                         } else {
                             that.rootsGuids = formGuids;
                             params.formGuids = formGuids;
-                            uccelloClt.setContext(params, function(result) {
+                            uccelloClt.setContext(params, function() {
                                 uccelloClt.getClient().socket.send({action:"getRootGuids", db:params.masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result2) {
                                     var newFormGuids = [];
                                     for(var i in formGuids) {
@@ -156,7 +155,7 @@ $(document).ready( function() {
 
 
                     this.setAutoSendDeltas = function() {
-                        var cm = uccelloClt.getContextCM(currRoot);
+                        var cm = uccelloClt.getContextCM(this.currRoot);
                         if (cm)
                             cm.autoSendDeltas(true);
                     }
@@ -216,8 +215,9 @@ $(document).ready( function() {
 
                     this.showMainForm = function(callback) {
                         require(["text!templates/genetix.html"], function (mainTemplate) {
-                            $("#mainContent").empty();
-                            $("#mainContent").append($(mainTemplate));
+                            var mainContent = $("#mainContent");
+                            mainContent.empty();
+                            mainContent.append($(mainTemplate));
                             window.getSessions();
                             that.getContexts();
 
