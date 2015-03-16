@@ -29,7 +29,7 @@
   background-color #ffffff
 .grid-b.has-no-paginator .grid-paginator-b
   display none
-.grid-b.has-horizontal-lines tr.grid-tr-bh:not(.is-check):not(:hover):not(:first-child) td.grid-body-td-bh
+.grid-b.has-horizontal-lines tr.grid-tr-bh:not(.is-check):not(:hover):not(:first-child):not(:focus) td.grid-body-td-bh
   box-shadow inset 0 0.0625em 0 #d7e2f5
   -webkit-box-shadow inset 0 0.0625em 0 #d7e2f5
   -moz-box-shadow inset 0 0.0625em 0 #d7e2f5
@@ -179,6 +179,11 @@
 .grid-tr-bh.is-check
   background-color #7b8daa !important
   color #ffffff
+.grid-tr-bh.is-check:not(:hover)
+  box-shadow none
+  -webkit-box-shadow none
+  -moz-box-shadow none
+
 
 .grid-tr-bh:focus:hover,
 .grid-tr-bh.is-check:hover
