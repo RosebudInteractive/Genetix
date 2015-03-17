@@ -31,13 +31,13 @@ $(document).ready( function() {
                     {className:'DataAddress', component:'../DataControls/dataAddress', guid:'16ec0891-1144-4577-f437-f98699464948'},
                     {className:'DataLead', component:'../DataControls/dataLead', guid:'86c611ee-ed58-10be-66f0-dfbb60ab8907'},
                     {className:'DataIncomeplan', component:'../DataControls/dataIncomeplan', guid:'56cc264c-5489-d367-1783-2673fde2edaf'},
-                    {className:'Container', component:'container', viewsets:['simpleview'], guid:'1d95ab61-df00-aec8-eff5-0f90187891cf'},
                     {className:'Form', component:'form', viewsets:['simpleview'], guid:'7f93991a-4da9-4892-79c2-35fe44e69083'},
-                    {className:'DataColumn', component:'dataColumn', guid:'100f774a-bd84-8c46-c55d-ba5981c09db5'},
-                    {className:'DataGrid', component:'dataGrid', viewsets:['simpleview'], guid:'ff7830e2-7add-e65e-7ddf-caba8992d6d8'},
-                    {className:'Label', component:'label', viewsets:['simpleview'], guid:'32932036-3c90-eb8b-dd8d-4f19253fabed'},
                     {className:'DataEdit', component:'dataEdit', viewsets:['simpleview'], guid:'affff8b1-10b0-20a6-5bb5-a9d88334b48e'},
-                    {className:'Button', component:'button', viewsets:['simpleview'], guid:'af419748-7b25-1633-b0a9-d539cada8e0d'}
+
+                    {className:'GenLabel', component:'genLabel', viewsets:['simpleview'], guid:'151c0d05-4236-4732-b0bd-ddcf69a35e25'},
+                    {className:'GenDataGrid', component:'genDataGrid', viewsets:['simpleview'], guid:'55d59ec4-77ac-4296-85e1-def78aa93d55'},
+                    {className:'GenContainer', component:'genContainer', viewsets:['simpleview'], guid:'b75474ef-26d0-4298-9dad-4133edaa8a9c'},
+                    {className:'GenButton', component:'genButton', viewsets:['simpleview'], guid:'bf0b0b35-4025-48ff-962a-1761aa7b3a7b'}
                 ],
                 controlsPath: 'controls/',
                 uccelloPath: 'lib/uccello/'

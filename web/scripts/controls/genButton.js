@@ -4,14 +4,13 @@ if (typeof define !== 'function') {
 }
 
 define(
-    [UCCELLO_CONFIG.uccelloPath+'controls/aControl'],
-    function(AControl) {
-        var Button = AControl.extend({
+    [UCCELLO_CONFIG.uccelloPath+'controls/button'],
+    function(Button) {
+        var GenButton = Button.extend({
 
-			className: "Button",
-			classGuid: "af419748-7b25-1633-b0a9-d539cada8e0d",
+			className: "GenButton",
+			classGuid: "bf0b0b35-4025-48ff-962a-1761aa7b3a7b",
             metaFields: [
-                {fname:"Caption",ftype:"string"},
                 {fname:"Background",ftype:"string"},
                 {fname:"Color",ftype:"string"},
                 {fname:"BorderColor",ftype:"string"},
@@ -48,6 +47,6 @@ define(
                 return this._genericSetter("ExtendedClass", value);
             }
         });
-        return Button;
+        return GenButton;
     }
 );

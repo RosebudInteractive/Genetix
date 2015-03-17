@@ -4,14 +4,13 @@ if (typeof define !== 'function') {
 }
 
 define(
-    [UCCELLO_CONFIG.uccelloPath+'controls/aControl'],
-    function(AControl) {
-        var Label = AControl.extend({
+    [UCCELLO_CONFIG.uccelloPath+'controls/label'],
+    function(Label) {
+        var GenLabel = Label.extend({
 
-            className: "Label",
-            classGuid: "32932036-3c90-eb8b-dd8d-4f19253fabed",
+            className: "GenLabel",
+            classGuid: "151c0d05-4236-4732-b0bd-ddcf69a35e25",
             metaFields: [
-                {fname:"Label",ftype:"string"},
                 {fname:"FontSize",ftype:"string"},
                 {fname:"Color",ftype:"string"},
                 {fname:"FontFamily",ftype:"string"}
@@ -41,6 +40,6 @@ define(
                 return this._genericSetter("FontFamily", value);
             }
         });
-        return Label;
+        return GenLabel;
     }
 );

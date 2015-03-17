@@ -4,13 +4,12 @@ if (typeof define !== 'function') {
 }
 
 define(
-    [UCCELLO_CONFIG.uccelloPath+'controls/aControl'],
-    function(AControl) {
-        var Container = AControl.extend({
+    [UCCELLO_CONFIG.uccelloPath+'controls/container'],
+    function(Container) {
+        var GenContainer = Container.extend({
 
-            className: "Container",
-            classGuid: "1d95ab61-df00-aec8-eff5-0f90187891cf",
-            metaCols: [ {"cname": "Children", "ctype": "control"} ],
+            className: "GenContainer",
+            classGuid: "b75474ef-26d0-4298-9dad-4133edaa8a9c",
             metaFields: [
                 {fname:"Background", ftype:"string"},
                 {fname:"Position", ftype:"string"}
@@ -28,6 +27,6 @@ define(
                 return this._genericSetter("Position", value);
             }
         });
-        return Container;
+        return GenContainer;
     }
 );

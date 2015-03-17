@@ -4,12 +4,12 @@ if (typeof define !== 'function') {
 }
 
 define(
-    [UCCELLO_CONFIG.uccelloPath+'controls/aDataControl'],
-    function(ADataControl) {
-        var DataGrid = ADataControl.extend({
+    [UCCELLO_CONFIG.uccelloPath+'controls/dataGrid'],
+    function(DataGrid) {
+        var GenDataGrid = DataGrid.extend({
 
-            className: "DataGrid",
-            classGuid: "ff7830e2-7add-e65e-7ddf-caba8992d6d8",
+            className: "GenDataGrid",
+            classGuid: "55d59ec4-77ac-4296-85e1-def78aa93d55",
             metaFields: [
                 {fname:"Alternate", ftype:"boolean"},
                 {fname:"HorizontalLines", ftype:"boolean"},
@@ -18,7 +18,6 @@ define(
                 {fname:"WhiteHeader", ftype:"boolean"},
                 {fname:"HasFooter", ftype:"boolean"}
             ],
-            metaCols: [ {"cname": "Columns", "ctype": "DataColumn"}],
 
             /**
              * Инициализация объекта
@@ -98,6 +97,6 @@ define(
             }
 
     });
-        return DataGrid;
+        return GenDataGrid;
     }
 );
