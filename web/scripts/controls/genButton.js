@@ -9,7 +9,7 @@ define(
         var GenButton = Button.extend({
 
 			className: "GenButton",
-			classGuid: "bf0b0b35-4025-48ff-962a-1761aa7b3a7b",
+			classGuid: UCCELLO_CONFIG.classGuids.GenButton,
             metaFields: [
                 {fname:"Background",ftype:"string"},
                 {fname:"Color",ftype:"string"},

@@ -52,7 +52,10 @@ var config = {
         {className:'GenDataGrid', component:'genDataGrid', viewsets:true, guid:'55d59ec4-77ac-4296-85e1-def78aa93d55'},
         {className:'GenLabel', component:'genLabel', viewsets:true, guid:'151c0d05-4236-4732-b0bd-ddcf69a35e25'},
         {className:'GenContainer',component:'genContainer', viewsets:true, guid:'b75474ef-26d0-4298-9dad-4133edaa8a9c'},
-        {className:'GenButton', component:'genButton', viewsets:true, guid:'bf0b0b35-4025-48ff-962a-1761aa7b3a7b'}
+        {className:'GenButton', component:'genButton', viewsets:true, guid:'bf0b0b35-4025-48ff-962a-1761aa7b3a7b'},
+        // контролы уччелло
+        {className:'DataEdit', viewsets:true},
+        {className:'Form', viewsets:true}
     ],
     controlsPath: __dirname+'/scripts/controls/',
     dataPath: __dirname+'/data/',
