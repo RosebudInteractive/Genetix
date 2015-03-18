@@ -10,6 +10,7 @@
   background-color: #38465a;
   position: fixed;
   top: 0px;
+  min-width: 29em;
 }
 .system-panel-section-left {
   float: left;
@@ -170,6 +171,7 @@ div.system-toolbar-menu-item {
   background-color: #38465a;
   position: fixed;
   bottom: 0px;
+  min-width: 29em;
 }
 .is-system-footer-section-left {
   float: left;
@@ -395,6 +397,7 @@ body {
   font-family: 'OpenSansRegular', 'sans-serif';
   background-color: #d9e1ee;
   fill: currentColor;
+  min-width: 29em;
 }
 .is-disableselect {
   user-select: none;
@@ -422,6 +425,7 @@ body {
 }
 .is-main-container {
   height: 100%;
+  min-width: 29em;
 }
 .is-content {
   height: 100%;

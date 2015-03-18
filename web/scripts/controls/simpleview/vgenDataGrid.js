@@ -220,6 +220,12 @@ define(
                     if (o._grid)
                         o._grid.grid("updatePosition", this.y);
                 });
+                _iscroll.on('scrollStart', function() {
+                    $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: 1});
+                });
+                _iscroll.on('scrollEnd', function() {
+                    $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: ""});
+                });
                 o._iscroll = _iscroll;
             }
 
