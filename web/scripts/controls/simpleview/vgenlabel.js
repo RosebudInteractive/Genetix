@@ -11,10 +11,11 @@ define(
                 $(parent).append(item);
             }
             item.css({top: this.top() + 'px', left: this.left() + 'px'}).html(this.label());
-            if (this.fontSize())
+            if (this.fontSize( ))
                 item.css({"font-size": this.fontSize()});
             if (this.color())
                 item.css({"color": this.color()});
+            // фонт
             if (this.fontFamily())
                 item.css({"font-family": this.fontFamily()});
             else
