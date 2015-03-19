@@ -429,7 +429,7 @@
             {
               "$sys": {
                 "guid": "6a7cea85-dd15-d958-fffc-1f15e155fcdf",
-                "typeGuid": "affff8b1-10b0-20a6-5bb5-a9d88334b48e"
+                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
               },
               "fields": {
                 "Id": 320,
@@ -447,7 +447,7 @@
             {
               "$sys": {
                 "guid": "265802e9-d5d5-953c-2712-1f4d8fa0e948",
-                "typeGuid": "affff8b1-10b0-20a6-5bb5-a9d88334b48e"
+                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
               },
               "fields": {
                 "Id": 321,
@@ -465,7 +465,7 @@
             {
               "$sys": {
                 "guid": "dd28f133-8a15-1212-eb7b-1ebd8dfaaa4d",
-                "typeGuid": "affff8b1-10b0-20a6-5bb5-a9d88334b48e"
+                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
               },
               "fields": {
                 "Id": 322,
@@ -483,7 +483,7 @@
             {
               "$sys": {
                 "guid": "a0a48c6f-0b42-ad7e-2008-799292f85595",
-                "typeGuid": "affff8b1-10b0-20a6-5bb5-a9d88334b48e"
+                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
               },
               "fields": {
                 "Id": 322,
@@ -501,7 +501,7 @@
             {
               "$sys": {
                 "guid": "95384974-2a8f-ddaa-2f47-d8b55cc3774f",
-                "typeGuid": "affff8b1-10b0-20a6-5bb5-a9d88334b48e"
+                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
               },
               "fields": {
                 "Id": 322,

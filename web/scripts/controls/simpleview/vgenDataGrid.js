@@ -28,7 +28,7 @@ define(
                     columns: [],
                     source: this.source,
                     selectrow: function (event, row, obj) {
-                        if ('Id' in row[0]) {
+                        if (row[0] && 'Id' in row[0]) {
                             event.stopPropagation();
                             that.getControlMgr().userEventHandler(that, function(){
                                 var ds = that.getControlMgr().getByGuid(that.dataset());

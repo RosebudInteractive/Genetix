@@ -1,13 +1,13 @@
 define(
     ['/scripts/lib/uccello/uses/template.js', 'text!./templates/dataEdit.html'],
     function(template, tpl) {
-        var vDataEdit = {};
-        vDataEdit._templates = template.parseTemplate(tpl);
-        vDataEdit.render = function(options) {
+        var vGenDataEdit = {};
+        vGenDataEdit._templates = template.parseTemplate(tpl);
+        vGenDataEdit.render = function(options) {
             var that = this;
             var item = $('#' + this.getLid());
             if (item.length == 0) {
-                item = $(vDataEdit._templates['edit']).attr('id', this.getLid());
+                item = $(vGenDataEdit._templates['edit']).attr('id', this.getLid());
                 var parent = (this.getParent()? '#' + this.getParent().getLid(): options.rootContainer);
                 $(parent).append(item);
 
@@ -24,6 +24,14 @@ define(
 
             // координаты контрола
             item.css({top: this.top() + 'px', left: this.left() + 'px'});
+            if (this.title()) {
+                item.attr("title", this.title());
+                item.tooltip({
+                    position: { my: 'center top', at: 'center bottom', collision: 'none' },
+                    tooltipClass: 'bottom'
+                });
+            } else
+                item.removeAttr("title");
 
             // устанавливаем значение
             if (this.dataset() && this.dataField()) {
@@ -31,6 +39,6 @@ define(
                 item.find("input").val(dataset? dataset.getField(this.dataField()): '');
             }
         }
-        return vDataEdit;
+        return vGenDataEdit;
     }
 );
