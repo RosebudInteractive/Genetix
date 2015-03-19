@@ -376,35 +376,7 @@ $(document).ready( function() {
                             else {
                                 that.showMainForm(function () {
                                     uccelloClt.subscribeUser(function(result2) {
-                                        if (result2) {
-                                            var masterGuid = url('#database');
-                                            var vc = url('#context');
-                                            if(masterGuid && vc) {
-                                                $('#userContext').val(masterGuid).change();
-                                                var formGuids = 'all';
-                                                var urlGuids = url('#formGuids');
-                                                if (urlGuids != null) {
-                                                    formGuids = urlGuids.split(',');
-                                                }
-                                                if (formGuids != 'all') {
-                                                    uccelloClt.getClient().socket.send({action:"getRootGuids", db:masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result) {
-                                                        var newFormGuids = [];
-                                                        for(var i in formGuids) {
-                                                            var found = false;
-                                                            for(var j in result.roots) {
-                                                                if (result.roots[j] == formGuids[i])
-                                                                    found = true;
-                                                            }
-                                                            if (!found)
-                                                                newFormGuids.push(formGuids[i]);
-                                                        }
-                                                        if (newFormGuids.length > 0)
-                                                            uccelloClt.createRoot(newFormGuids, "res");
-                                                    });
-                                                }
-                                            }
-                                        }
-                                        else
+                                        if (!result2)
                                             that.showLogin();
                                     });
                                 });

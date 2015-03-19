@@ -3,6 +3,10 @@
  * Date: 20.02.2015
  * Time: 19:22
  */
+// дирректория где лежит Uccello
+var uccelloDir = process.argv[2]?process.argv[2]:'Uccello';
+console.log('Using folder: '+uccelloDir);
+
 // Модули nodejs
 var http = require('http');
 var express = require('express');
@@ -24,7 +28,7 @@ app.use("/css", express.static(__dirname + '/css'));
 app.use("/fonts", express.static(__dirname + '/fonts'));
 app.use("/images", express.static(__dirname + '/images'));
 app.use("/scripts", express.static(__dirname + '/scripts'));
-app.use("/scripts/lib/uccello", express.static(__dirname + '/../../Uccello'));
+app.use("/scripts/lib/uccello", express.static(__dirname + '/../../'+uccelloDir));
 
 
 /**
@@ -59,15 +63,15 @@ var config = {
     ],
     controlsPath: __dirname+'/scripts/controls/',
     dataPath: __dirname+'/data/',
-    uccelloPath: __dirname+'/../../Uccello/'
+    uccelloPath: __dirname+'/../../'+uccelloDir+'/'
 };
 
 // модуль настроек
-var UccelloConfig = require('../../Uccello/config/config');
+var UccelloConfig = require('../../'+uccelloDir+'/config/config');
 UCCELLO_CONFIG = new UccelloConfig(config);
 
 // модуль сервера
-var UccelloServ = require('../../Uccello/uccelloServ');
+var UccelloServ = require('../../'+uccelloDir+'/uccelloServ');
 var uccelloServ = new UccelloServ({port:8082, authenticate:fakeAuthenticate});
 
 // запускаем http сервер
