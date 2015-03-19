@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview\vgenbutton.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenButton2.js" />
-      <change type="MOVED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview\vgencontainer.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenContainer2.js" />
+      <change type="MOVED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview\vgenButton2.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js" />
+      <change type="MOVED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview\vgenContainer2.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenContainer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -190,8 +190,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vgenContainer2.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenContainer2.js">
+      <file leaf-file-name="vgenContainer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenContainer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="211" max-vertical-offset="1054">
               <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
@@ -856,7 +856,7 @@
       <workItem from="1425972046527" duration="20690000" />
       <workItem from="1426062657651" duration="29254000" />
       <workItem from="1426488169671" duration="36424000" />
-      <workItem from="1426753366245" duration="9543000" />
+      <workItem from="1426753366245" duration="9614000" />
     </task>
     <task id="LOCAL-00001" summary="Старт">
       <created>1423481621359</created>
@@ -1110,11 +1110,15 @@
       <created>1426764840609</created>
       <updated>1426764840609</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="тултипы">
+      <created>1426765848023</created>
+      <updated>1426765848023</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="578590000" />
+    <option name="totallyTimeSpent" value="578661000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1316,7 +1320,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenButton2.js">
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
           <caret line="1" column="32" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="32" />
@@ -1388,7 +1392,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenContainer2.js">
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="211" max-vertical-offset="1054">
           <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
