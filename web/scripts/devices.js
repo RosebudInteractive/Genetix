@@ -370,7 +370,7 @@ define(
                         that.rootsGuids = result.roots;
                         uccelloClt.setContext(params, function(result) {
                             that._setContextUrl(params.vc, formGuids);
-                        }, that._renderRoot);
+                        }, function() { return that._renderRoot() });
                     });
                 } else {
                     that.rootsGuids = formGuids;
@@ -391,7 +391,7 @@ define(
                                 uccelloClt.createRoot(newFormGuids, "res");
                         });
                         that._setContextUrl(params.vc, formGuids);
-                    }, that._renderRoot);
+                    }, function() { return that._renderRoot() });
                 }
             },
             _setAutoSendDeltas: function() {
