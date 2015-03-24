@@ -105,7 +105,7 @@ $(document).ready( function() {
                                 });
                                 that.setContextUrl(params.vc, formGuids);
                                 that.setAutoSendDeltas(true);
-                            });
+                            }, that.renderRoot);
                         }
 
                     }
