@@ -268,10 +268,10 @@ $(document).ready( function() {
 
 
                             // выбрать контекст если указаны параметры
-                            var masterGuid = url('#database');
                             var vc = url('#context');
-                            if(masterGuid && vc)
-                                $('#userContext').val(masterGuid).change();
+                            var vcObj = uccelloClt.getSysCM().getByGuid(vc);
+                            if(vcObj && vc)
+                                $('#userContext').val(vcObj.dataBase()).change();
 
                             uccelloClt.getController().event.on({
                                 type: 'endApplyDeltas',

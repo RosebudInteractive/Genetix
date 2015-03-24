@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="тултипы">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/genetix_main.js" afterPath="$PROJECT_DIR$/scripts/genetix_main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,10 +31,10 @@
       <file leaf-file-name="genetix_main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67164177" vertical-offset="2093" max-vertical-offset="6885">
-              <caret line="139" column="46" selection-start-line="139" selection-start-column="46" selection-end-line="139" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.50248754" vertical-offset="4473" max-vertical-offset="6885">
+              <caret line="275" column="11" selection-start-line="275" selection-start-column="11" selection-end-line="275" selection-end-column="11" />
               <folding>
-                <element signature="e#15404#18297#0" expanded="false" />
+                <element signature="e#15419#18312#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -734,7 +732,7 @@
       <workItem from="1427184980765" duration="1311000" />
       <workItem from="1427189110120" duration="3386000" />
       <workItem from="1427192771877" duration="503000" />
-      <workItem from="1427193535014" duration="10305000" />
+      <workItem from="1427193535014" duration="10942000" />
     </task>
     <task id="LOCAL-00001" summary="Старт">
       <created>1423481621359</created>
@@ -1000,7 +998,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="610345000" />
+    <option name="totallyTimeSpent" value="610982000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1465,10 +1463,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67164177" vertical-offset="2093" max-vertical-offset="6885">
-          <caret line="139" column="46" selection-start-line="139" selection-start-column="46" selection-end-line="139" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.50248754" vertical-offset="4473" max-vertical-offset="6885">
+          <caret line="275" column="11" selection-start-line="275" selection-start-column="11" selection-end-line="275" selection-end-column="11" />
           <folding>
-            <element signature="e#15404#18297#0" expanded="false" />
+            <element signature="e#15419#18312#0" expanded="false" />
           </folding>
         </state>
       </provider>
