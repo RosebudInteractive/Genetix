@@ -11,6 +11,7 @@ console.log('Using folder: '+uccelloDir);
 var http = require('http');
 var express = require('express');
 var app = express();
+var DeviceHelper = require('./scripts/deviceHelper');
 
 // Обработчики express
 // ----------------------------------------------------------------------------------------------------------------------
@@ -19,7 +20,11 @@ var app = express();
 app.engine('html', require('ejs').renderFile);
 // обработка /genetix
 app.get('/genetix', function(req, res){
-    res.render('genetix.html');
+    var device = new DeviceHelper(req.headers["user-agent"]);
+    if (device.mobile() || device.tablet())
+        res.render('genetix.m.html');
+    else
+        res.render('genetix.html');
 });
 
 // статические данные и модули для подгрузки на клиент

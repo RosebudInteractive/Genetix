@@ -21,8 +21,9 @@ jQuery.browser.chrome = /chrome/.test(navigator.userAgent.toLowerCase());
 
 $(document).ready( function() {
     require(
-        ["./lib/uccello/config/config"],
-        function(Config) {
+        ["./lib/uccello/config/config", "deviceHelper.js"],
+        function(Config, Device) {
+            var device = new Device(window.navigator.userAgent.toLowerCase());
             var config = {
                 controls: [
                     {className:'DataContact', component:'../DataControls/dataContact', guid:'73596fd8-6901-2f90-12d7-d1ba12bae8f4'},
@@ -214,7 +215,11 @@ $(document).ready( function() {
                     }
 
                     this.showMainForm = function(callback) {
-                        require(["text!templates/genetix.html"], function (mainTemplate) {
+                        var template = "text!templates/genetix.html";
+
+                        if (device.mobile() || device.tablet())
+                            template = "text!templates/genetix.m.html"
+                        require([template], function (mainTemplate) {
                             var mainContent = $("#mainContent");
                             mainContent.empty();
                             mainContent.append($(mainTemplate));

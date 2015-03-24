@@ -1,0 +1,204 @@
+<div class="is-system-panel clearfix">
+    <div class="system-panel-section-left no-spaces">
+        <div id="coral-button" class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+            <div class="system-toolbar-icon-wrapper">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#bird"></use>
+                        </svg>
+            </div>
+        </div>
+        <div id="process-button"class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+            <div class="system-toolbar-icon-wrapper">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#process"></use>
+                        </svg>
+            </div>
+        </div>
+        <div class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+            <div class="system-toolbar-icon-wrapper">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#compass"></use>
+                        </svg>
+            </div>
+        </div>
+        <div class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+            <div class="system-toolbar-icon-wrapper">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#eye"></use>
+                        </svg>
+            </div>
+        </div>
+        <div class="system-toolbar-icon"
+             onclick="
+                        var d = $(this).find('div');
+                        d.find('svg').width('22px').height('22px');
+                        var h=d.html();
+                        if (h.indexOf('unsaved_interface') >= 0)
+                            h = h.replace('unsaved_interface', 'saved_interface');
+                        else
+                            h = h.replace('saved_interface', 'unsaved_interface');
+                        d.html(h);"
+                >
+            <div class="system-toolbar-icon-wrapper">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#unsaved_interface"></use>
+                        </svg>
+            </div>
+        </div>
+    </div>
+    <div class="system-panel-section-left no-spaces is-last">
+        <div class="stretch-element">
+            <div id="documents-menu-item" class="system-toolbar-menu-item is-active" title="Open Leads list">
+                <div class="system-toolbar-icon-wrapper">
+                    <div class="system-toolbar-menu-item-text">
+                        <div>Leads</div>
+                        <div class="is-dot is-green">
+                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="/images/Genetix.svg#dot"></use>
+                                    </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="crm-menu-item" class="system-toolbar-menu-item is-active">
+                <div class="system-toolbar-icon-wrapper">
+                    <div class="system-toolbar-menu-item-text">
+                        <div>Companies</div>
+                        <div class="is-dot">
+                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="/images/Genetix.svg#dot"></use>
+                                    </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="emk-menu-item" class="system-toolbar-menu-item">
+                <div class="system-toolbar-icon-wrapper">
+                    <div class="system-toolbar-menu-item-text">
+                        <div>Lead edit</div>
+                        <div class="is-dot">
+                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="/images/Genetix.svg#dot"></use>
+                                    </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div  class="system-toolbar-menu-item">
+                <div class="system-toolbar-icon-wrapper">
+                    <div class="system-toolbar-menu-item-text">
+                        <div>Edit</div>
+                        <div class="is-dot">
+                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="/images/Genetix.svg#dot"></use>
+                                    </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div  class="system-toolbar-menu-item">
+                <div class="system-toolbar-icon-wrapper">
+                    <div class="system-toolbar-menu-item-text">
+                        <div>More documents</div>
+                        <div class="is-dot">
+                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="/images/Genetix.svg#dot"></use>
+                                    </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="system-panel-section-right no-spaces">
+        <div class="system-toolbar-icon has-right-border" onclick="$(this).toggleClass('is-pressed')">
+            <div class="system-toolbar-icon-wrapper is-dots">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#dots"></use>
+                        </svg>
+            </div>
+        </div>
+        <div class="system-toolbar-menu-item is-combo">
+            <div class="system-toolbar-icon-wrapper is-user-combo">
+                <div id="userName-combo" class="text-btn-e is-arrow-drop">Edgar Poe</div>
+            </div>
+        </div>
+        <div class="system-toolbar-icon is-device-close-icon" onclick="
+                        var d = $(this).find('div');
+                        d.find('svg').width('22px').height('22px');
+                        var h=d.html();
+                        if (h.indexOf('device_open') >= 0) {
+                            $('.is-content').removeClass('is-device-bar-hidden');
+                            h = h.replace('device_open', 'device_close');
+                        } else {
+                            $('.is-content').addClass('is-device-bar-hidden');
+                            h = h.replace('device_close', 'device_open');
+                        }
+                        d.html(h);"
+                >
+            <div class="system-toolbar-icon-wrapper">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#device_close"></use>
+                        </svg>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="is-content">
+    <div class="is-content-wrapper">
+        <div id="root-form-container" class="is-left-content">
+
+        </div>
+        <div class="is-device-bar">
+            <div class="is-device-wrapper">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="is-system-footer clearfix">
+    <div class="is-system-footer-section-left no-spaces">
+        <div class="system-footer-icon">
+            <div class="system-footer-icon-wrapper">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#question"></use>
+                        </svg>
+            </div>
+        </div>
+    </div>
+    <div class="is-system-footer-section-left is-pressed no-spaces">
+        <div class="system-footer-icon is-pressed">
+            <div class="system-footer-icon-wrapper">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#lamp"></use>
+                        </svg>
+            </div>
+        </div>
+        <div class="system-footer-text is-pressed">
+            <span>10</span>
+        </div>
+    </div>
+    <div class="is-system-footer-section-left no-spaces is-last">
+        <div class="system-footer-text has-left-margin is-grey-text">
+            <span>22/10 11:30 AM - Meeting - Media Ocean</span>
+        </div>
+    </div>
+    <div class="is-system-footer-section-right no-spaces">
+        <div class="system-footer-icon has-right-border">
+            <div class="system-footer-icon-wrapper">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#bird"></use>
+                        </svg>
+            </div>
+        </div>
+        <div class="system-footer-icon is-last-icon">
+            <div class="system-footer-icon-wrapper">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#arrow_up"></use>
+                        </svg>
+            </div>
+        </div>
+    </div>
+</div>
+<span id="context-list-wrapper" style="position: absolute; top: 49px; left: 5px; display: none; z-index: 100">
+    <select id="userContext"></select>
+</span>
