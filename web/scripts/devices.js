@@ -421,7 +421,7 @@ define(
              * @returns {object}
              */
             _renderRoot: function(rootGuid){
-                //devices.currentRoot(rootGuid);
+                this._CurrentRoot = rootGuid;
                 return {rootContainer: "#root-form-container"};
             }
         });
