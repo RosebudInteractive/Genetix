@@ -28,11 +28,11 @@ define(
                     columns: [],
                     source: this.source,
                     selectrow: function (event, row, obj) {
-                        if (row[0] && 'Id' in row[0]) {
+                        if (row && 'Id' in row) {
                             event.stopPropagation();
                             that.getControlMgr().userEventHandler(that, function(){
                                 var ds = that.getControlMgr().getByGuid(that.dataset());
-                                if (ds.cursor() != row[0].Id) ds.cursor(row[0].Id);
+                                if (ds.cursor() != row.Id) ds.cursor(row.Id);
                             });
 
                             setTimeout(function () {
