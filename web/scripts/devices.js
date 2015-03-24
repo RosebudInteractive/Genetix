@@ -401,6 +401,8 @@ define(
             },
 
             _setContextUrl: function(context, formGuids) {
+                if (typeof formGuids == "string")
+                    formGuids = [formGuids];
                 if (formGuids[0] != "all")
                     this._CurrentRoot = formGuids[0];
                 window.isHashchange = false;
