@@ -346,7 +346,7 @@ define(
                     }
                 }*/
 
-                if (formGuids == 'all') {
+                /*if (formGuids == 'all') {
                     // запросить гуиды рутов
                     uccelloClt.getClient().socket.send({action:"getRootGuids", db:params.masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result) {
                         that.rootsGuids = result.roots;
@@ -362,6 +362,36 @@ define(
                         that._setContextUrl(params.vc, formGuids);
                         that._setAutoSendDeltas(true);
                     });
+                }*/
+
+                if (formGuids == null || formGuids == 'all') {
+                    // запросить гуиды рутов
+                    uccelloClt.getClient().socket.send({action:"getRootGuids", db:params.masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result) {
+                        that.rootsGuids = result.roots;
+                        uccelloClt.setContext(params, function(result) {
+                            that._setContextUrl(params.vc, formGuids);
+                        }, that._renderRoot);
+                    });
+                } else {
+                    that.rootsGuids = formGuids;
+                    params.formGuids = formGuids;
+                    uccelloClt.setContext(params, function(result) {
+                        uccelloClt.getClient().socket.send({action:"getRootGuids", db:params.masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result2) {
+                            var newFormGuids = [];
+                            for(var i in formGuids) {
+                                var found = false;
+                                for(var j in result2.roots) {
+                                    if (result2.roots[j] == formGuids[i])
+                                        found = true;
+                                }
+                                if (!found)
+                                    newFormGuids.push(formGuids[i]);
+                            }
+                            if (newFormGuids.length > 0)
+                                uccelloClt.createRoot(newFormGuids, "res");
+                        });
+                        that._setContextUrl(params.vc, formGuids);
+                    }, that._renderRoot);
                 }
             },
             _setAutoSendDeltas: function() {
@@ -369,9 +399,11 @@ define(
                 if (cm)
                     cm.autoSendDeltas(true);
             },
+
             _setContextUrl: function(context, formGuids) {
                 if (formGuids[0] != "all")
                     this._CurrentRoot = formGuids[0];
+                window.isHashchange = false;
                 document.location = this._getContextUrl(context, formGuids);
             },
 
@@ -381,6 +413,16 @@ define(
                 formGuids = !formGuids || formGuids=='all'?'all':formGuids;
                 if (formGuids !='all' && typeof formGuids == "string") formGuids = [formGuids];
                 return location+'#context='+context+'&formGuids='+(!formGuids || formGuids=='all'?'all':formGuids.join(','))
+            },
+
+            /**
+             * Рендер переключателя рута
+             * @param rootGuid {string}
+             * @returns {object}
+             */
+            _renderRoot: function(rootGuid){
+                //devices.currentRoot(rootGuid);
+                return {rootContainer: "#root-form-container"};
             }
         });
 

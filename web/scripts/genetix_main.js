@@ -52,7 +52,7 @@ $(document).ready( function() {
                     this.currRoot=null;
                     this.rootsGuids=[];
                     this.devices = new Devices();
-                    this.hashchange = true;
+                    window.isHashchange = true;
                     var that = this;
 
                     /**
@@ -370,7 +370,7 @@ $(document).ready( function() {
                     }
 
                     this.newTab = function(data) {
-                        window.open(that.getContextUrl(data.contextGuid, data.dbGuid, data.resGuids));
+                        window.open(that.getContextUrl(data.contextGuid, data.resGuids));
                     }
 
                     uccelloClt = new UccelloClt({
@@ -388,7 +388,7 @@ $(document).ready( function() {
                                 });
                             }
                         },
-                        renderRoot: that.renderRoot,
+                        //renderRoot: that.renderRoot,
                         newTabCallback: that.newTab
                     });
 
@@ -422,7 +422,7 @@ $(document).ready( function() {
                     }
 
                     this.setContextUrl = function(context, formGuids) {
-                        that.hashchange = false;
+                        window.isHashchange = false;
                         document.location = that.getContextUrl(context, formGuids);
 
                     }
@@ -436,13 +436,13 @@ $(document).ready( function() {
                     }
 
                     $(window).on('hashchange', function() {
-                        if (that.hashchange) {
+                        if (window.isHashchange) {
                             var vc = url('#context');
                             var vcObj = uccelloClt.getSysCM().getByGuid(vc);
                             if(vcObj && vc)
                                 $('#userContext').val(vcObj.dataBase()).change();
                         }
-                        that.hashchange = true;
+                        window.isHashchange = true;
                     });
                 }
             );
