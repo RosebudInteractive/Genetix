@@ -7,9 +7,36 @@ define(
     function() {
         var _orientation_event, _supports_orientation;
         var _screenWidth, _screenHeight;
+        var that;
+
+        function _handleOrientation() {
+            var result = null;
+
+
+            if (that.ios() && that.landscape()) {
+                _screenWidth = screen.height;
+                _screenHeight = screen.width;
+            } else {
+                _screenWidth = screen.width;
+                _screenHeight = screen.height;
+            }
+
+            if (that.landscape()) {
+                that._removeClass("portrait");
+                result = that._addClass("landscape");
+            } else {
+                that._removeClass("landscape");
+                result = that._addClass("portrait");
+            }
+            if (that._userOrientationHandler)
+                that._userOrientationHandler();
+            return result;
+        }
+
 
         var Device = Class.extend({
             init: function(userAgent) {
+                that = this;
                 this._UserAgent = userAgent.toLowerCase();
                 this._ClientMode = false;
                 if (!(typeof module !== 'undefined' && module.exports)) {
@@ -181,40 +208,14 @@ define(
                 _orientation_event = "resize";
 
                 if (window.addEventListener) {
-                    window.addEventListener(_orientation_event, this._handleOrientation, false);
+                    window.addEventListener(_orientation_event, _handleOrientation, false);
                 } else if (window.attachEvent) {
-                    window.attachEvent(_orientation_event, this._handleOrientation);
+                    window.attachEvent(_orientation_event, _handleOrientation);
                 } else {
-                    window[_orientation_event] = this._handleOrientation;
+                    window[_orientation_event] = _handleOrientation;
                 }
 
-                this._handleOrientation();
-            },
-
-
-
-            _handleOrientation: function() {
-                var result = null;
-
-
-                if (this.ios() && this.landscape()) {
-                    _screenWidth = screen.height;
-                    _screenHeight = screen.width;
-                } else {
-                    _screenWidth = screen.width;
-                    _screenHeight = screen.height;
-                }
-
-                if (this.landscape()) {
-                    this._removeClass("portrait");
-                    result = this._addClass("landscape");
-                } else {
-                    this._removeClass("landscape");
-                    result = this._addClass("portrait");
-                }
-                if (this._userOrientationHandler)
-                    this._userOrientationHandler();
-                return result;
+                _handleOrientation();
             }
         });
 

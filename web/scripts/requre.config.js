@@ -10,6 +10,7 @@ requirejs.config({
         text       : '/scripts/lib/uccello/uses/text',
         underscore : '/scripts/lib/uccello/uses/underscore',
         wGrid      : '/scripts/widgets/wGrid',
-        gPopup     : '/scripts/widgets/popup'
+        gPopup     : '/scripts/widgets/popup'/*,
+        deviceHelper: '/scripts/deviceHelper'*/
     }
 });

@@ -351,7 +351,7 @@ define(
                     uccelloClt.getClient().socket.send({action:"getRootGuids", db:params.masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result) {
                         that.rootsGuids = result.roots;
                         uccelloClt.setContext(params, function(result) {
-                            that._setContextUrl(params.vc, params.masterGuid, formGuids);
+                            that._setContextUrl(params.vc,formGuids);
                             that._setAutoSendDeltas(true);
                         });
                     });
@@ -359,7 +359,7 @@ define(
                     that.rootsGuids = formGuids;
                     params.formGuids = formGuids;
                     uccelloClt.setContext(params, function(result) {
-                        that._setContextUrl(params.vc, params.masterGuid, formGuids);
+                        that._setContextUrl(params.vc, formGuids);
                         that._setAutoSendDeltas(true);
                     });
                 }
@@ -369,16 +369,18 @@ define(
                 if (cm)
                     cm.autoSendDeltas(true);
             },
-            _setContextUrl: function(context, database, formGuids) {
+            _setContextUrl: function(context, formGuids) {
                 if (formGuids[0] != "all")
                     this._CurrentRoot = formGuids[0];
-                document.location = this._getContextUrl(context, database, formGuids);
+                document.location = this._getContextUrl(context, formGuids);
             },
 
-            _getContextUrl: function(context, database, formGuids) {
+            _getContextUrl: function(context, formGuids) {
                 var location = document.location.href;
                 location = location.replace(/#.*/, '');
-                return location+'#database='+database+'&context='+context+'&formGuids='+(!formGuids || formGuids=='all'?'all':formGuids.join(','))
+                formGuids = !formGuids || formGuids=='all'?'all':formGuids;
+                if (formGuids !='all' && typeof formGuids == "string") formGuids = [formGuids];
+                return location+'#context='+context+'&formGuids='+(!formGuids || formGuids=='all'?'all':formGuids.join(','))
             }
         });
 

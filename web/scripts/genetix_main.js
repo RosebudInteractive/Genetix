@@ -21,9 +21,9 @@ jQuery.browser.chrome = /chrome/.test(navigator.userAgent.toLowerCase());
 
 $(document).ready( function() {
     require(
-        ["./lib/uccello/config/config", "deviceHelper.js"],
-        function(Config, Device) {
-            var device = new Device(window.navigator.userAgent.toLowerCase());
+        ["./lib/uccello/config/config", "./deviceHelper"],
+        function(Config, DeviceHelper) {
+            var device = new DeviceHelper(window.navigator.userAgent.toLowerCase());
             var config = {
                 controls: [
                     {className:'DataContact', component:'../DataControls/dataContact', guid:'73596fd8-6901-2f90-12d7-d1ba12bae8f4'},
@@ -81,9 +81,9 @@ $(document).ready( function() {
                             uccelloClt.getClient().socket.send({action:"getRootGuids", db:params.masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result) {
                                 that.rootsGuids = result.roots;
                                 uccelloClt.setContext(params, function() {
-                                    that.setContextUrl(params.vc, params.masterGuid, formGuids);
+                                    that.setContextUrl(params.vc, formGuids);
                                     that.setAutoSendDeltas(true);
-                                });
+                                }, that.renderRoot);
                             });
                         } else {
                             that.rootsGuids = formGuids;
@@ -103,7 +103,7 @@ $(document).ready( function() {
                                     if (newFormGuids.length > 0)
                                         uccelloClt.createRoot(newFormGuids, "res");
                                 });
-                                that.setContextUrl(params.vc, params.masterGuid, formGuids);
+                                that.setContextUrl(params.vc, formGuids);
                                 that.setAutoSendDeltas(true);
                             });
                         }
@@ -128,16 +128,19 @@ $(document).ready( function() {
                                     for (var k = 0, len3 = col.count(); k < len3; k++) {
                                         var item = col.get(k);
                                         var option = $('<option/>');
+                                        var isOn = uccelloClt.getSysCM().getByGuid(item.getGuid()).isOn();
                                         option.data('ContextGuid', item.get('ContextGuid'));
-                                        option.val(item.get('DataBase')).html(item.get('Name'));
+                                        option.val(item.get('DataBase')).html(item.get('Name')+(isOn?' isOn ':''));
                                         sel.append(option);
                                     }
-                                    sel.val(uccelloClt.getContext()? uccelloClt.getContext().masterGuid(): null);
 
-                                    var masterGuid = uccelloClt.getContext()? uccelloClt.getContext().masterGuid(): null;
+                                    var masterGuid = uccelloClt.getContext()? uccelloClt.getContext().dataBase(): null;
                                     if (masterGuid) {
-                                        that.setContextUrl($(sel.find('option[value='+masterGuid+']')).data('ContextGuid'), masterGuid, 'all');
+                                        var urlGuids = url('#formGuids');
+                                        urlGuids = urlGuids==null || urlGuids=='all'?'all':urlGuids.split(',');
+                                        that.setContextUrl($(sel.find('option[value='+masterGuid+']')).data('ContextGuid'), urlGuids);
                                     }
+                                    sel.val(masterGuid);
                                     return;
                                 }
                             }
@@ -349,8 +352,7 @@ $(document).ready( function() {
                         $("#root-form-container").empty();
 
                         uccelloClt.createContext('server', formGuids, function(result){
-                            that.setAutoSendDeltas();
-                            that.getContexts();
+                            that.selectContext(result);
                         });
                     }
 
@@ -420,24 +422,26 @@ $(document).ready( function() {
                         });
                     }
 
-                    this.setContextUrl = function(context, database, formGuids) {
+                    this.setContextUrl = function(context, formGuids) {
                         that.hashchange = false;
-                        document.location = that.getContextUrl(context, database, formGuids);
+                        document.location = that.getContextUrl(context, formGuids);
 
                     }
 
-                    this.getContextUrl = function(context, database, formGuids) {
+                    this.getContextUrl = function(context, formGuids) {
                         var location = document.location.href;
                         location = location.replace(/#.*/, '');
-                        return location+'#database='+database+'&context='+context+'&formGuids='+(!formGuids || formGuids=='all'?'all':formGuids.join(','))
+                        formGuids = !formGuids || formGuids=='all'?'all':formGuids;
+                        if (formGuids !='all' && typeof formGuids == "string") formGuids = [formGuids];
+                        return location+'#context='+context+'&formGuids='+(!formGuids || formGuids=='all'?'all':formGuids.join(','))
                     }
 
                     $(window).on('hashchange', function() {
                         if (that.hashchange) {
-                            var masterGuid = url('#database');
                             var vc = url('#context');
-                            if(masterGuid && vc)
-                                $('#userContext').val(masterGuid).change();
+                            var vcObj = uccelloClt.getSysCM().getByGuid(vc);
+                            if(vcObj && vc)
+                                $('#userContext').val(vcObj.dataBase()).change();
                         }
                         that.hashchange = true;
                     });
