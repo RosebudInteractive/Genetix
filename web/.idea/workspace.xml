@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="тултипы">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/buttons.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/buttons.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/buttons.m.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/colors.styl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/mobile.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/mobile.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/controls.css" afterPath="$PROJECT_DIR$/css/controls.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/edit.styl" afterPath="$PROJECT_DIR$/css/edit.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/general.css" afterPath="$PROJECT_DIR$/css/general.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/general.styl" afterPath="$PROJECT_DIR$/css/general.styl" />
+    <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/genetixSrv.js" afterPath="$PROJECT_DIR$/genetixSrv.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -47,6 +37,16 @@
               <folding>
                 <element signature="e#0#60#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="genetixSrv.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/genetixSrv.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.71704745" vertical-offset="170" max-vertical-offset="1632">
+              <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -111,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buttons.m.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="buttons.m.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/buttons.m.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5316045" vertical-offset="658" max-vertical-offset="1275">
-              <caret line="58" column="117" selection-start-line="58" selection-start-column="117" selection-end-line="58" selection-end-column="117" />
+            <state vertical-scroll-proportion="-3.868421" vertical-offset="658" max-vertical-offset="1275">
+              <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -196,7 +196,6 @@
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
         <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
         <option value="$PROJECT_DIR$/scripts/devices.js" />
-        <option value="$PROJECT_DIR$/genetixSrv.js" />
         <option value="$PROJECT_DIR$/scripts/buttons.html.js" />
         <option value="$PROJECT_DIR$/css/general.styl" />
         <option value="$PROJECT_DIR$/css/mobyle.styl" />
@@ -206,6 +205,7 @@
         <option value="$PROJECT_DIR$/css/colors.styl" />
         <option value="$PROJECT_DIR$/views/buttons.html" />
         <option value="$PROJECT_DIR$/views/buttons.m.html" />
+        <option value="$PROJECT_DIR$/genetixSrv.js" />
       </list>
     </option>
   </component>
@@ -720,7 +720,7 @@
       <workItem from="1427193535014" duration="12499000" />
       <workItem from="1427212668706" duration="2354000" />
       <workItem from="1427216984202" duration="62000" />
-      <workItem from="1427279313877" duration="16171000" />
+      <workItem from="1427279313877" duration="16607000" />
     </task>
     <task id="LOCAL-00001" summary="Старт">
       <created>1423481621359</created>
@@ -982,11 +982,15 @@
       <created>1426765919527</created>
       <updated>1426765919527</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="рефактор кнопок">
+      <created>1427367419490</created>
+      <updated>1427367419490</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="631126000" />
+    <option name="totallyTimeSpent" value="631562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1000,12 +1004,13 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40333796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17246175" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17246175" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2837274" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34770516" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2823366" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1015,7 +1020,6 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32127956" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2823366" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
     </layout>
@@ -1037,7 +1041,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="девайсы" />
     <MESSAGE value="рефактор девайсов и сессии и верстка попапов" />
     <MESSAGE value="цвета девайсов попап контекстов" />
     <MESSAGE value="иконка" />
@@ -1062,7 +1065,8 @@
     <MESSAGE value="рефактор контролов" />
     <MESSAGE value="рефактор контролов и верстка" />
     <MESSAGE value="тултипы" />
-    <option name="LAST_COMMIT_MESSAGE" value="тултипы" />
+    <MESSAGE value="рефактор кнопок" />
+    <option name="LAST_COMMIT_MESSAGE" value="рефактор кнопок" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1347,14 +1351,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/genetixSrv.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6514599" vertical-offset="170" max-vertical-offset="1632">
-          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/button.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03256705" vertical-offset="0" max-vertical-offset="522">
@@ -1473,8 +1469,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/buttons.m.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5316045" vertical-offset="658" max-vertical-offset="1275">
-          <caret line="58" column="117" selection-start-line="58" selection-start-column="117" selection-end-line="58" selection-end-column="117" />
+        <state vertical-scroll-proportion="-3.868421" vertical-offset="658" max-vertical-offset="1275">
+          <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1486,6 +1482,14 @@
             <element signature="n#style#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#9;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genetixSrv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71704745" vertical-offset="170" max-vertical-offset="1632">
+          <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
