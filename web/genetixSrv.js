@@ -26,6 +26,13 @@ app.get('/genetix', function(req, res){
     else
         res.render('genetix.html');
 });
+app.get('/buttons', function(req, res){
+    var device = new DeviceHelper(req.headers["user-agent"]);
+    if (device.mobile() || device.tablet())
+        res.render('buttons.m.html');
+    else
+        res.render('buttons.html');
+});
 
 // статические данные и модули для подгрузки на клиент
 app.use("/ui-impose", express.static(__dirname + '/ui-impose'));
