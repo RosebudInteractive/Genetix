@@ -44,8 +44,8 @@
       <file leaf-file-name="genetixSrv.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/genetixSrv.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.71704745" vertical-offset="170" max-vertical-offset="1632">
-              <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.85061514" vertical-offset="43" max-vertical-offset="1632">
+              <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -66,7 +66,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="786" max-vertical-offset="1564">
               <caret line="72" column="21" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="17" />
-              <folding />
+              <folding>
+                <marker date="1427366932175" expanded="true" signature="1035:1323" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -720,7 +722,7 @@
       <workItem from="1427193535014" duration="12499000" />
       <workItem from="1427212668706" duration="2354000" />
       <workItem from="1427216984202" duration="62000" />
-      <workItem from="1427279313877" duration="16607000" />
+      <workItem from="1427279313877" duration="16923000" />
     </task>
     <task id="LOCAL-00001" summary="Старт">
       <created>1423481621359</created>
@@ -986,11 +988,15 @@
       <created>1427367419490</created>
       <updated>1427367419490</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="рефактор кнопок">
+      <created>1427367838973</created>
+      <updated>1427367838973</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="631562000" />
+    <option name="totallyTimeSpent" value="631878000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1445,7 +1451,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="786" max-vertical-offset="1564">
           <caret line="72" column="21" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="17" />
-          <folding />
+          <folding>
+            <marker date="1427366932175" expanded="true" signature="1035:1323" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1487,8 +1495,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/genetixSrv.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71704745" vertical-offset="170" max-vertical-offset="1632">
-          <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.85061514" vertical-offset="43" max-vertical-offset="1632">
+          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
           <folding />
         </state>
       </provider>
