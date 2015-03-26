@@ -75,7 +75,8 @@ var config = {
     ],
     controlsPath: __dirname+'/scripts/controls/',
     dataPath: __dirname+'/data/',
-    uccelloPath: __dirname+'/../../'+uccelloDir+'/'
+    uccelloPath: __dirname+'/../../'+uccelloDir+'/',
+    webSocketServer: {port:8082}
 };
 
 // модуль настроек
@@ -84,7 +85,7 @@ UCCELLO_CONFIG = new UccelloConfig(config);
 
 // модуль сервера
 var UccelloServ = require('../../'+uccelloDir+'/uccelloServ');
-var uccelloServ = new UccelloServ({port:8082, authenticate:fakeAuthenticate});
+var uccelloServ = new UccelloServ({authenticate:fakeAuthenticate});
 
 // запускаем http сервер
 http.createServer(app).listen(1326);

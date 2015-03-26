@@ -17,5 +17,7 @@ $(document).ready( function() {
     $("#button-caption input").change(function () {
         $(".control.button input").val($(this).val());
     });
-
+    $("#grow").change(function () {
+        $("body").toggleClass("is-big");
+    });
 });
