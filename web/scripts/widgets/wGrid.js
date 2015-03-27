@@ -199,7 +199,7 @@ define(
                 tr.click(function(){
                     that._selectrow($(this), true);
                     $(this).focus();
-                }).hover(function() {
+                })/*.hover(function() {
                     $(this).next().find("td").css({
                         "box-shadow": "none",
                         "-webkit-box-shadow" : "none",
@@ -211,7 +211,7 @@ define(
                         "-webkit-box-shadow" : "",
                         "-moz-box-shadow" : ""
                     });
-                });
+                })*/;
                 tr.colRef = [];
                 tr.cells = [];
                 // отступ
