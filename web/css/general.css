@@ -315,16 +315,20 @@ div.system-toolbar-menu-item {
   height: 100%;
   background: linear-gradient(to right, #445368 0px, #4f5e73 1.5em, #4f5e73 100%);
 /*background-color #4f5e73*/
-  -webkit-transition: flex 0.5s ease;
+  -webkit-transition: -webkit-flex 0.5s ease;
   -moz-transition: flex 0.5s ease;
-  -ms-transition: flex 0.5s ease;
+  -ms-transition: -ms-flex 0.5s ease;
   -o-transition: flex 0.5s ease;
   transition: flex 0.5s ease;
   overflow: hidden;
   flex: 0 0 7.125em;
+  -webkit-flex: 0 0 7.125em;
+  -ms-flex: 1 0 0 7.125em;
 }
 .is-content.is-device-bar-hidden div.is-device-bar {
   flex: 0 0 0px;
+  -webkit-flex: 0 0 0px;
+  -ms-flex: 0 0 0px;
 }
 .is-device-wrapper {
   height: 100%;
@@ -387,6 +391,8 @@ div.system-toolbar-menu-item {
   -o-transition: padding-right 0.5s ease;
   transition: padding-right 0.5s ease;
   flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
 }
 .is-content.is-device-bar-hidden div.is-left-content {
   padding-right: 0;
@@ -485,6 +491,10 @@ div.system-toolbar-menu-item {
   background: #718ab2;
 }
 .control.button.is-icon .is-wrapper {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
   display: flex;
 }
 .control.button.is-icon .is-wrapper div.is-icon-wrapper {
@@ -545,6 +555,10 @@ body {
   height: 100%;
   width: 100%;
   display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
 }
 ::selection {
   background-color: #48ada3;
