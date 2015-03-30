@@ -3,7 +3,7 @@
  * Date: 23.02.2015
  * Time: 15:00
  */
-var uccelloClt = null;
+var uccelloClt = null, DEBUG = true;
 var formGuid = "89f42efa-b160-842c-03b4-f3b536ca09d8";
 var form2Guid = "e7613a67-c36c-4ff5-a999-4d143bebc97c";
 var form3Guid = "4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9";
