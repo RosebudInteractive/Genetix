@@ -269,10 +269,14 @@ define(
                 var d = this.options.source.localdata[this.firstDataRow + idx];
                 cachedRow.data('GridRows', d);
                 this.fillVirtualRow(idx);
+                cachedRow.show();
             },
 
             updatePosition: function(y) {
                 this.firstDataRow = Math.floor(-y / this._rowHeight);
+                if (this.firstDataRow < 0)
+                    this.firstDataRow = 0;
+                console.log(this.firstDataRow);
                 this.renderData();
             },
 
@@ -287,10 +291,16 @@ define(
                     this._bodyTable.empty();
                     return;
                 };
+
+
                 for (var j = 0; j < this.getVisibleRange(); j++) {
                     this.updateRenderedRow(j);
                 };
-                if (!this._bottomDiv) {
+
+                for (j = j;  j < this.rowsCache.length; j++)
+                    this.rowsCache[j].hide();
+
+                 if (!this._bottomDiv) {
                     this._bottomDiv= $('<tr style="height:0px"></tr>');
                     this._bodyTable.append(this._bottomDiv);
                 };

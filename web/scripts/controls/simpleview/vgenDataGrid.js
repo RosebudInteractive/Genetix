@@ -35,11 +35,11 @@ define(
                                 if (ds.cursor() != row.Id) ds.cursor(row.Id);
                             });
 
-                            setTimeout(function () {
-                                if (that._iscroll && obj) {
-                                    that._iscroll.scrollToElementVisible(obj.get(0), 0);
-                                }
-                            }, 0);
+                            //setTimeout(function () {
+                            //    if (that._iscroll && obj) {
+                            //        that._iscroll.scrollToElementVisible(obj.get(0), 0);
+                            //    }
+                            //}, 0);
 
                         }
                     }

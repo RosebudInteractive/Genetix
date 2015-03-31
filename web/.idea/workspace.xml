@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/devices.js" afterPath="$PROJECT_DIR$/scripts/devices.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/widgets/wGrid.js" afterPath="$PROJECT_DIR$/scripts/widgets/wGrid.js" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,11 +39,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="devices.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="devices.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/devices.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25757575" vertical-offset="5542" max-vertical-offset="8534">
+            <state vertical-scroll-proportion="-4.76" vertical-offset="5542" max-vertical-offset="8534">
               <caret line="333" column="60" selection-start-line="333" selection-start-column="56" selection-end-line="333" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vgenDataGrid.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="4403">
+              <caret line="35" column="60" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -78,19 +89,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wGrid.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="wGrid.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/widgets/wGrid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3264" max-vertical-offset="10523">
-              <caret line="205" column="81" selection-start-line="205" selection-start-column="50" selection-end-line="205" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.5837209" vertical-offset="4883" max-vertical-offset="10693">
+              <caret line="302" column="0" selection-start-line="302" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
               <folding>
-                <marker date="1427454552661" expanded="true" signature="2081:2097" placeholder="..." />
-                <marker date="1427454552661" expanded="true" signature="7286:7296" placeholder="..." />
-                <marker date="1427454552661" expanded="true" signature="7459:7469" placeholder="..." />
-                <marker date="1427454552661" expanded="true" signature="10622:10633" placeholder="..." />
-                <marker date="1427454552661" expanded="true" signature="10859:10869" placeholder="..." />
-                <marker date="1427454552661" expanded="true" signature="14023:14033" placeholder="..." />
-                <marker date="1427454552661" expanded="true" signature="17198:17208" placeholder="..." />
+                <marker date="1427823127732" expanded="false" signature="2081:2097" placeholder="..." />
+                <marker date="1427823127732" expanded="false" signature="7286:7296" placeholder="..." />
+                <marker date="1427823127732" expanded="false" signature="7459:7469" placeholder="..." />
+                <marker date="1427823127732" expanded="false" signature="10622:10633" placeholder="..." />
+                <marker date="1427823127732" expanded="false" signature="10859:10869" placeholder="..." />
+                <marker date="1427823127732" expanded="false" signature="14303:14313" placeholder="..." />
+                <marker date="1427823127732" expanded="false" signature="17478:17488" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -257,7 +268,6 @@
         <option value="$PROJECT_DIR$/views/genetix.html" />
         <option value="$PROJECT_DIR$/views/genetix.m.html" />
         <option value="$PROJECT_DIR$/scripts/deviceHelper.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
         <option value="$PROJECT_DIR$/scripts/buttons.html.js" />
         <option value="$PROJECT_DIR$/css/mobyle.styl" />
         <option value="$PROJECT_DIR$/css/mobile.styl" />
@@ -268,7 +278,6 @@
         <option value="$PROJECT_DIR$/ui-impose/buttons.html" />
         <option value="C:/ToDeploy/Buttons/Genetix.html" />
         <option value="$PROJECT_DIR$/genetixSrv.js" />
-        <option value="$PROJECT_DIR$/scripts/widgets/wGrid.js" />
         <option value="$PROJECT_DIR$/css/grid.styl" />
         <option value="$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json" />
         <option value="$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json" />
@@ -281,6 +290,8 @@
         <option value="$PROJECT_DIR$/css/devices.styl" />
         <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
         <option value="$PROJECT_DIR$/scripts/devices.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
+        <option value="$PROJECT_DIR$/scripts/widgets/wGrid.js" />
       </list>
     </option>
   </component>
@@ -398,7 +409,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="widgets" />
+              <option name="myItemId" value="controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simpleview" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -819,7 +852,7 @@
       <workItem from="1427615780740" duration="4510000" />
       <workItem from="1427698644369" duration="4371000" />
       <workItem from="1427713169579" duration="5801000" />
-      <workItem from="1427746015412" duration="19705000" />
+      <workItem from="1427746015412" duration="24969000" />
     </task>
     <task id="LOCAL-00001" summary="Старт">
       <created>1423481621359</created>
@@ -1101,7 +1134,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="688591000" />
+    <option name="totallyTimeSpent" value="693855000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1112,10 +1145,10 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2837274" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2837274" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23922114" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23922114" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2837274" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -1287,13 +1320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="4403">
-          <caret line="42" column="24" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Uccello/connection/vc.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33271027" vertical-offset="944" max-vertical-offset="6188">
@@ -1428,22 +1454,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="1666">
           <caret line="79" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="78" selection-end-column="32" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/widgets/wGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3264" max-vertical-offset="10523">
-          <caret line="205" column="81" selection-start-line="205" selection-start-column="50" selection-end-line="205" selection-end-column="50" />
-          <folding>
-            <marker date="1427454552661" expanded="true" signature="2081:2097" placeholder="..." />
-            <marker date="1427454552661" expanded="true" signature="7286:7296" placeholder="..." />
-            <marker date="1427454552661" expanded="true" signature="7459:7469" placeholder="..." />
-            <marker date="1427454552661" expanded="true" signature="10622:10633" placeholder="..." />
-            <marker date="1427454552661" expanded="true" signature="10859:10869" placeholder="..." />
-            <marker date="1427454552661" expanded="true" signature="14023:14033" placeholder="..." />
-            <marker date="1427454552661" expanded="true" signature="17198:17208" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1585,9 +1595,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/devices.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25757575" vertical-offset="5542" max-vertical-offset="8534">
+        <state vertical-scroll-proportion="-4.76" vertical-offset="5542" max-vertical-offset="8534">
           <caret line="333" column="60" selection-start-line="333" selection-start-column="56" selection-end-line="333" selection-end-column="56" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="4403">
+          <caret line="35" column="60" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/widgets/wGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5837209" vertical-offset="4883" max-vertical-offset="10693">
+          <caret line="302" column="0" selection-start-line="302" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
+          <folding>
+            <marker date="1427823127732" expanded="false" signature="2081:2097" placeholder="..." />
+            <marker date="1427823127732" expanded="false" signature="7286:7296" placeholder="..." />
+            <marker date="1427823127732" expanded="false" signature="7459:7469" placeholder="..." />
+            <marker date="1427823127732" expanded="false" signature="10622:10633" placeholder="..." />
+            <marker date="1427823127732" expanded="false" signature="10859:10869" placeholder="..." />
+            <marker date="1427823127732" expanded="false" signature="14303:14313" placeholder="..." />
+            <marker date="1427823127732" expanded="false" signature="17478:17488" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
