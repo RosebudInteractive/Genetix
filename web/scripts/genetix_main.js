@@ -64,9 +64,14 @@ $(document).ready( function() {
                         $("#root-form-container").empty();
 
                         var formGuids = 'all';
-                        var urlGuids = url('#formGuids');
-                        if (urlGuids != null) {
-                            formGuids = urlGuids.split(',');
+                        if (params.roots)
+                            formGuids = params.roots
+                        else if (params.formGuid) formGuids = [params.formGuid];
+                        else {
+                            var urlGuids = url('#formGuids');
+                             if (urlGuids != null) {
+                                formGuids = urlGuids.split(',');
+                             }
                         }
 
                         // выборочная подписка
@@ -262,7 +267,7 @@ $(document).ready( function() {
                                 var masterGuid = $(this).val();
                                 var vc = $(this).find('option[value="'+masterGuid+'"]').data('ContextGuid');
                                 if(masterGuid && vc)
-                                    that.selectContext({masterGuid: masterGuid, vc:vc,  side: "server"});
+                                    that.selectContext({masterGuid: masterGuid, vc:vc,  side: "server", formGuid: null });
                                 else
                                     $("#root-form-container").empty();
                             });

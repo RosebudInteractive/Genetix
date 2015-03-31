@@ -285,6 +285,15 @@ define(
                                 var item = col.get(k);
                                 var contGuid = item.get('ContextGuid');
 
+                                var formGuid = null;
+                                if (contGuid == url("#context"))
+                                    formGuid = this._CurrentRoot;
+                                else if (item.getCol("Resources").count() != 0) {
+                                    var resource = item.getCol("Resources").get(0);
+                                    formGuid = resource.get("ResGuid");
+                                }
+
+
                                 var cnt = {
                                     id: item.get('DataBase'),
                                     title: item.get('Name'),
@@ -294,7 +303,7 @@ define(
                                         type: "context",
                                         contextGuid: contGuid,
                                         dbGuid: item.get('DataBase'),
-                                        formGuid: (contGuid == url("#context") ? this._CurrentRoot : null)
+                                        formGuid:  formGuid
                                     }
                                 };
                                 contexts.push(cnt);
@@ -332,37 +341,9 @@ define(
                 var that = this;
 
                 var formGuids = 'all';
-                if (params.vc == url("#context")) {
-                    if (params.formGuid) formGuids = [params.formGuid];
-                }
-
-                /*if (url('#formGuids')) {
-                    formGuids = url('#formGuids').split(',');
-                }  else {
-                    // выборочная подписка
-                    var selSub = $('#selSub').is(':checked');
-                    if (selSub) {
-                        formGuids = $('#selForm').val();
-                    }
-                }*/
-
-                /*if (formGuids == 'all') {
-                    // запросить гуиды рутов
-                    uccelloClt.getClient().socket.send({action:"getRootGuids", db:params.masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result) {
-                        that.rootsGuids = result.roots;
-                        uccelloClt.setContext(params, function(result) {
-                            that._setContextUrl(params.vc,formGuids);
-                            that._setAutoSendDeltas(true);
-                        });
-                    });
-                } else {
-                    that.rootsGuids = formGuids;
-                    params.formGuids = formGuids;
-                    uccelloClt.setContext(params, function(result) {
-                        that._setContextUrl(params.vc, formGuids);
-                        that._setAutoSendDeltas(true);
-                    });
-                }*/
+                //if (params.vc == url("#context")) {
+                 if (params.formGuid) formGuids = [params.formGuid];
+                //}
 
                 if (formGuids == null || formGuids == 'all') {
                     // запросить гуиды рутов
