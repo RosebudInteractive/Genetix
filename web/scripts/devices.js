@@ -19,6 +19,7 @@ define(
                 this._User = obj || null;
                 this._tabsPopup = null;
                 this._OpenOnDevicePopup = null;
+                this._FormsPopup = null;
                 this._CurrentRoot = null;
             },
 
@@ -169,29 +170,44 @@ define(
                             var vc = data.custom.contextGuid;
                             var formGuid = data.custom.formGuid;
                             that._selectContext({masterGuid: currContext, vc:vc,  side: "server", formGuid: formGuid});
-
                         },
                         righticonclick: function (event, data) {
-                            if (!that._OpenOnDevicePopup) {
-                                var devPopupDiv = $("<div></div>");
-                                popupDiv.append(devPopupDiv);
-                                that._OpenOnDevicePopup = devPopupDiv.genetixPopup({
+                            if (data.data.custom.type == "context") {
+                                if (that._FormsPopup) {
+                                    $("#forms-popup-div").remove();
+                                    that._FormsPopup = null;
+                                }
+                                var formsPopupDiv = $("<div id='forms-popup-div'></div>");
+                                popupDiv.append(formsPopupDiv);
+                                that._FormsPopup = formsPopupDiv.genetixPopup({
                                     buttonControl: data.button,
-                                    title: "Открыть на устройстве",
+                                    title: null,
                                     offsetX: -49,
                                     offsetY: -105,
                                     leftIcons: true,
-                                    rightIcons: false,
+                                    rightIcons: true,
                                     click: function (event, data2) {
-                                        that._openOnDevice(data2);
+                                        if (data2.custom.type == "form") {
+                                            var currContext = data2.custom.dbGuid;
+                                            var vc = data2.custom.contextGuid;
+                                            var formGuid = data2.custom.formGuid;
+                                            that._selectContext({masterGuid: currContext, vc: vc, side: "server", formGuid: formGuid});
+                                        } else {
+                                            that._openOnDevice(data2);
+                                        }
                                     },
-                                    hide:function () {
+                                    righticonclick: function (event, data) {
+                                        that._showDevicesPopup(data, formsPopupDiv, 0, 0);
+                                    },
+                                    hide: function () {
                                         popupDiv.find(".dropdown-menu-item2-b").find(".right-icon").removeClass("is-pressed");
                                     }
                                 });
-                            }
-                            var oodData = that._prepareOODData(data);
-                            that._OpenOnDevicePopup.genetixPopup("show", oodData, data.button);
+
+                                var formsData = that._prepareFormsData(data);
+                                that._FormsPopup.genetixPopup("show", formsData, data.button);
+                            } else
+                                that._showDevicesPopup(data, popupDiv);
                         }
                     });
 
@@ -201,6 +217,35 @@ define(
                         that._tabsPopup.genetixPopup("show", popupData, null, url("#database"));
                     });
                 }
+            },
+
+            _showDevicesPopup: function(data, popupDiv, ox, oy) {
+                var offsetX = ox || -49;
+                var offsetY = oy || -105;
+                var that = this;
+                if (that._OpenOnDevicePopup) {
+                    that._OpenOnDevicePopup = null;
+                    $("#open-on-device").remove();
+                }
+
+                var devPopupDiv = $("<div id='open-on-device'></div>");
+                popupDiv.append(devPopupDiv);
+                that._OpenOnDevicePopup = devPopupDiv.genetixPopup({
+                    buttonControl: data.button,
+                    title: "Open on device",
+                    offsetX: offsetX,
+                    offsetY: offsetY,
+                    leftIcons: true,
+                    rightIcons: false,
+                    click: function (event, data2) {
+                        that._openOnDevice(data2);
+                    },
+                    hide: function () {
+                        popupDiv.find(".dropdown-menu-item2-b").find(".right-icon").removeClass("is-pressed");
+                    }
+                });
+                var oodData = that._prepareOODData(data);
+                that._OpenOnDevicePopup.genetixPopup("show", oodData, data.button);
             },
 
             _openOnDevice: function (data) {
@@ -214,7 +259,8 @@ define(
                 );
             },
 
-            _prepareOODData: function(parentData) {
+            _prepareOODData: function(parentData, prefix) {
+                prefix = prefix || "OODpopup";
                 var that = this;
                 if (!(this._User)) return;
                 var contexts = [];
@@ -232,7 +278,7 @@ define(
 
                 // разберемся с текущим девайсом
                 var cnt = {
-                    id: "OODpopup-" + curSessionId,
+                    id: prefix + "-" + curSessionId,
                     title: curSession.deviceName(),
                     subTree: [],
                     leftIcon: (curSession.deviceType() == "C" ? "/images/Genetix.svg#pc" : "/images/Genetix.svg#tablet"),
@@ -251,7 +297,7 @@ define(
                     var session = sessions[id];
                     if (session.countChild("Connects") == 0) continue;
                     var cnt = {
-                        id: "OODpopup-" + session.sessionGuid(),
+                        id:  prefix + "-" + session.sessionGuid(),
                         title: session.deviceName(),
                         subTree: [],
                         leftIcon: (session.deviceType() == "C" ? "/images/Genetix.svg#pc" : "/images/Genetix.svg#tablet"),
@@ -266,6 +312,40 @@ define(
                 }
 
                 return contexts;
+            },
+
+            _prepareFormsData: function(parentData) {
+                var contextGuid = parentData.data.custom.contextGuid;
+                var context = uccelloClt.getSysCM().getByGuid(contextGuid);
+                var result = [];
+                var contGuid = context.contextGuid();
+
+                for (var f = 0, len5 = context.countChild("Resources"); f < len5; f++) {
+                    var resource = context.getChild(f, "Resources");
+                    var cnt2 = {
+                        id: "OpenFrm-" + resource.resGuid(),
+                        title: resource.title(),
+                        subTree: [],
+                        rightIcon: "/images/controls.svg#hamburger",
+                        custom: {
+                            type: "form",
+                            contextGuid: contGuid,
+                            dbGuid: context.dataBase(),
+                            formGuid: resource.resGuid()
+                        }
+                    };
+                    result.push(cnt2);
+                }
+
+                if (result.length != 0)
+                    result.push({
+                        type: "separator"
+                    });
+
+                var devArray = this._prepareOODData(parentData, "frmOOD");
+                result = result.concat(devArray);
+
+                return result;
             },
 
             /**
@@ -286,9 +366,10 @@ define(
                                 var contGuid = item.get('ContextGuid');
 
                                 var formGuid = null;
-                                if (contGuid == url("#context"))
-                                    formGuid = this._CurrentRoot;
-                                else if (item.getCol("Resources").count() != 0) {
+                                //if (contGuid == url("#context"))
+                                //    formGuid = this._CurrentRoot;
+                                //else
+                                if (item.getCol("Resources").count() != 0) {
                                     var resource = item.getCol("Resources").get(0);
                                     formGuid = resource.get("ResGuid");
                                 }
@@ -307,9 +388,9 @@ define(
                                     }
                                 };
                                 contexts.push(cnt);
+                                var rootForm = uccelloClt.getContextCM().getByGuid(this._CurrentRoot);
 
-                                if (contGuid == url("#context")) {
-                                    var rootForm = uccelloClt.getContextCM(this._CurrentRoot).getByGuid(this._CurrentRoot);
+                                if (url("#context") == contGuid) {
                                     for (var f = 0, len5 = rootForm.countChild("SubForms"); f < len5; f++) {
                                         var subFrmItem = rootForm.getChild(f, "SubForms");
 
@@ -319,7 +400,7 @@ define(
                                             subTree: [],
                                             rightIcon: "/images/controls.svg#hamburger",
                                             custom: {
-                                                type: "context",
+                                                type: "sub-form",
                                                 contextGuid: contGuid,
                                                 dbGuid: item.get('DataBase'),
                                                 formGuid: subFrmItem.formGuid()
@@ -329,6 +410,8 @@ define(
                                     }
                                 }
                             }
+
+
                             return contexts;
                         }
                     }
