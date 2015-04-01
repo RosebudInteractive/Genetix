@@ -197,7 +197,7 @@ define(
                                         }
                                     },
                                     righticonclick: function (event, data) {
-                                        that._showDevicesPopup(data, formsPopupDiv, 0, 0);
+                                        that._showDevicesPopup(data, formsPopupDiv, -40, -143);
                                     },
                                     hide: function () {
                                         popupDiv.find(".dropdown-menu-item2-b").find(".right-icon").removeClass("is-pressed");

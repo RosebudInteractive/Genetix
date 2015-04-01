@@ -324,11 +324,15 @@ div.system-toolbar-menu-item {
   flex: 0 0 7.125em;
   -webkit-flex: 0 0 7.125em;
   -ms-flex: 1 0 0 7.125em;
+  -moz-flex: 0 0 0px;
+  -webkit-box-flex: 0 0 7.125em;
+  -moz-box-flex: 0 0 0px;
 }
 .is-content.is-device-bar-hidden div.is-device-bar {
   flex: 0 0 0px;
   -webkit-flex: 0 0 0px;
   -ms-flex: 0 0 0px;
+  -moz-flex: 0 0 0px;
 }
 .is-device-wrapper {
   height: 100%;
@@ -384,7 +388,7 @@ div.system-toolbar-menu-item {
   -webkit-box-sizing: border-box;
   height: 100%;
   width: 100%;
-/*padding-right 7.125em*/
+  padding-right 7.125em
   -webkit-transition: padding-right 0.5s ease;
   -moz-transition: padding-right 0.5s ease;
   -ms-transition: padding-right 0.5s ease;
@@ -393,6 +397,7 @@ div.system-toolbar-menu-item {
   flex: 1 1 auto;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
+  -moz-flex: 1 1 auto;
 }
 .is-content.is-device-bar-hidden div.is-left-content {
   padding-right: 0;
@@ -504,6 +509,10 @@ div.system-toolbar-menu-item {
 .control.button.is-icon .is-wrapper input {
   padding-left: 0.5em;
 }
+* {
+  min-height: 0;
+  min-width: 0;
+}
 /* запрет выделения текста */
 body {
   margin: 0px;
@@ -559,6 +568,8 @@ body {
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
+  display: flexbox;
+  display: -moz-flex;
 }
 ::selection {
   background-color: #48ada3;

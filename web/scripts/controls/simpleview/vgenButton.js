@@ -20,6 +20,8 @@ define(
                 item.find("input").css({"border-color" : this.borderColor()});
             if (this.extendedClass())
                 item.addClass(this.extendedClass());
+            else
+                item.addClass("is-white");
         }
         return vButton;
     }
