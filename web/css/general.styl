@@ -4,9 +4,6 @@
 @import "./content"
 @import "./colors"
 
-*
-  min-height 0
-  min-width 0
 /* запрет выделения текста */
 body
   margin 0px
@@ -54,11 +51,11 @@ html, body
   padding-top 3.25em
   padding-bottom 1.875em
   height 100%
-  display: flex;
+  display flex
+  display -webkit-flex
+  display -moz-flex
 ::selection
   background-color #48ada3
   color #fff
   text-shadow none
-@supports (flex-wrap: wrap)  /* hide from the incomplete Flexbox implementation in Firefox */
-  .is-content-wrapper
-      display: flex
+
