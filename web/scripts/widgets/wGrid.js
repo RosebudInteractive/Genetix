@@ -1,7 +1,8 @@
 define(
     'wGrid',
-    [],
-    function() {
+    ['/scripts/lib/uccello/uses/template.js', 'text!./widgets/templates/grid.html'],
+    function(template, tpl) {
+        var templates = template.parseTemplate(tpl);
 
         $.widget( "custom.grid", {
 
@@ -41,46 +42,7 @@ define(
                     this.element.css({position: "relative", left: this.options.left, top: this.options.top});
                 }
 
-                var grid = $('<div class="grid-b is-footer">'+
-                    '<div class="header-bl">'+
-                    '<table class="table-bl" cellspacing="0" cellpadding="0"><thead><tr tabindex="1"><th class="grid-th-bh"><div class="th-text-be text-ellipsis-gm">&nbsp;</div></th></tr></thead></table>'+
-                    '</div>'+
-                    '<div class="scrollable-bl">'+
-                    '<div class="scrollable-bll" style="overflow: hidden"><div>'+
-                    '<table class="table-bl" cellspacing="0" cellpadding="0"><tbody></tbody></table>' +
-                    '</div></div>'+
-                    '</div>'+
-                    '<div class="grid-paginator-b">' +
-                    '  <div class="grid-footer-icon">' +
-                    '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
-                    '      <use xlink:href="/images/controls.svg#arrow-right1"></use>' +
-                    '    </svg>' +
-                    '  </div>' +
-                    '  <div class="grid-footer-icon">' +
-                    '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
-                    '      <use xlink:href="/images/controls.svg#arrow-right"></use>' +
-                    '    </svg>' +
-                    '  </div>' +
-                    '  <div class="grid-footer-icon">' +
-                    '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
-                    '      <use xlink:href="/images/controls.svg#arrow-left"></use>' +
-                    '    </svg>' +
-                    '  </div>' +
-                    '  <div class="grid-footer-icon">' +
-                    '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
-                    '      <use xlink:href="/images/controls.svg#arrow-left1"></use>' +
-                    '    </svg>' +
-                    '  </div>' +
-                    '  <div class="text-with-icon-b"><div class="text-with-icon-b-wrapper">' +
-                    '    <div class="text-be">10</div>' +
-                    '  </div></div>' +
-                    '  <div class="grid-footer-icon">' +
-                    '    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">' +
-                    '      <use xlink:href="/images/controls.svg#hamburger"></use>' +
-                    '    </svg>' +
-                    '  </div>' +
-                    '</div>'+
-                    '</div>');
+                var grid = $(templates["grid"]);
                 grid.attr('title', this.options.hint);
                 this._headTable = grid.find('.header-bl .table-bl thead');
                 this._bodyTable = grid.find('.scrollable-bl .table-bl tbody');
@@ -90,6 +52,9 @@ define(
                 this.fixHeight();
                 this.clearPageCache();
                 $(window).resize(function () {
+                    var parent = that._headTable.parent();
+                    parent.width(that._bodyTable.width());
+                    parent.resizableColumns("syncHandleWidths");
                     that.fixHeight();
                 });
             },
@@ -164,8 +129,10 @@ define(
                     // остальные столбцы
                     for (var i = 0; i < this.options.columns.length; i++) {
                         th = $('<th class="grid-th-bh is-clickable-eff ' + this.options.columns[i].text +'"></th>');
+                        th.attr("role", this.options.columns[i].text);
                         if (i == (this.options.columns.length -1))
                             th.addClass("is-last");
+                        th.addClass("can-resize");
                         th.data('GridHeaders', {data:this.options.columns[i], type:'item'});
                         var text = $('<div class="th-text-be text-ellipsis-gm"></div>').html(this.options.columns[i].text);
                         th.append(text);
@@ -174,6 +141,7 @@ define(
                         tr.append(th);
                         th.data('idx', i);
                         ftd = $('<td class="' + this.options.columns[i].text + '"/>');
+                        ftd.attr("role", this.options.columns[i].text);
                         if (this.options.columns[i].width)
                             ftd.css({width: this.options.columns[i].width});
                         fakeHeader.append(ftd);
@@ -191,6 +159,26 @@ define(
 
                 this._headTable.append(tr);
                 this._fackeHeader = fakeHeader;
+                var parent = this._headTable.parent();
+                parent.off("column:resize");
+                parent.resizableColumns("destroy");
+
+                parent.resizableColumns({selector: "tr th.can-resize"});
+                parent.on("column:resize", function (event, sender, leftColumn, rightColumn, leftWidth, rightWidth) {
+                    var lFieldName = leftColumn.attr("role");
+                    var rFieldName = rightColumn.attr("role");
+                    var bodyTable = sender.$table.parent().parent().find("div.scrollable-bl table.table-bl");
+                    if (DEBUG)
+                        console.log({sender: sender, l:leftColumn, r:rightColumn, wl:leftWidth, wr:rightWidth, bt: bodyTable});
+                    bodyTable.find("tr.fake-header td[role='" + lFieldName + "']").width(leftWidth + "%");
+                    bodyTable.find("tr.fake-header td[role='" + rFieldName + "']").width(rightWidth + "%");
+                });
+
+                this._headTable.find("th.can-resize").each(function () {
+                    var colName = $(this).attr("role");
+                    var t = parent.resizableColumns();
+                    that._fackeHeader.find("td[role='" + colName + "']").css("width", this.style.width);
+                });
             },
 // добавляет пустую строку с пустыми клетками и расставляет ссылки кэша на колонки и клетки
             addEmptyRow: function () {

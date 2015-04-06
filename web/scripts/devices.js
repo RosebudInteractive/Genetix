@@ -388,9 +388,9 @@ define(
                                     }
                                 };
                                 contexts.push(cnt);
-                                var rootForm = uccelloClt.getContextCM().getByGuid(this._CurrentRoot);
 
                                 if (url("#context") == contGuid) {
+                                    var rootForm = uccelloClt.getContextCM().getByGuid(this._CurrentRoot);
                                     for (var f = 0, len5 = rootForm.countChild("SubForms"); f < len5; f++) {
                                         var subFrmItem = rootForm.getChild(f, "SubForms");
 

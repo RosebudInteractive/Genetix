@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/content.styl" afterPath="$PROJECT_DIR$/css/content.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/general.css" afterPath="$PROJECT_DIR$/css/general.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/general.styl" afterPath="$PROJECT_DIR$/css/general.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/widgets/templates/grid.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/jquery-1.11.2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/jquery.resizableColumns.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/jquery.resizableColumns.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/devices.js" afterPath="$PROJECT_DIR$/scripts/devices.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/genetix.html" afterPath="$PROJECT_DIR$/views/genetix.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/widgets/wGrid.js" afterPath="$PROJECT_DIR$/scripts/widgets/wGrid.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -31,74 +35,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="devices.styl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/devices.styl">
+      <file leaf-file-name="vgenDataGrid.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1462">
-              <caret line="17" column="26" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="4403">
+              <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="content.styl" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/content.styl">
+      <file leaf-file-name="wGrid.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scripts/widgets/wGrid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26103646" vertical-offset="0" max-vertical-offset="521">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="general.styl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/general.styl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="446" max-vertical-offset="1139">
-              <caret line="47" column="30" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="general.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/general.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3752" max-vertical-offset="9809">
-              <caret line="235" column="67" selection-start-line="235" selection-start-column="20" selection-end-line="235" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.40412372" vertical-offset="2847" max-vertical-offset="10489">
+              <caret line="179" column="102" selection-start-line="179" selection-start-column="102" selection-end-line="179" selection-end-column="102" />
               <folding>
-                <marker date="1427886687209" expanded="true" signature="9600:10145" placeholder="{...}" />
-                <marker date="1427886687209" expanded="true" signature="10216:10289" placeholder="{...}" />
-                <marker date="1427886687209" expanded="true" signature="10333:10370" placeholder="{...}" />
-                <marker date="1427886687209" expanded="true" signature="10402:10457" placeholder="{...}" />
-                <marker date="1427886687209" expanded="true" signature="10604:10696" placeholder="{...}" />
-                <marker date="1427886687209" expanded="true" signature="10721:10758" placeholder="{...}" />
-                <marker date="1427886687209" expanded="true" signature="10929:10931" placeholder="{...}" />
-                <marker date="1427886687209" expanded="true" signature="10971:11103" placeholder="{...}" />
-                <marker date="1427886687209" expanded="true" signature="11217:11701" placeholder="{...}" />
-                <marker date="1427886687209" expanded="true" signature="11840:11869" placeholder="{...}" />
-                <marker date="1427886687209" expanded="true" signature="11900:11938" placeholder="{...}" />
-                <marker date="1427886687209" expanded="true" signature="16365:16698" placeholder="{...}" />
+                <marker date="1428311459306" expanded="false" signature="4916:4926" placeholder="..." />
+                <marker date="1428311459306" expanded="false" signature="5089:5099" placeholder="..." />
+                <marker date="1428311459306" expanded="true" signature="9729:9740" placeholder="..." />
+                <marker date="1428311459306" expanded="true" signature="9966:9976" placeholder="..." />
+                <marker date="1428311459306" expanded="false" signature="13410:13420" placeholder="..." />
+                <marker date="1428311459306" expanded="true" signature="16585:16595" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.styl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/edit.styl">
+      <file leaf-file-name="genetix.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/genetix.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="731">
-              <caret line="19" column="54" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="646">
+              <caret line="10" column="69" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="colors.styl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/colors.styl">
+      <file leaf-file-name="jquery.resizableColumns.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/lib/jquery.resizableColumns.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1109" max-vertical-offset="1598">
-              <caret line="83" column="2" selection-start-line="83" selection-start-column="2" selection-end-line="83" selection-end-column="2" />
+            <state vertical-scroll-proportion="-8.48" vertical-offset="3358" max-vertical-offset="4284">
+              <caret line="210" column="62" selection-start-line="210" selection-start-column="62" selection-end-line="210" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grid.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/widgets/templates/grid.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="918">
+              <caret line="5" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="devices.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/devices.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2755" max-vertical-offset="8534">
+              <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -128,7 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/scripts/widgets/popup.js" />
         <option value="$PROJECT_DIR$/scripts/controls/genDataGrid.js" />
         <option value="$PROJECT_DIR$/scripts/controls/genContainer.js" />
         <option value="$PROJECT_DIR$/scripts/controls/label.js" />
@@ -150,7 +147,6 @@
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenLabel.js" />
         <option value="$PROJECT_DIR$/scripts/templates/genetix.m.html" />
         <option value="$PROJECT_DIR$/scripts/requre.config.js" />
-        <option value="$PROJECT_DIR$/views/genetix.html" />
         <option value="$PROJECT_DIR$/views/genetix.m.html" />
         <option value="$PROJECT_DIR$/scripts/deviceHelper.js" />
         <option value="$PROJECT_DIR$/scripts/buttons.html.js" />
@@ -170,8 +166,6 @@
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenContainer.js" />
         <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
-        <option value="$PROJECT_DIR$/scripts/widgets/wGrid.js" />
-        <option value="$PROJECT_DIR$/scripts/devices.js" />
         <option value="$PROJECT_DIR$/css/devices.styl" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js" />
         <option value="$PROJECT_DIR$/css/colors.styl" />
@@ -179,6 +173,10 @@
         <option value="$PROJECT_DIR$/css/general.css" />
         <option value="$PROJECT_DIR$/css/general.styl" />
         <option value="$PROJECT_DIR$/css/content.styl" />
+        <option value="$PROJECT_DIR$/scripts/devices.js" />
+        <option value="$PROJECT_DIR$/scripts/widgets/templates/grid.html" />
+        <option value="$PROJECT_DIR$/views/genetix.html" />
+        <option value="$PROJECT_DIR$/scripts/widgets/wGrid.js" />
       </list>
     </option>
   </component>
@@ -216,8 +214,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -296,7 +292,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controls" />
+              <option name="myItemId" value="widgets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -314,25 +310,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controls" />
+              <option name="myItemId" value="widgets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="simpleview" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -346,16 +328,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="general.styl" />
-              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -379,11 +363,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\lib" />
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\ui-impose" />
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\views" />
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\images" />
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview" />
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts" />
@@ -772,7 +756,9 @@
       <workItem from="1427698644369" duration="4371000" />
       <workItem from="1427713169579" duration="5801000" />
       <workItem from="1427746015412" duration="38600000" />
-      <workItem from="1427886163878" duration="1006000" />
+      <workItem from="1427886163878" duration="18602000" />
+      <workItem from="1428064379193" duration="6481000" />
+      <workItem from="1428301112396" duration="6189000" />
     </task>
     <task id="LOCAL-00001" summary="Старт">
       <created>1423481621359</created>
@@ -1054,7 +1040,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="708492000" />
+    <option name="totallyTimeSpent" value="738758000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1067,7 +1053,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23922114" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23855756" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2837274" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -1084,8 +1070,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2837274" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2823366" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1138,7 +1124,7 @@
         <line-breakpoint enabled="true" type="javascript">
           <condition expression="!(this.getDB())" />
           <url>file://$PROJECT_DIR$/../../Uccello/memDB/memProtoObj.js</url>
-          <line>37</line>
+          <line>39</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -1156,41 +1142,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genLabel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="25" max-vertical-offset="850">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenLabel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genDataGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="47" max-vertical-offset="1819">
-          <caret line="11" column="60" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/templates/genetix.m.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="3570">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3326226" vertical-offset="16623" max-vertical-offset="64872">
-          <caret line="987" column="0" selection-start-line="987" selection-start-column="0" selection-end-line="987" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.IntelliJIdea13/system/extLibs/nodejs-v0.10.32-src/core-modules-sources/lib/assert.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3326226" vertical-offset="2632" max-vertical-offset="5253">
@@ -1244,13 +1195,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14501">
           <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/genetix.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6371814" vertical-offset="0" max-vertical-offset="667">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1314,6 +1258,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="15105" max-vertical-offset="15640">
           <caret line="905" column="49" selection-start-line="905" selection-start-column="49" selection-end-line="905" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1409,31 +1354,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/devices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27056277" vertical-offset="3241" max-vertical-offset="8534">
-          <caret line="198" column="55" selection-start-line="198" selection-start-column="55" selection-end-line="198" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3449692" vertical-offset="359" max-vertical-offset="7854">
           <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.476" vertical-offset="357" max-vertical-offset="4403">
-          <caret line="35" column="60" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/widgets/popup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.446" vertical-offset="1205" max-vertical-offset="3961">
-          <caret line="84" column="52" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -1451,18 +1375,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/widgets/wGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.942029" vertical-offset="4628" max-vertical-offset="10693">
-          <caret line="299" column="66" selection-start-line="299" selection-start-column="60" selection-end-line="299" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/devices.styl">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1462">
           <caret line="17" column="26" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1478,7 +1394,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
           <caret line="19" column="54" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1493,7 +1408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1109" max-vertical-offset="1598">
           <caret line="83" column="2" selection-start-line="83" selection-start-column="2" selection-end-line="83" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1501,36 +1415,108 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3752" max-vertical-offset="9809">
           <caret line="235" column="67" selection-start-line="235" selection-start-column="20" selection-end-line="235" selection-end-column="20" />
-          <folding>
-            <marker date="1427886687209" expanded="true" signature="9600:10145" placeholder="{...}" />
-            <marker date="1427886687209" expanded="true" signature="10216:10289" placeholder="{...}" />
-            <marker date="1427886687209" expanded="true" signature="10333:10370" placeholder="{...}" />
-            <marker date="1427886687209" expanded="true" signature="10402:10457" placeholder="{...}" />
-            <marker date="1427886687209" expanded="true" signature="10604:10696" placeholder="{...}" />
-            <marker date="1427886687209" expanded="true" signature="10721:10758" placeholder="{...}" />
-            <marker date="1427886687209" expanded="true" signature="10929:10931" placeholder="{...}" />
-            <marker date="1427886687209" expanded="true" signature="10971:11103" placeholder="{...}" />
-            <marker date="1427886687209" expanded="true" signature="11217:11701" placeholder="{...}" />
-            <marker date="1427886687209" expanded="true" signature="11840:11869" placeholder="{...}" />
-            <marker date="1427886687209" expanded="true" signature="11900:11938" placeholder="{...}" />
-            <marker date="1427886687209" expanded="true" signature="16365:16698" placeholder="{...}" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/content.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <caret line="7" column="58" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/general.styl">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="446" max-vertical-offset="1139">
-          <caret line="47" column="30" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+          <caret line="47" column="50" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/widgets/templates/popup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.034343433" vertical-offset="0" max-vertical-offset="697">
+          <caret line="1" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/lib/jquery-ui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="51961" max-vertical-offset="282574">
+          <caret line="3066" column="22" selection-start-line="3066" selection-start-column="13" selection-end-line="3066" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/lib/jquery-1.11.2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="175780">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/content.styl">
+    <entry file="file://$PROJECT_DIR$/views/genetix.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26103646" vertical-offset="0" max-vertical-offset="521">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="646">
+          <caret line="10" column="69" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="4403">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/devices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2755" max-vertical-offset="8534">
+          <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/widgets/popup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52007645" vertical-offset="0" max-vertical-offset="3961">
+          <caret line="16" column="47" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/widgets/templates/grid.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="918">
+          <caret line="5" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/lib/jquery.resizableColumns.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.48" vertical-offset="3358" max-vertical-offset="4284">
+          <caret line="210" column="62" selection-start-line="210" selection-start-column="62" selection-end-line="210" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/widgets/wGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40412372" vertical-offset="2847" max-vertical-offset="10489">
+          <caret line="179" column="102" selection-start-line="179" selection-start-column="102" selection-end-line="179" selection-end-column="102" />
+          <folding>
+            <marker date="1428311459306" expanded="false" signature="4916:4926" placeholder="..." />
+            <marker date="1428311459306" expanded="false" signature="5089:5099" placeholder="..." />
+            <marker date="1428311459306" expanded="true" signature="9729:9740" placeholder="..." />
+            <marker date="1428311459306" expanded="true" signature="9966:9976" placeholder="..." />
+            <marker date="1428311459306" expanded="false" signature="13410:13420" placeholder="..." />
+            <marker date="1428311459306" expanded="true" signature="16585:16595" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
