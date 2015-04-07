@@ -169,7 +169,7 @@ define(
                             var currContext = data.custom.dbGuid;
                             var vc = data.custom.contextGuid;
                             var formGuid = data.custom.formGuid;
-                            that._selectContext({masterGuid: currContext, vc:vc,  side: "server", formGuid: formGuid});
+                            that._selectContext({vc:vc,  side: "server", formGuids: [formGuid]});
                         },
                         righticonclick: function (event, data) {
                             if (data.data.custom.type == "context") {
@@ -191,7 +191,7 @@ define(
                                             var currContext = data2.custom.dbGuid;
                                             var vc = data2.custom.contextGuid;
                                             var formGuid = data2.custom.formGuid;
-                                            that._selectContext({masterGuid: currContext, vc: vc, side: "server", formGuid: formGuid});
+                                            that._selectContext({vc: vc, side: "server", formGuids: [formGuid]});
                                         } else {
                                             that._openOnDevice(data2);
                                         }
@@ -418,44 +418,15 @@ define(
 
                 return contexts;
             },
-            _selectContext: function(params) {
+            _selectContext: function(params, cb) {
                 $("#root-form-container").empty();
                 var that = this;
-
-                var formGuids = 'all';
-                //if (params.vc == url("#context")) {
-                 if (params.formGuid) formGuids = [params.formGuid];
-                //}
-
-                if (formGuids == null || formGuids == 'all') {
-                    // запросить гуиды рутов
-                    uccelloClt.getClient().socket.send({action:"getRootGuids", db:params.masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result) {
-                        that.rootsGuids = result.roots;
-                        uccelloClt.setContext(params, function(result) {
-                            that._setContextUrl(params.vc, formGuids);
-                        }, function() { return that._renderRoot() });
-                    });
-                } else {
-                    that.rootsGuids = formGuids;
-                    params.formGuids = formGuids;
-                    uccelloClt.setContext(params, function(result) {
-                        uccelloClt.getClient().socket.send({action:"getRootGuids", db:params.masterGuid, rootKind:'res', type:'method', formGuids:formGuids}, function(result2) {
-                            var newFormGuids = [];
-                            for(var i in formGuids) {
-                                var found = false;
-                                for(var j in result2.roots) {
-                                    if (result2.roots[j] == formGuids[i])
-                                        found = true;
-                                }
-                                if (!found)
-                                    newFormGuids.push(formGuids[i]);
-                            }
-                            if (newFormGuids.length > 0)
-                                uccelloClt.createRoot(newFormGuids, "res");
-                        });
-                        that._setContextUrl(params.vc, formGuids);
-                    }, function() { return that._renderRoot() });
-                }
+                uccelloClt.setContext(params, function(result) {
+                    that._setContextUrl(params.vc, params.urlFormGuids?params.urlFormGuids:params.formGuids);
+                    that._setAutoSendDeltas(true);
+                    //that.getContexts();
+                    if (cb) cb(result);
+                }, function(rootGuid) { return that._renderRoot(rootGuid) });
             },
             _setAutoSendDeltas: function() {
                 var cm = uccelloClt.getContextCM(currRoot);
