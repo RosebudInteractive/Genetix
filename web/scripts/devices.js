@@ -253,7 +253,6 @@ define(
                 if (formGuids != 'all') formGuids = [formGuids];
                 uccelloClt.getClient().newTab(
                     data.custom.parent.data.custom.contextGuid,
-                    data.custom.parent.data.custom.dbGuid,
                     formGuids,
                     data.custom.sessionId
                 );
