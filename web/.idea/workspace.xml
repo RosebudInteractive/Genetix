@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ui-impose/containers.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/containers.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/controls.css" afterPath="$PROJECT_DIR$/css/controls.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/controls.styl" afterPath="$PROJECT_DIR$/css/controls.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/devices.js" afterPath="$PROJECT_DIR$/scripts/devices.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui-impose/containers.html" afterPath="$PROJECT_DIR$/ui-impose/containers.html" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,13 +31,12 @@
       <file leaf-file-name="containers.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ui-impose/containers.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6565978" vertical-offset="352" max-vertical-offset="1037">
-              <caret line="51" column="68" selection-start-line="51" selection-start-column="68" selection-end-line="51" selection-end-column="68" />
+            <state vertical-scroll-proportion="0.33800623" vertical-offset="497" max-vertical-offset="1139">
+              <caret line="42" column="132" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -699,7 +693,7 @@
       <workItem from="1427886163878" duration="18602000" />
       <workItem from="1428064379193" duration="6481000" />
       <workItem from="1428301112396" duration="7782000" />
-      <workItem from="1428319715724" duration="12624000" />
+      <workItem from="1428319715724" duration="13494000" />
     </task>
     <task id="LOCAL-00001" summary="Старт">
       <created>1423481621359</created>
@@ -981,7 +975,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="752975000" />
+    <option name="totallyTimeSpent" value="753845000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1463,13 +1457,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ui-impose/containers.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6565978" vertical-offset="352" max-vertical-offset="1037">
-          <caret line="51" column="68" selection-start-line="51" selection-start-column="68" selection-end-line="51" selection-end-column="68" />
+        <state vertical-scroll-proportion="0.33800623" vertical-offset="497" max-vertical-offset="1139">
+          <caret line="42" column="132" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
