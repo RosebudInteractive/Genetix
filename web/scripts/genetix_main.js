@@ -60,7 +60,7 @@ $(document).ready( function() {
                      * Выбрать контекст
                      * @param guid
                      */
-                    this.selectContext = function(params) {
+                    this.selectContext = function(params, cb) {
                         $("#root-form-container").empty();
 
                         uccelloClt.setContext(params, function(result) {
