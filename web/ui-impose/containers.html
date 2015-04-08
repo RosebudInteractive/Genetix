@@ -23,13 +23,17 @@
     <script>
         $(document).ready(function () {
             $("#main").resizable();
+            $(".h-container").each(function() {
+                $(this).children(".h-content-wrapper").height($(this).height());
+            });
+
         });
 
     </script>
 </head>
 <body>
     <div id="main" class="v-container container" style="width: 500px; height: 500px; left: 40px; top: 40px; position: relative; background-color: #ffffff">
-        <div class="c-content" style="overflow-y: scroll; overflow-x: hidden">
+        <div class="c-content" style="overflow-y: auto; overflow-x: hidden">
             <div class="c-container container" style="height: 45px; min-height: 45px; width: 100%; position: relative">
                 <div class="c-content">
                     <div class="control button is-green" style="top: 10px; left: 25px;"><input type="button" value="Save"></div>
@@ -38,8 +42,22 @@
                 </div>
             </div>
             <div class="h-container container" style="flex: 80 0 auto; -webkit-flex: 80 0 auto; -ms-flex: 80 0 auto; width: 100%; min-height: 30px">
-                <div class="c-content">
-                </div>
+                <!--div class="h-content-wrapper"-->
+                    <div class="c-content" style="position: absolute; height: 100%; overflow-y: hidden; overflow-x: auto">
+                        <div class="c-container container" style="height: 100%; width: 75px; min-width: 75px">
+                            <div class="c-content">
+                                <div class="control button is-green" style="top: 10px; left: 5px;"><input type="button" value="Save"></div>
+                                <div class="control button is-white" style="top: 70px; left: 5px;"><input type="button" value="Cancel"></div>
+                            </div>
+                        </div>
+                        <div class="c-container container" style="height: 100%; flex: 100 0 auto; -webkit-flex: 10 0 auto; -ms-flex: 100 0 auto; min-width: 90px">
+                            <div class="c-content">
+                                <div class="control button is-green" style="top: 10px; left: 5px;"><input type="button" value="Save"></div>
+                                <div class="control button is-white" style="top: 70px; left: 5px;"><input type="button" value="Cancel"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!--/div-->
             </div>
             <div class="h-container container" style="flex: 20 0 auto;  -webkit-flex: 20 0 auto; -ms-flex: 20 0 auto; width: 100%; min-height: 60px">
                 <div class="c-content">
