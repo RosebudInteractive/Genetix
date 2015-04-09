@@ -610,10 +610,16 @@
   border-width: 0 6px 6px;
 }
 .container {
-  border: solid 1px #000;
+  outline: 1px solid #000;
+}
+.c-content {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 .c-container.container > .c-content,
-.v-container.container > .c-content {
+.v-container.container > .c-content,
+.g-container.container > .c-content {
   width: 100%;
   height: 100%;
   position: relative;
@@ -652,8 +658,23 @@
   -webkit-box-orient: horizontal;
   -moz-box-orient: horizontal;
 }
-.h-content-wrapper {
+.g-container.container > .c-content {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.g-container.container > .c-content table {
+  width: 100%;
+  height: 100%;
+  border-spacing: 0px;
+}
+.g-container.container > .c-content table td {
   border: solid 1px #000;
+}
+.g-container.container > .c-content table td > .c-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 .control {
   box-sizing: border-box;
