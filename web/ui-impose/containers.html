@@ -33,8 +33,42 @@
                         $(this).height($(this).parent().height());
                 });
             });
+
+            /*var isCtrl = false;
+            document.onkeyup=function(e){ if(e.which == 17) isCtrl=false; }
+            document.onkeydown=function(e) {
+                if(e.which == 17) isCtrl=true;
+                if(e.which == 86 && isCtrl === true) {
+                    CopyFromClipBoard();
+                }
+            } */
+
+            $(document).on('paste',function(e) {
+                e.preventDefault();
+                var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
+                window.document.execCommand('insertText', false, text);
+                CopyFromClipBoard(text);
+            });
         });
 
+        function CopyFromClipBoard(text) {
+            var td = $("#inserteble-td");
+            var tdCont = td.children(".c-content");
+            var tdOldHeight = td.height();
+            var tOldHeight = $("#main2").height();
+            var textPars = text.split("\n");
+            console.log(textPars);
+            tdCont.empty();
+            var newHeight = 0;
+            for (var i = 0; i < textPars.length; i++) {
+                textPars[i] = $("<div>" + textPars[i] + "</div>");
+                tdCont.append(textPars[i]);
+                newHeight += textPars[i].height();
+            }
+            td.height(newHeight);
+            tdCont.height(newHeight);
+            $("#main2").height(tOldHeight + (newHeight - tdOldHeight));
+        }
     </script>
 </head>
 <body>
@@ -94,14 +128,17 @@
         </div>
     </div>
     <div id="main2" class="g-container container" style="width: 500px; height: 500px; left: 580px; top: 40px; position: absolute; background-color: #ffffff">
-        <div class="c-content" style="overflow-y: hidden; overflow-x: hidden">
+        <div class="c-content" style="overflow: auto">
             <table>
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    <td id="inserteble-td" rowspan="2"  style="width: 96px; position: relative">
+                        <div class="c-content" style="width: 96px; height: 176px; position: absolute; top: 0px; left: 0px">
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td rowspan="4"  style="overflow: hidden; display: table-cell;position: relative;">
@@ -123,7 +160,6 @@
                             </div>
                         </div>
                     </td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td style="overflow: auto">
