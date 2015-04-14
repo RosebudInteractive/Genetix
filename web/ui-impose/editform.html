@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.structure.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.theme.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery.jscrollpane.css">
+    <link rel="stylesheet" type="text/css" href="/css/general.css">
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/css/controls.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery.resizableColumns.css">
+
+    <script src="/scripts/lib/uccello/uses/class-extend.js"></script>
+    <script src="/scripts/lib/jquery-1.11.2.js"></script>
+    <script src="/scripts/lib/jquery.sizes.js"></script>
+    <script type="text/javascript" src="/scripts/lib/jquery-ui.js"></script>
+    <script src="/scripts/lib/uccello/uses/url.js"></script>
+    <script src="/scripts/lib/uccello/uses/jquery.cookie.js"></script>
+    <script src="/scripts/lib/jquery.resizableColumns.js"></script>
+</head>
+<body class="is-disableselect">
+    <div id="main" class="is-disableselect container-front is-main-container">
+        <div class="is-system-panel clearfix">
+            <div class="system-panel-section-left no-spaces">
+                <div class="system-toolbar-icon is-pressed" onclick="$(this).toggleClass('is-pressed')">
+                    <div class="system-toolbar-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="../images/Genetix.svg#coral"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+                    <div class="system-toolbar-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="../images/Genetix.svg#process"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+                    <div class="system-toolbar-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="../images/Genetix.svg#compass"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+                    <div class="system-toolbar-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="../images/Genetix.svg#eye"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-toolbar-icon"
+                     onclick="
+                        var d = $(this).find('div');
+                        d.find('svg').width('22px').height('22px');
+                        var h=d.html();
+                        if (h.indexOf('unsaved_interface') >= 0)
+                            h = h.replace('unsaved_interface', 'saved_interface');
+                        else
+                            h = h.replace('saved_interface', 'unsaved_interface');
+                        d.html(h);"
+                        >
+                    <div class="system-toolbar-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="../images/Genetix.svg#unsaved_interface"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="system-panel-section-left no-spaces is-last">
+                <div class="stretch-element">
+                    <div  class="system-toolbar-menu-item is-active" onclick="$(this).toggleClass('is-pressed')">
+                        <div class="system-toolbar-icon-wrapper">
+                            <div class="system-toolbar-menu-item-text">
+                                <div>Документы</div>
+                                <div class="is-dot is-green">
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="../images/Genetix.svg#dot"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="system-toolbar-menu-item is-active" onclick="$(this).toggleClass('is-pressed')">
+                        <div class="system-toolbar-icon-wrapper">
+                            <div class="system-toolbar-menu-item-text">
+                                <div>CRM</div>
+                                <div class="is-dot">
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="../images/Genetix.svg#dot"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="system-toolbar-menu-item" onclick="$(this).toggleClass('is-pressed')">
+                        <div class="system-toolbar-icon-wrapper">
+                            <div class="system-toolbar-menu-item-text">
+                                <div>ЭМК</div>
+                                <div class="is-dot">
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="../images/Genetix.svg#dot"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="system-toolbar-menu-item">
+                        <div class="system-toolbar-icon-wrapper">
+                            <div class="system-toolbar-menu-item-text">
+                                <div>Редактирование</div>
+                                <div class="is-dot">
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="../images/Genetix.svg#dot"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="system-toolbar-menu-item">
+                        <div class="system-toolbar-icon-wrapper">
+                            <div class="system-toolbar-menu-item-text">
+                                <div>И еще документ</div>
+                                <div class="is-dot">
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="../images/Genetix.svg#dot"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="system-panel-section-right no-spaces">
+                <div class="system-toolbar-icon has-right-border" onclick="$(this).toggleClass('is-pressed')">
+                    <div class="system-toolbar-icon-wrapper is-dots">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="../images/Genetix.svg#dots"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-toolbar-menu-item is-combo">
+                    <div class="system-toolbar-icon-wrapper is-user-combo">
+                        <div class="text-btn-e is-arrow-drop">Edgar Poe</div>
+                    </div>
+                </div>
+                <div class="system-toolbar-icon is-device-close-icon" onclick="
+                        var d = $(this).find('div');
+                        d.find('svg').width('22px').height('22px');
+                        var h=d.html();
+                        if (h.indexOf('device_open') >= 0) {
+                            $('.is-content').removeClass('is-device-bar-hidden');
+                            h = h.replace('device_open', 'device_close');
+                        } else {
+                            $('.is-content').addClass('is-device-bar-hidden');
+                            h = h.replace('device_close', 'device_open');
+                        }
+                        d.html(h);"
+                    >
+                    <div class="system-toolbar-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="../images/Genetix.svg#device_close"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="is-content">
+            <div class="is-content-wrapper">
+                <div class="is-left-content">
+                    <div class="control form" id="113" style="top: 0px; left: 0px; width: 100%; height: 693px;">
+                        <div class="c-content">
+                            <div class="control m-container container" id="115"
+                                 style="width: 39em; margin: 0px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                             box-shadow: rgb(60, 66, 81) 1px 1px 0.75em 1px;
+                             -webkit-box-shadow: rgb(60, 66, 81) 1px 1px 0.75em 1px; border-radius: 0.25em;
+                             background-color: rgb(255, 255, 255);">
+                                <div class="c-content">
+                                    <div class="g-container container" style="width: 100%;">
+                                        <div class="c-content" style="overflow: auto">
+                                            <table>
+                                                <tr>
+                                                    <td class="container-title">
+                                                        <div class="container-title">
+                                                            <div class="cont-title-icon"></div>
+                                                            <div class="cont-title-text"><h2>Main</h2></div>
+                                                        </div>
+                                                    </td>
+                                                    <td colspan="4">
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control label" id="130">Id</div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control edit" id="131" title="Id">
+                                                                <input type="text">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-separator"></td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control label" id="132">State</div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control edit" id="133" title="Lead state">
+                                                                <input type="text">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control label" id="134">Client</div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control edit" id="135">
+                                                                <input type="text">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-separator"></td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control label" id="136">CompanyId</div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control edit" id="137">
+                                                                <input type="text">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control label" id="138">Contact</div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control edit" id="139">
+                                                                <input type="text">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-separator"></td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control label" id="140">Phone</div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control edit" id="141">
+                                                                <input type="text">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="g-container container" style="width: 100%;">
+                                        <div class="c-content" style="overflow: auto">
+                                            <table>
+                                                <tr>
+                                                    <td class="container-title">
+                                                        <div class="container-title">
+                                                            <div class="cont-title-icon"></div>
+                                                            <div class="cont-title-text"><h2>Account</h2></div>
+                                                        </div>
+                                                    </td>
+                                                    <td colspan="4">
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control label" id="142">Email</div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control edit" id="143">
+                                                                <input type="text">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-separator"></td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control label" id="144">Probe</div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control edit" id="145">
+                                                                <input type="text">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control label" id="146">Amount</div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control edit" id="147">
+                                                                <input type="text">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-separator"></td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control label" id="148">User</div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control edit" id="149">
+                                                                <input type="text">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!--div class="c-container container" style="width: 100%; height: 50px">
+                                        <div class="c-content" style="overflow: auto">
+                                            <div class="control button is-green" id="150" style="position: absolute; top: 10px; left: 10px">
+                                                <input type="button" value="Save">
+                                            </div>
+                                            <div class="control button is-white" id="151" style="position: absolute; top: 10px; left: 150px">
+                                                <input type="button" value="Cancel">
+                                            </div>
+                                        </div>
+                                    </div-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="is-device-bar">
+                    <div class="is-device-wrapper">
+                        <div class="is-device-icon is-green" onclick="$(this).toggleClass('is-pressed')">
+                            <div class="is-device-icon-wrapper">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="38px" height="38px" viewBox="0 0 38 38" xml:space="preserve">
+                                    <use xlink:href="../images/Genetix.svg#pc"></use>
+                                </svg>
+                            </div>
+                            <div class="is-device-text">
+                                My notebook
+                            </div>
+                        </div>
+                        <div class="is-device-icon is-blue" onclick="$(this).toggleClass('is-pressed')">
+                            <div class="is-device-icon-wrapper">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="38px" height="38px" viewBox="0 0 38 38" xml:space="preserve">
+                                    <use xlink:href="../images/Genetix.svg#tablet"></use>
+                                </svg>
+                            </div>
+                            <div class="is-device-text">
+                                iPad
+                            </div>
+                        </div>
+                        <div class="is-device-icon" onclick="$(this).toggleClass('is-pressed')">
+                            <div class="is-device-icon-wrapper">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="38px" height="38px" viewBox="0 0 38 38" xml:space="preserve">
+                                    <use xlink:href="../images/Genetix.svg#phone"></use>
+                                </svg>
+                            </div>
+                            <div class="is-device-text">
+                                Phone
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="is-system-footer clearfix">
+            <div class="is-system-footer-section-left no-spaces">
+                <div class="system-footer-icon">
+                    <div class="system-footer-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                            <use xlink:href="../images/Genetix.svg#question"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="is-system-footer-section-left is-pressed no-spaces">
+                <div class="system-footer-icon is-pressed">
+                    <div class="system-footer-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                            <use xlink:href="../images/Genetix.svg#lamp"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-footer-text is-pressed">
+                    <span>10</span>
+                </div>
+            </div>
+            <div class="is-system-footer-section-left no-spaces is-last">
+                <div class="system-footer-text has-left-margin is-grey-text">
+                    <span>22/10 11:30 AM - Meeting - Media Ocean</span>
+                </div>
+            </div>
+            <div class="is-system-footer-section-right no-spaces">
+                <div class="system-footer-icon has-right-border">
+                    <div class="system-footer-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="../images/Genetix.svg#bird"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="system-footer-icon is-last-icon">
+                    <div class="system-footer-icon-wrapper">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="../images/Genetix.svg#arrow_up"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

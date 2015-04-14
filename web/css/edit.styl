@@ -1,27 +1,63 @@
+input
+  box-sizing border-box
+  -moz-box-sizing border-box
+  -webkit-box-sizing border-box
+h2
+  margin 0
+  font-size 1.125em
+  font-family OpenSansRegular
+  line-height 1.25em;
 .control
   border-radius 5px
+
 .control.edit
-  border 1px solid #5195e5
+  border-radius 0px
 
 .control.edit
 .control.label
 .control.button
   position relative
-  font-size 0.75em
+  font-size 0.8125em
   line-height 1.5em
-  position absolute
+.control.edit
+  margin-left 0.9231em
 
-.control.edit input
-.control.label input
+.control.label
+  float right
+  letter-spacing .01em
+  color #a2a2a2
 .control.button input
   font-size 1em
   border-radius 5px
   margin-bottom 1px
+  outline none
+
 .control.edit input
-  padding 0.3em 0.9em 0.3em 0.9em
+  width 100%
+  font-size 1em
+  color: rgba(50,56,69,1)
+  letter-spacing .01em
+  text-align left
+  outline none
+  padding 0.3333em 0.46151em 0.3333em 0.46151em
+  margin-bottom 0.3334em
   border none
+  box-shadow inset 0 -1px #e0e5ec
+  -moz-box-shadow inset 0 -1px #e0e5ec
+  -webkit-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease
+  -moz-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease
+  -ms-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease
+  -o-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease
+  transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease
   &:focus
-    outline none
+    padding-bottom 0.6667em
+    margin-bottom 0
+    box-shadow inset 0 -1px #508ce6
+    -moz-box-shadow inset 0 -1px #508ce6
+  &:hover
+    box-shadow inset 0 -1px #508ce6
+    -moz-box-shadow inset 0 -1px #508ce6
+
 .control.button
   input
     border none
@@ -29,10 +65,11 @@
   .is-input-wrapper
     margin-right 0.825em
 .control.edit input
+.control.label
   font-family OpenSansRegular
 .control.button input
-.control.label
   font-family OpenSansBold
 .control.label
   color #718ab2
   display inline-block
+  line-height 2em

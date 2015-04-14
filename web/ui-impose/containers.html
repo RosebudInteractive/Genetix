@@ -43,16 +43,15 @@
                 }
             } */
 
-            $(document).on('paste',function(e) {
+            $("#main2").find(".c-content > table > tbody > tr > td").on('paste',function(e) {
                 e.preventDefault();
                 var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
                 window.document.execCommand('insertText', false, text);
-                CopyFromClipBoard(text);
+                CopyFromClipBoard($(this), text);
             });
         });
 
-        function CopyFromClipBoard(text) {
-            var td = $("#inserteble-td");
+        function CopyFromClipBoard(td, text) {
             var tdCont = td.children(".c-content");
             var tdOldHeight = td.height();
             var tOldHeight = $("#main2").height();
@@ -61,13 +60,14 @@
             tdCont.empty();
             var newHeight = 0;
             for (var i = 0; i < textPars.length; i++) {
-                textPars[i] = $("<div>" + textPars[i] + "</div>");
+                textPars[i] = $("<div class='text'>" + textPars[i] + "</div>");
                 tdCont.append(textPars[i]);
                 newHeight += textPars[i].height();
             }
             td.height(newHeight);
             tdCont.height(newHeight);
-            $("#main2").height(tOldHeight + (newHeight - tdOldHeight));
+            if (newHeight > tdOldHeight)
+                $("#main2").height(tOldHeight + (newHeight - tdOldHeight));
         }
     </script>
 </head>
@@ -131,10 +131,22 @@
         <div class="c-content" style="overflow: auto">
             <table>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
                     <td id="inserteble-td" rowspan="2"  style="width: 96px; position: relative">
                         <div class="c-content" style="width: 96px; height: 176px; position: absolute; top: 0px; left: 0px">
                         </div>
@@ -170,21 +182,54 @@
                             </div>
                         </div>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="c-content">
+                        </div>
+                    </td>
                 </tr>
             </table>
         </div>
