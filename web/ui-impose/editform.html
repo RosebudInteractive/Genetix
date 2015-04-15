@@ -23,7 +23,22 @@
     <script>
         $(document).ready(function () {
             $('#2015').css('overflow', 'hidden').autogrow();
+
+            setTimeout(function() {
+                $("tr.container-title").children().each(function () {
+                    $(this).width($(this).width());
+                });
+            }, 100);
+            $(".cont-title-icon").click(function () {
+                var table = $(this).parent().parent().parent().parent().parent();
+                if (table.hasClass("collapsed"))
+                    table.children().children("tr").not(".container-title").show();
+                else
+                    table.children().children("tr").not(".container-title").hide();
+                table.toggleClass("collapsed");
+            });
         });
+
     </script>
 </head>
 <body class="is-disableselect">
@@ -188,10 +203,14 @@
                                     <div class="g-container container" style="width: 100%;">
                                         <div class="c-content" style="overflow: auto">
                                             <table>
-                                                <tr>
+                                                <tr class="container-title">
                                                     <td class="container-title">
                                                         <div class="container-title">
-                                                            <div class="cont-title-icon"></div>
+                                                            <div class="cont-title-icon">
+                                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                                                    <use xlink:href="../images/Genetix.svg#arrow_down_16"></use>
+                                                                </svg>
+                                                            </div>
                                                             <div class="cont-title-text"><h2>Main</h2></div>
                                                         </div>
                                                     </td>
@@ -300,10 +319,14 @@
                                     <div class="g-container container" style="width: 100%;">
                                         <div class="c-content" style="overflow: auto">
                                             <table>
-                                                <tr>
+                                                <tr class="container-title">
                                                     <td class="container-title">
                                                         <div class="container-title">
-                                                            <div class="cont-title-icon"></div>
+                                                            <div class="cont-title-icon">
+                                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                                                    <use xlink:href="../images/Genetix.svg#arrow_down_16"></use>
+                                                                </svg>
+                                                            </div>
                                                             <div class="cont-title-text"><h2>Account</h2></div>
                                                         </div>
                                                     </td>
