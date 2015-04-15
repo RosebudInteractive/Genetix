@@ -507,7 +507,8 @@
 .dropdown2-b.is-gray-menu > arrow-be-wrapper > .arrow-be {
   background-color: #586278;
 }
-input {
+input,
+textarea {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -545,7 +546,8 @@ h2 {
   margin-bottom: 1px;
   outline: none;
 }
-.control.edit input {
+.control.edit input,
+.control.edit textarea {
   width: 100%;
   font-size: 1em;
   color: #323845;
@@ -563,17 +565,21 @@ h2 {
   -o-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease;
   transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease;
 }
-.control.edit input:focus {
+.control.edit input:focus,
+.control.edit textarea:focus {
+  background-color: #f2f7fe;
   padding-bottom: 0.6667em;
   margin-bottom: 0;
   box-shadow: inset 0 -1px #508ce6;
   -moz-box-shadow: inset 0 -1px #508ce6;
 }
-.control.edit input:hover {
+.control.edit input:hover,
+.control.edit textarea:hover {
   box-shadow: inset 0 -1px #508ce6;
   -moz-box-shadow: inset 0 -1px #508ce6;
 }
-.control.button input {
+.control.button input,
+.control.button textarea {
   border: none;
   padding: 0.3em 0.825em 0.3em 0.825em;
 }
@@ -581,6 +587,7 @@ h2 {
   margin-right: 0.825em;
 }
 .control.edit input,
+.control.edit textarea,
 .control.label {
   font-family: OpenSansRegular;
 }
@@ -591,6 +598,10 @@ h2 {
   color: #718ab2;
   display: inline-block;
   line-height: 2em;
+}
+tr > td > div.c-content > .control.label {
+  bottom: 0px;
+  right: 0px;
 }
 .ui-tooltip {
   background: #4f5e73;

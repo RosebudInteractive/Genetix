@@ -19,6 +19,12 @@
     <script src="/scripts/lib/uccello/uses/url.js"></script>
     <script src="/scripts/lib/uccello/uses/jquery.cookie.js"></script>
     <script src="/scripts/lib/jquery.resizableColumns.js"></script>
+    <script src="/scripts/lib/jquery.autogrow-textarea.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#2015').css('overflow', 'hidden').autogrow();
+        });
+    </script>
 </head>
 <body class="is-disableselect">
     <div id="main" class="is-disableselect container-front is-main-container">
@@ -270,6 +276,20 @@
                                                         <div class="c-content">
                                                             <div class="control edit" id="141">
                                                                 <input type="text">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="c-content">
+                                                            <div class="control label" >Comments</div>
+                                                        </div>
+                                                    </td>
+                                                    <td colspan="4">
+                                                        <div class="c-content">
+                                                            <div class="control edit" id="339">
+                                                                <textarea id="2015"></textarea>
                                                             </div>
                                                         </div>
                                                     </td>

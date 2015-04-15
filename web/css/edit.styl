@@ -1,4 +1,5 @@
 input
+textarea
   box-sizing border-box
   -moz-box-sizing border-box
   -webkit-box-sizing border-box
@@ -33,6 +34,7 @@ h2
   outline none
 
 .control.edit input
+.control.edit textarea
   width 100%
   font-size 1em
   color: rgba(50,56,69,1)
@@ -50,6 +52,7 @@ h2
   -o-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease
   transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease
   &:focus
+    background-color #f2f7fe
     padding-bottom 0.6667em
     margin-bottom 0
     box-shadow inset 0 -1px #508ce6
@@ -60,11 +63,13 @@ h2
 
 .control.button
   input
+  textarea
     border none
     padding 0.3em 0.825em 0.3em 0.825em
   .is-input-wrapper
     margin-right 0.825em
 .control.edit input
+.control.edit textarea
 .control.label
   font-family OpenSansRegular
 .control.button input
@@ -73,3 +78,7 @@ h2
   color #718ab2
   display inline-block
   line-height 2em
+
+tr > td > div.c-content > .control.label
+  bottom 0px
+  right 0px
