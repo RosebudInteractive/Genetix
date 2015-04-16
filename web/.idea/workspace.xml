@@ -4,7 +4,6 @@
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/controls.css" afterPath="$PROJECT_DIR$/css/controls.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/edit.styl" afterPath="$PROJECT_DIR$/css/edit.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,8 +69,8 @@
       <file leaf-file-name="edit.styl" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/edit.styl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6997793" vertical-offset="1128" max-vertical-offset="1598">
-              <caret line="85" column="32" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.4746137" vertical-offset="975" max-vertical-offset="1513">
+              <caret line="70" column="40" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -669,7 +668,7 @@
       <workItem from="1428319715724" duration="26677000" />
       <workItem from="1428483240203" duration="28012000" />
       <workItem from="1428935308530" duration="22223000" />
-      <workItem from="1429085543450" duration="17778000" />
+      <workItem from="1429085543450" duration="18674000" />
     </task>
     <task id="LOCAL-00001" summary="Старт">
       <created>1423481621359</created>
@@ -951,7 +950,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="835041000" />
+    <option name="totallyTimeSpent" value="835937000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1342,7 +1341,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="213" max-vertical-offset="12971">
           <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
           <folding>
-            <marker date="1429171659288" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1429179214236" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1446,8 +1445,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/edit.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6997793" vertical-offset="1128" max-vertical-offset="1598">
-          <caret line="85" column="32" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.4746137" vertical-offset="975" max-vertical-offset="1513">
+          <caret line="70" column="40" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
           <folding />
         </state>
       </provider>
