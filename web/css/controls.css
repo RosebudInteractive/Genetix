@@ -603,6 +603,7 @@ h2 {
 tr > td > div.c-content > .control.label {
   bottom: 0px;
   right: 0px;
+  padding-top: 0.3077em;
 }
 textarea {
   resize: none;
