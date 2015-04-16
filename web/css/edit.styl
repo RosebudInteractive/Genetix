@@ -1,14 +1,18 @@
 input
-textarea
   box-sizing border-box
   -moz-box-sizing border-box
   -webkit-box-sizing border-box
+textarea
+  box-sizing content-box
+  -moz-box-sizing content-box
+  -webkit-box-sizing content-box
 h2
   margin 0
   font-size 1.125em
   font-family OpenSans
   line-height 1.25em
   font-weight 500
+  color rgba(50,56,69,1)
 .control
   border-radius 5px
 
@@ -48,11 +52,11 @@ h2
   border none
   box-shadow inset 0 -1px #e0e5ec
   -moz-box-shadow inset 0 -1px #e0e5ec
-  -webkit-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease
-  -moz-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease
-  -ms-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease
-  -o-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease
-  transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease
+  -webkit-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease, height 0.2s ease
+  -moz-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease, height 0.2s ease
+  -ms-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease, height 0.2s ease
+  -o-transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease, height 0.2s ease
+  transition: padding-bottom 0.1s ease, box-shadow 0.1s ease, -moz-box-shadow 0.1s ease, margin-bottom 0.1s ease, height 0.2s ease
   &:focus
     background-color #f2f7fe
     padding-bottom 0.3076923em
