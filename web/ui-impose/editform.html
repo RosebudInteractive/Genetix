@@ -19,10 +19,19 @@
     <script src="/scripts/lib/uccello/uses/url.js"></script>
     <script src="/scripts/lib/uccello/uses/jquery.cookie.js"></script>
     <script src="/scripts/lib/jquery.resizableColumns.js"></script>
-    <script src="/scripts/lib/jquery.autogrow-textarea.js"></script>
+    <script src="/scripts/lib/jquery.autosize.js"></script>
     <script>
         $(document).ready(function () {
-            $('#2015').css('overflow', 'hidden').autogrow();
+            //$('#2015').css('overflow', 'hidden').autogrow();
+            $('#2015').autosize({
+                callback: function (el) {
+                    console.log($(el).is(":focus"));
+                    if ($(el).is(":focus")) {
+                        $(el).parent().css({height: ""});
+                        $(el).parent().height($(el).parent().outerHeight());
+                    }
+                }
+            });
 
             setTimeout(function() {
                 $("tr.container-title").children().each(function () {
@@ -38,12 +47,20 @@
                 table.toggleClass("collapsed");
             });
 
-            $("input, textarea").change(function() {
+            $("input, textarea").focusin(function() {
+                $(this).css({"box-shadow": "", "-moz-box-shadow" : ""});
+                $(this).parent().height($(this).parent().height());
+                var that = this;
+                //setTimeout(function () {
+                //    $(that).parent().css({height: ""});
+                //}, 300);
+            }).focusout(function () {
                 if ($(this).val() != "" && $(this).val() != null)
                     $(this).css({"box-shadow": "none", "-moz-box-shadow" : "none"});
-                else
-                    $(this).css({"box-shadow": "", "-moz-box-shadow" : ""});
-
+                var that = this;
+                setTimeout(function () {
+                    $(that).parent().css({height: ""});
+                }, 300);
             });
 
             $(window).resize(function (e, obj) {
