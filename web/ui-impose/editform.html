@@ -46,6 +46,10 @@
 
             });
 
+            $(window).resize(function (e, obj) {
+                var p = $("#root-form-container");
+                $("#113").css({top: 0 + 'px', left: 0 + 'px', width: 100 + '%', height: p.innerHeight() + 'px'});
+            });
         });
 
     </script>
@@ -200,13 +204,18 @@
         </div>
         <div class="is-content">
             <div class="is-content-wrapper">
-                <div class="is-left-content">
+                <div id="root-form-container" class="is-left-content">
                     <div class="control form" id="113" style="top: 0px; left: 0px; width: 100%; height: 693px;">
                         <div class="c-content">
                             <div class="control m-container container" id="115"
-                                 style="width: 39em; margin: 0px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-                             border-radius: 0.25em;
-                             background-color: rgb(255, 255, 255);">
+                                 style="width: 39em;
+                                 margin: 0px;
+                                 position: absolute;
+                                 top: 50%;
+                                 left: 50%;
+                                 transform: translate(-50%, -50%);
+                                 border-radius: 0.25em;
+                                 background-color: rgb(255, 255, 255);">
                                 <div class="c-content">
                                     <div class="g-container container" style="width: 100%;">
                                         <div class="c-content" style="overflow: auto">
