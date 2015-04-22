@@ -90,7 +90,7 @@ $(document).ready( function() {
                                     for (var k = 0, len3 = col.count(); k < len3; k++) {
                                         var item = col.get(k);
                                         var option = $('<option/>');
-                                        var isOn = uccelloClt.getSysCM().getByGuid(item.getGuid()).isOn();
+                                        var isOn = uccelloClt.getSysCM().get(item.getGuid()).isOn();
                                         option.data('ContextGuid', item.get('ContextGuid'));
                                         option.val(item.get('DataBase')).html(item.get('Name')+(isOn?' isOn ':''));
                                         sel.append(option);
@@ -234,13 +234,13 @@ $(document).ready( function() {
 
                             that.getContexts();
                             var vc = url('#context');
-                            var vcObj = uccelloClt.getSysCM().getByGuid(vc);
+                            var vcObj = uccelloClt.getSysCM().get(vc);
                             var formGuids = url('#formGuids') ? url('#formGuids').split(',') : null;
                             if (formGuids) {
                                 that.selectContext({vc:vc,  side: 'server', formGuids:formGuids}, function(){
                                     uccelloClt.createRoot(formGuids, "res", function (result) {
-                                        vcObj.addNewResRoots(result.guids, function (result2) {
-                                            that.selectContext({vc: vc, side: 'server', formGuids:result.guids, urlFormGuids:result.guids});
+                                        vcObj.addNewResRoots(formGuids, function (result2) {
+                                            that.selectContext({vc: vc, side: 'server', formGuids:formGuids, urlFormGuids:formGuids});
                                         });
                                     }, vcObj);
                                 });
@@ -413,7 +413,7 @@ $(document).ready( function() {
                     $(window).on('hashchange', function() {
                         if (window.isHashchange) {
                             var vc = url('#context');
-                            var vcObj = uccelloClt.getSysCM().getByGuid(vc);
+                            var vcObj = uccelloClt.getSysCM().get(vc);
                             if(vcObj && vc)
                                 $('#userContext').val(vcObj.dataBase()).change();
                         }

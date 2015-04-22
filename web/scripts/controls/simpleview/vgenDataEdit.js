@@ -15,7 +15,7 @@ define(
                 item.find("input").blur(function () {
                     if (that.dataset() && that.dataField()) {
                         that.getControlMgr().userEventHandler(that, function () {
-                            var dataset = that.getControlMgr().getByGuid(that.dataset());
+                            var dataset = that.getControlMgr().get(that.dataset());
                             dataset.setField(that.dataField(), item.find("input").val());
                         });
                     }
@@ -35,7 +35,7 @@ define(
 
             // устанавливаем значение
             if (this.dataset() && this.dataField()) {
-                var dataset = that.getControlMgr().getByGuid(that.dataset());
+                var dataset = that.getControlMgr().get(that.dataset());
                 item.find("input").val(dataset? dataset.getField(this.dataField()): '');
             }
         }

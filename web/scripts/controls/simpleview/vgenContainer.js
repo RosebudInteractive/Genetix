@@ -47,7 +47,8 @@ define(
                 item.css({"background-color" : this.background()});
 
             // убираем удаленные объекты
-            var del = this.getObj().getLogCol('Children').del;
+            //var del = this.getObj().getLogCol('Children').del;
+            var del = this.getLogCol('Children').del;
             for (var guid in del)
                 $('#' + del[guid].getLid()).remove();
 

@@ -67,7 +67,7 @@ define(
 
                 // если надо лишь передвинуть курсор
                 if (this.isOnlyCursor()) {
-                    viewset.renderCursor.apply(this, [this.getControlMgr().getByGuid(this.dataset()).cursor()]);
+                    viewset.renderCursor.apply(this, [this.getControlMgr().get(this.dataset()).cursor()]);
                     return;
                 }
 
@@ -76,7 +76,7 @@ define(
 
                 // доп. действия
                 if (this.dataset()) {
-                    this.pvt.renderDataVer = this.getControlMgr().getByGuid(this.dataset()).getDataVer();
+                    this.pvt.renderDataVer = this.getControlMgr().get(this.dataset()).getDataVer();
                 }
             },
 
@@ -86,9 +86,10 @@ define(
              */
             isOnlyCursor: function() {
                 if (this.dataset()) {
-                    var dataset = this.getControlMgr().getByGuid(this.dataset());
-
-                    if ((this.pvt.renderDataVer == dataset.getDataVer()) && (!dataset.isDataModified()))
+                    var dataset = this.getComp(this.dataset());
+                    //var mo = this.getObj();
+                    //if ((this.pvt.renderDataVer == dataset.getDataVer()) && (!dataset.isDataModified()) && (dataset.getObj().isFldModified("Cursor")) && (!mo.isDataModified()))
+                    if ((this.pvt.renderDataVer == dataset.getDataVer()) && (!dataset.isDataModified()) && (dataset.isFldModified("Cursor")) && (!this.isDataModified()))
                         return true;
                     else
                         return false;

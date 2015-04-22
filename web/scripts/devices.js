@@ -315,7 +315,7 @@ define(
 
             _prepareFormsData: function(parentData) {
                 var contextGuid = parentData.data.custom.contextGuid;
-                var context = uccelloClt.getSysCM().getByGuid(contextGuid);
+                var context = uccelloClt.getSysCM().get(contextGuid);
                 var result = [];
                 var contGuid = context.contextGuid();
 
@@ -389,7 +389,7 @@ define(
                                 contexts.push(cnt);
 
                                 if (url("#context") == contGuid) {
-                                    var rootForm = uccelloClt.getContextCM().getByGuid(this._CurrentRoot);
+                                    var rootForm = uccelloClt.getContextCM().get(this._CurrentRoot);
                                     for (var f = 0, len5 = rootForm.countChild("SubForms"); f < len5; f++) {
                                         var subFrmItem = rootForm.getChild(f, "SubForms");
 

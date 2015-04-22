@@ -31,7 +31,7 @@ define(
                         if (row && 'Id' in row) {
                             event.stopPropagation();
                             that.getControlMgr().userEventHandler(that, function(){
-                                var ds = that.getControlMgr().getByGuid(that.dataset());
+                                var ds = that.getControlMgr().get(that.dataset());
                                 if (ds.cursor() != row.Id) ds.cursor(row.Id);
                             });
 
@@ -105,17 +105,16 @@ define(
             if (o) {
                 var cm = o.getControlMgr();
 
-                var db = cm.getDB();
                 var rootElem = null;
                 var dataset = null;
 
                 var columnsArr = [];
 
                 if (o.dataset()) {
-                    dataset = cm.getByGuid(o.dataset());
+                    dataset = cm.get(o.dataset());
                     if (dataset) {
                         rootElem = dataset.root();
-                        rootElem = rootElem? db.getObj(rootElem): null;
+                        rootElem = rootElem? cm.getObj(rootElem): null;
                     }
                 }
 
@@ -124,9 +123,9 @@ define(
                     // данные
                     var col = rootElem.getCol('DataElements');
                     // колонки грида
-                    var columns = o.getObj().getCol('Columns');
+                    var columns = o.getCol('Columns');
                     // поля
-                    var fields = dataset.getObj().getCol('Fields');
+                    var fields = dataset.getCol('Fields');
 
                     var idIndex = null, cursor = dataset.cursor(), rows = '', cursorIndex = -1;
                     var fieldsArr = {};
