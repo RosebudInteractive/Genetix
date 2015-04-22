@@ -12,6 +12,11 @@
     <link rel="stylesheet" type="text/css" href="/css/login.css">
     <link rel="stylesheet" type="text/css" href="/css/controls.css">
     <link rel="stylesheet" type="text/css" href="/css/jquery.resizableColumns.css">
+    <style>
+        .control.button {
+            display: inline;
+        }
+    </style>
 
     <script src="/scripts/lib/uccello/uses/class-extend.js"></script>
     <script src="/scripts/lib/jquery-1.11.2.js"></script>
@@ -74,15 +79,17 @@
 <body>
     <div id="main" class="v-container container" style="width: 500px; height: 500px; left: 40px; top: 40px; position: relative; background-color: #ffffff">
         <div class="c-content" style="overflow-y: auto; overflow-x: hidden">
-            <div class="c-container container" style="height: 50px; min-height: 50px; width: 100%; position: relative">
-                <div class="c-content">
-                    <div class="control button is-green" style="top: 10px; left: 25px;"><input type="button" value="Save"></div>
-                    <div class="control button is-white" style="top: 10px; left: 90px;"><input type="button" value="Cancel"></div>
-                    <div class="control label" style="top: 15px; left: 160px; font-family: OpenSansSemiboldRegular;">Фиксированная высота</div>
+            <div class="control-wrapper">
+                <div class="c-container container" style="height: 50px; min-height: 50px; width: 100%; position: relative">
+                    <div class="c-content">
+                        <div class="control button is-green" style="top: 10px; left: 25px;"><input type="button" value="Save"></div>
+                        <div class="control button is-white" style="top: 10px; left: 90px;"><input type="button" value="Cancel"></div>
+                        <div class="control label" style="top: 15px; left: 160px; font-family: OpenSansSemiboldRegular;">Фиксированная высота</div>
+                    </div>
                 </div>
             </div>
-            <div class="h-container container" style="flex: 80 0 auto; -webkit-flex: 80 0 auto; -ms-flex: 80 0 auto; width: 100%;">
-                <!--div class="h-content-wrapper"-->
+            <div class="control-wrapper">
+                <div class="h-container container" style="flex: 80 0 auto; -webkit-flex: 80 0 auto; -ms-flex: 80 0 auto; width: 100%;">
                     <div class="c-content" style="position: absolute; height: 100%; overflow-y: auto; overflow-x: auto">
                         <div class="c-container container" style="height: 100%; width: 75px; min-width: 75px">
                             <div class="c-content">
@@ -108,13 +115,16 @@
                             </div>
                         </div>
                     </div>
-                <!--/div-->
+                </div>
             </div>
-            <div class="h-container container" style="flex: 20 0 auto;  -webkit-flex: 20 0 auto; -ms-flex: 20 0 auto; width: 100%;">
+            <div class="control-wrapper">
+                <div class="h-container container" style="flex: 20 0 auto;  -webkit-flex: 20 0 auto; -ms-flex: 20 0 auto; width: 100%;">
                 <div class="c-content">
                 </div>
             </div>
-            <div class="h-container container" style="height: auto; width: 100%">
+            </div>
+            <div class="control-wrapper">
+                <div class="h-container container" style="height: auto; width: 100%">
                 <div class="c-content">
                     <div class="c-container container" style="height: 100px; width: 100%">
                         <div class="c-content">
@@ -124,6 +134,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>
