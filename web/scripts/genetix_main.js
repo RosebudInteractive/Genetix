@@ -37,7 +37,11 @@ $(document).ready( function() {
                     {className:'GenContainer', component:'genContainer', viewset:true, guid:'b75474ef-26d0-4298-9dad-4133edaa8a9c'},
                     {className:'GenButton', component:'genButton', viewset:true, guid:'bf0b0b35-4025-48ff-962a-1761aa7b3a7b'},
                     {className:'GenDataEdit', component:'genDataEdit', viewset:true, guid:'567cadd5-7f9d-4cd8-a24d-7993f065f5f9'},
-                    {className:'Form', viewset:true}
+                    {className:'Form', viewset:true},
+                    {className:'Container', viewset:true},
+                    {className:'CContainer', viewset:true},
+                    {className:'HContainer', viewset:true},
+                    {className:'VContainer', viewset:true}
                 ],
                 controlsPath: 'controls/',
                 uccelloPath: 'lib/uccello/',

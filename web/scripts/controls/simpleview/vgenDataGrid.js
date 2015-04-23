@@ -19,12 +19,12 @@ define(
             // если не создан грид
             if (grid.length == 0) {
                 grid = $(vDataGrid._templates['grid']).attr('id', this.getLid());
-                var parent = (this.getParent()? '#' + this.getParent().getLid(): options.rootContainer);
+                var parent = (this.getParent()? '#ch_' + this.getLid(): options.rootContainer);
                 $(parent).append(grid);
 
                 var opt = {
-                    height: this.height() ? this.height() : $(parent).height(),
-                    width: this.width() ? this.width() : "100%",
+                    height: $(parent).height(),
+                    width: "100%",
                     columns: [],
                     source: this.source,
                     selectrow: function (event, row, obj) {
@@ -44,11 +44,6 @@ define(
                         }
                     }
                 };
-
-                if (this.top())
-                    opt.top = this.top();
-                if (this.left())
-                    opt.left = this.left();
 
                 this._grid = grid.grid(opt);
                 this._iscroll = null;

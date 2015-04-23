@@ -4,7 +4,23 @@ define(
         var vContainer = {};
         vContainer._templates = template.parseTemplate(tpl);
         vContainer.render = function(options) {
-            var that = this;
+            var item = $('#' + this.getLid());
+            if (item.length == 0) {
+                item = $(vContainer._templates['container']).attr('id', this.getLid());
+                var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
+                $(parent).append(item);
+            }
+
+            // убираем удаленные объекты
+            //var del = this.getObj().getLogCol('Children').del;
+            var del = this.getLogCol('Children').del;
+            for (var guid in del)
+                $('#ch_' + del[guid].getLid()).remove();
+
+            if (this.background())
+                item.css({"background-color" : this.background()});
+
+            /*var that = this;
             var item = $('#' + this.getLid());
             var parent = (this.getParent()? '#' + this.getParent().getLid(): options.rootContainer);
             var p = $(parent);
@@ -43,15 +59,13 @@ define(
                     item.css({top: 0 + 'px', left: 0 + 'px', width: 100 + '%', height: p.height() + 'px'});
             }
 
-            if (this.background())
-                item.css({"background-color" : this.background()});
-
             // убираем удаленные объекты
             //var del = this.getObj().getLogCol('Children').del;
             var del = this.getLogCol('Children').del;
             for (var guid in del)
                 $('#' + del[guid].getLid()).remove();
 
+             */
         }
         return vContainer;
     }

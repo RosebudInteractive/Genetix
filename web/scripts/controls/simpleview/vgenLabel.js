@@ -7,10 +7,10 @@ define(
             var item = $('#' + this.getLid());
             if (item.length == 0) {
                 item = $(vLabel._templates['label']).attr('id', this.getLid());
-                var parent = (this.getParent()? '#' + this.getParent().getLid(): options.rootContainer);
+                var parent = (this.getParent()? '#ch_' + this.getParent().getLid(): options.rootContainer);
                 $(parent).append(item);
             }
-            item.css({top: this.top() + 'px', left: this.left() + 'px'}).html(this.label());
+            item.css({width: "100%", height: "100%" }).html(this.label());
             if (this.fontSize( ))
                 item.css({"font-size": this.fontSize()});
             if (this.color())
@@ -18,8 +18,6 @@ define(
             // фонт
             if (this.fontFamily())
                 item.css({"font-family": this.fontFamily()});
-            else
-                item.css({"font-family": "OpenSansSemiboldRegular"});
 
         }
         return vLabel;
