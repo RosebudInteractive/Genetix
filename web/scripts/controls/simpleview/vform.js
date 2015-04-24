@@ -24,9 +24,41 @@ define(
                     if (!child.left) continue;
                     var div = $('<div class="control-wrapper"></div>').attr('id', 'ch_'+child.getLid());
                     var width=child.width(), height=child.height();
-                    if ($.isNumeric(width)) width += 'px';
-                    if ($.isNumeric(height)) height += 'px';
-                    div.css({width:width, height:height});
+
+                    if ("position" in child && child.position() == "center") {
+                        div.css({
+                            margin: "0",
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            /*"box-shadow": "1px 1px 0.75em 1px #3c4251",
+                            "-webkit-box-shadow" : "1px 1px 0.75em 1px #3c4251",
+                            "-moz-box-shadow" : "1px 1px 0.75em 1px #3c4251",
+                            "border-radius": "0.25em",*/
+                            "width": width,
+                            "height": height
+                        });
+
+                    } else {
+                        div.css({width: "100%"});
+                        var height = child.height() || "auto";
+                        var flex = "";
+                        if (height != "auto") {
+                            if ($.isNumeric(height))
+                                height += "px";
+                            else if (height.length > 0 && height[height.length - 1] == "%") {
+                                if (childs.count() == 1) {
+                                    height = "100%";
+                                } else {
+                                    var perc = height.replace("%", "");
+                                    height = "auto";
+                                    flex = perc + " 0 auto";
+                                }
+                            }
+                        }
+                        div.css({"height": height, "flex": flex, "-webkit-flex": flex, "-ms-flex": flex, "min-height": 0});
+                    }
                     cont.append(div);
                 }
 

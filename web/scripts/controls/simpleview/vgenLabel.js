@@ -7,7 +7,7 @@ define(
             var item = $('#' + this.getLid());
             if (item.length == 0) {
                 item = $(vLabel._templates['label']).attr('id', this.getLid());
-                var parent = (this.getParent()? '#ch_' + this.getParent().getLid(): options.rootContainer);
+                var parent = (this.getParent()? '#ch_' + this.getLid(): options.rootContainer);
                 $(parent).append(item);
             }
             item.css({width: "100%", height: "100%" }).html(this.label());
@@ -18,6 +18,8 @@ define(
             // фонт
             if (this.fontFamily())
                 item.css({"font-family": this.fontFamily()});
+            if (this.fontWeight())
+                item.css({"font-weight": this.fontWeight()});
 
         }
         return vLabel;

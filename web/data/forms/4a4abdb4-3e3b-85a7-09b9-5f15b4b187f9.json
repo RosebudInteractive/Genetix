@@ -38,7 +38,7 @@
                     "Background": "#ffffff",
                     "Position": "center",
                     "Width": "39em",
-                    "Height": "19em"
+                    "Height": "21em"
                 },
                 "collections": {
                     "Children": [
@@ -199,366 +199,383 @@
                         },
                         {
                             "$sys": {
-                                "guid": "3289602b-2261-6623-7e7f-30abce4719e5",
-                                "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                "guid": "35a25a72-5488-9284-23f9-b34d22fbdb2e",
+                                "typeGuid": "1d95ab61-df00-aec8-eff5-0f90187891cf"
                             },
                             "fields": {
-                                "Id": 3007,
-                                "Name": "LabelId",
-                                "Top": 75,
-                                "Left": 25,
-                                "Width": 100,
-                                "Height": 20,
-                                "Label": "Id"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "109e9d5a-3d3e-6fee-3d1d-4f41e4be5371",
-                                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "LeadId",
-                                "Top": 70,
-                                "Left": 100,
-                                "Width": 100,
-                                "Height": 20,
-                                "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
-                                "DataField": "Id",
-                                "Title": "Id"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "e6462516-32ce-32b8-290a-6c400ecab494",
-                                "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "LabelState",
-                                "Top": 75,
-                                "Left": 320,
-                                "Width": 100,
-                                "Height": 20,
-                                "Label": "State"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "13a9da4c-9a10-ceee-28a6-1442cb8b7d4c",
-                                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "LeadState",
-                                "Top": 70,
-                                "Left": 410,
-                                "Width": 100,
-                                "Height": 20,
-                                "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
-                                "DataField": "state",
-                                "Title": "Lead state"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "fb15ae4a-64df-81c5-bc66-fb8731d63327",
-                                "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "LabelClient",
-                                "Top": 110,
-                                "Left": 25,
-                                "Width": 100,
-                                "Height": 20,
-                                "Label": "Client"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "b2788da2-58b5-c2bd-739d-d10967accd6a",
-                                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "LeadClient",
-                                "Top": 105,
-                                "Left": 100,
-                                "Width": 100,
-                                "Height": 20,
-                                "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
-                                "DataField": "client"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "8fe46a05-13bc-fff3-71d7-faccaaf9d1fd",
-                                "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "LabelCompanyId",
-                                "Top": 110,
-                                "Left": 320,
-                                "Width": 100,
-                                "Height": 20,
-                                "Label": "CompanyId"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "97bfa7d7-1221-fe5b-3216-cf6e430b09cb",
-                                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "LeadCompanyId",
-                                "Top": 105,
-                                "Left": 410,
-                                "Width": 100,
-                                "Height": 20,
-                                "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
-                                "DataField": "companyId"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "3ddd3888-8b75-f9d3-3107-3fbd1eb33473",
-                                "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "LabelContact",
-                                "Top": 145,
-                                "Left": 25,
-                                "Width": 100,
-                                "Height": 20,
-                                "Label": "Contact"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "03dcdef6-12c3-9f21-6b57-15296b267426",
-                                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "LeadContact",
-                                "Top": 140,
-                                "Left": 100,
-                                "Width": 100,
-                                "Height": 20,
-                                "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
-                                "DataField": "contact"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "4e0e673c-d941-3c54-1fdd-2f8f9236a449",
-                                "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "LabelPhone",
-                                "Top": 145,
-                                "Left": 320,
-                                "Width": 100,
-                                "Height": 20,
-                                "Label": "Phone"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "b5977e14-d68d-e145-e4ac-87e127977244",
-                                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "LeadPhone",
-                                "Top": 140,
-                                "Left": 410,
-                                "Width": 100,
-                                "Height": 20,
-                                "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
-                                "DataField": "phone"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "b5ee48a7-13cf-30ef-6625-0f5cdda28bd5",
-                                "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "LabelEmail",
-                                "Top": 180,
-                                "Left": 25,
-                                "Width": 100,
-                                "Height": 20,
-                                "Label": "Email"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "907ff70a-0a0c-dd1f-8015-03dbad574671",
-                                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "LeadEmail",
-                                "Top": 175,
-                                "Left": 100,
-                                "Width": 100,
-                                "Height": 20,
-                                "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
-                                "DataField": "email"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "0a6a4521-3ffd-4a90-98e3-cfea0f519aea",
-                                "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
-                            },
-                            "fields": {
-                                "Id": 3010,
-                                "Name": "LabelProba",
-                                "Top": 180,
-                                "Left": 320,
-                                "Width": 100,
-                                "Height": 20,
-                                "Label": "Probe"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "0d4de87d-473e-42c6-92f9-58c731e8d8e7",
-                                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
-                            },
-                            "fields": {
-                                "Id": 3011,
-                                "Name": "LeadProba",
-                                "Top": 175,
-                                "Left": 410,
-                                "Width": 100,
-                                "Height": 20,
-                                "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
-                                "DataField": "proba"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "e8a40c84-31ed-4d0f-b3e9-41dd3ed48654",
-                                "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
-                            },
-                            "fields": {
-                                "Id": 3012,
-                                "Name": "LabelAmount",
-                                "Top": 215,
-                                "Left": 25,
-                                "Width": 100,
-                                "Height": 20,
-                                "Label": "Amount"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "c84a992d-b557-4586-9647-7d16762f2b8d",
-                                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
-                            },
-                            "fields": {
-                                "Id": 3013,
-                                "Name": "LeadAmount",
-                                "Top": 210,
-                                "Left": 100,
-                                "Width": 100,
-                                "Height": 20,
-                                "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
-                                "DataField": "amount"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "bdb9f791-2a19-4a84-ae58-5bc3bd3e0485",
-                                "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
-                            },
-                            "fields": {
-                                "Id": 3014,
-                                "Name": "LabelUser",
-                                "Top": 215,
-                                "Left": 320,
-                                "Width": 100,
-                                "Height": 20,
-                                "Label": "User"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "0288cc65-1572-4447-90ed-6d642f996c2e",
-                                "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
-                            },
-                            "fields": {
-                                "Id": 3015,
-                                "Name": "LeadUser",
-                                "Top": 210,
-                                "Left": 410,
-                                "Width": 100,
-                                "Height": 20,
-                                "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
-                                "DataField": "user"
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "fd584e0d-4c97-098a-10ac-31b3efb69bd1",
-                                "typeGuid": "bf0b0b35-4025-48ff-962a-1761aa7b3a7b"
-                            },
-                            "fields": {
-                                "Id": 101,
-                                "Name": "SaveButton",
-                                "Top": "255",
-                                "Left": "25",
-                                "Caption": "Save",
-                                "ExtendedClass": "is-green"
+                                "Id": 4002,
+                                "Name": "CoordContainer",
+                                "Width": "100%",
+                                "Height": "100%"
                             },
                             "collections": {
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "7ca91e81-fbbc-d4ec-adcb-d69e059023b8",
-                                "typeGuid": "bf0b0b35-4025-48ff-962a-1761aa7b3a7b"
-                            },
-                            "fields": {
-                                "Id": 101,
-                                "Name": "CancelButton",
-                                "Top": "255",
-                                "Left": "90",
-                                "Caption": "Cancel"
-                            },
-                            "collections": {
-                            }
-                        },
-                        {
-                            "$sys": {
-                                "guid": "a0975f2f-ec60-eb6f-c4b9-5e4308e9a40d",
-                                "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
-                            },
-                            "fields": {
-                                "Id": 3007,
-                                "Name": "Header",
-                                "Top": 24,
-                                "Left": 25,
-                                "Width": 100,
-                                "Height": 20,
-                                "Label": "Lead Edit",
-                                "FontSize": "1em",
-                                "FontFamily": "OpenSansSemiboldRegular",
-                                "Color": "#000000"
+                                "Children": [
+                                    {
+                                        "$sys": {
+                                            "guid": "3289602b-2261-6623-7e7f-30abce4719e5",
+                                            "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LabelId",
+                                            "Top": 75,
+                                            "Left": 25,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Label": "Id"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "109e9d5a-3d3e-6fee-3d1d-4f41e4be5371",
+                                            "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LeadId",
+                                            "Top": 70,
+                                            "Left": 100,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
+                                            "DataField": "Id",
+                                            "Title": "Id"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "e6462516-32ce-32b8-290a-6c400ecab494",
+                                            "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LabelState",
+                                            "Top": 75,
+                                            "Left": 320,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Label": "State"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "13a9da4c-9a10-ceee-28a6-1442cb8b7d4c",
+                                            "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LeadState",
+                                            "Top": 70,
+                                            "Left": 410,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
+                                            "DataField": "state",
+                                            "Title": "Lead state"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "fb15ae4a-64df-81c5-bc66-fb8731d63327",
+                                            "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LabelClient",
+                                            "Top": 110,
+                                            "Left": 25,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Label": "Client"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "b2788da2-58b5-c2bd-739d-d10967accd6a",
+                                            "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LeadClient",
+                                            "Top": 105,
+                                            "Left": 100,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
+                                            "DataField": "client"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "8fe46a05-13bc-fff3-71d7-faccaaf9d1fd",
+                                            "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LabelCompanyId",
+                                            "Top": 110,
+                                            "Left": 320,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Label": "CompanyId"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "97bfa7d7-1221-fe5b-3216-cf6e430b09cb",
+                                            "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LeadCompanyId",
+                                            "Top": 105,
+                                            "Left": 410,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
+                                            "DataField": "companyId"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "3ddd3888-8b75-f9d3-3107-3fbd1eb33473",
+                                            "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LabelContact",
+                                            "Top": 145,
+                                            "Left": 25,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Label": "Contact"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "03dcdef6-12c3-9f21-6b57-15296b267426",
+                                            "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LeadContact",
+                                            "Top": 140,
+                                            "Left": 100,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
+                                            "DataField": "contact"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "4e0e673c-d941-3c54-1fdd-2f8f9236a449",
+                                            "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LabelPhone",
+                                            "Top": 145,
+                                            "Left": 320,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Label": "Phone"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "b5977e14-d68d-e145-e4ac-87e127977244",
+                                            "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LeadPhone",
+                                            "Top": 140,
+                                            "Left": 410,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
+                                            "DataField": "phone"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "b5ee48a7-13cf-30ef-6625-0f5cdda28bd5",
+                                            "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LabelEmail",
+                                            "Top": 180,
+                                            "Left": 25,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Label": "Email"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "907ff70a-0a0c-dd1f-8015-03dbad574671",
+                                            "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "LeadEmail",
+                                            "Top": 175,
+                                            "Left": 100,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
+                                            "DataField": "email"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "0a6a4521-3ffd-4a90-98e3-cfea0f519aea",
+                                            "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                        },
+                                        "fields": {
+                                            "Id": 3010,
+                                            "Name": "LabelProba",
+                                            "Top": 180,
+                                            "Left": 320,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Label": "Probe"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "0d4de87d-473e-42c6-92f9-58c731e8d8e7",
+                                            "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
+                                        },
+                                        "fields": {
+                                            "Id": 3011,
+                                            "Name": "LeadProba",
+                                            "Top": 175,
+                                            "Left": 410,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
+                                            "DataField": "proba"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "e8a40c84-31ed-4d0f-b3e9-41dd3ed48654",
+                                            "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                        },
+                                        "fields": {
+                                            "Id": 3012,
+                                            "Name": "LabelAmount",
+                                            "Top": 215,
+                                            "Left": 25,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Label": "Amount"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "c84a992d-b557-4586-9647-7d16762f2b8d",
+                                            "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
+                                        },
+                                        "fields": {
+                                            "Id": 3013,
+                                            "Name": "LeadAmount",
+                                            "Top": 210,
+                                            "Left": 100,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
+                                            "DataField": "amount"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "bdb9f791-2a19-4a84-ae58-5bc3bd3e0485",
+                                            "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                        },
+                                        "fields": {
+                                            "Id": 3014,
+                                            "Name": "LabelUser",
+                                            "Top": 215,
+                                            "Left": 320,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Label": "User"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "0288cc65-1572-4447-90ed-6d642f996c2e",
+                                            "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
+                                        },
+                                        "fields": {
+                                            "Id": 3015,
+                                            "Name": "LeadUser",
+                                            "Top": 210,
+                                            "Left": 410,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
+                                            "DataField": "user"
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "fd584e0d-4c97-098a-10ac-31b3efb69bd1",
+                                            "typeGuid": "bf0b0b35-4025-48ff-962a-1761aa7b3a7b"
+                                        },
+                                        "fields": {
+                                            "Id": 101,
+                                            "Name": "SaveButton",
+                                            "Top": "255",
+                                            "Left": "25",
+                                            "Caption": "Save",
+                                            "ExtendedClass": "is-green"
+                                        },
+                                        "collections": {
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "7ca91e81-fbbc-d4ec-adcb-d69e059023b8",
+                                            "typeGuid": "bf0b0b35-4025-48ff-962a-1761aa7b3a7b"
+                                        },
+                                        "fields": {
+                                            "Id": 101,
+                                            "Name": "CancelButton",
+                                            "Top": "255",
+                                            "Left": "90",
+                                            "Caption": "Cancel"
+                                        },
+                                        "collections": {
+                                        }
+                                    },
+                                    {
+                                        "$sys": {
+                                            "guid": "a0975f2f-ec60-eb6f-c4b9-5e4308e9a40d",
+                                            "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                        },
+                                        "fields": {
+                                            "Id": 3007,
+                                            "Name": "Header",
+                                            "Top": 24,
+                                            "Left": 25,
+                                            "Width": 100,
+                                            "Height": 20,
+                                            "Label": "Lead Edit",
+                                            "FontSize": "1em",
+                                            "FontFamily": "OpenSans",
+                                            "FontWeight": "500",
+                                            "Color": "#000000"
+                                        }
+                                    }
+                                ]
                             }
                         }
-                    ]
+                   ]
                 }
             }
         ]

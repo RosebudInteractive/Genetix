@@ -20,7 +20,7 @@ define(
                     if ($.isNumeric(top)) top += 'px';
                     if ($.isNumeric(width)) width += 'px';
                     if ($.isNumeric(height)) height += 'px';
-                    div.css({top:top, left:left, width:width, height:height});
+                    div.css({top:top, left:left, width:width, height:height, position: "absolute"});
                     cont.append(div);
                 }
 

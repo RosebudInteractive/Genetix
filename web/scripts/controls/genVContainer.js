@@ -4,9 +4,9 @@ if (typeof define !== 'function') {
 }
 
 define(
-    [UCCELLO_CONFIG.uccelloPath+'controls/container'],
+    [UCCELLO_CONFIG.uccelloPath+'controls/vContainer'],
     function(Container) {
-        var GenContainer = Container.extend({
+        var GenVContainer = Container.extend({
 
             className: "GenContainer",
             classGuid: "b75474ef-26d0-4298-9dad-4133edaa8a9c",
@@ -27,6 +27,6 @@ define(
                 return this._genericSetter("Position", value);
             }
         });
-        return GenContainer;
+        return GenVContainer;
     }
 );

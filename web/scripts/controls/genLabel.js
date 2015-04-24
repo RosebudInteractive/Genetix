@@ -13,7 +13,8 @@ define(
             metaFields: [
                 {fname:"FontSize",ftype:"string"},
                 {fname:"Color",ftype:"string"},
-                {fname:"FontFamily",ftype:"string"}
+                {fname:"FontFamily",ftype:"string"},
+                {fname:"FontWeight",ftype:"string"}
             ],
 
             /**
@@ -38,6 +39,9 @@ define(
             },
             fontFamily: function(value) {
                 return this._genericSetter("FontFamily", value);
+            },
+            fontWeight: function(value) {
+                return this._genericSetter("FontWeight", value);
             }
         });
         return GenLabel;

@@ -1,6 +1,6 @@
 .grid-b {
 /*border: 1px solid #d0d4d9;*/
-  position: relative;
+  position: absolute;
   overflow: hidden;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -551,6 +551,7 @@ h2 {
   border-radius: 5px;
   margin-bottom: 1px;
   outline: none;
+  border: none;
 }
 .control.edit input,
 .control.edit textarea {
@@ -754,6 +755,9 @@ td.container-title {
 .cont-title-icon {
   color: #508ce6;
 }
+.control-wrapper {
+  position: relative;
+}
 .control {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -761,5 +765,5 @@ td.container-title {
 }
 .control.container,
 .control.form {
-  position: relative;
+  position: absolute;
 }
