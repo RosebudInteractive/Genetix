@@ -22,16 +22,16 @@ define(
                         if ($.isNumeric(height))
                             height += "px";
                         else if (height.length > 0 && height[height.length - 1] == "%") {
-                            height = "";
                             var perc = height.replace("%", "");
-                            flex = perc + " 0 auto; -webkit-flex: " + perc + " 0 auto; -ms-flex: " + perc + " 0 auto";
+                            height = "auto";
+                            flex = perc + " 0 auto";
                         }
                     }
 
 
                     //var width=child.width();
                     //if ($.isNumeric(width)) width += 'px';
-                    div.css({height: height, flex: flex});
+                    div.css({"height": height, "flex": flex, "-webkit-flex": flex, "-ms-flex": flex, "min-height": 0});
                     cont.append(div);
                 }
 
