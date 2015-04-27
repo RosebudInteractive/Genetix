@@ -14,6 +14,8 @@ define(
                     cont.css({"background-color" : this.background()});
                 if (this.position() == "center")
                     cont.css({"border-radius" : "0.25em"});
+                if (this.getParent() && !this.getParent().getParent())
+                    item.addClass("m-container")
 
                 var childs = this.getCol('Children');
                 for(var i=0; i<childs.count();i++) {
@@ -53,6 +55,8 @@ define(
                     cont.append(div);
                 }
 
+                if (this.height() == "auto")
+                    item.css({height: "auto"});
                 $(parent).append(item);
 
 
@@ -60,9 +64,9 @@ define(
 
             // убираем удаленные объекты
             //var del = this.getObj().getLogCol('Children').del;
-            var del = this.getLogCol('Children').del;
-            for (var guid in del)
-                $('#' + del[guid].getLid()).remove();
+            //var del = this.getLogCol('Children').del;
+            //for (var guid in del)
+            //    $('#' + del[guid].getLid()).remove();
 
         }
         return vContainer;

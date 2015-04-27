@@ -7,6 +7,7 @@ var uccelloClt = null, DEBUG = true;
 var formGuid = "89f42efa-b160-842c-03b4-f3b536ca09d8";
 var form2Guid = "e7613a67-c36c-4ff5-a999-4d143bebc97c";
 var form3Guid = "4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9";
+var form4Guid = "cf07df23-abfe-9887-a353-09a00faf99d8";
 
 var uri = window.location.href;
 if (uri.charAt(uri.length - 1) == "/")
@@ -35,13 +36,16 @@ $(document).ready( function() {
                     {className:'GenLabel', component:'genLabel', viewset:true, guid:'151c0d05-4236-4732-b0bd-ddcf69a35e25'},
                     {className:'GenDataGrid', component:'genDataGrid', viewset:true, guid:'55d59ec4-77ac-4296-85e1-def78aa93d55'},
                     {className:'GenVContainer', component:'genVContainer', viewset:true, guid:'b75474ef-26d0-4298-9dad-4133edaa8a9c'},
+                    {className:'GenGContainer', component:'genGContainer', viewset:true, guid:'93ada11b-8c2a-4b06-b5ee-8622d607b0a4'},
+                    {className:'GenGColumn', component:'genGColumn', viewset:false, guid:'8d1b679e-4cfe-4faa-aecb-f0c53cf8e35a'},
                     {className:'GenButton', component:'genButton', viewset:true, guid:'bf0b0b35-4025-48ff-962a-1761aa7b3a7b'},
                     {className:'GenDataEdit', component:'genDataEdit', viewset:true, guid:'567cadd5-7f9d-4cd8-a24d-7993f065f5f9'},
                     {className:'Form', viewset:true},
                     {className:'Container', viewset:true},
                     {className:'CContainer', viewset:true},
                     {className:'HContainer', viewset:true},
-                    {className:'VContainer', viewset:true}
+                    {className:'VContainer', viewset:true},
+                    {className:'GContainer', viewset:true}
                 ],
                 controlsPath: 'controls/',
                 uccelloPath: 'lib/uccello/',
@@ -213,6 +217,9 @@ $(document).ready( function() {
                             });
                             $("#emk-menu-item").click(function() {
                                 window.createContext([form3Guid])
+                            });
+                            $("#edit-menu-item").click(function() {
+                                window.createContext([form4Guid])
                             });
 
                             $("#coral-button").click(function() {

@@ -7,7 +7,10 @@ define(
             var that = this;
             var item = $('#' + this.getLid());
             if (item.length == 0) {
-                item = $(vGenDataEdit._templates['edit']).attr('id', this.getLid());
+                if (this.multiline())
+                    item = $(vGenDataEdit._templates['multiLineEdit']).attr('id', this.getLid());
+                else
+                    item = $(vGenDataEdit._templates['edit']).attr('id', this.getLid());
                 var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(item);
 
@@ -36,6 +39,17 @@ define(
                 });
             } else
                 item.removeAttr("title");
+            if (this.multiline())if (this.multiline()) {
+                item.children().autosize({
+                    callback: function (el) {
+                        console.log($(el).is(":focus"));
+                        if ($(el).is(":focus")) {
+                            $(el).parent().css({height: ""});
+                            $(el).parent().height($(el).parent().outerHeight());
+                        }
+                    }
+                });
+            }
 
         }
         return vGenDataEdit;

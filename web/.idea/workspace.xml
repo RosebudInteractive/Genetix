@@ -2,27 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\genContainer.js" afterPath="$PROJECT_DIR$/scripts/controls/genVContainer.js" />
-      <change type="MOVED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview\vgenContainer.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json" afterPath="$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json" afterPath="$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/templates/container.html" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/templates/container.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/forms/cf07df23-abfe-9887-a353-09a00faf99d8.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/templates/gContainer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controls/genGColumn.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controls/genGContainer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgContainer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenGContainer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/containers.styl" afterPath="$PROJECT_DIR$/css/containers.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/content.styl" afterPath="$PROJECT_DIR$/css/content.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/controls.css" afterPath="$PROJECT_DIR$/css/controls.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/controls.styl" afterPath="$PROJECT_DIR$/css/controls.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/templates/dataEdit.html" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/templates/dataEdit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/edit.styl" afterPath="$PROJECT_DIR$/css/edit.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/genLabel.js" afterPath="$PROJECT_DIR$/scripts/controls/genLabel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/general.css" afterPath="$PROJECT_DIR$/css/general.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/genDataEdit.js" afterPath="$PROJECT_DIR$/scripts/controls/genDataEdit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/templates/genetix.html" afterPath="$PROJECT_DIR$/scripts/templates/genetix.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/genetix.html" afterPath="$PROJECT_DIR$/views/genetix.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/genetixSrv.js" afterPath="$PROJECT_DIR$/genetixSrv.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/genetix_main.js" afterPath="$PROJECT_DIR$/scripts/genetix_main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/grid.styl" afterPath="$PROJECT_DIR$/css/grid.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vcContainer.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vcContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vcontainer.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vcontainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vform.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vform.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenLabel.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenLabel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -30,6 +28,9 @@
     <ignored path=".idea/" />
     <ignored path="PaulGrid/" />
     <ignored path="web.iml" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,211 +50,222 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="vgenDataEdit.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="vgenDataEdit.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
-              <caret line="12" column="58" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
+              <caret line="14" column="51" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cContainer.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/cContainer.html">
+      <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="153">
-              <caret line="3" column="50" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="119">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vgenButton.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js">
+      <file leaf-file-name="vgenVContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="595">
-              <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
+              <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="genLabel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/genLabel.js">
+      <file leaf-file-name="genetix_main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="918">
-              <caret line="33" column="53" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4448" max-vertical-offset="7514">
+              <caret line="196" column="45" selection-start-line="196" selection-start-column="45" selection-end-line="196" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vcContainer.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vcContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="782">
-              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.styl" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="edit.styl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/edit.styl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1632">
-              <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="463" max-vertical-offset="1632">
+              <caret line="82" column="31" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vvContainer.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vvContainer.js">
+      <file leaf-file-name="editform.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui-impose/editform.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="969">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="genVContainer.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/genVContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="629">
-              <caret line="14" column="68" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="89f42efa-b160-842c-03b4-f3b536ca09d8.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.461538" vertical-offset="205" max-vertical-offset="697">
-              <caret line="52" column="63" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+            <state vertical-scroll-proportion="-9.615385" vertical-offset="124" max-vertical-offset="9010">
+              <caret line="22" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
-                <element signature="e#267#749#0" expanded="false" />
-                <element signature="e#771#1184#0" expanded="false" />
-                <element signature="e#1695#15358#0" expanded="false" />
-                <element signature="e#15384#22963#0" expanded="false" />
-                <element signature="e#22989#26162#0" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/form.html">
+      <file leaf-file-name="genetix.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/templates/genetix.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="153">
-              <caret line="3" column="18" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="3570">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vContainer.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/vContainer.html">
+      <file leaf-file-name="genetix.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/genetix.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="153">
-              <caret line="3" column="63" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.4755245" vertical-offset="204" max-vertical-offset="663">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vgenVContainer.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js">
+      <file leaf-file-name="genGColumn.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/genGColumn.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
-              <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="578">
+              <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vgenDataGrid.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="4301">
-              <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="containers.styl" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="containers.styl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/containers.styl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.96" vertical-offset="785" max-vertical-offset="1411">
-              <caret line="77" column="19" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="138" max-vertical-offset="1428">
+              <caret line="18" column="14" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controls.styl" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="gContainer.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/gContainer.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="408">
+              <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vgContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1649">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controls.styl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/controls.styl">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vgenLabel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenLabel.js">
+      <file leaf-file-name="cf07df23-abfe-9887-a353-09a00faf99d8.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/forms/cf07df23-abfe-9887-a353-09a00faf99d8.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-              <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="grid.styl" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/grid.styl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.070393376" vertical-offset="0" max-vertical-offset="4454">
-              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vform.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vform.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1377">
-              <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.576923" vertical-offset="6481" max-vertical-offset="7106">
-              <caret line="572" column="81" selection-start-line="572" selection-start-column="41" selection-end-line="572" selection-end-column="41" />
+            <state vertical-scroll-proportion="-3.131579" vertical-offset="0" max-vertical-offset="2924">
+              <caret line="14" column="74" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
               <folding>
-                <element signature="e#274#903#0" expanded="false" />
-                <element signature="e#1501#11497#0" expanded="false" />
+                <element signature="e#671#6929#0" expanded="false" />
+                <element signature="e#7805#8365#0" expanded="false" />
+                <element signature="e#8385#8838#0" expanded="false" />
+                <element signature="e#8858#9432#0" expanded="false" />
+                <element signature="e#10959#11496#0" expanded="false" />
+                <element signature="e#11516#11973#0" expanded="false" />
+                <element signature="e#11993#12526#0" expanded="false" />
+                <element signature="e#12546#12999#0" expanded="false" />
+                <element signature="e#13019#13548#0" expanded="false" />
+                <element signature="e#14668#16556#0" expanded="false" />
+                <element signature="e#16581#18207#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="content.styl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/content.styl">
+      <file leaf-file-name="vvContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vvContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="969">
+              <caret line="32" column="60" selection-start-line="32" selection-start-column="60" selection-end-line="32" selection-end-column="60" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="genVContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/genVContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="629">
+              <caret line="12" column="32" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vgenGContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenGContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2142">
+              <caret line="6" column="51" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="genDataEdit.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/genDataEdit.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="663">
+              <caret line="24" column="45" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vform.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vform.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1377">
+              <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.730769" vertical-offset="561" max-vertical-offset="1139">
+              <caret line="575" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="575" selection-end-column="0" />
+              <folding>
+                <element signature="e#274#903#0" expanded="false" />
+                <element signature="e#1991#11441#0" expanded="false" />
+                <element signature="e#12117#33424#0" expanded="false" />
+                <element signature="e#12155#12972#0" expanded="false" />
+                <element signature="e#13010#13985#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -270,61 +282,32 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="changedFiles">
+    <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scripts/buttons.js" />
-        <option value="$PROJECT_DIR$/ui-impose/buttons.html" />
-        <option value="C:/ToDeploy/Buttons/Genetix.html" />
-        <option value="$PROJECT_DIR$/data/forms/88b9280f-7cce-7739-1e65-a883371cd498.json" />
-        <option value="$PROJECT_DIR$/data/forms/e7613a67-c36c-4ff5-a999-4d143bebc97c.json" />
-        <option value="$PROJECT_DIR$/css/devices.styl" />
-        <option value="$PROJECT_DIR$/css/colors.styl" />
-        <option value="$PROJECT_DIR$/css/general.css" />
-        <option value="$PROJECT_DIR$/scripts/widgets/templates/grid.html" />
-        <option value="$PROJECT_DIR$/views/genetix.html" />
-        <option value="$PROJECT_DIR$/scripts/widgets/wGrid.js" />
-        <option value="$PROJECT_DIR$/scripts/lib/jquery.autogrow-textarea.js" />
-        <option value="$PROJECT_DIR$/images/Genetix.svg" />
-        <option value="$PROJECT_DIR$/css/general.styl" />
-        <option value="$PROJECT_DIR$/css/login.styl" />
-        <option value="$PROJECT_DIR$/css/popup.styl" />
-        <option value="$PROJECT_DIR$/css/tooltip.styl" />
-        <option value="$PROJECT_DIR$/fonts/osans.styl" />
-        <option value="$PROJECT_DIR$/ui-impose/editform.html" />
-        <option value="$PROJECT_DIR$/ui-impose/containers.html" />
-        <option value="$PROJECT_DIR$/scripts/controls/genDataGrid.js" />
-        <option value="$PROJECT_DIR$/scripts/devices.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vpropEditor.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/default.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenContainer.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/cContainer.html" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/hContainer.html" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/vContainer.html" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vhContainer.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vvContainer.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vcontainer.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/container.html" />
-        <option value="$PROJECT_DIR$/scripts/controls/genVContainer.js" />
-        <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
+        <option value="$PROJECT_DIR$/scripts/templates/genetix.html" />
+        <option value="$PROJECT_DIR$/scripts/controls/genGContainer.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/genGColumn.js" />
         <option value="$PROJECT_DIR$/genetixSrv.js" />
-        <option value="$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/form.html" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vcContainer.js" />
-        <option value="$PROJECT_DIR$/css/edit.styl" />
-        <option value="$PROJECT_DIR$/css/content.styl" />
-        <option value="$PROJECT_DIR$/css/controls.styl" />
-        <option value="$PROJECT_DIR$/css/containers.styl" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vform.js" />
+        <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/genDataEdit.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/dataEdit.html" />
+        <option value="$PROJECT_DIR$/data/forms/cf07df23-abfe-9887-a353-09a00faf99d8.json" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vvContainer.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" />
-        <option value="$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json" />
-        <option value="$PROJECT_DIR$/scripts/controls/genLabel.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenLabel.js" />
-        <option value="$PROJECT_DIR$/css/grid.styl" />
+        <option value="$PROJECT_DIR$/css/containers.styl" />
+        <option value="$PROJECT_DIR$/css/controls.styl" />
+        <option value="$PROJECT_DIR$/css/controls.css" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/gContainer.html" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgContainer.js" />
+        <option value="$PROJECT_DIR$/css/edit.styl" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenGContainer.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" />
+        <option value="$PROJECT_DIR$/views/genetix.html" />
       </list>
     </option>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -360,7 +343,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -380,6 +362,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -425,7 +421,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="widgets" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -444,6 +440,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simpleview" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simpleview" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -495,6 +539,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -534,79 +579,12 @@
     </key>
   </component>
   <component name="RunManager" selected="Node.js.Genetix NodeJS">
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <module name="" />
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="depsClasspath" value="false" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeJSRemoteDebug" factoryName="Node.js Remote Debug">
-      <node-js-remote-debug />
-      <method />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
-      <method />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -639,6 +617,112 @@
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <module name="" />
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="depsClasspath" value="false" />
+      <setting name="passParentEnv" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
@@ -697,22 +781,43 @@
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="NodeWebKit" factoryName="Node-webkit">
-      <option name="name" value="" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
-      <option name="BCName" value="" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="moduleName" value="" />
-      <option name="trusted" value="true" />
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeWebKit" factoryName="Node-webkit">
+      <option name="name" value="" />
       <method />
     </configuration>
     <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
@@ -734,47 +839,14 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
     <configuration default="false" name="Genetix NodeJS" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="genetixSrv.js" working-dir="$PROJECT_DIR$">
       <browser start="true" url="http://localhost:1236/genetix" />
       <RunnerSettings RunnerId="NodeJS.debug" />
       <RunnerSettings RunnerId="NodeJS.run" />
+      <RunnerSettings RunnerId="debuggableProgram" />
       <ConfigurationWrapper RunnerId="NodeJS.debug" />
       <ConfigurationWrapper RunnerId="NodeJS.run" />
+      <ConfigurationWrapper RunnerId="debuggableProgram" />
       <method />
     </configuration>
     <configuration default="false" name="genetix-impose" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
@@ -868,6 +940,7 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="" />
       <created>1423481261713</created>
+      <option name="number" value="Default" />
       <updated>1423481261713</updated>
       <workItem from="1423481264181" duration="2719000" />
       <workItem from="1423487572257" duration="2311000" />
@@ -923,320 +996,461 @@
       <workItem from="1429687270306" duration="9097000" />
       <workItem from="1429786192349" duration="13445000" />
       <workItem from="1429809280982" duration="611000" />
-      <workItem from="1429858840244" duration="21197000" />
+      <workItem from="1429858840244" duration="22126000" />
+      <workItem from="1430113626674" duration="1162000" />
+      <workItem from="1430114819890" duration="22111000" />
     </task>
     <task id="LOCAL-00001" summary="Старт">
       <created>1423481621359</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
       <updated>1423481621359</updated>
     </task>
     <task id="LOCAL-00002" summary="Старт2">
       <created>1423488219856</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
       <updated>1423488219856</updated>
     </task>
     <task id="LOCAL-00003" summary="тест заливки">
       <created>1423491493019</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
       <updated>1423491493019</updated>
     </task>
     <task id="LOCAL-00004" summary="большие буквы">
       <created>1423496097861</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
       <updated>1423496097861</updated>
     </task>
     <task id="LOCAL-00005" summary="грид">
       <created>1424158466935</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
       <updated>1424158466935</updated>
     </task>
     <task id="LOCAL-00006" summary="грид">
       <created>1424158569885</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
       <updated>1424158569885</updated>
     </task>
     <task id="LOCAL-00007" summary="грид">
       <created>1424290773035</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
       <updated>1424290773035</updated>
     </task>
     <task id="LOCAL-00008" summary="грид">
       <created>1424372637830</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
       <updated>1424372637830</updated>
     </task>
     <task id="LOCAL-00009" summary="натяжка дизайна">
       <created>1424710211074</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
       <updated>1424710211074</updated>
     </task>
     <task id="LOCAL-00010" summary="натяжка дизайна">
       <created>1424710248271</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
       <updated>1424710248271</updated>
     </task>
     <task id="LOCAL-00011" summary="рефактор структуры">
       <created>1424768402258</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
       <updated>1424768402258</updated>
     </task>
     <task id="LOCAL-00012" summary="рефактор структуры">
       <created>1424769173805</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
       <updated>1424769173805</updated>
     </task>
     <task id="LOCAL-00013" summary="развертывание на сервере (порты)">
       <created>1424769485633</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
       <updated>1424769485633</updated>
     </task>
     <task id="LOCAL-00014" summary="развертывание на сервере (порты)">
       <created>1424813839138</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
       <updated>1424813839138</updated>
     </task>
     <task id="LOCAL-00015" summary="Встраивание грида">
       <created>1424814508897</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
       <updated>1424814508897</updated>
     </task>
     <task id="LOCAL-00016" summary="Проперти грида">
       <created>1424875159121</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
       <updated>1424875159121</updated>
     </task>
     <task id="LOCAL-00017" summary="контексты">
       <created>1424895486624</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
       <updated>1424895486624</updated>
     </task>
     <task id="LOCAL-00018" summary="Линии в гриде и форма лидов">
       <created>1424957935172</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
       <updated>1424957935172</updated>
     </task>
     <task id="LOCAL-00019" summary="восстановление курсора">
       <created>1425036297018</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
       <updated>1425036297018</updated>
     </task>
     <task id="LOCAL-00020" summary="девайсы">
       <created>1425060593906</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
       <updated>1425060593906</updated>
     </task>
     <task id="LOCAL-00021" summary="рефактор девайсов и сессии и верстка попапов">
       <created>1425332346890</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
       <updated>1425332346890</updated>
     </task>
     <task id="LOCAL-00022" summary="цвета девайсов попап контекстов">
       <created>1425394376738</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
       <updated>1425394376738</updated>
     </task>
     <task id="LOCAL-00023" summary="цвета девайсов попап контекстов">
       <created>1425395515546</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
       <updated>1425395515546</updated>
     </task>
     <task id="LOCAL-00024" summary="иконка">
       <created>1425406385754</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
       <updated>1425406385754</updated>
     </task>
     <task id="LOCAL-00025" summary="require">
       <created>1425459363703</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
       <updated>1425459363703</updated>
     </task>
     <task id="LOCAL-00026" summary="require">
       <created>1425459707376</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
       <updated>1425459707376</updated>
     </task>
     <task id="LOCAL-00027" summary="require">
       <created>1425465404846</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
       <updated>1425465404846</updated>
     </task>
     <task id="LOCAL-00028" summary="require">
       <created>1425466197501</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
       <updated>1425466197501</updated>
     </task>
     <task id="LOCAL-00029" summary="require">
       <created>1425468374799</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
       <updated>1425468374799</updated>
     </task>
     <task id="LOCAL-00030" summary="require">
       <created>1425469202874</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
       <updated>1425469202874</updated>
     </task>
     <task id="LOCAL-00031" summary="рефреш девайсов, логоут и имя пользователя">
       <created>1425475550546</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
       <updated>1425475550546</updated>
     </task>
     <task id="LOCAL-00032" summary="открытие закладки">
       <created>1425555944814</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
       <updated>1425555944814</updated>
     </task>
     <task id="LOCAL-00033" summary="открытие закладки">
       <created>1425558064111</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
       <updated>1425558064111</updated>
     </task>
     <task id="LOCAL-00034" summary="форма редактирования">
       <created>1425599600866</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
       <updated>1425599600866</updated>
     </task>
     <task id="LOCAL-00035" summary="открытие закладочек">
       <created>1425603982716</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
       <updated>1425603982716</updated>
     </task>
     <task id="LOCAL-00036" summary="кнопка логина">
       <created>1425629638022</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
       <updated>1425629638022</updated>
     </task>
     <task id="LOCAL-00037" summary="кнопка логина">
       <created>1425630326034</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
       <updated>1425630326034</updated>
     </task>
     <task id="LOCAL-00038" summary="Детеилы и открытие формы">
       <created>1425682663428</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
       <updated>1425682663428</updated>
     </task>
     <task id="LOCAL-00039" summary="Детеилы и открытие формы">
       <created>1425748822275</created>
+      <option name="number" value="00039" />
+      <option name="project" value="LOCAL" />
       <updated>1425748822275</updated>
     </task>
     <task id="LOCAL-00040" summary="мелкие исправления">
       <created>1425837058966</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
       <updated>1425837058966</updated>
     </task>
     <task id="LOCAL-00041" summary="мелкие исправления">
       <created>1425837279446</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
       <updated>1425837279446</updated>
     </task>
     <task id="LOCAL-00042" summary="мелкие исправления">
       <created>1425840738030</created>
+      <option name="number" value="00042" />
+      <option name="project" value="LOCAL" />
       <updated>1425840738030</updated>
     </task>
     <task id="LOCAL-00043" summary="синхронизация зависимой формы">
       <created>1425843408072</created>
+      <option name="number" value="00043" />
+      <option name="project" value="LOCAL" />
       <updated>1425843408072</updated>
     </task>
     <task id="LOCAL-00044" summary="открытый треугольник">
       <created>1425848952098</created>
+      <option name="number" value="00044" />
+      <option name="project" value="LOCAL" />
       <updated>1425848952098</updated>
     </task>
     <task id="LOCAL-00045" summary="обновление грида при редактировании">
       <created>1425849917563</created>
+      <option name="number" value="00045" />
+      <option name="project" value="LOCAL" />
       <updated>1425849917563</updated>
     </task>
     <task id="LOCAL-00046" summary="открытие на закладке не текущего контекса">
       <created>1425851363547</created>
+      <option name="number" value="00046" />
+      <option name="project" value="LOCAL" />
       <updated>1425851363547</updated>
     </task>
     <task id="LOCAL-00047" summary="открытие субформы на тойже закладке">
       <created>1425852870947</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
       <updated>1425852870947</updated>
     </task>
     <task id="LOCAL-00048" summary="открытие субформы на тойже закладке">
       <created>1425853169304</created>
+      <option name="number" value="00048" />
+      <option name="project" value="LOCAL" />
       <updated>1425853169304</updated>
     </task>
     <task id="LOCAL-00049" summary="Меню пользователя">
       <created>1425994183163</created>
+      <option name="number" value="00049" />
+      <option name="project" value="LOCAL" />
       <updated>1425994183163</updated>
     </task>
     <task id="LOCAL-00050" summary="Меню пользователя">
       <created>1426062711357</created>
+      <option name="number" value="00050" />
+      <option name="project" value="LOCAL" />
       <updated>1426062711357</updated>
     </task>
     <task id="LOCAL-00051" summary="ишибки верстки">
       <created>1426150675149</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
       <updated>1426150675149</updated>
     </task>
     <task id="LOCAL-00052" summary="анимация девайсов">
       <created>1426158692309</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
       <updated>1426158692309</updated>
     </task>
     <task id="LOCAL-00053" summary="треугольничек">
       <created>1426165455335</created>
+      <option name="number" value="00053" />
+      <option name="project" value="LOCAL" />
       <updated>1426165455335</updated>
     </task>
     <task id="LOCAL-00054" summary="треугольничек">
       <created>1426166786289</created>
+      <option name="number" value="00054" />
+      <option name="project" value="LOCAL" />
       <updated>1426166786289</updated>
     </task>
     <task id="LOCAL-00055" summary="курсор грида">
       <created>1426499486347</created>
+      <option name="number" value="00055" />
+      <option name="project" value="LOCAL" />
       <updated>1426499486347</updated>
     </task>
     <task id="LOCAL-00056" summary="рефактор контролов">
       <created>1426578776303</created>
+      <option name="number" value="00056" />
+      <option name="project" value="LOCAL" />
       <updated>1426578776303</updated>
     </task>
     <task id="LOCAL-00057" summary="рефактор контролов">
       <created>1426583247249</created>
+      <option name="number" value="00057" />
+      <option name="project" value="LOCAL" />
       <updated>1426583247250</updated>
     </task>
     <task id="LOCAL-00058" summary="рефактор контролов и верстка">
       <created>1426637229025</created>
+      <option name="number" value="00058" />
+      <option name="project" value="LOCAL" />
       <updated>1426637229029</updated>
     </task>
     <task id="LOCAL-00059" summary="тултипы">
       <created>1426764134605</created>
+      <option name="number" value="00059" />
+      <option name="project" value="LOCAL" />
       <updated>1426764134605</updated>
     </task>
     <task id="LOCAL-00060" summary="тултипы">
       <created>1426764363215</created>
+      <option name="number" value="00060" />
+      <option name="project" value="LOCAL" />
       <updated>1426764363215</updated>
     </task>
     <task id="LOCAL-00061" summary="тултипы">
       <created>1426764407985</created>
+      <option name="number" value="00061" />
+      <option name="project" value="LOCAL" />
       <updated>1426764407985</updated>
     </task>
     <task id="LOCAL-00062" summary="тултипы">
       <created>1426764760004</created>
+      <option name="number" value="00062" />
+      <option name="project" value="LOCAL" />
       <updated>1426764760004</updated>
     </task>
     <task id="LOCAL-00063" summary="тултипы">
       <created>1426764840609</created>
+      <option name="number" value="00063" />
+      <option name="project" value="LOCAL" />
       <updated>1426764840609</updated>
     </task>
     <task id="LOCAL-00064" summary="тултипы">
       <created>1426765848023</created>
+      <option name="number" value="00064" />
+      <option name="project" value="LOCAL" />
       <updated>1426765848023</updated>
     </task>
     <task id="LOCAL-00065" summary="тултипы">
       <created>1426765919527</created>
+      <option name="number" value="00065" />
+      <option name="project" value="LOCAL" />
       <updated>1426765919527</updated>
     </task>
     <task id="LOCAL-00066" summary="рефактор кнопок">
       <created>1427367419490</created>
+      <option name="number" value="00066" />
+      <option name="project" value="LOCAL" />
       <updated>1427367419490</updated>
     </task>
     <task id="LOCAL-00067" summary="рефактор кнопок">
       <created>1427367838973</created>
+      <option name="number" value="00067" />
+      <option name="project" value="LOCAL" />
       <updated>1427367838973</updated>
     </task>
     <task id="LOCAL-00068" summary="рефактор кнопок">
       <created>1427368152300</created>
+      <option name="number" value="00068" />
+      <option name="project" value="LOCAL" />
       <updated>1427368152301</updated>
     </task>
     <task id="LOCAL-00069" summary="рефактор кнопок">
       <created>1427374114286</created>
+      <option name="number" value="00069" />
+      <option name="project" value="LOCAL" />
       <updated>1427374114286</updated>
     </task>
     <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="900947000" />
+    <option name="totallyTimeSpent" value="925149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51877606" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33379695" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23365785" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2837274" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34770516" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2837274" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23684211" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34770516" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32127956" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2143774" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33287102" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41192788" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2823366" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1301,97 +1515,13 @@
       </breakpoints>
       <option name="time" value="54" />
     </breakpoint-manager>
+    <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/css/popup.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3128">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/tooltip.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="70" max-vertical-offset="1071">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/general.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3318182" vertical-offset="3832" max-vertical-offset="9061">
-          <caret line="234" column="39" selection-start-line="234" selection-start-column="39" selection-end-line="234" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fonts/osans.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4878587" vertical-offset="0" max-vertical-offset="2686">
-          <caret line="13" column="51" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/deviceHelper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3368" max-vertical-offset="3893">
-          <caret line="207" column="38" selection-start-line="207" selection-start-column="38" selection-end-line="207" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/genetix.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54332554" vertical-offset="193" max-vertical-offset="646">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/templates/genetix.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="2382" max-vertical-offset="3570">
-          <caret line="148" column="45" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/lib/jquery.autosize.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="687" max-vertical-offset="4692">
-          <caret line="203" column="46" selection-start-line="203" selection-start-column="46" selection-end-line="203" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genDataEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="674">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genDataGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29912025" vertical-offset="969" max-vertical-offset="1836">
-          <caret line="69" column="78" selection-start-line="69" selection-start-column="78" selection-end-line="69" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/devices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21726619" vertical-offset="6496" max-vertical-offset="8024">
-          <caret line="391" column="80" selection-start-line="391" selection-start-column="80" selection-end-line="391" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vaDataModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <caret line="8" column="40" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vdataset.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="695">
@@ -1410,14 +1540,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
           <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/dataEdit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="674">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1432,7 +1554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="674">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1440,14 +1561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1411" max-vertical-offset="4352">
           <caret line="83" column="44" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27744806" vertical-offset="0" max-vertical-offset="969">
-          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1455,23 +1568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2499">
           <caret line="1" column="32" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui-impose/editform.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3927" max-vertical-offset="9010">
-          <caret line="231" column="50" selection-start-line="231" selection-start-column="43" selection-end-line="231" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/hContainer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="153">
-          <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1493,21 +1589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.3948864" vertical-offset="2" max-vertical-offset="10489">
           <caret line="29" column="54" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-          <folding>
-            <marker date="1428311459306" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1428311459306" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1428311459306" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1428311459306" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1428311459306" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1428311459306" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vhContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="714">
-          <caret line="20" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1516,7 +1597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="1156">
           <caret line="28" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="62" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1524,68 +1604,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="153">
           <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="350" max-vertical-offset="7395">
-          <caret line="37" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/genetixSrv.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="859" max-vertical-offset="1734">
-          <caret line="69" column="50" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genVContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="629">
-          <caret line="14" column="68" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="153">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vvContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="969">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.461538" vertical-offset="205" max-vertical-offset="697">
-          <caret line="52" column="63" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-          <folding>
-            <element signature="e#267#749#0" expanded="false" />
-            <element signature="e#771#1184#0" expanded="false" />
-            <element signature="e#1695#15358#0" expanded="false" />
-            <element signature="e#15384#22963#0" expanded="false" />
-            <element signature="e#22989#26162#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="153">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/cContainer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="153">
-          <caret line="3" column="50" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="153">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1598,34 +1630,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="595">
-          <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
-          <caret line="12" column="58" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vcContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="782">
           <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/edit.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1632">
-          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1638,62 +1646,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/controls.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/containers.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.96" vertical-offset="785" max-vertical-offset="1411">
-          <caret line="77" column="19" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/vContainer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="153">
-          <caret line="3" column="63" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="153">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vform.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1377">
-          <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
-          <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genLabel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="918">
-          <caret line="33" column="53" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.576923" vertical-offset="6481" max-vertical-offset="7106">
-          <caret line="572" column="81" selection-start-line="572" selection-start-column="41" selection-end-line="572" selection-end-column="41" />
-          <folding>
-            <element signature="e#274#903#0" expanded="false" />
-            <element signature="e#1501#11497#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1707,12 +1664,285 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/grid.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.070393376" vertical-offset="0" max-vertical-offset="4454">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1462" max-vertical-offset="4454">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/colors.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1598">
+          <caret line="47" column="15" selection-start-line="47" selection-start-column="15" selection-end-line="47" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/hContainer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1017964" vertical-offset="0" max-vertical-offset="501">
+          <caret line="3" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/genLabel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32258064" vertical-offset="0" max-vertical-offset="918">
+          <caret line="10" column="69" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45708582" vertical-offset="196" max-vertical-offset="697">
+          <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+          <folding>
+            <element signature="e#267#749#0" expanded="false" />
+            <element signature="e#771#1184#0" expanded="false" />
+            <element signature="e#1695#15358#0" expanded="false" />
+            <element signature="e#15384#22963#0" expanded="false" />
+            <element signature="e#22989#26162#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/genButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60151803" vertical-offset="244" max-vertical-offset="969">
+          <caret line="33" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vhContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
+          <caret line="20" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/genGContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genetixSrv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="859" max-vertical-offset="1785">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4448" max-vertical-offset="7514">
+          <caret line="196" column="45" selection-start-line="196" selection-start-column="45" selection-end-line="196" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769" vertical-offset="561" max-vertical-offset="1139">
+          <caret line="575" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="575" selection-end-column="0" />
+          <folding>
+            <element signature="e#274#903#0" expanded="false" />
+            <element signature="e#1991#11441#0" expanded="false" />
+            <element signature="e#12117#33424#0" expanded="false" />
+            <element signature="e#12155#12972#0" expanded="false" />
+            <element signature="e#13010#13985#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/genDataEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="663">
+          <caret line="24" column="45" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/dataEdit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06786427" vertical-offset="0" max-vertical-offset="501">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vform.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1377">
+          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/forms/cf07df23-abfe-9887-a353-09a00faf99d8.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.131579" vertical-offset="0" max-vertical-offset="2924">
+          <caret line="14" column="74" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+          <folding>
+            <element signature="e#671#6929#0" expanded="false" />
+            <element signature="e#7805#8365#0" expanded="false" />
+            <element signature="e#8385#8838#0" expanded="false" />
+            <element signature="e#8858#9432#0" expanded="false" />
+            <element signature="e#10959#11496#0" expanded="false" />
+            <element signature="e#11516#11973#0" expanded="false" />
+            <element signature="e#11993#12526#0" expanded="false" />
+            <element signature="e#12546#12999#0" expanded="false" />
+            <element signature="e#13019#13548#0" expanded="false" />
+            <element signature="e#14668#16556#0" expanded="false" />
+            <element signature="e#16581#18207#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/genVContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="629">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vvContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="969">
+          <caret line="32" column="60" selection-start-line="32" selection-start-column="60" selection-end-line="32" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/genGColumn.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="578">
+          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/gContainer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="408">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="1666">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/controls.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4021978" vertical-offset="12720" max-vertical-offset="13175">
+          <caret line="759" column="36" selection-start-line="759" selection-start-column="1" selection-end-line="759" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/containers.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="138" max-vertical-offset="1428">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/controls.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/edit.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="463" max-vertical-offset="1632">
+          <caret line="82" column="31" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenGContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2142">
+          <caret line="6" column="51" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="14" column="51" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui-impose/editform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.615385" vertical-offset="124" max-vertical-offset="9010">
+          <caret line="22" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/templates/genetix.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="3570">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/genetix.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4755245" vertical-offset="204" max-vertical-offset="663">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
   </component>
 </project>
-

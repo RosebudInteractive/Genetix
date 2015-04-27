@@ -16,7 +16,8 @@ define(
             className: "GenDataEdit",
             classGuid: "567cadd5-7f9d-4cd8-a24d-7993f065f5f9",
             metaFields: [
-                {fname:"Title", ftype:"string"}
+                {fname:"Title", ftype:"string"},
+                {fname:"Multiline", ftype:"boolean"}
             ],
 
             init: function(cm, params) {
@@ -26,6 +27,10 @@ define(
 
             title: function(value) {
                 return this._genericSetter("Title", value);
+            },
+
+            multiline: function(value) {
+                return this._genericSetter("Multiline", value);
             }
         });
         return GenDataEdit;
