@@ -353,8 +353,8 @@ define(
              */
             _preparePopupData: function() {
                 var contexts = [];
-                for (var i = 0, len = uccelloClt.getSysDB().countRoot(); i < len; i++) {
-                    var root = uccelloClt.getSysDB().getRoot(i);
+                for (var i = 0, len = uccelloClt.getSysCM().countRoot(); i < len; i++) {
+                    var root = uccelloClt.getSysCM().getRoot(i);
                     var obj = root.obj;
                     for (var j = 0, len2 = obj.countCol(); j < len2; j++) {
                         var col = obj.getCol(j);
