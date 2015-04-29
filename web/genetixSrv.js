@@ -91,10 +91,24 @@ var UccelloConfig = require('../../'+uccelloDir+'/config/config');
 UCCELLO_CONFIG = new UccelloConfig(config);
 DEBUG = true;
 
+// логирование
+logger = require('../../'+uccelloDir+'/system/winstonLogger');
+//perfomance = {now:require("performance-now")};
+// очищаем файл лога при старте
+if (UCCELLO_CONFIG.logger.clearOnStart) {
+    var fs = require('fs')
+    fs.writeFileSync(UCCELLO_CONFIG.logger.file, '');
+}
+
 // модуль сервера
 var UccelloServ = require('../../'+uccelloDir+'/uccelloServ');
-var uccelloServ = new UccelloServ({authenticate:fakeAuthenticate});
+var CommunicationServer = require('../../' + uccelloDir + '/connection/commServer');
+var communicationServer = new CommunicationServer.Server(UCCELLO_CONFIG.webSocketServer);
+var uccelloServ = new UccelloServ({ authenticate: fakeAuthenticate, commServer: communicationServer });
 
 // запускаем http сервер
 http.createServer(app).listen(1326);
 console.log('Сервер запущен на http://127.0.0.1:1326/');
+
+communicationServer.start();
+console.log("Communication Server started (port: " + UCCELLO_CONFIG.webSocketServer.port + ").");
