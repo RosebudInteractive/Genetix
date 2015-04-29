@@ -88,8 +88,8 @@ $(document).ready( function() {
                         var sel = $('#userContext');
                         sel.empty();
 
-                        for (var i = 0, len = uccelloClt.getSysDB().countRoot(); i < len; i++) {
-                            var root = uccelloClt.getSysDB().getRoot(i);
+                        for (var i = 0, len = uccelloClt.getSysCM().countRoot(); i < len; i++) {
+                            var root = uccelloClt.getSysCM().getRoot(i);
                             var obj = root.obj;
                             for (var j = 0, len2 = obj.countCol(); j < len2; j++) {
                                 var col = obj.getCol(j);
@@ -391,7 +391,7 @@ $(document).ready( function() {
                      */
                     window.subscribeRootSys = function() {
                         // подписываемся на корневой объект контейнера
-                        uccelloClt.getSysDB().subscribeRoots(uccelloClt.pvt.guids.sysRootGuid, function(result){
+                        uccelloClt.getSysCM().subscribeRoots(uccelloClt.pvt.guids.sysRootGuid, function(result){
                             //that.getContexts();
                         }, function() {} );
                     }
