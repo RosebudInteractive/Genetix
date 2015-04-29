@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Genetix</title>
-    <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.structure.css">
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.theme.css">
@@ -16,6 +16,11 @@
         .control.button {
             display: inline;
         }
+
+        #main2 td {
+            border: 1px solid #000000;
+        !important;
+        }
     </style>
 
     <script src="/scripts/lib/uccello/uses/class-extend.js"></script>
@@ -25,35 +30,52 @@
     <script src="/scripts/lib/uccello/uses/url.js"></script>
     <script src="/scripts/lib/uccello/uses/jquery.cookie.js"></script>
     <script src="/scripts/lib/jquery.resizableColumns.js"></script>
+    <script src="/scripts/lib/jquery.autosize.js"></script>
     <script>
         $(document).ready(function () {
             $("#main").resizable();
             $("#main2").resizable();
-            $(".h-container").each(function() {
+            $(".h-container").each(function () {
                 $(this).children(".h-content-wrapper").height($(this).height());
             });
             $("#main2").resize(function () {
                 $(this).find("td").children(".c-content").each(function () {
-                        $(this).width($(this).parent().width());
-                        $(this).height($(this).parent().height());
+                    $(this).width($(this).parent().width());
+                    $(this).height($(this).parent().height());
                 });
             });
 
-            /*var isCtrl = false;
-            document.onkeyup=function(e){ if(e.which == 17) isCtrl=false; }
-            document.onkeydown=function(e) {
-                if(e.which == 17) isCtrl=true;
-                if(e.which == 86 && isCtrl === true) {
-                    CopyFromClipBoard();
+            $("textarea").autosize({
+                callback: function (el) {
+                    if ($(el).is(":focus")) {
+                        $(el).parent().css({height: ""});
+                        $(el).parent().height($(el).parent().outerHeight());
+                    }
+                    var td = $(el).parent().parent().parent().parent();
+                    if (td.attr("rowspan")) {
+                        td.height($(el).parent().outerHeight());
+                    }
                 }
-            } */
+            });
 
-            $("#main2").find(".c-content > table > tbody > tr > td").on('paste',function(e) {
+
+            /*var isCtrl = false;
+             document.onkeyup=function(e){ if(e.which == 17) isCtrl=false; }
+             document.onkeydown=function(e) {
+             if(e.which == 17) isCtrl=true;
+             if(e.which == 86 && isCtrl === true) {
+             CopyFromClipBoard();
+             }
+             } */
+
+            $("#main2").find(".c-content > table > tbody > tr > td").on('paste', function (e) {
                 e.preventDefault();
                 var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
                 window.document.execCommand('insertText', false, text);
                 CopyFromClipBoard($(this), text);
             });
+
+
         });
 
         function CopyFromClipBoard(td, text) {
@@ -77,39 +99,58 @@
     </script>
 </head>
 <body>
-    <div id="main" class="v-container container" style="width: 500px; height: 500px; left: 40px; top: 40px; position: relative; background-color: #ffffff">
-        <div class="c-content" style="overflow-y: auto; overflow-x: hidden">
-            <div class="control-wrapper" style="height: 50px; min-height: 50px; width: 100%; position: relative">
-                <div class="c-container container" >
-                    <div class="c-content">
-                        <div class="control button is-green" style="top: 10px; left: 25px;"><input type="button" value="Save"></div>
-                        <div class="control button is-white" style="top: 10px; left: 90px;"><input type="button" value="Cancel"></div>
-                        <div class="control label" style="top: 15px; left: 160px; font-family: OpenSansSemiboldRegular;">Фиксированная высота</div>
+<div id="main" class="v-container container"
+     style="display: none; width: 500px; height: 500px; left: 40px; top: 40px; position: relative; background-color: #ffffff">
+    <div class="c-content" style="overflow-y: auto; overflow-x: hidden">
+        <div class="control-wrapper" style="height: 50px; min-height: 50px; width: 100%; position: relative">
+            <div class="c-container container">
+                <div class="c-content">
+                    <div class="control button is-green" style="top: 10px; left: 25px;"><input type="button"
+                                                                                               value="Save"></div>
+                    <div class="control button is-white" style="top: 10px; left: 90px;"><input type="button"
+                                                                                               value="Cancel"></div>
+                    <div class="control label" style="top: 15px; left: 160px; font-family: OpenSansSemiboldRegular;">
+                        Фиксированная высота
                     </div>
                 </div>
             </div>
-            <div class="control-wrapper" style="flex: 80 0 auto; -webkit-flex: 80 0 auto; -ms-flex: 80 0 auto; width: 100%;">
-                <div class="h-container container" >
-                    <div class="c-content" style="position: absolute; height: 100%; overflow-y: auto; overflow-x: auto">
-                        <div class="c-container container" style="height: 100%; width: 75px; min-width: 75px">
-                            <div class="c-content">
-                                <div class="control button is-green" style="top: 10px; left: 5px;"><input type="button" value="Save"></div>
-                                <div class="control button is-white" style="top: 70px; left: 5px;"><input type="button" value="Cancel"></div>
+        </div>
+        <div class="control-wrapper"
+             style="flex: 80 0 auto; -webkit-flex: 80 0 auto; -ms-flex: 80 0 auto; width: 100%;">
+            <div class="h-container container">
+                <div class="c-content" style="position: absolute; height: 100%; overflow-y: auto; overflow-x: auto">
+                    <div class="c-container container" style="height: 100%; width: 75px; min-width: 75px">
+                        <div class="c-content">
+                            <div class="control button is-green" style="top: 10px; left: 5px;"><input type="button"
+                                                                                                      value="Save">
+                            </div>
+                            <div class="control button is-white" style="top: 70px; left: 5px;"><input type="button"
+                                                                                                      value="Cancel">
                             </div>
                         </div>
-                        <div class="c-container container" style="height: 100%; flex: 100 0 auto; -webkit-flex: 10 0 auto; -ms-flex: 100 0 auto; min-width: 90px">
-                            <div class="c-content">
-                                <div class="control button is-green" style="top: 10px; left: 5px;"><input type="button" value="Save"></div>
-                                <div class="control button is-white" style="top: 70px; left: 5px;"><input type="button" value="Cancel"></div>
+                    </div>
+                    <div class="c-container container"
+                         style="height: 100%; flex: 100 0 auto; -webkit-flex: 10 0 auto; -ms-flex: 100 0 auto; min-width: 90px">
+                        <div class="c-content">
+                            <div class="control button is-green" style="top: 10px; left: 5px;"><input type="button"
+                                                                                                      value="Save">
+                            </div>
+                            <div class="control button is-white" style="top: 70px; left: 5px;"><input type="button"
+                                                                                                      value="Cancel">
                             </div>
                         </div>
-                        <div class="h-container container" style="height: 100%; width: auto">
-                            <div class="c-content">
-                                <div class="c-container container" style="height: 100%; width: 250px">
-                                    <div class="c-content">
-                                        <div class="control button is-green" style="top: 10px; left: 25px;"><input type="button" value="Save"></div>
-                                        <div class="control button is-white" style="top: 10px; left: 90px;"><input type="button" value="Cancel"></div>
-                                        <div class="control label" style="top: 15px; left: 160px; font-family: OpenSansSemiboldRegular;">Автоконтент</div>
+                    </div>
+                    <div class="h-container container" style="height: 100%; width: auto">
+                        <div class="c-content">
+                            <div class="c-container container" style="height: 100%; width: 250px">
+                                <div class="c-content">
+                                    <div class="control button is-green" style="top: 10px; left: 25px;"><input
+                                            type="button" value="Save"></div>
+                                    <div class="control button is-white" style="top: 10px; left: 90px;"><input
+                                            type="button" value="Cancel"></div>
+                                    <div class="control label"
+                                         style="top: 15px; left: 160px; font-family: OpenSansSemiboldRegular;">
+                                        Автоконтент
                                     </div>
                                 </div>
                             </div>
@@ -117,134 +158,193 @@
                     </div>
                 </div>
             </div>
-            <div class="control-wrapper">
-                <div class="h-container container" style="flex: 20 0 auto;  -webkit-flex: 20 0 auto; -ms-flex: 20 0 auto; width: 100%;">
+        </div>
+        <div class="control-wrapper">
+            <div class="h-container container"
+                 style="flex: 20 0 auto;  -webkit-flex: 20 0 auto; -ms-flex: 20 0 auto; width: 100%;">
                 <div class="c-content">
                 </div>
             </div>
-            </div>
-            <div class="control-wrapper">
-                <div class="h-container container" style="height: auto; width: 100%">
+        </div>
+        <div class="control-wrapper">
+            <div class="h-container container" style="height: auto; width: 100%">
                 <div class="c-content">
                     <div class="c-container container" style="height: 100px; width: 100%">
                         <div class="c-content">
-                            <div class="control button is-green" style="top: 10px; left: 25px;"><input type="button" value="Save"></div>
-                            <div class="control button is-white" style="top: 10px; left: 90px;"><input type="button" value="Cancel"></div>
-                            <div class="control label" style="top: 15px; left: 160px; font-family: OpenSansSemiboldRegular;">Автоконтент</div>
+                            <div class="control button is-green" style="top: 10px; left: 25px;"><input type="button"
+                                                                                                       value="Save">
+                            </div>
+                            <div class="control button is-white" style="top: 10px; left: 90px;"><input type="button"
+                                                                                                       value="Cancel">
+                            </div>
+                            <div class="control label"
+                                 style="top: 15px; left: 160px; font-family: OpenSansSemiboldRegular;">Автоконтент
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div id="main2" class="control form">
+    <div class="c-content">
+        <div class="control-wrapper" id="ch_139"
+             style="margin: 0px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40em; height: auto;">
+            <div class="control container v-container m-container" id="139" style="height: auto;">
+                <div class="c-content" style="border-radius: 0.25em; background-color: rgb(255, 255, 255);">
+                    <div class="control-wrapper" id="ch_154" style="width: 100%; height: auto; min-height: 0px;">
+                        <div class="control container g-container" id="154">
+                            <div class="c-content">
+                                <table>
+                                    <tbody>
+                                    <tr class="container-title">
+                                        <td class="container-title" style="width: 69px;">
+                                            <div class="container-title">
+                                                <div class="cont-title-icon">
+                                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                                                    <use xlink:href="../images/Genetix.svg#arrow_down_16"></use>
+                                                                </svg>
+                                                </div>
+                                                <div class="cont-title-text"><h2>Main</h2></div>
+                                            </div>
+                                        </td>
+                                        <td class="g-container-title-fill" colspan="4" style="width: 483px;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td id="td_154_0_0" style="height: auto;">
+                                            <div class="c-content">
+                                                <div class="control-wrapper" id="ch_155">
+                                                    <div class="control label" id="155"
+                                                         style="width: 100%; height: 100%;">Id
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td id="td_154_1_0" style="height: auto;">
+                                            <div class="c-content">
+                                                <div class="control-wrapper" id="ch_156">
+                                                    <div class="control edit" id="156" title="Id" style="height: 35px;">
+                                                        <input type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td id="td_154_2_0" class="col-separator" style="height: auto;">
+                                            <div class="c-content"></div>
+                                        </td>
+                                        <td id="td_154_3_0" style="height: auto;">
+                                            <div class="c-content">
+                                                <div class="control-wrapper" id="ch_157">
+                                                    <div class="control label" id="157"
+                                                         style="width: 100%; height: 100%;">State
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td id="td_154_4_0" style="height: auto;">
+                                            <div class="c-content">
+                                                <div class="control-wrapper" id="ch_158">
+                                                    <div class="control edit" id="158" title="Lead state"
+                                                         style="height: 35px;">
+                                                        <input type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td id="td_154_0_1" rowspan="3" style="height: auto;">
+                                            <div class="c-content">
+                                                <div class="control-wrapper" id="ch_159">
+                                                    <div class="control edit" id="159" style="width: 100%; height: 100%;">
+                                                        <textarea style="overflow: hidden; word-wrap: break-word; height: 36px;"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td id="td_154_1_1" style="height: auto;">
+                                            <div class="c-content">
+                                                <div class="control-wrapper" id="ch_160">
+                                                    <div class="control edit" id="160" style="height: 35px;">
+                                                        <input type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td id="td_154_2_1" class="col-separator" style="height: auto;">
+                                            <div class="c-content"></div>
+                                        </td>
+                                        <td id="td_154_3_1" style="height: auto;">
+                                            <div class="c-content">
+                                                <div class="control-wrapper" id="ch_161">
+                                                    <div class="control label" id="161"
+                                                         style="width: 100%; height: 100%;">CompanyId
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td id="td_154_4_1" style="height: auto;">
+                                            <div class="c-content">
+                                                <div class="control-wrapper" id="ch_162">
+                                                    <div class="control edit" id="162" style="height: 35px;"><input
+                                                            type="text"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td id="td_154_1_2" style="height: auto;">
+                                            <div class="c-content">
+                                                <div class="control-wrapper" id="ch_164">
+                                                    <div class="control edit" id="164" style="height: 35px;"><input
+                                                            type="text"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td id="td_154_2_2" class="col-separator" style="height: auto;">
+                                            <div class="c-content"></div>
+                                        </td>
+                                        <td id="td_154_3_2" style="height: auto;">
+                                            <div class="c-content">
+                                                <div class="control-wrapper" id="ch_165">
+                                                    <div class="control label" id="165"
+                                                         style="width: 100%; height: 100%;">Phone
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td id="td_154_4_2" style="height: auto;">
+                                            <div class="c-content">
+                                                <div class="control-wrapper" id="ch_166">
+                                                    <div class="control edit" id="166" style="height: 35px;"><input
+                                                            type="text"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td id="td_154_1_3" colspan="4" style="height: auto;">
+                                            <div class="c-content">
+                                                <div class="control-wrapper" id="ch_168">
+                                                    <div class="control edit" id="168" style="height: 58px;"><textarea
+                                                            style="overflow: hidden; word-wrap: break-word; height: 36px;"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div id="main2" class="g-container container" style="width: 500px; height: 500px; left: 580px; top: 40px; position: absolute; background-color: #ffffff">
-        <div class="c-content" style="overflow: auto">
-            <table>
-                <tr>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                    <td id="inserteble-td" rowspan="2"  style="width: 96px; position: relative">
-                        <div class="c-content" style="width: 96px; height: 176px; position: absolute; top: 0px; left: 0px">
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td rowspan="4"  style="overflow: hidden; display: table-cell;position: relative;">
-                        <div class="c-content" style="position: absolute; top: 1px; left: 1px;">
-                            <div class="c-container container" style="height: 100%; width: 100%; min-height: 50px">
-                                <div class="c-content">
-                                    <div class="control button is-green" style="top: 10px; left: 5px;"><input type="button" value="Save"></div>
-                                    <div class="control button is-white" style="top: 60px; left: 5px;"><input type="button" value="Cancel"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="3" style="height: auto; overflow: auto">
-                        <div class="c-container container" style="height: 100%; width: 100%">
-                            <div class="c-content">
-                                <div class="control button is-green" style="top: 10px; left: 25px;"><input type="button" value="Save"></div>
-                                <div class="control button is-white" style="top: 10px; left: 90px;"><input type="button" value="Cancel"></div>
-                                <div class="control label" style="top: 15px; left: 160px; font-family: OpenSansSemiboldRegular;">Текст</div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="overflow: auto">
-                        <div class="c-container container" style="height: 100%; width: 100%; min-height: 50px">
-                            <div class="c-content">
-                                <div class="control button is-green" style="top: 10px; left: 5px;"><input type="button" value="Save"></div>
-                                <div class="control button is-white" style="top: 60px; left: 5px;"><input type="button" value="Cancel"></div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="c-content">
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
+</div>
 </body>
 </html>
 

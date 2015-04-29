@@ -39,10 +39,9 @@ define(
                 });
             } else
                 item.removeAttr("title");
-            if (this.multiline())if (this.multiline()) {
+            if (this.multiline()) {
                 item.children().autosize({
                     callback: function (el) {
-                        console.log($(el).is(":focus"));
                         if ($(el).is(":focus")) {
                             $(el).parent().css({height: ""});
                             $(el).parent().height($(el).parent().outerHeight());

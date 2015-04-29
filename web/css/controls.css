@@ -507,15 +507,11 @@
 .dropdown2-b.is-gray-menu > arrow-be-wrapper > .arrow-be {
   background-color: #586278;
 }
-input {
+input,
+textarea {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-}
-textarea {
-  box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
 }
 h2 {
   margin: 0;
@@ -538,14 +534,11 @@ h2 {
   font-size: 0.8125em;
   line-height: 1.5em;
 }
-.control.edit {
-  margin-left: 0.9231em;
-}
 .control.label {
   float: right;
   letter-spacing: 0.01em;
   color: #a2a2a2;
-  margin-top: 0.7692em;
+  text-align: right;
 }
 .control.button input {
   font-size: 1em;
@@ -601,12 +594,13 @@ h2 {
 .control.label {
   color: #718ab2;
   display: inline-block;
-  line-height: 3em;
+  line-height: 2.25em;
 }
-tr > td > div.c-content > .control.label {
+tr > td > div.c-content > div.control-wrapper > .control.label {
   margin-top: 0.75em;
   bottom: 0px;
   right: 0px;
+  padding-right: 1em;
 }
 textarea {
   resize: none;
