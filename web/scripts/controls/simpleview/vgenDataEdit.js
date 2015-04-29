@@ -51,6 +51,8 @@ define(
                 });
             }
 
+            item.height(item.height());
+
         }
         return vGenDataEdit;
     }

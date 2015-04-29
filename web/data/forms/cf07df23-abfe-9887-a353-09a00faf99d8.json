@@ -335,7 +335,7 @@
                       "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                     },
                     "fields": {
-                      "Id": 3007,
+                      "Id": 3008,
                       "Name": "LabelPhone",
                       "Top": 2,
                       "Left": 3,
@@ -358,7 +358,7 @@
                   },
                   {
                     "$sys": {
-                      "guid": "4e0e673c-d941-3c54-1fdd-2f8f9236a449",
+                      "guid": "995ac9cf-280b-4f70-a277-3cded4734f51",
                       "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                     },
                     "fields": {
