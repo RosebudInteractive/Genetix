@@ -16,7 +16,7 @@ HtmlGenerator.parseInput = function (content) {
             var stringArray = content.split("\n");
             var firstStr = stringArray.shift();
             HtmlGenerator.setParameters(firstStr);
-            var parsedObj = {obj: null};
+            var parsedObj = {obj: null, container: null};
             HtmlGenerator.parseLevel(stringArray, parsedObj, 0);
 
             $("body").empty().append(parsedObj.obj);
@@ -36,61 +36,89 @@ HtmlGenerator.resizeHandler = function() {
     // подсчитаем текущее ко-во колонок
     var curColCount = Math.floor((this.columnsCount*windowWidth)/(this.columnsCount*this.minColWidth));
     curColCount = (curColCount > this.columnsCount ? this.columnsCount : curColCount);
-    var curColWidth = windowWidth / curColCount;
+    var curColWidth = Math.floor(windowWidth / curColCount);
+    if (curColWidth > this.maxColWidth) {
+        curColCount = Math.floor(windowWidth / this.maxColWidth);
+        if (windowWidth % this.maxColWidth != 0)
+            curColCount++;
+        curColWidth = Math.floor(windowWidth / curColCount);
+    }
+
     console.log("windowWidth: " + windowWidth + ", curColCount: " + curColCount + ", curColWidth: " + curColWidth);
 
     for (var i = 0; i < this._rows.length; i++) {
         var rowObj = this._rows[i];
         var rowEl = rowObj.element;
-        var rowWidth = rowEl.parent().width();
+        if (rowObj.container) curColCount = rowObj.container.realColCount;
+        var rowWidth = curColCount * curColWidth;
         rowEl.width(rowWidth);
         var children = rowObj.children;
 
         // общее ко-во колонок в строке
         var rowColCount = 0;
+        var minColCount = 0;
         for (var j = 0; j < children.length; j++) {
             var childObj = children[j];
-            rowColCount += childObj.end - childObj.start + 1
+            rowColCount += childObj.width;
+            minColCount += childObj.minColumns;
         }
 
-        // реальное ко-во колонок для элемента
-        var proportion = curColCount / rowColCount;
-        var tookColCount = 0;
-        for (var j = 0; j < children.length; j++) {
-            var childObj = children[j];
-            var wantedColCount = childObj.end - childObj.start + 1;
-            var realColCount = Math.floor(wantedColCount * proportion);
-            if (realColCount < childObj.minColumns)
-                realColCount = childObj.minColumns;
-            // если тек. элемент выходит за границы, то расширим пред. до конца строки
-            // текущий переместится вниз
-            if (realColCount + tookColCount > curColCount) {
-                // если есть предыдущий
-                if (j - 1 >= 0) {
-                    children[j - j].realColCount = children[j - j].realColCount + (curColCount - tookColCount);
-                    childObj.realColCount = realColCount;
-                    tookColCount = realColCount;
-                } else { // иначе уменьшаем текущий
-                    childObj.realColCount = curColCount - tookColCount;
-                    tookColCount += childObj.realColCount
+        if (rowColCount <= curColCount || minColCount <= curColCount) {
+            var baseColCount = minColCount;
+            var useMinColCount = true;
+            var tookColCount = 0;
+            if (rowColCount <= curColCount) {
+                baseColCount = rowColCount;
+                useMinColCount = false;
+            }
+            for (var j = 0; j < children.length; j++) {
+                var childObj = children[j];
+                childObj.realColCount = (useMinColCount ? childObj.minColumns : childObj.width);
+                tookColCount += childObj.realColCount;
+            }
+            var elIdx = 0;
+            while (tookColCount < curColCount) {
+                var childObj = children[elIdx];
+                childObj.realColCount++;
+                tookColCount++;
+                elIdx++;
+                if (elIdx == children.length)
+                    elIdx = 0;
+            }
+        } else {
+            var tookColCount = 0;
+            for (var j = 0; j < children.length; j++) {
+                var childObj = children[j];
+                if (tookColCount + childObj.minColumns > curColCount) {
+                    if (childObj.minColumns >= curColCount) {
+                        childObj.realColCount = curColCount;
+                        tookColCount = 0;
+                    } else {
+                        childObj.realColCount = childObj.minColumns;
+                        tookColCount = childObj.realColCount;
+                    }
+
+                    tookColCount = childObj.realColCount;
+                } else {
+                    childObj.realColCount = childObj.minColumns;
+                    tookColCount += childObj.realColCount;
                 }
-            } else
-                childObj.realColCount = realColCount;
-
-            tookColCount += realColCount;
-            //var childPerc = (childObj.end - childObj.start + 1) / rowColCount;
-            //childObj.element.width(childPerc * rowWidth);
+                childObj.realColCount = (childObj.minColumns <= curColCount ? childObj.minColumns : curColCount);
+            }
         }
 
-        var emptyColCount = curColCount - tookColCount;
-        for (var j = 0; j < emptyColCount; j++) {
-            var childObj = children[j];
-            childObj.realColCount++;
-        }
-
+        // выставим ширину и вычислим максимальную высоту
+        var maxHeight = 0;
         for (var j = 0; j < children.length; j++) {
             var childObj = children[j];
+            childObj.element.css({height: "auto"});
             childObj.element.width(childObj.realColCount * curColWidth);
+            maxHeight = Math.max(maxHeight, childObj.element.height());
+        }
+        // теперь выставим у всех высоту
+        for (var j = 0; j < children.length; j++) {
+            var childObj = children[j];
+            childObj.element.height(maxHeight);
         }
     }
 
@@ -100,6 +128,7 @@ HtmlGenerator.setParameters = function(params) {
     var args = params.split(",");
     this.columnsCount = +(args[0].trim());  // количество колонок
     this.minColWidth = +(args[1].trim());   // минимальная ширина
+    this.maxColWidth = +(args[2].trim());   // макимальная ширина
 }
 
 HtmlGenerator.parseLevel = function(strings, parentContainer, position) {
@@ -118,26 +147,28 @@ HtmlGenerator.parseLevel = function(strings, parentContainer, position) {
     if (isRoot) {
         row = this.getRow(null);
         parentContainer.obj = row.element;
-    } else
-        row = this.getRow(parentContainer.obj);
+    } else {
+        row = this.getRow(parentContainer);
+    }
 
 
     while (indent == levelIndent && nextPos < strings.length) {
         var curObj = this.getObj(curStr, row);
+        var curEl = curObj.element;
         if (row) {
-            row.element.append(curObj);
+            row.element.append(curEl);
         } else
-            parentContainer.obj = curObj;
+            parentContainer.obj = curEl;
 
         // если конец строки, то добавляем новый row
         var curStrParts = curStr.trim().split(",");
         if (curStrParts[curStrParts.length - 1].toUpperCase().trim() == "BR") {
-            row = this.getRow(parentContainer.obj);
+            row = this.getRow(parentContainer);
         }
 
         var contEl = null;
         if (this.isContainer(curStr))
-            contEl = curObj.find(".c-content");
+            contEl = curEl.find(".c-content");
         else
             contEl = null;
         nextPos++;
@@ -150,7 +181,7 @@ HtmlGenerator.parseLevel = function(strings, parentContainer, position) {
                 throw "Вложение может происходить только в контейнер. Строка:" + nextPos;
 
             // распарсим след. уровень
-            var upperRes = {obj: contEl};
+            var upperRes = {obj: contEl, container: curObj};
             nextPos = this.parseLevel(strings, upperRes, nextPos);
             if (nextPos == strings.length) continue;
             curStr = strings[nextPos];
@@ -167,10 +198,9 @@ HtmlGenerator.parseLevel = function(strings, parentContainer, position) {
 HtmlGenerator.getRow = function(parent) {
     var row = $(this._templates["row"]);
     if (parent) {
-        parent.append(row);
-        row.width(row.parent().width());
+        parent.obj.append(row);
     }
-    var rowObj = {element: row, children: []};
+    var rowObj = {element: row, children: [], container: (parent ? parent.container : null)};
     this._rows.push(rowObj);
     return rowObj;
 }
@@ -191,12 +221,11 @@ HtmlGenerator.getObj = function(curStr, rowObj) {
         el.find(".control.label").text(parts[3]);
     }
 
-    var colsStr = parts[1];
-    var colsParts = colsStr.split("-");
+    var cols = +parts[1];
     var minCols = +parts[2];
-    var elObj = {element: el, start: +colsParts[0], end: +colsParts[1],minColumns: minCols};
+    var elObj = {element: el, width: cols, minColumns: minCols};
     rowObj.children.push(elObj);
-    return el;
+    return elObj;
 }
 
 HtmlGenerator.countSpaces = function(str) {

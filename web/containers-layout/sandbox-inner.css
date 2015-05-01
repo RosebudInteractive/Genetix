@@ -4,3 +4,10 @@
 .f-row > div {
   float: left;
 }
+input {
+  width: 100%;
+  box-sizing: border-box;
+}
+.control.label {
+  word-wrap: break-word;
+}

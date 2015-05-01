@@ -9,32 +9,32 @@ $(document).ready(function () {
         function (template, tpl) {
             var templates = template.parseTemplate(tpl);
 
-            $("#source-code").val("8,100     \n" +
-                "Container,0-7,2               \n" +
-                "  Container,0-3,2             \n" +
-                "    label,0-3,2,Левый глаз,br \n" +
-                "    label,0-1,2,Цвет          \n" +
-                "    Edit,2-3,2                \n" +
-                "    label,0-1,2,Острота зрения\n" +
-                "    Edit,2-3,2,br             \n" +
-                "    label,0-1,2,Поражение     \n" +
-                "    Edit,2-3,2                \n" +
-                "    label,0-1,2,Цвет роговицы \n" +
-                "    Edit,2-3,2,br             \n" +
-                "    label,0-0,2,Заключение    \n" +
-                "    Edit,1-3,2                \n" +
-                "  Container,4-7,2             \n" +
-                "    label,0-3,2,Правый глаз,br\n" +
-                "    label,0-1,2,Цвет          \n" +
-                "    Edit,2-3,2                \n" +
-                "    label,0-1,2,Острота зрения\n" +
-                "    Edit,2-3,2,br             \n" +
-                "    label,0-1,2,Поражение     \n" +
-                "    Edit,2-3,2                \n" +
-                "    label,0-1,2,Цвет роговицы \n" +
-                "    Edit,2-3,2,br             \n" +
-                "    label,0-0,2,Заключение    \n" +
-                "    Edit,1-3,2");
+            $("#source-code").val("16,35,50    \n" +
+                "Container,16,4              \n" +
+                "  Container,8,4             \n" +
+                "    label,8,2,Левый глаз,br \n" +
+                "    label,2,2,Цвет          \n" +
+                "    Edit,2,2                \n" +
+                "    label,2,2,Острота зрения\n" +
+                "    Edit,2,2,br             \n" +
+                "    label,2,2,Поражение     \n" +
+                "    Edit,2,2                \n" +
+                "    label,2,2,Цвет роговицы \n" +
+                "    Edit,2,2,br             \n" +
+                "    label,2,2,Заключение    \n" +
+                "    Edit,2,2                \n" +
+                "  Container,8,4            \n" +
+                "    label,2,2,Правый глаз,br\n" +
+                "    label,2,2,Цвет          \n" +
+                "    Edit,2,2                \n" +
+                "    label,2,1,Острота зрения\n" +
+                "    Edit,2,2,br             \n" +
+                "    label,2,1,Поражение     \n" +
+                "    Edit,2,2                \n" +
+                "    label,2,2,Цвет роговицы \n" +
+                "    Edit,2,2,br             \n" +
+                "    label,2,2,Заключение    \n" +
+                "    Edit,2,2");
 
             $("#params-div").find("textarea").autosize({
                 callback: function (el) {
