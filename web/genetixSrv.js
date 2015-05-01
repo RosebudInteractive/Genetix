@@ -36,6 +36,7 @@ app.get('/buttons', function(req, res){
 
 // статические данные и модули для подгрузки на клиент
 app.use("/ui-impose", express.static(__dirname + '/ui-impose'));
+app.use("/containers-layout", express.static(__dirname + '/containers-layout'));
 app.use("/css", express.static(__dirname + '/css'));
 app.use("/fonts", express.static(__dirname + '/fonts'));
 app.use("/images", express.static(__dirname + '/images'));

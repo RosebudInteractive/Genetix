@@ -1,0 +1,40 @@
+div {
+  position: relative;
+}
+.box {
+/*display flex
+  display -webkit-flex
+  display -moz-flex
+  flex-direction column
+  -webkit-flex-direction column
+  -moz-flex-direction column
+  -ms-flex-direction column*/
+  position: relative;
+}
+iframe {
+  border: none;
+}
+#params-div {
+  width: 100%;
+  height: 200px;
+  min-height: 0;
+  flex: 20 0 auto;
+  position: relative;
+}
+#params-div textarea {
+  width: 100%;
+}
+#sand-box {
+  border: 1px solid #0ae;
+  width: 100%;
+  position: relative;
+  min-height: 0;
+  height: 400px;
+}
+#sand-box iframe {
+  width: 100%;
+  height: 100%;
+}
+.action-bar {
+  margin-bottom: 0.25em;
+}
