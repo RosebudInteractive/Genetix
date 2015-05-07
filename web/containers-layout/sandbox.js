@@ -5,40 +5,25 @@
  */
 $(document).ready(function () {
     require(
-        ['/scripts/lib/uccello/uses/template.js', 'text!/containers-layout/frame-template.html'],
-        function (template, tpl) {
+        [
+            '/scripts/lib/uccello/uses/template.js',
+            'text!/containers-layout/frame-template.html',
+            'text!/containers-layout/samples-template.html',
+        ],
+        function (template, tpl, samplesTml) {
             var templates = template.parseTemplate(tpl);
+            var samples = template.parseTemplate(samplesTml);
 
-            $("#source-code").val("16,35,50    \n" +
-                "Container,16,4              \n" +
-                "  Container,8,4             \n" +
-                "    label,8,2,Левый глаз,br \n" +
-                "    label,2,2,Цвет          \n" +
-                "    Edit,2,2                \n" +
-                "    label,2,2,Острота зрения\n" +
-                "    Edit,2,2,br             \n" +
-                "    label,2,2,Поражение     \n" +
-                "    Edit,2,2                \n" +
-                "    label,2,2,Цвет роговицы \n" +
-                "    Edit,2,2,br             \n" +
-                "    label,2,2,Заключение    \n" +
-                "    Edit,2,2                \n" +
-                "  Container,8,4            \n" +
-                "    label,2,2,Правый глаз,br\n" +
-                "    label,2,2,Цвет          \n" +
-                "    Edit,2,2                \n" +
-                "    label,2,1,Острота зрения\n" +
-                "    Edit,2,2,br             \n" +
-                "    label,2,1,Поражение     \n" +
-                "    Edit,2,2                \n" +
-                "    label,2,2,Цвет роговицы \n" +
-                "    Edit,2,2,br             \n" +
-                "    label,2,2,Заключение    \n" +
-                "    Edit,2,2");
+            $("#source-code").val(samples["eyes"]);
 
             $("#params-div").find("textarea").autosize({
                 callback: function (el) {
                 }
+            });
+
+            $("#sample-select").change(function() {
+                $("#source-code").val(samples[$(this).val()]);
+                $("#apply-button").click();
             });
 
             var $frame = $('iframe');
