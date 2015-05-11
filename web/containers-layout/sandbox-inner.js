@@ -34,14 +34,18 @@ HtmlGenerator.resizeHandler = function() {
     var windowWidth = $(window).width();
 
     // подсчитаем текущее ко-во колонок
-    var curColCount = Math.floor((this.columnsCount*windowWidth)/(this.columnsCount*this.minColWidth));
+    var curColCount = Math.floor(windowWidth/this.minColWidth);
     curColCount = (curColCount > this.columnsCount ? this.columnsCount : curColCount);
     var curColWidth = Math.floor(windowWidth / curColCount);
     if (curColWidth > this.maxColWidth) {
-        curColCount = Math.floor(windowWidth / this.maxColWidth);
-        if (windowWidth % this.maxColWidth != 0)
-            curColCount++;
-        curColWidth = Math.floor(windowWidth / curColCount);
+        curColWidth = this.maxColWidth;
+        curColCount = Math.floor(windowWidth / curColWidth);
+        //if (windowWidth % this.maxColWidth != 0)
+        //    curColCount++;
+        //curColWidth = Math.floor(windowWidth / curColCount);
+    } else if (curColWidth < this.minColWidth) {
+        curColWidth = this.minColWidth;
+        curColCount = Math.floor(windowWidth / curColWidth);
     }
 
     console.log("windowWidth: " + windowWidth + ", curColCount: " + curColCount + ", curColWidth: " + curColWidth);
@@ -54,112 +58,74 @@ HtmlGenerator.resizeHandler = function() {
         rowEl.width(rowWidth);
         var children = rowObj.children;
 
-        // общее ко-во колонок в строке
+        rowEl.find(".control-wrapper.empty").remove();
+        // общее ко-во колонок в строке, заодно удалим пустые элементы
         var rowColCount = 0;
-        var minColCount = 0;
-        for (var j = 0; j < children.length; j++) {
+        var j = 0;
+        while (j < children.length) {
             var childObj = children[j];
-            rowColCount += childObj.width;
-            minColCount += childObj.minColumns;
+            if (!childObj.isEmpty) {
+                rowColCount += childObj.width;
+                j++;
+            } else {
+                childObj.element.remove();
+                children.splice(j, 1);
+            }
+            childObj.isLineEnd = false;
         }
 
+        if (children.length == 0) continue;
+        var length = children.length;
         var tookColCount = 0;
-        if (rowColCount <= curColCount || minColCount <= curColCount) {
-            var useMinColCount = true;
-            if (rowColCount <= curColCount) {
-                useMinColCount = false;
-            }
+        if (rowColCount <= curColCount) {
             var j = 0;
-            var breakOnNextLine = true;
-            while (j < children.length) {
+            while (j < length) {
                 var childObj = children[j];
-                childObj.realColCount = (useMinColCount ? childObj.minColumns : childObj.width);
+                childObj.realColCount = childObj.width;
                 childObj.isExtendedToEnd = false;
                 tookColCount += childObj.realColCount;
 
-                // проверим поместится ли след контрол, если нет, то перенесем все на след. строку
-                if (j + 1 != children.length && childObj.doNotBreak && breakOnNextLine) {
-                    var nextChild = children[j+1];
-                    // Если не помещается, то расширим предыдущий элемент и к обработке след. контрола не переходим.
-                    // Повторяем вычисления для этого же контрола
-                    if (curColCount - tookColCount < nextChild.minColumns) {
-                        if (j > 0 && !(children[j-1].isExtendedToEnd)) {
-                            children[j-1].realColCount = children[j-1].realColCount + curColCount - tookColCount;
-                            children[j-1].isExtendedToEnd = true;
-                        }
-                        tookColCount = 0;
-                        breakOnNextLine = false;
-                        continue;
-                    }
-                }
-
                 j++;
-                breakOnNextLine = true;
             }
-            var elIdx = 0;
-            // расширим последний элемент
-            //childObj.realColCount = childObj.realColCount + curColCount - tookColCount;
-
-            var found = false;
-            var growAll = false;
-            while (tookColCount < curColCount) {
-                var childObj = children[elIdx];
-                if (childObj.grow || growAll) {
-                    childObj.realColCount++;
-                    tookColCount++;
-                    found = true;
-                }
-                elIdx++;
-                if (elIdx == children.length) {
-                    elIdx = 0;
-                    // Если не найдено ни одного контрола для увеличения
-                    if (!found) growAll = true;
-                }
-            }
+            this.extendLineControls(rowObj, length - 1, curColCount);
         } else {
             tookColCount = 0;
             var j = 0;
             var breakOnNextLine = true;
-            while (j < children.length) {
+            while (j < length) {
                 var childObj = children[j];
-                if (tookColCount + childObj.minColumns > curColCount) {
-                    // расширим предыдущий контрол
-                    if (tookColCount != 0 && j > 0) {
-                        children[j-1].realColCount = children[j-1].realColCount + curColCount - tookColCount;
-                        children[j-1].isExtendedToEnd = true;
-                    }
-
-                    if (childObj.minColumns >= curColCount) {
+                // если не помещается
+                if (tookColCount + childObj.width > curColCount) {
+                    if (j > 0)
+                        this.extendLineControls(rowObj, j - 1, curColCount);
+                    if (childObj.width >= curColCount) {
                         childObj.realColCount = curColCount;
                         childObj.isExtendedToEnd = true;
+                        childObj.isLineEnd = true;
                         tookColCount = 0;
                     } else {
-                        childObj.realColCount = childObj.minColumns;
+                        childObj.realColCount = childObj.width;
                         childObj.isExtendedToEnd = false;
                         tookColCount = childObj.realColCount;
                     }
                 } else {
-                    childObj.realColCount = childObj.minColumns;
+                    childObj.realColCount = childObj.width;
                     childObj.isExtendedToEnd = false;
                     tookColCount += childObj.realColCount;
                 }
 
 
-                //childObj.realColCount = (childObj.minColumns <= curColCount ? childObj.minColumns : curColCount);
                 // если это последний элемент, то расширим его
-                if (j + 1 == children.length && !(childObj.isExtendedToEnd)) {
-                    childObj.realColCount = childObj.realColCount + curColCount - tookColCount;
-                    childObj.isExtendedToEnd = true;
-                } else if (j + 1 != children.length && childObj.doNotBreak && breakOnNextLine) {
+                if (j > 0 && j + 1 == length) {
+                    this.extendLineControls(rowObj, j, curColCount);
+                } else if (j + 1 != length && childObj.doNotBreak && breakOnNextLine) {
                     // проверим поместится ли след контрол, если нет, то перенесем все на след. строку
                     var nextChild = children[j+1];
                     // Если не помещается, то расширим предыдущий элемент и к обработке след. контрола не переходим.
                     // Повторяем вычисления для этого же контрола
-                    if (curColCount - tookColCount < nextChild.minColumns) {
-                        if (j > 0 && !(children[j-1].isExtendedToEnd)) {
-                            children[j-1].realColCount =
-                                children[j-1].realColCount + curColCount - tookColCount + childObj.realColCount;
-                            children[j-1].isExtendedToEnd = true;
+                    if (curColCount - tookColCount < nextChild.width) {
+                        if (j > 0) {
+                            this.extendLineControls(rowObj, j-1, curColCount);
                         }
                         tookColCount = 0;
                         breakOnNextLine = false;
@@ -187,6 +153,48 @@ HtmlGenerator.resizeHandler = function() {
     }
 
 };
+
+HtmlGenerator.extendLineControls = function(rowObj, lastElIdx, curColCount) {
+    var tookColCount = 0;
+    var children = rowObj.children;
+    var k = lastElIdx;
+    var found = false;
+    while (k >= 0) {
+        var extChild = rowObj.children[k];
+        if (k == lastElIdx || !(extChild.isLineEnd)) {
+            tookColCount += extChild.realColCount;
+            k--;
+        }
+        else if (k != lastElIdx && extChild.isLineEnd) k = -1;
+        else k--;
+    }
+
+    k = lastElIdx;
+    extChild = rowObj.children[k];
+    while (k >= 0 && !extChild.isLineEnd && tookColCount < curColCount) {
+        if (extChild.grow || (extChild.grow == null && rowObj.grow)) {
+            extChild.realColCount++;
+            extChild.isExtendedToEnd = true;
+            tookColCount++;
+            found = true;
+        }
+        k--;
+        if ((k < 0 || children[k].isLineEnd) && found && tookColCount < curColCount)
+            k = lastElIdx;
+        else if (!found && k >= 0 && children[k].isLineEnd)
+            break;
+        extChild = rowObj.children[k];
+    }
+
+    // Если не найдено, то займем пустое место невидимым элементом
+    if (!found && tookColCount < curColCount) {
+        var emptyChild = this.getObj("EMPTY", rowObj, lastElIdx);
+        emptyChild.realColCount = curColCount - tookColCount;
+        emptyChild.isLineEnd = true;
+    }
+    if (found)
+        children[lastElIdx].isLineEnd = true;
+}
 
 HtmlGenerator.setParameters = function(params) {
     var args = params.split(",");
@@ -226,8 +234,9 @@ HtmlGenerator.parseLevel = function(strings, parentContainer, position) {
 
         // если конец строки, то добавляем новый row
         var curStrParts = curStr.trim().split(",");
-        if (curStrParts[curStrParts.length - 1].toUpperCase().trim() == "BR") {
-            row = this.getRow(parentContainer);
+        if (curStrParts[curStrParts.length - 1].length > 2 &&
+            curStrParts[curStrParts.length - 1].toUpperCase().trim().substr(0,2) == "BR") {
+            row = this.getRow(parentContainer, curStrParts[curStrParts.length - 1]);
         }
 
         var contEl = null;
@@ -259,12 +268,19 @@ HtmlGenerator.parseLevel = function(strings, parentContainer, position) {
     return nextPos;
 };
 
-HtmlGenerator.getRow = function(parent) {
+HtmlGenerator.getRow = function(parent, brSign) {
     var row = $(this._templates["row"]);
     if (parent) {
         parent.obj.append(row);
     }
-    var rowObj = {element: row, children: [], container: (parent ? parent.container : null)};
+    var grow = brSign && (brSign.toUpperCase().indexOf("(TRUE)") >= 0);
+
+    var rowObj = {
+        element: row,
+        children: [],
+        container: (parent ? parent.container : null),
+        grow: grow
+    };
     this._rows.push(rowObj);
     return rowObj;
 }
@@ -274,27 +290,45 @@ HtmlGenerator.isContainer = function(curStr) {
     return tCurStr.indexOf("CONTAINER") == 0;
 }
 
-HtmlGenerator.getObj = function(curStr, rowObj) {
-    var srcStr = curStr.trim();
-    //var tCurStr = srcStr.toUpperCase();
-    var parts = srcStr.split(",");
-    var templateName = parts[0].toUpperCase().trim();
-    var template = this._templates[templateName];
-    var el = $(template);
-    if (templateName == "LABEL") {
-        el.find(".control.label").text(parts[3]);
-    }
+HtmlGenerator.getObj = function(curStr, rowObj, pos) {
+    var elObj = null;
+    if (curStr != "EMPTY") {
+        var srcStr = curStr.trim();
+        //var tCurStr = srcStr.toUpperCase();
+        var parts = srcStr.split(",");
+        var templateName = parts[0].toUpperCase().trim();
+        var template = this._templates[templateName];
+        var el = $(template);
+        if (templateName == "LABEL") {
+            el.find(".control.label").text(parts[3]);
+        }
 
-    var cols = +parts[1];
-    var minCols = +parts[2];
-    var elObj = {
-        element: el,
-        width: cols,
-        minColumns: minCols,
-        doNotBreak: (parts[parts.length - 1].toUpperCase().trim() == "NBR"),
-        grow: templateName != "LABEL"
-    };
-    rowObj.children.push(elObj);
+        var cols = +parts[1];
+        var stretch = parts[2];
+        elObj = {
+            element: el,
+            width: cols,
+            //minColumns: minCols,
+            doNotBreak: (parts[parts.length - 1].toUpperCase().trim() == "NBR"),
+            grow: (stretch === "true" ? true : (stretch == "" ? null : false)),
+            isEmpty: false
+        };
+    } else {
+        var el = $(this._templates[curStr]);
+        rowObj.element.append(el);
+        //el.insertAfter(rowObj.children[pos].element);
+        elObj = {
+            element: el,
+            width: 0,
+            doNotBreak: false,
+            grow: true,
+            isEmpty: true
+        };
+    }
+    if (pos !== undefined)
+        rowObj.children.splice(pos, 0, elObj);
+    else
+        rowObj.children.push(elObj);
     return elObj;
 }
 
