@@ -37,10 +37,14 @@ $(document).ready(function () {
             $("#apply-button").click(function () {
                 parseInput($("#source-code").val());
             });
+            $("#show-grid").change(function() {
+                window.frames[0].frameElement.contentWindow.HtmlGenerator.drawGrid($("#show-grid").is(':checked'));
+            });
         });
 
     function parseInput(content) {
         window.frames[0].frameElement.contentWindow.HtmlGenerator.parseInput(content);
+        window.frames[0].frameElement.contentWindow.HtmlGenerator.drawGrid($("#show-grid").is(':checked'));
     }
 });
 

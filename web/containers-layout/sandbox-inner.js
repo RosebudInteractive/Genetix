@@ -5,6 +5,7 @@
  */
 
 var HtmlGenerator = {};
+HtmlGenerator._drawGrid = true;
 
 HtmlGenerator.parseInput = function (content) {
     require(
@@ -19,19 +20,22 @@ HtmlGenerator.parseInput = function (content) {
             var parsedObj = {obj: null, container: null};
             HtmlGenerator.parseLevel(stringArray, parsedObj, 0);
 
-            $("body").empty().append(parsedObj.obj);
+            $("body").children(".f-row").remove();
+            $("body").prepend(parsedObj.obj);
 
             $(window).resize(function () {
                 HtmlGenerator.resizeHandler();
+                HtmlGenerator.drawGridHandler();
             });
             setTimeout(function() {
                 HtmlGenerator.resizeHandler();
+                HtmlGenerator.drawGridHandler();
             }, 0);
         });
 };
 
-HtmlGenerator.resizeHandler = function() {
-    var windowWidth = $(window).width();
+HtmlGenerator.getGridParameters = function() {
+    var windowWidth = $("body").width();
 
     // подсчитаем текущее ко-во колонок
     var curColCount = Math.floor(windowWidth/this.minColWidth);
@@ -47,6 +51,19 @@ HtmlGenerator.resizeHandler = function() {
         curColWidth = this.minColWidth;
         curColCount = Math.floor(windowWidth / curColWidth);
     }
+
+    return {
+        windowWidth: windowWidth,
+        curColCount: curColCount,
+        curColWidth: curColWidth
+    }
+}
+
+HtmlGenerator.resizeHandler = function() {
+    var params = this.getGridParameters();
+    var windowWidth = params.windowWidth;
+    var curColCount = params.curColCount;
+    var curColWidth = params.curColWidth;
 
     console.log("windowWidth: " + windowWidth + ", curColCount: " + curColCount + ", curColWidth: " + curColWidth);
 
@@ -368,3 +385,35 @@ HtmlGenerator.countSpaces = function(str) {
     }
 }
 
+HtmlGenerator.drawGridHandler = function() {
+    if (this.drawGrid()) {
+        var gridContainer = $(".grid");
+        var params = this.getGridParameters();
+        var windowWidth = params.windowWidth;
+        var curColCount = params.curColCount;
+        var curColWidth = params.curColWidth;
+
+        gridContainer.empty();
+        gridContainer.height($(window).height());
+        //gridContainer.width(windowWidth - 8);
+
+        for (var i = 0; i < curColCount; i++) {
+            var colEl = $(this._templates["gridColumn"]);
+            gridContainer.append(colEl);
+            colEl.height(gridContainer.height());
+            colEl.width(curColWidth);
+        }
+
+
+        gridContainer.show();
+    } else
+        $(".grid").hide();
+}
+
+HtmlGenerator.drawGrid = function(value) {
+    if (value === undefined) return (this._drawGrid || false);
+    else {
+        this._drawGrid = value;
+        this.drawGridHandler();
+    }
+}

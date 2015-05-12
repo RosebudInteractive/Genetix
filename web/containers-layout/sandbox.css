@@ -41,3 +41,7 @@ iframe {
 .action-bar {
   margin-bottom: 0.25em;
 }
+label {
+  font-size: 13px;
+  vertical-align: text-top;
+}
