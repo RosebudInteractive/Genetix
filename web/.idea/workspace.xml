@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers-layout/frame-template.html" afterPath="$PROJECT_DIR$/containers-layout/frame-template.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers-layout/samples-template.html" afterPath="$PROJECT_DIR$/containers-layout/samples-template.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers-layout/sandbox-inner.js" afterPath="$PROJECT_DIR$/containers-layout/sandbox-inner.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers-layout/sandbox.html" afterPath="$PROJECT_DIR$/containers-layout/sandbox.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,8 +55,8 @@
       <file leaf-file-name="sandbox-inner.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/containers-layout/sandbox-inner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4787234">
-              <caret line="71" column="36" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.4099099">
+              <caret line="310" column="35" selection-start-line="310" selection-start-column="17" selection-end-line="310" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -100,8 +97,8 @@
       <file leaf-file-name="samples-template.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/containers-layout/samples-template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231">
-              <caret line="18" column="43" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+            <state vertical-scroll-proportion="-22.884615">
+              <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -849,7 +846,7 @@
       <workItem from="1430895526547" duration="3735000" />
       <workItem from="1430911153915" duration="75000" />
       <workItem from="1430911261402" duration="22638000" />
-      <workItem from="1431326591996" duration="32610000" />
+      <workItem from="1431326591996" duration="34820000" />
     </task>
     <task id="LOCAL-00021" summary="рефактор девайсов и сессии и верстка попапов">
       <created>1425332346890</created>
@@ -1149,7 +1146,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1057216000" />
+    <option name="totallyTimeSpent" value="1059426000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1607,16 +1604,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/containers-layout/samples-template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231">
-          <caret line="18" column="43" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+        <state vertical-scroll-proportion="-22.884615">
+          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/containers-layout/sandbox-inner.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4787234">
-          <caret line="71" column="36" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.4099099">
+          <caret line="310" column="35" selection-start-line="310" selection-start-column="17" selection-end-line="310" selection-end-column="17" />
           <folding />
         </state>
       </provider>

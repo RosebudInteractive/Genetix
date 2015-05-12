@@ -236,7 +236,10 @@ HtmlGenerator.parseLevel = function(strings, parentContainer, position) {
         var curStrParts = curStr.trim().split(",");
         if (curStrParts[curStrParts.length - 1].length > 2 &&
             curStrParts[curStrParts.length - 1].toUpperCase().trim().substr(0,2) == "BR") {
-            row = this.getRow(parentContainer, curStrParts[curStrParts.length - 1]);
+            var brSign = curStrParts[curStrParts.length - 1];
+            row.grow = brSign.toUpperCase().indexOf("(TRUE)") >= 0
+            row = this.getRow(parentContainer, brSign);
+            row.grow = false;
         }
 
         var contEl = null;
@@ -273,7 +276,7 @@ HtmlGenerator.getRow = function(parent, brSign) {
     if (parent) {
         parent.obj.append(row);
     }
-    var grow = brSign && (brSign.toUpperCase().indexOf("(TRUE)") >= 0);
+    var grow = (brSign !== undefined) && (brSign.toUpperCase().indexOf("(TRUE)") >= 0);
 
     var rowObj = {
         element: row,
