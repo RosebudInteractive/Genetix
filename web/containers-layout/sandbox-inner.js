@@ -60,6 +60,7 @@ HtmlGenerator.getGridParameters = function() {
 }
 
 HtmlGenerator.resizeHandler = function() {
+    var dBegin = new Date();
     var params = this.getGridParameters();
     var windowWidth = params.windowWidth;
     var curColCount = params.curColCount;
@@ -194,6 +195,8 @@ HtmlGenerator.resizeHandler = function() {
         }
     }
 
+    var dEnd = new Date();
+    console.log("Длительность пересчета: " + (dEnd - dBegin) + " мСек.")
 };
 
 HtmlGenerator.extendLineControls = function(rowObj, lastElIdx, curColCount) {
