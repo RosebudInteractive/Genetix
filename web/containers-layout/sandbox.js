@@ -14,7 +14,7 @@ $(document).ready(function () {
             var templates = template.parseTemplate(tpl);
             var samples = template.parseTemplate(samplesTml);
 
-            $("#source-code").val(samples["eyes"]);
+            $("#source-code").val(samples["eyes_new"]);
 
             $("#params-div").find("textarea").autosize({
                 callback: function (el) {

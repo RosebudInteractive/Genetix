@@ -138,13 +138,38 @@ HtmlGenerator.resizeHandler = function() {
         }
 
         // выставим ширину и вычислим максимальную высоту
-        var maxHeight = 0;
         for (var k = 0; k < children.length; k++) {
             var childObj = children[k];
             childObj.element.css({height: "auto"});
             childObj.element.width(childObj.realColCount * curColWidth);
+        }
+    }
+
+    for (var i = this._rows.length - 1; i >= 0 ; i--) {
+        var children = this._rows[i].children;
+        var maxHeight = 0;
+        for (var m = 0; m < children.length; m++) {
+            var childObj = children[m];
             maxHeight = Math.max(maxHeight, childObj.element.height());
         }
+
+        // теперь выставим у всех высоту
+        for (var m = 0; m < children.length; m++) {
+            var childObj = children[m];
+            if (childObj.isLineEnd)
+                childObj.element.height(maxHeight);
+        }
+    }
+
+    for (var i = 0; i < this._rows.length; i++) {
+        var children = this._rows[i].children;
+
+        var maxHeight = 0;
+        for (var m = 0; m < children.length; m++) {
+            var childObj = children[m];
+            maxHeight = Math.max(maxHeight, childObj.element.height());
+        }
+
         // теперь выставим у всех высоту
         for (var m = 0; m < children.length; m++) {
             var childObj = children[m];
@@ -192,7 +217,7 @@ HtmlGenerator.extendLineControls = function(rowObj, lastElIdx, curColCount) {
         emptyChild.realColCount = curColCount - tookColCount;
         emptyChild.isLineEnd = true;
     }
-    if (found)
+    //if (found)
         children[lastElIdx].isLineEnd = true;
 }
 
@@ -234,7 +259,7 @@ HtmlGenerator.parseLevel = function(strings, parentContainer, position) {
 
         // если конец строки, то добавляем новый row
         var curStrParts = curStr.trim().split(",");
-        if (curStrParts[curStrParts.length - 1].length > 2 &&
+        if (curStrParts[curStrParts.length - 1].length >= 2 &&
             curStrParts[curStrParts.length - 1].toUpperCase().trim().substr(0,2) == "BR") {
             var brSign = curStrParts[curStrParts.length - 1];
             row.grow = brSign.toUpperCase().indexOf("(TRUE)") >= 0
@@ -318,8 +343,8 @@ HtmlGenerator.getObj = function(curStr, rowObj, pos) {
         };
     } else {
         var el = $(this._templates[curStr]);
-        rowObj.element.append(el);
-        //el.insertAfter(rowObj.children[pos].element);
+        //rowObj.element.append(el);
+        el.insertAfter(rowObj.children[pos].element);
         elObj = {
             element: el,
             width: 0,
@@ -328,9 +353,9 @@ HtmlGenerator.getObj = function(curStr, rowObj, pos) {
             isEmpty: true
         };
     }
-    if (pos !== undefined)
-        rowObj.children.splice(pos, 0, elObj);
-    else
+    //if (pos !== undefined)
+    //    rowObj.children.splice(pos, 0, elObj);
+    //else
         rowObj.children.push(elObj);
     return elObj;
 }
