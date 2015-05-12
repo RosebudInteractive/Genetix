@@ -32,3 +32,9 @@ body > .grid {
   float: left;
   position: relative;
 }
+textarea {
+  overflow: hidden;
+  word-wrap: break-word;
+  height: 36px;
+  width: 100%;
+}

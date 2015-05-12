@@ -274,6 +274,12 @@ HtmlGenerator.parseLevel = function(strings, parentContainer, position) {
         var curEl = curObj.element;
         if (row) {
             row.element.append(curEl);
+            var that = this;
+            curEl.find("textarea").autosize({
+                callback: function (el) {
+                    that.resizeHandler();
+                }
+            });
         } else
             parentContainer.obj = curEl;
 
@@ -359,7 +365,8 @@ HtmlGenerator.getObj = function(curStr, rowObj, pos) {
             //minColumns: minCols,
             doNotBreak: (parts[parts.length - 1].toUpperCase().trim() == "NBR"),
             grow: (stretch === "true" ? true : (stretch == "" ? null : false)),
-            isEmpty: false
+            isEmpty: false,
+            isMultyLine: (templateName == "TEXTAREA")
         };
     } else {
         var el = $(this._templates[curStr]);
@@ -370,13 +377,11 @@ HtmlGenerator.getObj = function(curStr, rowObj, pos) {
             width: 0,
             doNotBreak: false,
             grow: true,
-            isEmpty: true
+            isEmpty: true,
+            isMultyLine: (templateName == "TEXTAREA")
         };
     }
-    //if (pos !== undefined)
-    //    rowObj.children.splice(pos, 0, elObj);
-    //else
-        rowObj.children.push(elObj);
+    rowObj.children.push(elObj);
     return elObj;
 }
 
