@@ -4,7 +4,8 @@
 .f-row > div {
   float: left;
 }
-input {
+input,
+textarea {
   width: 100%;
   box-sizing: border-box;
 }
@@ -36,5 +37,4 @@ textarea {
   overflow: hidden;
   word-wrap: break-word;
   height: 36px;
-  width: 100%;
 }

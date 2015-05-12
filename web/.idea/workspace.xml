@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers-layout/frame-template.html" afterPath="$PROJECT_DIR$/containers-layout/frame-template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers-layout/samples-template.html" afterPath="$PROJECT_DIR$/containers-layout/samples-template.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers-layout/sandbox-inner.css" afterPath="$PROJECT_DIR$/containers-layout/sandbox-inner.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers-layout/sandbox-inner.js" afterPath="$PROJECT_DIR$/containers-layout/sandbox-inner.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers-layout/sandbox-inner.styl" afterPath="$PROJECT_DIR$/containers-layout/sandbox-inner.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,17 +47,17 @@
         <entry file="file://$PROJECT_DIR$/containers-layout/sandbox-inner.styl">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sandbox-inner.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sandbox-inner.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/containers-layout/sandbox-inner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6188341">
-              <caret line="276" column="57" selection-start-line="276" selection-start-column="28" selection-end-line="276" selection-end-column="28" />
+            <state vertical-scroll-proportion="-95.69231">
+              <caret line="269" column="26" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -76,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="frame-template.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="frame-template.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/containers-layout/frame-template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2692308">
-              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.593423">
+              <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -158,10 +157,10 @@
         <option value="$PROJECT_DIR$/containers-layout/sandbox.html" />
         <option value="$PROJECT_DIR$/containers-layout/sandbox.styl" />
         <option value="$PROJECT_DIR$/containers-layout/sandbox.js" />
-        <option value="$PROJECT_DIR$/containers-layout/frame-template.html" />
         <option value="$PROJECT_DIR$/containers-layout/samples-template.html" />
         <option value="$PROJECT_DIR$/containers-layout/sandbox-inner.js" />
         <option value="$PROJECT_DIR$/containers-layout/sandbox-inner.styl" />
+        <option value="$PROJECT_DIR$/containers-layout/frame-template.html" />
       </list>
     </option>
   </component>
@@ -851,7 +850,7 @@
       <workItem from="1430911153915" duration="75000" />
       <workItem from="1430911261402" duration="22638000" />
       <workItem from="1431326591996" duration="34820000" />
-      <workItem from="1431420654643" duration="14638000" />
+      <workItem from="1431420654643" duration="15075000" />
     </task>
     <task id="LOCAL-00021" summary="рефактор девайсов и сессии и верстка попапов">
       <created>1425332346890</created>
@@ -1151,7 +1150,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1074064000" />
+    <option name="totallyTimeSpent" value="1074501000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1591,14 +1590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/containers-layout/frame-template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/containers-layout/samples-template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.6666667">
@@ -1607,18 +1598,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/containers-layout/sandbox-inner.styl">
+    <entry file="file://$PROJECT_DIR$/containers-layout/sandbox-inner.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        <state vertical-scroll-proportion="-95.69231">
+          <caret line="269" column="26" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/containers-layout/sandbox-inner.js">
+    <entry file="file://$PROJECT_DIR$/containers-layout/sandbox-inner.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6188341">
-          <caret line="276" column="57" selection-start-line="276" selection-start-column="28" selection-end-line="276" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/containers-layout/frame-template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.593423">
+          <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
           <folding />
         </state>
       </provider>
