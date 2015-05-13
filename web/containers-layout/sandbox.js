@@ -38,13 +38,13 @@ $(document).ready(function () {
                 parseInput($("#source-code").val());
             });
             $("#show-grid").change(function() {
-                window.frames[0].frameElement.contentWindow.HtmlGenerator.drawGrid($("#show-grid").is(':checked'));
+                window.frames[0].frameElement.contentWindow.drawGrid($("#show-grid").is(':checked'));
             });
         });
 
     function parseInput(content) {
-        window.frames[0].frameElement.contentWindow.HtmlGenerator.parseInput(content);
-        window.frames[0].frameElement.contentWindow.HtmlGenerator.drawGrid($("#show-grid").is(':checked'));
+        window.frames[0].frameElement.contentWindow.executeGenerator(content);
+        window.frames[0].frameElement.contentWindow.drawGrid($("#show-grid").is(':checked'));
     }
 });
 
