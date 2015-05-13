@@ -4,8 +4,13 @@
  * Time: 19:22
  */
 // дирректория где лежит Uccello
-var uccelloDir = process.argv[2]?process.argv[2]:'Uccello';
+var uccelloDir = process.argv[2]&&process.argv[2]!='-'?process.argv[2]:'Uccello';
 console.log('Using folder: '+uccelloDir);
+// порт web
+var uccelloPortWeb = process.argv[3]&&process.argv[3]!='-'?process.argv[3]:1326;
+// порт websocket
+var uccelloPortWs = process.argv[4]&&process.argv[3]!='-'?process.argv[4]:8082;
+
 
 // Модули nodejs
 var http = require('http');
@@ -22,9 +27,9 @@ app.engine('html', require('ejs').renderFile);
 app.get('/genetix', function(req, res){
     var device = new DeviceHelper(req.headers["user-agent"]);
     if (device.mobile() || device.tablet())
-        res.render('genetix.m.html');
+        res.render('genetix.m.html', { webSocketServerPort: UCCELLO_CONFIG.webSocketServer.port});
     else
-        res.render('genetix.html');
+        res.render('genetix.html', { webSocketServerPort: UCCELLO_CONFIG.webSocketServer.port});
 });
 app.get('/buttons', function(req, res){
     var device = new DeviceHelper(req.headers["user-agent"]);
@@ -83,14 +88,16 @@ var config = {
     ],
     controlsPath: __dirname+'/scripts/controls/',
     dataPath: __dirname+'/data/',
-    uccelloPath: __dirname+'/../../'+uccelloDir+'/',
-    webSocketServer: {port:8082}
+    uccelloPath: __dirname+'/../../'+uccelloDir+'/'
 };
 
 // модуль настроек
 var UccelloConfig = require('../../'+uccelloDir+'/config/config');
 UCCELLO_CONFIG = new UccelloConfig(config);
+if (uccelloPortWeb) UCCELLO_CONFIG.webServer.port = uccelloPortWeb;
+if (uccelloPortWs) UCCELLO_CONFIG.webSocketServer.port = uccelloPortWs;
 DEBUG = true;
+
 
 // логирование
 logger = require('../../'+uccelloDir+'/system/winstonLogger');
@@ -108,8 +115,8 @@ var communicationServer = new CommunicationServer.Server(UCCELLO_CONFIG.webSocke
 var uccelloServ = new UccelloServ({ authenticate: fakeAuthenticate, commServer: communicationServer });
 
 // запускаем http сервер
-http.createServer(app).listen(1326);
-console.log('Сервер запущен на http://127.0.0.1:1326/');
+http.createServer(app).listen(UCCELLO_CONFIG.webServer.port);
+console.log('Web server started http://127.0.0.1:'+UCCELLO_CONFIG.webServer.port+'/');
 
 communicationServer.start();
 console.log("Communication Server started (port: " + UCCELLO_CONFIG.webSocketServer.port + ").");
