@@ -23,6 +23,7 @@ var HtmlGenerator = function(isRoot) {
         var that = this;
         this._templates = templates;
         this._rows = [];
+        this._childrenGenerators = [];
 
 
         var stringArray = content;
@@ -59,18 +60,23 @@ var HtmlGenerator = function(isRoot) {
         // подсчитаем текущее ко-во колонок
         var curColCount = Math.floor(windowWidth/this.minColWidth);
         curColCount = (curColCount > this.columnsCount ? this.columnsCount : curColCount);
-        var curColWidth = Math.floor(windowWidth / curColCount);
-        if (curColWidth > this.maxColWidth) {
-            curColWidth = this.maxColWidth;
-            curColCount = Math.floor(windowWidth / curColWidth);
-            //if (windowWidth % this.maxColWidth != 0)
-            //    curColCount++;
-            //curColWidth = Math.floor(windowWidth / curColCount);
-        } else if (curColWidth < this.minColWidth) {
-            curColWidth = this.minColWidth;
-            curColCount = Math.floor(windowWidth / curColWidth);
-        }
 
+        if (curColCount == 0) {
+            curColCount = 1;
+            curColWidth = this.minColWidth;
+        } else {
+            var curColWidth = Math.floor(windowWidth / curColCount);
+            if (curColWidth > this.maxColWidth) {
+                curColWidth = this.maxColWidth;
+                curColCount = Math.floor(windowWidth / curColWidth);
+                //if (windowWidth % this.maxColWidth != 0)
+                //    curColCount++;
+                //curColWidth = Math.floor(windowWidth / curColCount);
+            } else if (curColWidth < this.minColWidth) {
+                curColWidth = this.minColWidth;
+                curColCount = Math.floor(windowWidth / curColWidth);
+            }
+        }
         return {
             windowWidth: windowWidth,
             curColCount: curColCount,
@@ -161,7 +167,7 @@ var HtmlGenerator = function(isRoot) {
                         // Если не помещается, то расширим предыдущий элемент и к обработке след. контрола не переходим.
                         // Повторяем вычисления для этого же контрола
                         if (curColCount - tookColCount < nextChild.width) {
-                            if (j > 0) {
+                            if (j > 0 && !(children[j - 1].isLineEnd)) {
                                 this.extendLineControls(rowObj, j-1, curColCount);
                             }
                             tookColCount = 0;
