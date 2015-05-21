@@ -1,0 +1,110 @@
+<table id="first">
+    <thead>
+    <th></th>
+    <th></th>
+    </thead>
+    <tr>
+        <td>
+            <h2><strong>Maintenance Job Card</strong></h2>
+        </td>
+        <td rowspan="9">
+            <p><strong>
+                <img src="https://lh3.googleusercontent.com/-x1xpmpe90sw/U3Y6b9Yp1yI/AAAAAAAAAAk/SsfCGGqVf8I/s0-d/Front.jpg" width="237" align="right" />
+            </strong></p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h2><strong>FOR WORK EXECUTED</strong></h2>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4>Maintenance Reference: <strong>KOP179</strong></h4>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4>Date Logged: <strong>2014-10-24</strong></h4>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4>Priority: <strong>Emergency Repair</strong></h4>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4>Due Date: <strong>2014-09-05</strong></h4>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4>Status:<strong> Pending</strong></h4>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div style="display: block">
+                <h3>To Contractor: <strong>BCF Maintenance</strong></h3>
+            </div>
+            <div style="display: block">
+                Vat Number: <strong>333232876876</strong>
+            </div>
+            <div style="display: block">
+                Address: <strong>17 Barnes Street, Westdene, Bloemfontein, 9301</strong>
+            </div>
+            <div style="display: block">
+                Contact Name: <strong>Fanie</strong>
+            </div>
+            <div style="display: block">
+                Telephone: <strong>079 493 7745</strong>
+            </div>
+            <div style="display: block">
+                Cell: <strong>0794937745</strong>
+            </div>
+            <div style="display: block">
+                Fax: <strong>0514305225</strong>
+            </div>
+            <div style="display: block">
+                Email: <strong>ruaan@bfn-online.co.za</strong>
+            </div>
+            <div style="display: block">
+                <h3>From Managing Agent:	<strong>Kopana Investments (PTY) Ltd</strong></h3>
+            </div>
+            <div style="display: block">
+                Vat Number	            <strong>4670253162                  </strong>
+            </div>
+            <div style="display: block">
+                Address:	            <strong>P.O.Box 13294, Noordstad, test, 9302</strong>
+            </div>
+            <div style="display: block">
+                Logged by:	            <strong>Ruaan Dreyer                </strong>
+            </div>
+            <div style="display: block">
+                Tel:	                <strong>051 444 6441                </strong>
+            </div>
+            <div style="display: block">
+                After Hours:            <strong>                            </strong>
+            </div>
+            <div style="display: block">
+                Fax:	                <strong>086 576 9997                </strong>
+            </div>
+            <div style="display: block">
+                Email:	                <strong>admin@kopanainvest.co.za    </strong>
+            </div>
+        </td>
+    </tr>
+</table>
+<button onclick="javascript:demoFromHTML();">PDF</button>

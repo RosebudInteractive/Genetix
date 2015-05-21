@@ -44,3 +44,10 @@ textarea {
   word-wrap: break-word;
   height: 36px;
 }
+.f-row > .control-wrapper {
+  background-color: #fff;
+}
+.control.container.f-container > .c-content {
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+}
