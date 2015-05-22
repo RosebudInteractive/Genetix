@@ -364,6 +364,14 @@ var HtmlGenerator = function(isRoot) {
 
                 // распарсим след. уровень
                 var upperRes = {obj: contEl, container: curObj};
+                // Если у контейнера заголовок, то создаем роу и растягиваем
+                // заголовок по всей ширине
+                if (curObj.isContainer && curObj.label != null) {
+                    var tRow = this.getRow(upperRes, "br(true)");
+                    var tObj = this.getObj("CONT_LABEL,1,true," + curObj.label + ",br", tRow);
+                    tRow.element.append(tObj.element);
+                }
+
                 nextPos = this.parseLevel(strings, upperRes, nextPos);
                 if (nextPos == strings.length) continue;
                 curStr = strings[nextPos];
@@ -417,9 +425,13 @@ var HtmlGenerator = function(isRoot) {
             var parts = srcStr.split(",");
             var templateName = parts[0].toUpperCase().trim();
             var template = this._templates[templateName];
+            var contLabel = null;
             var el = $(template);
-            if (templateName == "LABEL") {
+            if (templateName == "LABEL" || templateName == "CONT_LABEL") {
                 el.find(".control.label").text(parts[3]);
+            } else if (templateName == "CONTAINER") {
+                if (parts.length >= 4 && (parts[3].toUpperCase().indexOf("br") < 0))
+                   contLabel = parts[3];
             }
 
             var cols = +parts[1];
@@ -431,7 +443,9 @@ var HtmlGenerator = function(isRoot) {
                 doNotBreak: (parts[parts.length - 1].toUpperCase().trim() == "NBR"),
                 grow: (stretch === "true" ? true : (stretch == "" ? null : false)),
                 isEmpty: false,
-                isMultyLine: (templateName == "TEXTAREA")
+                isMultyLine: (templateName == "TEXTAREA"),
+                isContainer: (templateName == "CONTAINER"),
+                label: contLabel
             };
         } else {
             var el = $(this._templates[curStr]);
