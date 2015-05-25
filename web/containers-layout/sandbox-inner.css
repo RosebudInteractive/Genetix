@@ -4,6 +4,7 @@ body {
 }
 .f-row {
   position: relative;
+  box-sizing: border-box;
 }
 .f-row > div {
   float: left;
@@ -22,9 +23,12 @@ textarea {
 body > .f-row {
   top: 0;
   left: 0;
-  margin: 0;
+  margin: auto;
   z-index: 5;
 }
+/*body > .f-row > .control-wrapper / *> .control.container.f-container* /
+  padding-left 5%
+  padding-right 5%*/
 body > .grid {
   top: 0;
   left: 0;
@@ -46,11 +50,11 @@ textarea {
 }
 .f-row > .control-wrapper {
   background-color: #fff;
+  box-sizing: border-box;
 }
-.control.container.f-container > .c-content {
-  padding-left: 1.25em;
-  padding-right: 1.25em;
-}
+/*.control.container.f-container > .c-content
+  margin-left 1.25em
+  margin-right 1.25em*/
 .control.label.cont-label {
   font-size: 1.125em;
   font-weight: 500;

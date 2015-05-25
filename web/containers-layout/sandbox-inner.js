@@ -53,34 +53,46 @@ var HtmlGenerator = function(isRoot) {
     };
 
     this.getGridParameters = function() {
-        var windowWidth = $("body").width();
-        if (!this._isRoot)
+        console.log({window: $(window).width(), document: $(document).width(), body: $("body").width()})
+        var windowWidth = Math.floor($(window).width() * 0.8);
+        var rootWidth = windowWidth;
+        var padding = this.padding;
+        if (!this._isRoot) {
             windowWidth = this.getRootRow().element.parent().width();
+            rootWidth = windowWidth;
+        }
+
+        if (padding != 0) {
+            padding = Math.floor(windowWidth * padding / 100);
+            rootWidth = rootWidth - (2 * padding);
+        }
+
 
         // подсчитаем текущее ко-во колонок
-        var curColCount = Math.floor(windowWidth/this.minColWidth);
+        var curColCount = Math.floor(rootWidth/this.minColWidth);
         curColCount = (curColCount > this.columnsCount ? this.columnsCount : curColCount);
 
         if (curColCount == 0) {
             curColCount = 1;
             curColWidth = this.minColWidth;
         } else {
-            var curColWidth = Math.floor(windowWidth / curColCount);
+            var curColWidth = Math.floor(rootWidth / curColCount);
             if (curColWidth > this.maxColWidth) {
                 curColWidth = this.maxColWidth;
-                curColCount = Math.floor(windowWidth / curColWidth);
+                curColCount = Math.floor(rootWidth / curColWidth);
                 //if (windowWidth % this.maxColWidth != 0)
                 //    curColCount++;
                 //curColWidth = Math.floor(windowWidth / curColCount);
             } else if (curColWidth < this.minColWidth) {
                 curColWidth = this.minColWidth;
-                curColCount = Math.floor(windowWidth / curColWidth);
+                curColCount = Math.floor(rootWidth / curColWidth);
             }
         }
         return {
             windowWidth: windowWidth,
             curColCount: curColCount,
-            curColWidth: curColWidth
+            curColWidth: curColWidth,
+            padding: padding
         }
     }
 
@@ -90,6 +102,7 @@ var HtmlGenerator = function(isRoot) {
         var windowWidth = params.windowWidth;
         var curColCount = params.curColCount;
         var curColWidth = params.curColWidth;
+        var padding = params.padding;
 
         console.log("windowWidth: " + windowWidth + ", curColCount: " + curColCount + ", curColWidth: " + curColWidth);
 
@@ -97,8 +110,13 @@ var HtmlGenerator = function(isRoot) {
             var rowObj = this._rows[i];
             var rowEl = rowObj.element;
             if (rowObj.container) curColCount = rowObj.container.realColCount;
+            if (this._isRoot && i == 1)
+                curColWidth = Math.floor(curColWidth * 0.95);
+
             var rowWidth = curColCount * curColWidth;
-            rowEl.width(rowWidth);
+            if (!(this._isRoot && i == 0)) {
+                rowEl.outerWidth(rowWidth);
+            }
             var children = rowObj.children;
 
             rowEl.find(".control-wrapper.empty").remove();
@@ -180,12 +198,20 @@ var HtmlGenerator = function(isRoot) {
                 }
             }
 
-            // выставим ширину и вычислим максимальную высоту
+            // выставим ширину и сбросим высоту максимальную высоту
             for (var k = 0; k < children.length; k++) {
                 var childObj = children[k];
                 childObj.element.css({height: "auto"});
-                childObj.element.width(childObj.realColCount * curColWidth);
+                childObj.element.outerWidth(childObj.realColCount * curColWidth);
             }
+        }
+
+        // Если заданы отступы, то добавляем их к корневой строке
+        if (padding != 0 && this._rows.length > 0) {
+            var rPadObj = this.getObj("PADDING", this._rows[0], this._rows[0].children.length - 1);
+            var lPadObj = this.getObj("PADDING", this._rows[0], -1);
+            lPadObj.element.width(padding);
+            rPadObj.element.width(padding);
         }
 
         // пересчитаем дочерние хендлеры
@@ -277,6 +303,7 @@ var HtmlGenerator = function(isRoot) {
         this.columnsCount = +(args[0].trim());  // количество колонок
         this.minColWidth = +(args[1].trim());   // минимальная ширина
         this.maxColWidth = +(args[2].trim());   // макимальная ширина
+        this.padding = +(args[3].trim());   // Отступы с боков в %
     };
 
     this.parseLevel = function(strings, parentContainer, position) {
@@ -392,7 +419,7 @@ var HtmlGenerator = function(isRoot) {
 
     this.isGridParams = function(str) {
         var parts = str.split(",");
-        return (parts.length == 3 && $.isNumeric(parts[0].trim()));
+        return (parts.length == 4 && $.isNumeric(parts[0].trim()));
     }
 
     this.getRow = function(parent, brSign) {
@@ -419,7 +446,7 @@ var HtmlGenerator = function(isRoot) {
 
     this.getObj = function(curStr, rowObj, pos) {
         var elObj = null;
-        if (curStr != "EMPTY") {
+        if (curStr != "EMPTY" && curStr != "PADDING") {
             var srcStr = curStr.trim();
             //var tCurStr = srcStr.toUpperCase();
             var parts = srcStr.split(",");
@@ -450,14 +477,18 @@ var HtmlGenerator = function(isRoot) {
         } else {
             var el = $(this._templates[curStr]);
             //rowObj.element.append(el);
-            el.insertAfter(rowObj.children[pos].element);
+            if (pos == -1)
+                rowObj.element.prepend(el);
+            else
+                el.insertAfter(rowObj.children[pos].element);
             elObj = {
                 element: el,
                 width: 0,
                 doNotBreak: false,
                 grow: true,
                 isEmpty: true,
-                isMultyLine: (templateName == "TEXTAREA")
+                isPadding: (curStr == "PADDING"),
+                isMultyLine: false
             };
         }
         rowObj.children.push(elObj);
