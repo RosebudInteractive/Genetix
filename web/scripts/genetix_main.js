@@ -56,7 +56,7 @@ $(document).ready( function() {
                 controlsPath: 'controls/',
                 uccelloPath: 'lib/uccello/',
                 viewSet: {name: 'simpleview', path:'controls/simpleview/'},
-                webSocketServer: {port:8082}
+                webSocketServer: {port:webSocketServerPort?webSocketServerPort:null}
             };
             UCCELLO_CONFIG = new Config(config);
 
@@ -255,13 +255,9 @@ $(document).ready( function() {
                             var formGuids = url('#formGuids') ? url('#formGuids').split(',') : null;
                             if (formGuids) {
                                 that.selectContext({vc:vc,  side: 'server', formGuids:formGuids}, function(){
-                                    uccelloClt.createRoot(formGuids, "res", function (result) {
-                                        vcObj.addNewResRoots(formGuids, function (result2) {
-                                            that.selectContext({vc: vc, side: 'server', formGuids:formGuids, urlFormGuids:formGuids});
-                                        });
-                                    }, vcObj);
+                                    uccelloClt.createRoot(formGuids, "res", null, vcObj);
                                 });
-                            } else if (vc) {
+                            } else {
                                 that.selectContext({vc:vc,  side: 'server'});
                             }
 
