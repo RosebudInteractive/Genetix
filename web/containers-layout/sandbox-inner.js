@@ -111,13 +111,13 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
             var rowObj = this._rows[i];
             var rowEl = rowObj.element;
             if (rowObj.container) curColCount = rowObj.container.realColCount;
-            if (this._isRoot && i == 1)
-                curColWidth = Math.floor(curColWidth * 0.95);
+            //if (this._isRoot && i == 1)
+            //    curColWidth = Math.floor(curColWidth * 0.95);
 
             var rowWidth = curColCount * curColWidth;
-            if (!(this._isRoot && i == 0)) {
-                rowEl.outerWidth(rowWidth);
-            }
+            //if (!(this._isRoot && i == 0)) {
+            //    rowEl.outerWidth(rowWidth);
+            //}
             var children = rowObj.children;
 
             rowEl.find(".control-wrapper.empty").remove();
