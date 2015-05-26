@@ -48,7 +48,6 @@ body > .grid {
 textarea {
   overflow: hidden;
   word-wrap: break-word;
-  height: 36px;
 }
 .f-row > .control-wrapper {
   background-color: #fff;

@@ -14,10 +14,11 @@ require(
 
 
 
-var HtmlGenerator = function(isRoot) {
+var HtmlGenerator = function(isRoot, parentGenerator) {
     this._drawGrid = true;
     this._childrenGenerators = [];
     this._isRoot = isRoot;
+    this._parent = parentGenerator || null;
 
     this.parseInput = function (content, parentContainer) {
         var that = this;
@@ -334,7 +335,7 @@ var HtmlGenerator = function(isRoot) {
                 var that = this;
                 curEl.find("textarea").autosize({
                     callback: function (el) {
-                        that.resizeHandler();
+                        that.resizeFromRoot();
                     }
                 });
             } else
@@ -369,7 +370,7 @@ var HtmlGenerator = function(isRoot) {
                     if (nextPos < strings.length && subIndentLevel >= this.countSpaces(strings[nextPos])) break;
                 }
 
-                var subGenerator = new HtmlGenerator(false);
+                var subGenerator = new HtmlGenerator(false, this);
                 this._childrenGenerators.push(subGenerator);
                 subGenerator.parseInput(subStrings, contEl);
             }
@@ -536,11 +537,16 @@ var HtmlGenerator = function(isRoot) {
         }
     }
 
+    this.resizeFromRoot = function() {
+        if (this._parent) this._parent.resizeFromRoot();
+        else this.resizeHandler();
+    }
+
 };
 
 var generator = null;
 function executeGenerator(content) {
-    if (!generator) generator = new HtmlGenerator(true);
+    if (!generator) generator = new HtmlGenerator(true, null);
     generator.parseInput(content);
 };
 
