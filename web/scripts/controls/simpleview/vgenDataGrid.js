@@ -31,7 +31,7 @@ define(
                         if (row && 'Id' in row) {
                             event.stopPropagation();
                             that.getControlMgr().userEventHandler(that, function(){
-                                var ds = that.getControlMgr().get(that.dataset());
+                                var ds = that.dataset();
                                 if (ds.cursor() != row.Id) ds.cursor(row.Id);
                             });
 
@@ -109,8 +109,8 @@ define(
                     //dataset = cm.get(o.dataset());
                     dataset = o.dataset();
                     if (dataset) {
-                        rootElem = dataset.rootInstance();
-                        rootElem = rootElem? cm.getObj(rootElem): null;
+                        rootElem = dataset.root();
+                        //rootElem = rootElem? cm.getObj(rootElem): null;
                     }
                 }
 
@@ -144,12 +144,12 @@ define(
                         for (var i = 0, len = columns.count(); i < len; i++) {
                             var column = columns.get(i);
                             var gridCol = {};
-                            gridCol.datafield = fieldsArr[column.get('Field')];
+                            gridCol.datafield = fieldsArr[column.get('Field').getGuid()];
                             gridCol.text = column.get('Label');
                             if (column.get('Width'))
                                 gridCol.width = column.get('Width')+'%';
                             gridColumns.push(gridCol);
-                            columnsArr.push({field:column.get('Field'), width:column.get('Width')});
+                            columnsArr.push({field:column.get('Field').getGuid(), width:column.get('Width')});
                         }
                     }
 
