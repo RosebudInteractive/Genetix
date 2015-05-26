@@ -1,16 +1,17 @@
 if (typeof define !== 'function') {
     var define = require('amdefine')(module);
-    var Class = require('class.extend');
+    var UccelloClass = require(UCCELLO_CONFIG.uccelloPath + '/system/uccello-class');
 }
 define(
-    [UCCELLO_CONFIG.uccelloPath+'controls/aComponent'],
-    function(AComponent) {
-        var DataLead = AComponent.extend({
+    [UCCELLO_CONFIG.uccelloPath+'dataman/dataobject'],
+    function(DataObject) {
+        var DataLead = DataObject.extend({
 
             className: "DataLead",
             classGuid: "86c611ee-ed58-10be-66f0-dfbb60ab8907",
             metaCols: [],
             metaFields: [
+                {fname:"Id",ftype:"int"},
                 {fname:"state",ftype:"string"},
                 {fname:"client",ftype:"string"},
                 {fname:"companyId",ftype:"int"},
@@ -24,9 +25,12 @@ define(
             ],
 
             init: function(cm,params){
-                this._super(cm,params);
+                UccelloClass.super.apply(this, [cm, params]);
             },
 
+            id: function(value) {
+                return this._genericSetter("Id",value);
+            },
             state: function(value) {
                 return this._genericSetter("state", value);
             },

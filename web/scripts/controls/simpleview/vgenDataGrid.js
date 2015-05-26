@@ -106,9 +106,10 @@ define(
                 var columnsArr = [];
 
                 if (o.dataset()) {
-                    dataset = cm.get(o.dataset());
+                    //dataset = cm.get(o.dataset());
+                    dataset = o.dataset();
                     if (dataset) {
-                        rootElem = dataset.root();
+                        rootElem = dataset.rootInstance();
                         rootElem = rootElem? cm.getObj(rootElem): null;
                     }
                 }
