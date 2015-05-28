@@ -178,8 +178,8 @@
       <file leaf-file-name="samples-template.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/containers-layout/samples-template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7408257">
-              <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.6238532">
+              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -924,7 +924,7 @@
       <workItem from="1432491479752" duration="27432000" />
       <workItem from="1432634185606" duration="21018000" />
       <workItem from="1432800102974" duration="41000" />
-      <workItem from="1432824449310" duration="1070000" />
+      <workItem from="1432824449310" duration="1152000" />
     </task>
     <task id="LOCAL-00021" summary="рефактор девайсов и сессии и верстка попапов">
       <created>1425332346890</created>
@@ -1224,7 +1224,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1206318000" />
+    <option name="totallyTimeSpent" value="1206400000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1710,8 +1710,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/containers-layout/samples-template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7408257">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.6238532">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
           <folding />
         </state>
       </provider>
