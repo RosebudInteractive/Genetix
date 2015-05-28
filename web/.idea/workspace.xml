@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers-layout/sandbox.html" afterPath="$PROJECT_DIR$/containers-layout/sandbox.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers-layout/samples-template.html" afterPath="$PROJECT_DIR$/containers-layout/samples-template.html" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,10 +34,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="sandbox.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sandbox.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/containers-layout/sandbox.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46420825">
+            <state vertical-scroll-proportion="-8.230769">
               <caret line="33" column="53" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
               <folding>
                 <element signature="n#style#0;n#textarea#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -176,11 +175,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="samples-template.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="samples-template.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/containers-layout/samples-template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3333334">
-              <caret line="4" column="36" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.7408257">
+              <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -241,8 +240,8 @@
         <option value="$PROJECT_DIR$/css/controls.styl" />
         <option value="$PROJECT_DIR$/css/edit.styl" />
         <option value="$PROJECT_DIR$/css/general.styl" />
-        <option value="$PROJECT_DIR$/containers-layout/samples-template.html" />
         <option value="$PROJECT_DIR$/containers-layout/sandbox.html" />
+        <option value="$PROJECT_DIR$/containers-layout/samples-template.html" />
       </list>
     </option>
   </component>
@@ -925,7 +924,7 @@
       <workItem from="1432491479752" duration="27432000" />
       <workItem from="1432634185606" duration="21018000" />
       <workItem from="1432800102974" duration="41000" />
-      <workItem from="1432824449310" duration="425000" />
+      <workItem from="1432824449310" duration="1070000" />
     </task>
     <task id="LOCAL-00021" summary="рефактор девайсов и сессии и верстка попапов">
       <created>1425332346890</created>
@@ -1225,7 +1224,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1205673000" />
+    <option name="totallyTimeSpent" value="1206318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1689,14 +1688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/containers-layout/samples-template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3333334">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/containers-layout/sandbox.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1709,11 +1700,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/containers-layout/sandbox.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46420825">
+        <state vertical-scroll-proportion="-8.230769">
           <caret line="33" column="53" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
           <folding>
             <element signature="n#style#0;n#textarea#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/containers-layout/samples-template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7408257">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
