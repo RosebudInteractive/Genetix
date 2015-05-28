@@ -28,11 +28,14 @@ h2 {
 .control.label {
   float: right;
   letter-spacing: 0.01em;
-  text-align: left;
+  text-align: right;
   color: #96979b;
   display: inline-block;
   margin-top: 0.5em;
   padding-left: 1em;
+}
+.control.label.cont-label {
+  text-align: left;
 }
 .control.button input {
   font-size: 1em;
@@ -45,7 +48,7 @@ h2 {
 .control.edit textarea {
   width: 100%;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 400;
   color: #323845;
   letter-spacing: 0.01em;
   text-align: left;

@@ -74,3 +74,6 @@ textarea {
 .control.container.f-container > .c-content {
   padding-bottom: 1em;
 }
+.control.container.f-container > .container-footer > .control-wrapper {
+  float: left;
+}

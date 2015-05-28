@@ -213,6 +213,12 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
             var lPadObj = this.getObj("PADDING", this._rows[0], -1);
             lPadObj.element.width(padding);
             rPadObj.element.width(padding);
+            // отступ снизу
+            var footer = this._rows[0].element.children(".control-wrapper")
+                .children(".control.container.f-container")
+                .children(".container-footer").find(".control-wrapper");
+            footer.height(padding);
+            footer.width(curColCount * curColWidth);
         }
 
         // пересчитаем дочерние хендлеры
@@ -250,6 +256,19 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
             for (var m = 0; m < children.length; m++) {
                 var childObj = children[m];
                 childObj.element.height(maxHeight);
+            }
+        }
+
+        // найдем лейблы и где необходимо выровняем по левому краю
+        for (var i = 0; i < this._rows.length; i++) {
+            var children = this._rows[i].children;
+
+            for (var m = 0; m < children.length; m++) {
+                var childObj = children[m];
+                if (childObj.isLabel && childObj.doNotBreak && childObj.isLineEnd)
+                    childObj.element.find(".control.label").css("text-align", "left");
+                else if (childObj.isLabel)
+                    childObj.element.find(".control.label").css("text-align", "");
             }
         }
 
@@ -473,6 +492,7 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
                 isEmpty: false,
                 isMultyLine: (templateName == "TEXTAREA"),
                 isContainer: (templateName == "CONTAINER"),
+                isLabel: (templateName == "LABEL"),
                 label: contLabel
             };
         } else {
