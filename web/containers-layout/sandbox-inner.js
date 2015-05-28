@@ -55,7 +55,7 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
 
     this.getGridParameters = function() {
         console.log({window: $(window).width(), document: $(document).width(), body: $("body").width()})
-        var windowWidth = Math.floor($(window).width() * 0.8);
+        var windowWidth = Math.floor($(window).width() * 0.95);
         var rootWidth = windowWidth;
         var padding = this.padding;
         if (!this._isRoot) {
