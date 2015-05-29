@@ -40,14 +40,14 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
         if (!parentContainer) {
             $(window).off("resize").resize(function () {
                 that.resizeHandler();
-                that.drawGridHandler();
+                //that.drawGridHandler();
             });
         }
 
         if (this._isRoot) {
             setTimeout(function() {
                 that.resizeHandler();
-                that.drawGridHandler();
+                //that.drawGridHandler();
             }, 0);
         }
 
@@ -224,7 +224,7 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
         // пересчитаем дочерние хендлеры
         for (var  i= 0; i < this._childrenGenerators.length; i++) {
             this._childrenGenerators[i].resizeHandler();
-            this._childrenGenerators[i].drawGridHandler();
+            //this._childrenGenerators[i].drawGridHandler();
         }
 
         for (var i = this._rows.length - 1; i >= 0 ; i--) {
@@ -553,7 +553,7 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
         if (value === undefined) return (this._drawGrid || false);
         else {
             this._drawGrid = value;
-            this.drawGridHandler();
+            //this.drawGridHandler();
         }
     }
 
@@ -571,7 +571,7 @@ function executeGenerator(content) {
 };
 
 function drawGrid(value) {
-    generator.drawGrid(value);
+    //generator.drawGrid(value);
 };
 
 
