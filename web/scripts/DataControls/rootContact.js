@@ -9,7 +9,7 @@ define(
 
             className: "RootContact",
             classGuid: "ad17cab2-f41a-36ef-37da-aac967bbe356",
-            metaCols: [{"cname": "DataElements", "ctype": "data"}],
+            metaCols: [],
             metaFields: [],
 
             init: function(cm,params){

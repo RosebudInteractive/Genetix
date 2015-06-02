@@ -8,7 +8,7 @@ define(
     function(Container) {
         var GContainer = Container.extend({
 
-            className: "GContainer",
+            className: "GenGContainer",
             classGuid: "93ada11b-8c2a-4b06-b5ee-8622d607b0a4",
             metaFields: [
                 {fname:"Title", ftype:"string"}

@@ -18,7 +18,7 @@ define(
                 {fname:"WhiteHeader", ftype:"boolean"},
                 {fname:"HasFooter", ftype:"boolean"}
             ],
-            metaCols: [ {"cname": "Columns", "ctype": "DataColumn"}],
+            metaCols: [ ],
 
             /**
              * Инициализация объекта
@@ -69,6 +69,7 @@ define(
             irender: function(viewset, options) {
 
                 // проверяем ширины столбцов
+                //var columns = this.getObj().getCol('Columns');
                 var columns = this.getCol('Columns');
                 if (columns) {
                     var modified = false;
@@ -91,11 +92,6 @@ define(
 
                 // рендерим DOM
                 viewset.render.apply(this, [options]);
-
-                // доп. действия
-                if (this.dataset()) {
-                    this.pvt.renderDataVer = this.dataset().getDataVer();
-                }
             },
 
             /**
@@ -104,8 +100,8 @@ define(
              */
             isOnlyCursor: function() {
                 if (this.dataset()) {
-                    var dataset = this.dataset();
-                    if ((this.pvt.renderDataVer == dataset.getDataVer()) && (!dataset.isDataSourceModified()) && (dataset.isFldModified("Cursor")) && (!this.isDataModified()))
+                    var ds = this.dataset();
+                    if  ((!ds.isDataSourceModified()) && (ds.isFldModified("Cursor")) && (!this.isDataModified()))
                         return true;
                     else
                         return false;
