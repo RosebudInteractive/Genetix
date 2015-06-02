@@ -40,14 +40,14 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
         if (!parentContainer) {
             $(window).off("resize").resize(function () {
                 that.resizeHandler();
-                //that.drawGridHandler();
+                that.drawGridHandler();
             });
         }
 
         if (this._isRoot) {
             setTimeout(function() {
                 that.resizeHandler();
-                //that.drawGridHandler();
+                that.drawGridHandler();
             }, 0);
         }
 
@@ -55,12 +55,14 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
 
     this.getGridParameters = function() {
         console.log({window: $(window).width(), document: $(document).width(), body: $("body").width()})
+        var totalWidth = $(window).width();
         var windowWidth = Math.floor($(window).width() * 0.95);
         var rootWidth = windowWidth;
         var padding = this.padding;
         if (!this._isRoot) {
             windowWidth = this.getRootRow().element.parent().width();
             rootWidth = windowWidth;
+            totalWidth = windowWidth;
         }
 
         if (padding != 0) {
@@ -93,7 +95,8 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
             windowWidth: windowWidth,
             curColCount: curColCount,
             curColWidth: curColWidth,
-            padding: padding
+            padding: padding,
+            totalWidth: totalWidth
         }
     }
 
@@ -199,7 +202,7 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
                 }
             }
 
-            // выставим ширину и сбросим высоту максимальную высоту
+            // выставим ширину и сбросим высоту
             for (var k = 0; k < children.length; k++) {
                 var childObj = children[k];
                 childObj.element.css({height: "auto"});
@@ -217,14 +220,14 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
             var footer = this._rows[0].element.children(".control-wrapper")
                 .children(".control.container.f-container")
                 .children(".container-footer").find(".control-wrapper");
-            footer.height(padding);
+            footer.height(Math.floor(padding/2));
             footer.width(curColCount * curColWidth);
         }
 
         // пересчитаем дочерние хендлеры
         for (var  i= 0; i < this._childrenGenerators.length; i++) {
             this._childrenGenerators[i].resizeHandler();
-            //this._childrenGenerators[i].drawGridHandler();
+            this._childrenGenerators[i].drawGridHandler();
         }
 
         for (var i = this._rows.length - 1; i >= 0 ; i--) {
@@ -235,7 +238,7 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
                 maxHeight = Math.max(maxHeight, childObj.element.height());
             }
 
-            // теперь выставим у всех высоту
+            // теперь выставим высоту у концов строк
             for (var m = 0; m < children.length; m++) {
                 var childObj = children[m];
                 if (childObj.isLineEnd)
@@ -246,6 +249,7 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
         for (var i = 0; i < this._rows.length; i++) {
             var children = this._rows[i].children;
 
+            var start = 0;
             var maxHeight = 0;
             for (var m = 0; m < children.length; m++) {
                 var childObj = children[m];
@@ -275,6 +279,14 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
         var dEnd = new Date();
         console.log("Длительность пересчета: " + (dEnd - dBegin) + " мСек.")
     };
+
+    this.getRootContainer = function() {
+        var rootRow = this.getRootRow();
+        if (rootRow && rootRow.children.length > 0) {
+            return rootRow.children[0];
+        }
+        return null;
+    }
 
     this.extendLineControls = function(rowObj, lastElIdx, curColCount) {
         var tookColCount = 0;
@@ -526,15 +538,28 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
 
     this.drawGridHandler = function() {
         if (this.drawGrid()) {
-            var gridContainer = $(".grid");
+            var rootContainer = this.getRootContainer();
+            var gridContainer = rootContainer.element.children(".grid");
+            gridContainer.show();
+
             var params = this.getGridParameters();
             var windowWidth = params.windowWidth;
-            var curColCount = params.curColCount;
+            var curColCount = rootContainer.realColCount;
             var curColWidth = params.curColWidth;
+            var totalWidth = params.totalWidth;
+            var padding = params.padding;
+            var formPaddingWidth = Math.floor((totalWidth - windowWidth) / 2);
 
             gridContainer.empty();
-            gridContainer.height($(window).height());
+            //gridContainer.height($(window).height());
             //gridContainer.width(windowWidth - 8);
+
+            //if (padding != 0) {
+            //    var colEl = $(this._templates["gridColumn"]);
+            //    gridContainer.append(colEl);
+            //    colEl.height(gridContainer.height());
+            //    colEl.width(padding);
+            //}
 
             for (var i = 0; i < curColCount; i++) {
                 var colEl = $(this._templates["gridColumn"]);
@@ -545,15 +570,20 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
 
 
             gridContainer.show();
-        } else
-            $(".grid").hide();
+        } else {
+            var rootContainer = this.getRootContainer();
+            rootContainer.element.children(".grid").hide();
+        }
+
     };
 
     this.drawGrid = function(value) {
         if (value === undefined) return (this._drawGrid || false);
         else {
             this._drawGrid = value;
-            //this.drawGridHandler();
+            this.drawGridHandler();
+            for (var i = 0; i < this._childrenGenerators.length; i++)
+                this._childrenGenerators[i].drawGrid(value);
         }
     }
 
@@ -571,7 +601,7 @@ function executeGenerator(content) {
 };
 
 function drawGrid(value) {
-    //generator.drawGrid(value);
+    generator.drawGrid(value);
 };
 
 
