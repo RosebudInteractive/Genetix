@@ -4,6 +4,7 @@ define(
         var vFContainer = {};
         vFContainer._templates = template.parseTemplate(tpl);
         vFContainer.render = function(options) {
+            var that = this;
             var item = $('#' + this.getLid());
             if (item.length == 0) {
                 // объект контейнера
@@ -20,6 +21,19 @@ define(
                     this._rows = null;
                 }
 
+                // верхний отступ
+                var hRow = vFContainer.getRow.call(this, item);
+                var hEl = $(vFContainer._templates['HEADER']).attr("id", "top-margin-" + this.getLid());
+                var hObj = vFContainer.getObj.call(this, "true,", hRow, hEl);
+
+                // Заголовок контейнера
+                if (this.title()) {
+                    var tRow = vFContainer.getRow.call(this, item);
+                    var lbEl = $(vFContainer._templates['CONT_LABEL']);
+                    var tObj = vFContainer.getObj.call(this, "true,", tRow, lbEl);
+                    tObj.label = this.title();
+                    tObj.element.find(".control.label").text(this.title());
+                }
 
                 var row = vFContainer.getRow.call(this, item);
 
@@ -34,8 +48,9 @@ define(
                     var curStrParts = curStr.trim().split(",");
 
                     var div = $('<div class="control-wrapper"></div>').attr('id', 'ch_'+child.getLid());
-                    var ch = vFContainer.getObj.call(this, curStr, row, div)
+                    var ch = vFContainer.getObj.call(this, curStr, row, div);
                     ch.width = child.width();
+                    ch.isLabel = child.className == "GenLabel";
 
                     if (curStrParts[curStrParts.length - 1].length >= 2 &&
                         curStrParts[curStrParts.length - 1].toUpperCase().trim().substr(0,2) == "BR") {
@@ -47,11 +62,15 @@ define(
 
                 }
 
+                // нижний отступ
+                var fRow = vFContainer.getRow.call(this, item);
+                var fEl = $(vFContainer._templates['HEADER']).attr("id", "bottom-margin-" + this.getLid());
+                var fObj = vFContainer.getObj.call(this, "true,", fRow, fEl);
+
                 // добавляем в парент
                 var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(item);
 
-                var that = this;
                 if (vFContainer.isRootFlex.call(this)) {
                     $(window).off("resize").resize(function () {
                         vFContainer.resizeHandler.call(that);
@@ -66,6 +85,9 @@ define(
             for (var guid in del)
                 $('#ch_' + del[guid].getLid()).remove();
 
+            setTimeout(function () {
+                vFContainer.resizeHandler.call(that);
+            }, 100);
         };
 
         vFContainer.getObj = function(curStr, rowObj, el, pos) {
@@ -75,6 +97,7 @@ define(
                 //var tCurStr = srcStr.toUpperCase();
                 var parts = srcStr.split(",");
                 var stretch = parts[0];
+                rowObj.element.append(el);
                 elObj = {
                     element: el,
                     width: 0,
@@ -85,7 +108,31 @@ define(
                     isMultyLine: false,
                     isLabel: false
                 };
+                rowObj.children.push(elObj);
+            } else if (curStr == "EMPTY") {
+                el = $(vFContainer._templates[curStr]);
+                if (pos == -1)
+                    rowObj.element.prepend(el);
+                else
+                    el.insertAfter(rowObj.children[pos].element);
+
+                elObj = {
+                    element: el,
+                    width: 0,
+                    doNotBreak: false,
+                    grow: true,
+                    isEmpty: true,
+                    isPadding: (curStr == "PADDING"),
+                    isMultyLine: false
+                };
+                rowObj.children.push(elObj);
             } else {
+                el = $(vFContainer._templates[curStr]);
+                if (pos == -1)
+                    rowObj.element.parent().parent().prepend(el);
+                else
+                    rowObj.element.parent().parent().append(el);
+
                 elObj = {
                     element: el,
                     width: 0,
@@ -96,7 +143,6 @@ define(
                     isMultyLine: false
                 };
             }
-            rowObj.children.push(elObj);
             return elObj;
         };
 
@@ -150,7 +196,7 @@ define(
         vFContainer.getGridParameters = function() {
             var windowWidth = vFContainer.getRootRow.call(this).element.parent().width();
             var rootWidth = windowWidth;
-            var padding = this.padding();
+            var padding = this.padding() || 0;
 
             if (padding != 0) {
                 padding = Math.floor(windowWidth * padding / 100);
@@ -159,22 +205,22 @@ define(
 
 
             // подсчитаем текущее ко-во колонок
-            var curColCount = Math.floor(rootWidth/this.minColWidth);
-            curColCount = (curColCount > this.columnsCount ? this.columnsCount : curColCount);
+            var curColCount = Math.floor(rootWidth/this.minColWidth());
+            curColCount = (curColCount > this.columnsCount() ? this.columnsCount() : curColCount);
 
             if (curColCount == 0) {
                 curColCount = 1;
-                curColWidth = this.minColWidth;
+                curColWidth = this.minColWidth();
             } else {
                 var curColWidth = Math.floor(rootWidth / curColCount);
-                if (curColWidth > this.maxColWidth) {
-                    curColWidth = this.maxColWidth;
+                if (curColWidth > this.maxColWidth()) {
+                    curColWidth = this.maxColWidth();
                     curColCount = Math.floor(rootWidth / curColWidth);
                     //if (windowWidth % this.maxColWidth != 0)
                     //    curColCount++;
                     //curColWidth = Math.floor(windowWidth / curColCount);
-                } else if (curColWidth < this.minColWidth) {
-                    curColWidth = this.minColWidth;
+                } else if (curColWidth < this.minColWidth()) {
+                    curColWidth = this.minColWidth();
                     curColCount = Math.floor(rootWidth / curColWidth);
                 }
             }
@@ -189,7 +235,8 @@ define(
 
         vFContainer.getRow = function(parent) {
             var row = $(vFContainer._templates["row"]);
-            parent.append(row);
+            var contEl = parent.children(".c-content")
+            contEl.append(row);
 
             var rowObj = {
                 element: row,
@@ -204,18 +251,24 @@ define(
 
         vFContainer.resizeHandler = function() {
             var dBegin = new Date();
+            var item = $('#' + this.getLid());
+            item.children(".c-content").css("width", "100%");
             var params = vFContainer.getGridParameters.call(this);
             var windowWidth = params.windowWidth;
             var curColCount = params.curColCount;
             var curColWidth = params.curColWidth;
             var padding = params.padding;
+            item.children(".c-content").width(curColCount * curColWidth);
 
             console.log("windowWidth: " + windowWidth + ", curColCount: " + curColCount + ", curColWidth: " + curColWidth);
+
+            item//.children(".c-content")
+                .children(".control-wrapper.empty.padding").remove();
 
             for (var i = 0; i < this._rows.length; i++) {
                 var rowObj = this._rows[i];
                 var rowEl = rowObj.element;
-                if (rowObj.container) curColCount = rowObj.container.realColCount;
+                //if (rowObj.container) curColCount = rowObj.container.realColCount;
 
                 var children = rowObj.children;
 
@@ -308,23 +361,24 @@ define(
 
             // Если заданы отступы, то добавляем их к корневой строке
             if (padding != 0 && this._rows.length > 0) {
-                var rPadObj = vFContainer.getObj.call(this, "PADDING", this._rows[0], this._rows[0].children.length - 1);
-                var lPadObj = vFContainer.getObj.call(this, "PADDING", this._rows[0], -1);
+                var rPadObj = vFContainer.getObj.call(this, "PADDING", this._rows[0], null, this._rows[0].children.length - 1);
+                var lPadObj = vFContainer.getObj.call(this, "PADDING", this._rows[0], null, -1);
                 lPadObj.element.width(padding);
                 rPadObj.element.width(padding);
-                // отступ снизу
-                var footer = this._rows[0].element.children(".control-wrapper")
-                    .children(".control.container.f-container")
-                    .children(".container-footer").find(".control-wrapper");
-                footer.height(Math.floor(padding/2));
-                footer.width(curColCount * curColWidth);
             }
 
             // пересчитаем дочерние хендлеры
             for (var  i= 0; i < this._childrenGenerators.length; i++) {
-                this._childrenGenerators[i].resizeHandler();
-                this._childrenGenerators[i].drawGridHandler();
+                var genObj = this._childrenGenerators[i];
+                genObj.func.call(genObj.context);
+                //this._childrenGenerators[i].resizeHandler();
+                //this._childrenGenerators[i].drawGridHandler();
             }
+
+            var topMarginEl = $("#top-margin-" + this.getLid());
+            topMarginEl.css("min-height", padding + "px");
+            var botMarginEl = $("#bottom-margin-" + this.getLid());
+            botMarginEl.css("min-height", padding + "px");
 
             for (var i = this._rows.length - 1; i >= 0 ; i--) {
                 var children = this._rows[i].children;
@@ -358,6 +412,8 @@ define(
                     childObj.element.height(maxHeight);
                 }
             }
+
+            item.children(".control-wrapper.empty.padding").height(item.height());
 
             // найдем лейблы и где необходимо выровняем по левому краю
             for (var i = 0; i < this._rows.length; i++) {

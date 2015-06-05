@@ -1,4 +1,4 @@
-{
+﻿{
   "$sys":{
     "guid":"1bf3b1a3-edba-32ca-5033-75e3cf9a709a",
     "typeGuid":"7f93991a-4da9-4892-79c2-35fe44e69083"
@@ -20,13 +20,12 @@
           "Name": "FContainer",
           "Top": 0,
           "Left": 0,
-          "Width":800,
-          "Height":500,
           "LayoutProp": "false,br",
           "HasGrid": true,
           "ColumnsCount": 2,
           "MinColWidth": 200,
-          "MaxColWidth": 800
+          "MaxColWidth": 800,
+          "Padding": 3
         },
         "collections": {
           "Children": [
@@ -251,19 +250,20 @@
                 "HasGrid": true,
                 "ColumnsCount": 8,
                 "MinColWidth": 60,
-                "MaxColWidth": 70
+                "MaxColWidth": 70,
+                "Title": "Левый глаз"
               },
               "collections": {
                 "Children": [
                   {
                     "$sys": {
                       "guid": "3289602b-2261-6623-7e7f-30abce4719e5",
-                      "typeGuid": "32932036-3c90-eb8b-dd8d-4f19253fabed"
+                      "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                     },
                     "fields": {
                       "Id": 3007,
                       "Name": "LabelId",
-                      "Label": "Id",
+                      "Label": "Идентификатор",
                       "Width": 4,
                       "LayoutProp": "true,nbr"
                     }
@@ -271,7 +271,34 @@
                   {
                     "$sys": {
                       "guid": "7e046710-cb8b-9414-5097-139ffe7ed389",
-                      "typeGuid": "affff8b1-10b0-20a6-5bb5-a9d88334b48e"
+                      "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
+                    },
+                    "fields": {
+                      "Id": 5004,
+                      "Name": "companyId",
+                      "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
+                      "DataField": "contact",
+                      "Width": 4,
+                      "LayoutProp": "true,br"
+                    }
+                  },
+                  {
+                    "$sys": {
+                      "guid": "9e7e57af-cd80-404d-9cba-672f9659fad0",
+                      "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                    },
+                    "fields": {
+                      "Id": 3007,
+                      "Name": "LabelId",
+                      "Label": "Идентификатор",
+                      "Width": 4,
+                      "LayoutProp": "true,nbr"
+                    }
+                  },
+                  {
+                    "$sys": {
+                      "guid": "6e0ee5d2-ab32-4bbe-af4d-ca7e92c72ffe",
+                      "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                     },
                     "fields": {
                       "Id": 5004,
@@ -300,19 +327,20 @@
                 "HasGrid": true,
                 "ColumnsCount": 8,
                 "MinColWidth": 60,
-                "MaxColWidth": 70
+                "MaxColWidth": 70,
+                "Title": "Парвый глаз"
               },
               "collections": {
                 "Children": [
                   {
                     "$sys": {
                       "guid": "32f136a2-b876-4b26-a355-3a22df362728",
-                      "typeGuid": "32932036-3c90-eb8b-dd8d-4f19253fabed"
+                      "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                     },
                     "fields": {
                       "Id": 3007,
                       "Name": "LabelId",
-                      "Label": "Id",
+                      "Label": "Идентификатор",
                       "Width": 4,
                       "LayoutProp": "true,nbr"
                     }
@@ -320,7 +348,34 @@
                   {
                     "$sys": {
                       "guid": "b73d7bc2-4774-4f78-9a6f-4196a589679b",
-                      "typeGuid": "affff8b1-10b0-20a6-5bb5-a9d88334b48e"
+                      "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
+                    },
+                    "fields": {
+                      "Id": 5004,
+                      "Name": "companyId",
+                      "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
+                      "DataField": "contact",
+                      "Width": 4,
+                      "LayoutProp": "true,br"
+                    }
+                  },
+                  {
+                    "$sys": {
+                      "guid": "14bf4e80-dc69-4efc-9ecf-949f617aedbf",
+                      "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                    },
+                    "fields": {
+                      "Id": 3007,
+                      "Name": "LabelId",
+                      "Label": "Идентификатор",
+                      "Width": 4,
+                      "LayoutProp": "true,nbr"
+                    }
+                  },
+                  {
+                    "$sys": {
+                      "guid": "d12f66a8-84c1-4180-93ed-0d91a59d9bd7",
+                      "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                     },
                     "fields": {
                       "Id": 5004,
