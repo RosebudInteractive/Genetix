@@ -527,6 +527,12 @@ h2 {
 .control.edit {
   border-radius: 0px;
 }
+.control.label,
+.control.edit {
+  word-wrap: break-word;
+  padding-left: 1em;
+  padding-bottom: 0.5em;
+}
 .control.edit,
 .control.label,
 .control.button {
@@ -565,7 +571,7 @@ h2 {
 /*padding 0 0.46151em 0 0.46151em
   margin-bottom 0.3076923em*/
   padding-top: 0.25em;
-  padding-bottom: 0.25em;
+/*padding-bottom 0.25em*/
   border-left: none;
   border-top: none;
   border-right: none;
@@ -762,6 +768,60 @@ td.container-title {
 }
 .control-wrapper {
   position: relative;
+}
+.f-row {
+  position: relative;
+  box-sizing: border-box;
+  float: left;
+}
+.f-row > div {
+  float: left;
+}
+.grid {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.grid-column {
+  outline: solid 1px #0ae;
+  float: left;
+  position: relative;
+  height: 100%;
+}
+.f-row > .control-wrapper {
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.control.container.f-container > .control-wrapper.empty.padding {
+  float: left;
+  background-color: #fff;
+}
+.control.container.f-container > .control-wrapper.empty.padding:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.control.container.f-container > .control-wrapper.empty.padding:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.control.label.cont-label {
+  font-size: 1.125em;
+  font-weight: 500;
+  color: #323845;
+  padding-left: 0.7222em;
+  padding-top: 0.5em;
+}
+.control.container.f-container > .c-content {
+  float: left;
+  width: auto;
+/*padding-bottom 1em */
+}
+.control.container.f-container {
+  float: left;
 }
 .control {
   box-sizing: border-box;

@@ -90,6 +90,7 @@ var config = {
         {className:'CContainer', viewset:true},
         {className:'HContainer', viewset:true},
         {className:'VContainer', viewset:true},
+        {className:'FContainer', viewset:true},
         {className:'GContainer', viewset:true}
     ],
     controlsPath: __dirname+'/scripts/controls/',

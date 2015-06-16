@@ -18,6 +18,12 @@ h2 {
 .control.edit {
   border-radius: 0px;
 }
+.control.label,
+.control.edit {
+  word-wrap: break-word;
+  padding-left: 1em;
+  padding-bottom: 0.5em;
+}
 .control.edit,
 .control.label,
 .control.button {
@@ -56,7 +62,7 @@ h2 {
 /*padding 0 0.46151em 0 0.46151em
   margin-bottom 0.3076923em*/
   padding-top: 0.25em;
-  padding-bottom: 0.25em;
+/*padding-bottom 0.25em*/
   border-left: none;
   border-top: none;
   border-right: none;
