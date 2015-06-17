@@ -344,7 +344,7 @@ $(document).ready( function() {
                         $("#root-form-container").empty();
 
                         uccelloClt.createContext('server', formGuids, function(result){
-                            that.selectContext({vc:result.vc, side:result.side, formGuids:result.roots, urlFormGuids:'all'});
+                            that.selectContext({vc:result.vc, side:result.side, formGuids:result.roots, urlFormGuids:result.roots[0]});
                         });
                     }
 
