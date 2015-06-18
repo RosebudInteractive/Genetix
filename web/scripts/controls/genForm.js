@@ -10,7 +10,7 @@ if (typeof define !== 'function') {
 }
 
 define(
-    [UCCELLO_CONFIG.uccelloPath+'controls/from'],
+    [UCCELLO_CONFIG.uccelloPath+'controls/form'],
     function(Form) {
         var GenForm = Form.extend({
 
