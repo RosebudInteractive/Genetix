@@ -84,6 +84,7 @@ var config = {
         {className:'GenGColumn', component:'genGColumn', viewset:false, guid:'8d1b679e-4cfe-4faa-aecb-f0c53cf8e35a'},
         {className:'GenButton', component:'genButton', viewsets:true, guid:'bf0b0b35-4025-48ff-962a-1761aa7b3a7b'},
         {className:'GenDataEdit', component:'genDataEdit', viewset:true, guid:'567cadd5-7f9d-4cd8-a24d-7993f065f5f9'},
+        {className:'GenForm', component:'genForm', viewset:true, guid:'29bc7a01-2065-4664-b1ad-7cc86f92c177'},
         // контролы уччелло
         {className:'Form', viewsets:true},
         {className:'Container', viewset:true},

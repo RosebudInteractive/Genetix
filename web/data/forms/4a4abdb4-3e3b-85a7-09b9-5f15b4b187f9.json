@@ -1,12 +1,13 @@
 {
     "$sys":{
         "guid":"4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9",
-        "typeGuid":"7f93991a-4da9-4892-79c2-35fe44e69083"
+        "typeGuid":"29bc7a01-2065-4664-b1ad-7cc86f92c177"
     },
     "fields":{
         "Id":3000,
         "Name":"MainForm",
-        "Title": "Lead details"
+        "Title": "Lead details",
+        "IsCentered": true
     },
     "collections": {
         "Params": [
