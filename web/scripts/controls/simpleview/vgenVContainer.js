@@ -12,11 +12,14 @@ define(
 
                 if (this.background())
                     cont.css({"background-color" : this.background()});
-                if (this.position() == "center")
+                if ("isCentered" in this.getParent() && this.getParent().isCentered())
                     cont.css({"border-radius" : "0.25em"});
-                if (this.getParent() && !this.getParent().getParent())
-                    item.addClass("m-container")
 
+                if (this.getParent() && !this.getParent().getParent()) {
+                    if (this.getParent().isCentered() === undefined || !this.getParent().isCentered())
+                        cont.css("padding", "0");
+                    item.addClass("m-container")
+                }
                 var childs = this.getCol('Children');
                 for(var i=0; i<childs.count();i++) {
                     var child = this.getControlMgr().get(childs.get(i).getGuid());

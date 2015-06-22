@@ -7,6 +7,12 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+.control.form.is-centered > .c-content,
+.c-container.container > .c-content,
+.v-container.container > .c-content,
+.g-container.container > .c-content {
+  padding: 1.125em 1.125em 1.5em 1.125em;
+}
 .control.form > .c-content,
 .c-container.container > .c-content,
 .v-container.container > .c-content,
@@ -14,10 +20,6 @@
   width: 100%;
   height: 100%;
   position: relative;
-  padding: 1.125em 1.125em 1.5em 1.125em;
-}
-.m-container.container > .c-content {
-  padding: 1.5em;
 }
 .m-container.container > .c-content td.col-separator {
   width: 2.25em;
@@ -90,8 +92,6 @@ td.container-title {
 .control-wrapper {
   position: relative;
 }
-<<<<<<< HEAD
-=======
 /* flex container */
 .f-row {
   position: relative;
@@ -150,4 +150,3 @@ td.container-title {
 .control.container.f-container {
   float: left;
 }
->>>>>>> origin/flex-container2

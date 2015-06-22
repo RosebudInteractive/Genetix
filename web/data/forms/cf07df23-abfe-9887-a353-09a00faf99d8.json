@@ -6,7 +6,8 @@
   "fields":{
     "Id":1456,
     "Name":"MainFormH",
-    "Title": "h-containers"
+    "Title": "h-containers",
+    "IsCentered": true
   },
   "collections": {
     "Children": [
@@ -19,7 +20,6 @@
           "Id": 3002,
           "Name": "MainContainer",
           "Background": "#ffffff",
-          "Position": "center",
           "Width": "40em",
           "Height": "auto"
         },

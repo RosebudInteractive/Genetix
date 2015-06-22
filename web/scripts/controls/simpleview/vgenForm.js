@@ -25,7 +25,8 @@ define(
                     var div = $('<div class="control-wrapper"></div>').attr('id', 'ch_'+child.getLid());
                     var width=child.width(), height=child.height();
 
-                    if ("position" in child && child.position() == "center") {
+                    if (this.isCentered()) {
+                        item.addClass("is-centered");
                         div.css({
                             margin: "0",
                             position: "absolute",

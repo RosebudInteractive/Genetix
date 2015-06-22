@@ -37,7 +37,6 @@
                     "Id": 3002,
                     "Name": "MainContainer",
                     "Background": "#ffffff",
-                    "Position": "center",
                     "Width": "39em",
                     "Height": "21em"
                 },

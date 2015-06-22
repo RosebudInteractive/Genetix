@@ -11,8 +11,7 @@ define(
             className: "GenContainer",
             classGuid: "b75474ef-26d0-4298-9dad-4133edaa8a9c",
             metaFields: [
-                {fname:"Background", ftype:"string"},
-                {fname:"Position", ftype:"string"}
+                {fname:"Background", ftype:"string"}
             ],
 
             init: function(cm, params) {
@@ -23,9 +22,9 @@ define(
             background: function(value) {
                 return this._genericSetter("Background", value);
             },
-            position: function(value) {
+            /*position: function(value) {
                 return this._genericSetter("Position", value);
-            }
+            }*/
         });
         return GenVContainer;
     }

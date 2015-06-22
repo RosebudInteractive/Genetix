@@ -686,6 +686,12 @@ textarea {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+.control.form.is-centered > .c-content,
+.c-container.container > .c-content,
+.v-container.container > .c-content,
+.g-container.container > .c-content {
+  padding: 1.125em 1.125em 1.5em 1.125em;
+}
 .control.form > .c-content,
 .c-container.container > .c-content,
 .v-container.container > .c-content,
@@ -693,10 +699,6 @@ textarea {
   width: 100%;
   height: 100%;
   position: relative;
-  padding: 1.125em 1.125em 1.5em 1.125em;
-}
-.m-container.container > .c-content {
-  padding: 1.5em;
 }
 .m-container.container > .c-content td.col-separator {
   width: 2.25em;
