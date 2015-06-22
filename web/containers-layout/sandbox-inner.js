@@ -101,6 +101,8 @@ var HtmlGenerator = function(isRoot, parentGenerator) {
     }
 
     this.resizeHandler = function() {
+        // пофиксим отличия верстки генетикса и макета
+        $("body").find(".control.container.f-container").children(".c-content").css("width", "100%");
         var dBegin = new Date();
         var params = this.getGridParameters();
         var windowWidth = params.windowWidth;
