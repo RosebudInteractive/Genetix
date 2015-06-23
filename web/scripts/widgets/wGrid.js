@@ -54,7 +54,7 @@ define(
                 $(window).resize(function () {
                     var parent = that._headTable.parent();
                     parent.width(that._bodyTable.width());
-                    parent.resizableColumns("syncHandleWidths");
+                    //parent.resizableColumns("syncHandleWidths");
                     that.fixHeight();
                 });
             },
@@ -160,11 +160,11 @@ define(
                 this._headTable.append(tr);
                 this._fackeHeader = fakeHeader;
                 var parent = this._headTable.parent();
-                parent.off("column:resize");
-                parent.resizableColumns("destroy");
+                //parent.off("column:resize");
+                //parent.resizableColumns("destroy");
 
-                parent.resizableColumns({selector: "tr th.can-resize"});
-                parent.on("column:resize", function (event, sender, leftColumn, rightColumn, leftWidth, rightWidth) {
+                //parent.resizableColumns({selector: "tr th.can-resize"});
+                /*parent.on("column:resize", function (event, sender, leftColumn, rightColumn, leftWidth, rightWidth) {
                     var lFieldName = leftColumn.attr("role");
                     var rFieldName = rightColumn.attr("role");
                     var bodyTable = sender.$table.parent().parent().find("div.scrollable-bl table.table-bl");
@@ -172,11 +172,11 @@ define(
                         console.log({sender: sender, l:leftColumn, r:rightColumn, wl:leftWidth, wr:rightWidth, bt: bodyTable});
                     bodyTable.find("tr.fake-header td[role='" + lFieldName + "']").width(leftWidth + "%");
                     bodyTable.find("tr.fake-header td[role='" + rFieldName + "']").width(rightWidth + "%");
-                });
+                });*/
 
                 this._headTable.find("th.can-resize").each(function () {
                     var colName = $(this).attr("role");
-                    var t = parent.resizableColumns();
+                   // var t = parent.resizableColumns();
                     that._fackeHeader.find("td[role='" + colName + "']").css("width", this.style.width);
                 });
             },

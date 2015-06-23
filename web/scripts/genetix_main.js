@@ -9,6 +9,7 @@ var form2Guid = "e7613a67-c36c-4ff5-a999-4d143bebc97c";
 var form3Guid = "4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9";
 var form4Guid = "cf07df23-abfe-9887-a353-09a00faf99d8";
 var form5Guid = "1bf3b1a3-edba-32ca-5033-75e3cf9a709a";
+var form6Guid = "4f301ecb-030f-4751-99d0-b19d2d7ce2de";
 
 var uri = window.location.href;
 if (uri.charAt(uri.length - 1) == "/")
@@ -232,6 +233,9 @@ $(document).ready( function() {
                             });
                             $("#more-menu-item").click(function() {
                                 window.createContext([form5Guid])
+                            });
+                            $("#more-menu-item2").click(function() {
+                                window.createContext([form6Guid])
                             });
 
                             $("#coral-button").click(function() {
