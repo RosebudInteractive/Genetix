@@ -1,5 +1,5 @@
 define(
-    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/fContainer.html'],
+    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/fContainer.html', "flex-container"],
     function(template, tpl) {
         var vFContainer = {};
         vFContainer._templates = template.parseTemplate(tpl);
@@ -8,18 +8,21 @@ define(
             var item = $('#' + this.getLid());
             if (item.length == 0) {
                 // объект контейнера
-                item = $(vFContainer._templates['container']).attr('id', this.getLid());
+                var allItems = $(vFContainer._templates['container']);
+                // добавляем в парент
+                var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
+                $(parent).append(allItems);
+
+                item = allItems.first(".control").attr('id', this.getLid())
+
                 var isRoot = this.hasGrid();
                 this._isRoot = isRoot;
+
                 if (isRoot) {
                     this._rows = [];
                     this._childrenGenerators = [];
-                    var parGen = vFContainer.getParentFlex.call(this);
-                    if (parGen != this)
-                        parGen._childrenGenerators.push({context: this, func: vFContainer.resizeHandler});
-                } else {
+                } else
                     this._rows = null;
-                }
 
                 // верхний отступ
                 var hRow = vFContainer.getRow.call(this, item);
@@ -67,17 +70,20 @@ define(
                 var fEl = $(vFContainer._templates['HEADER']).attr("id", "bottom-margin-" + this.getLid());
                 var fObj = vFContainer.getObj.call(this, "true,", fRow, fEl);
 
-                // добавляем в парент
-                var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
-                $(parent).append(item);
-
-                if (vFContainer.isRootFlex.call(this)) {
-                    $(window).off("resize").resize(function () {
-                        vFContainer.resizeHandler.call(that);
-                        //that.drawGridHandler();
-                    });
-                }
-
+                var wOptions = {};
+                wOptions._control = this;
+                wOptions._rows = this._rows;
+                wOptions._childrenGenerators = this._childrenGenerators;
+                wOptions._isRoot = this._isRoot;
+                wOptions._isRootFlex = vFContainer.isRootFlex.call(this);
+                wOptions._maxColWidth = this.maxColWidth();
+                wOptions._minColWidth = this.minColWidth();
+                wOptions._columnsCount = this.columnsCount();
+                wOptions._padding = this.padding();
+                wOptions._parentFlex = vFContainer.getParentFlex.call(this);
+                wOptions._templates = vFContainer._templates;
+                wOptions._lid = this.getLid();
+                this._containerWidget = item.genetixFlexContainer(wOptions);
             }
 
             // убираем удаленные объекты
@@ -85,9 +91,6 @@ define(
             for (var guid in del)
                 $('#ch_' + del[guid].getLid()).remove();
 
-            setTimeout(function () {
-                vFContainer.resizeHandler.call(that);
-            }, 100);
         };
 
         vFContainer.getObj = function(curStr, rowObj, el, pos) {
@@ -175,8 +178,12 @@ define(
                 parent = parent.getParent();
             }
 
-            return result;
+            return vFContainer.getWidget.call(result);
         };
+
+        vFContainer.getWidget = function() {
+            return this._containerWidget;
+        }
 
         vFContainer.getContainerWithGrid = function() {
             var result = null;
@@ -191,46 +198,6 @@ define(
             }
 
             return result;
-        }
-
-        vFContainer.getGridParameters = function() {
-            var windowWidth = vFContainer.getRootRow.call(this).element.parent().width();
-            var rootWidth = windowWidth;
-            var padding = this.padding() || 0;
-
-            if (padding != 0) {
-                padding = Math.floor(windowWidth * padding / 100);
-                rootWidth = rootWidth - (2 * padding);
-            }
-
-
-            // подсчитаем текущее ко-во колонок
-            var curColCount = Math.floor(rootWidth/this.minColWidth());
-            curColCount = (curColCount > this.columnsCount() ? this.columnsCount() : curColCount);
-
-            if (curColCount == 0) {
-                curColCount = 1;
-                curColWidth = this.minColWidth();
-            } else {
-                var curColWidth = Math.floor(rootWidth / curColCount);
-                if (curColWidth > this.maxColWidth()) {
-                    curColWidth = this.maxColWidth();
-                    curColCount = Math.floor(rootWidth / curColWidth);
-                    //if (windowWidth % this.maxColWidth != 0)
-                    //    curColCount++;
-                    //curColWidth = Math.floor(windowWidth / curColCount);
-                } else if (curColWidth < this.minColWidth()) {
-                    curColWidth = this.minColWidth();
-                    curColCount = Math.floor(rootWidth / curColWidth);
-                }
-            }
-            return {
-                windowWidth: windowWidth,
-                curColCount: curColCount,
-                curColWidth: curColWidth,
-                padding: padding,
-                totalWidth: windowWidth
-            }
         }
 
         vFContainer.getRow = function(parent) {
@@ -249,234 +216,6 @@ define(
             return rowObj;
         };
 
-        vFContainer.resizeHandler = function() {
-            var dBegin = new Date();
-            var item = $('#' + this.getLid());
-            item.children(".c-content").css("width", "100%");
-            var params = vFContainer.getGridParameters.call(this);
-            var windowWidth = params.windowWidth;
-            var curColCount = params.curColCount;
-            var curColWidth = params.curColWidth;
-            var padding = params.padding;
-            item.children(".c-content").width(curColCount * curColWidth);
-
-            console.log("windowWidth: " + windowWidth + ", curColCount: " + curColCount + ", curColWidth: " + curColWidth);
-
-            item//.children(".c-content")
-                .children(".control-wrapper.empty.padding").remove();
-
-            for (var i = 0; i < this._rows.length; i++) {
-                var rowObj = this._rows[i];
-                var rowEl = rowObj.element;
-                //if (rowObj.container) curColCount = rowObj.container.realColCount;
-
-                var children = rowObj.children;
-
-                rowEl.find(".control-wrapper.empty").remove();
-                // общее ко-во колонок в строке, заодно удалим пустые элементы
-                var rowColCount = 0;
-                var j = 0;
-                while (j < children.length) {
-                    var childObj = children[j];
-                    if (!childObj.isEmpty) {
-                        rowColCount += childObj.width;
-                        j++;
-                    } else {
-                        childObj.element.remove();
-                        children.splice(j, 1);
-                    }
-                    childObj.isLineEnd = false;
-                }
-
-                if (children.length == 0) continue;
-                var length = children.length;
-                var tookColCount = 0;
-                if (rowColCount <= curColCount) {
-                    var j = 0;
-                    while (j < length) {
-                        var childObj = children[j];
-                        childObj.realColCount = childObj.width;
-                        childObj.isExtendedToEnd = false;
-                        tookColCount += childObj.realColCount;
-
-                        j++;
-                    }
-                    vFContainer.extendLineControls.call(this, rowObj, length - 1, curColCount);
-                } else {
-                    tookColCount = 0;
-                    var j = 0;
-                    var breakOnNextLine = true;
-                    while (j < length) {
-                        var childObj = children[j];
-                        // если не помещается
-                        if (tookColCount + childObj.width > curColCount) {
-                            if (j > 0)
-                                vFContainer.extendLineControls.call(this, rowObj, j - 1, curColCount);
-                            if (childObj.width >= curColCount) {
-                                childObj.realColCount = curColCount;
-                                childObj.isExtendedToEnd = true;
-                                childObj.isLineEnd = true;
-                                tookColCount = 0;
-                            } else {
-                                childObj.realColCount = childObj.width;
-                                childObj.isExtendedToEnd = false;
-                                tookColCount = childObj.realColCount;
-                            }
-                        } else {
-                            childObj.realColCount = childObj.width;
-                            childObj.isExtendedToEnd = false;
-                            tookColCount += childObj.realColCount;
-                        }
-
-
-                        // если это последний элемент, то расширим его
-                        if (j > 0 && j + 1 == length) {
-                            vFContainer.extendLineControls.call(this, rowObj, j, curColCount);
-                        } else if (j + 1 != length && childObj.doNotBreak && breakOnNextLine) {
-                            // проверим поместится ли след контрол, если нет, то перенесем все на след. строку
-                            var nextChild = children[j+1];
-                            // Если не помещается, то расширим предыдущий элемент и к обработке след. контрола не переходим.
-                            // Повторяем вычисления для этого же контрола
-                            if (curColCount - tookColCount < nextChild.width) {
-                                if (j > 0 && !(children[j - 1].isLineEnd)) {
-                                    vFContainer.extendLineControls.call(this, rowObj, j-1, curColCount);
-                                }
-                                tookColCount = 0;
-                                breakOnNextLine = false;
-                                continue;
-                            }
-                        }
-                        j++;
-                        breakOnNextLine = true;
-                    }
-                }
-
-                // выставим ширину и сбросим высоту
-                for (var k = 0; k < children.length; k++) {
-                    var childObj = children[k];
-                    childObj.element.css({height: "auto"});
-                    childObj.element.outerWidth(childObj.realColCount * curColWidth);
-                }
-            }
-
-            // Если заданы отступы, то добавляем их к корневой строке
-            if (padding != 0 && this._rows.length > 0) {
-                var rPadObj = vFContainer.getObj.call(this, "PADDING", this._rows[0], null, this._rows[0].children.length - 1);
-                var lPadObj = vFContainer.getObj.call(this, "PADDING", this._rows[0], null, -1);
-                lPadObj.element.width(padding);
-                rPadObj.element.width(padding);
-            }
-
-            // пересчитаем дочерние хендлеры
-            for (var  i= 0; i < this._childrenGenerators.length; i++) {
-                var genObj = this._childrenGenerators[i];
-                genObj.func.call(genObj.context);
-                //this._childrenGenerators[i].resizeHandler();
-                //this._childrenGenerators[i].drawGridHandler();
-            }
-
-            var topMarginEl = $("#top-margin-" + this.getLid());
-            topMarginEl.css("min-height", padding + "px");
-            var botMarginEl = $("#bottom-margin-" + this.getLid());
-            botMarginEl.css("min-height", padding + "px");
-
-            for (var i = this._rows.length - 1; i >= 0 ; i--) {
-                var children = this._rows[i].children;
-                var maxHeight = 0;
-                for (var m = 0; m < children.length; m++) {
-                    var childObj = children[m];
-                    maxHeight = Math.max(maxHeight, childObj.element.height());
-                }
-
-                // теперь выставим высоту у концов строк
-                for (var m = 0; m < children.length; m++) {
-                    var childObj = children[m];
-                    if (childObj.isLineEnd)
-                        childObj.element.height(maxHeight);
-                }
-            }
-
-            for (var i = 0; i < this._rows.length; i++) {
-                var children = this._rows[i].children;
-
-                var start = 0;
-                var maxHeight = 0;
-                for (var m = 0; m < children.length; m++) {
-                    var childObj = children[m];
-                    maxHeight = Math.max(maxHeight, childObj.element.height());
-                }
-
-                // теперь выставим у всех высоту
-                for (var m = 0; m < children.length; m++) {
-                    var childObj = children[m];
-                    childObj.element.height(maxHeight);
-                }
-            }
-
-            item.children(".control-wrapper.empty.padding").height(item.height());
-
-            // найдем лейблы и где необходимо выровняем по левому краю
-            for (var i = 0; i < this._rows.length; i++) {
-                var children = this._rows[i].children;
-
-                for (var m = 0; m < children.length; m++) {
-                    var childObj = children[m];
-                    if (childObj.isLabel && childObj.doNotBreak && childObj.isLineEnd)
-                        childObj.element.find(".control.label").css("text-align", "left");
-                    else if (childObj.isLabel)
-                        childObj.element.find(".control.label").css("text-align", "");
-                }
-            }
-
-            var dEnd = new Date();
-            console.log("Длительность пересчета: " + (dEnd - dBegin) + " мСек.")
-        };
-
-        vFContainer.extendLineControls = function(rowObj, lastElIdx, curColCount) {
-            var tookColCount = 0;
-            var children = rowObj.children;
-            var k = lastElIdx;
-            var found = false;
-            while (k >= 0) {
-                var extChild = rowObj.children[k];
-                if (k == lastElIdx || !(extChild.isLineEnd)) {
-                    tookColCount += extChild.realColCount;
-                    k--;
-                }
-                else if (k != lastElIdx && extChild.isLineEnd) k = -1;
-                else k--;
-            }
-
-            k = lastElIdx;
-            extChild = rowObj.children[k];
-            while (k >= 0 && !extChild.isLineEnd && tookColCount < curColCount) {
-                if (extChild.grow || (extChild.grow == null && rowObj.grow)) {
-                    extChild.realColCount++;
-                    extChild.isExtendedToEnd = true;
-                    tookColCount++;
-                    found = true;
-                }
-                k--;
-                if ((k < 0 || children[k].isLineEnd) && found && tookColCount < curColCount)
-                    k = lastElIdx;
-                else if (!found && k >= 0 && children[k].isLineEnd)
-                    break;
-                extChild = rowObj.children[k];
-            }
-
-            // Если не найдено, то займем пустое место невидимым элементом
-            if (!found && tookColCount < curColCount) {
-                var emptyChild = vFContainer.getObj.call(this, "EMPTY", rowObj, null, lastElIdx);
-                emptyChild.realColCount = curColCount - tookColCount;
-                emptyChild.isLineEnd = true;
-            }
-            //if (found)
-            children[lastElIdx].isLineEnd = true;
-        };
-
-        vFContainer.getRootRow = function() {
-            return (this._rows.length > 0 ? this._rows[0] : null);
-        };
 
         return vFContainer;
     }
