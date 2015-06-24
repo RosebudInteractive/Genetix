@@ -32,7 +32,7 @@ define(
                 // Заголовок контейнера
                 if (this.title()) {
                     var tRow = vFContainer.getRow.call(this, item);
-                    var lbEl = $(vFContainer._templates['CONT_LABEL']);
+                    var lbEl = $(vFContainer._templates['CONT_LABEL']).attr("id", "cont-label-" + this.getLid());
                     var tObj = vFContainer.getObj.call(this, "true,", tRow, lbEl);
                     tObj.label = this.title();
                     tObj.element.find(".control.label").text(this.title());
@@ -71,7 +71,6 @@ define(
                 var fObj = vFContainer.getObj.call(this, "true,", fRow, fEl);
 
                 var wOptions = {};
-                wOptions._control = this;
                 wOptions._rows = this._rows;
                 wOptions._childrenGenerators = this._childrenGenerators;
                 wOptions._isRoot = this._isRoot;
@@ -84,6 +83,11 @@ define(
                 wOptions._templates = vFContainer._templates;
                 wOptions._lid = this.getLid();
                 this._containerWidget = item.genetixFlexContainer(wOptions);
+
+                var serOptions = vFContainer.serializeOptions.call(this, wOptions);
+                console.log(serOptions);
+                console.log(JSON.stringify(serOptions));
+
             }
 
             // убираем удаленные объекты
@@ -92,6 +96,55 @@ define(
                 $('#ch_' + del[guid].getLid()).remove();
 
         };
+
+        vFContainer.serializeOptions = function(options) {
+            var serOptions = {
+                _rows: options._rows == null ? null : [],
+                _childrenGenerators: [],
+                _isRoot: options._isRoot,
+                _isRootFlex: options._isRootFlex,
+                _maxColWidth: options._maxColWidth,
+                _minColWidth: options._minColWidth,
+                _columnsCount: options._columnsCount,
+                _padding: options._padding,
+                _parentFlex: null,
+                _parentFlexId: (options._parentFlex ? options._parentFlex.attr("id") : null),
+                _templates: options._templates,
+                _lid: options._lid
+            };
+
+            if (options._rows) {
+                for (var i = 0; i < options._rows.length; i++) {
+                    var row = options._rows[i];
+                    var newRow = {
+                        element: null,
+                        children: [],
+                        grow: row.grow,
+                        container: row.container,
+                        id: row.id
+                    }
+                    serOptions._rows.push(newRow);
+
+                    for (var j = 0; j < row.children.length; j++) {
+                        var child = row.children[j];
+                        var newChild = {
+                            element: null,
+                            width: child.width,
+                            doNotBreak: child.doNotBreak,
+                            grow: child.grow,
+                            isEmpty: child.isEmpty,
+                            isPadding: child.isPadding,
+                            isMultyLine: child.isMultyLine,
+                            isLabel: child.isLabel,
+                            id: child.id
+                        };
+
+                        newRow.children.push(newChild);
+                    }
+                }
+            }
+            return serOptions;
+        }
 
         vFContainer.getObj = function(curStr, rowObj, el, pos) {
             var elObj = null;
@@ -109,7 +162,8 @@ define(
                     grow: (stretch === "true" ? true : (stretch == "" ? null : false)),
                     isEmpty: false,
                     isMultyLine: false,
-                    isLabel: false
+                    isLabel: false,
+                    id: (el.attr("id") ? el.attr("id") : null)
                 };
                 rowObj.children.push(elObj);
             } else if (curStr == "EMPTY") {
@@ -212,6 +266,11 @@ define(
                 container: {}
             };
             var fCont = vFContainer.getContainerWithGrid.call(this);
+
+            var rowId = "f-row" + this.getLid() + "-" + fCont._rows.length;
+            row.attr("id", rowId);
+            rowObj.id = rowId;
+
             fCont._rows.push(rowObj);
             return rowObj;
         };

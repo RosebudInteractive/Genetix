@@ -24,6 +24,7 @@ define(
 
             _create: function() {
                 var that = this;
+                this._deserializeOptions();
                 if (this.options._isRootFlex) {
                     $(window).off("resize").resize(function () {
                         that.resizeHandler();
@@ -48,6 +49,7 @@ define(
             },
 
             resizeHandler: function() {
+                console.log(this.options);
                 var dBegin = new Date();
                 var item = $('#' + this.getLid());
                 item.children(".c-content").css("width", "100%");
@@ -230,6 +232,25 @@ define(
                 console.log("Длительность пересчета: " + (dEnd - dBegin) + " мСек.")
             },
 
+            _deserializeOptions: function() {
+                if (!this.options._parentFlex && this.options._parentFlexId)
+                    this.options._parentFlex = $("#" + this.options._parentFlexId);
+                if (this.options._rows) {
+                    for (var i = 0; i < this.options._rows.length; i++) {
+                        var row = this.options._rows[i];
+                        if (!row.element) {
+                            row.element = $("#" + row.id);
+                        }
+
+                        for (var j = 0; j < row.children.length; j++) {
+                            var child = row.children[j];
+                            if (!child.element)
+                                child.element = $("#" + child.id);
+                        }
+                    }
+                }
+            },
+
             _extendLineControls: function(rowObj, lastElIdx, curColCount) {
                 var tookColCount = 0;
                 var children = rowObj.children;
@@ -392,8 +413,13 @@ define(
                 return this.options._padding;
             },
             parentFlex: function(value) {
-                if (value !== undefined)
+                if (value !== undefined) {
                     this.options._parentFlex = value;
+                    this.options._parentFlexId = value.attr("id");
+                }
+                if (!this.options._parentFlex && this.options._parentFlexId) {
+                    this.options._parentFlex = $("#" + this.options._parentFlexId);
+                }
                 return this.options._parentFlex;
             },
             getLid: function(value) {
