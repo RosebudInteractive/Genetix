@@ -26,7 +26,7 @@ define(
                 var that = this;
                 this._deserializeOptions();
                 if (this.options._isRootFlex) {
-                    $(window).off("resize").resize(function () {
+                    $(window).off("genetix:resize").on("genetix:resize", function () {
                         that.resizeHandler();
                         //that.drawGridHandler();
                     });

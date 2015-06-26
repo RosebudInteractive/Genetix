@@ -42,6 +42,10 @@ define(
                             //}, 0);
 
                         }
+                    },
+                    sizechanged: function() {
+                        if (that._grid)
+                            vDataGrid._refreshScroll(that);
                     }
                 };
 

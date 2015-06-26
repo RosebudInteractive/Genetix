@@ -51,7 +51,7 @@ define(
                 this.element.append(grid);
                 this.fixHeight();
                 this.clearPageCache();
-                $(window).resize(function () {
+                $(window).on("genetix:resize", function () {
                     var parent = that._headTable.parent();
                     parent.width(that._bodyTable.width());
                     //parent.resizableColumns("syncHandleWidths");
@@ -61,8 +61,11 @@ define(
 
             fixHeight: function () {
                 var pad = this._grid.children(".scrollable-bl").padding();
-                var h = this._grid.parent().height() - pad.top - pad.bottom;
-                this._grid.height(this._grid.parent().height()).children(".scrollable-bl").height(h);
+                var h = this._grid.parent().parent().height() - pad.top - pad.bottom;
+                this._grid.parent().height(this._grid.parent().parent().height());
+                this._grid.height(this._grid.parent().parent().height());
+                this._grid.children(".scrollable-bl").height(h);
+                this._trigger("sizechanged", null);
             },
 
             getVisiblePortion: function() {
