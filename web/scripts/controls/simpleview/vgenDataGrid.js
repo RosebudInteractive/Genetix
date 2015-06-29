@@ -196,8 +196,11 @@ define(
 
         vDataGrid._refreshScroll = function(o) {
             if (o._iscroll) {
-                o._iscroll.refresh();
-            } else {
+                //o._iscroll.refresh();
+                o._iscroll.destroy();
+            }
+
+            {
 
                 var _iscroll = new IScroll(o._grid.find('.scrollable-bll').get(0), {
                     snapStepY: 23,

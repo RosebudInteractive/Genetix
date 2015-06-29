@@ -27,6 +27,7 @@ define(
                     }
                     div.css({flex: flex,  '-webkit-flex': flex, '-ms-flex': flex});
                     cont.append(div);
+
                 }
 
                 // добавляем в парент
@@ -40,7 +41,7 @@ define(
             for (var guid in del)
                 $('#' + del[guid].getLid()).remove();
 
-        }
+        };
 
         return vHContainer;
     }

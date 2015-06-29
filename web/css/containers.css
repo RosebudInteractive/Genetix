@@ -91,6 +91,7 @@ td.container-title {
 }
 .control-wrapper {
   position: relative;
+  overflow: hidden;
 }
 /* flex container */
 .f-row {
@@ -149,4 +150,20 @@ td.container-title {
 }
 .control.container.f-container {
   float: left;
+  background-color: #fff;
+}
+.iScrollLoneScrollbar .iScrollIndicator {
+  opacity: 0;
+}
+.iScrollLoneScrollbar:hover .iScrollIndicator {
+  opacity: 1;
+}
+.control.container > .c-content > .control-wrapper {
+  background: #fff;
+}
+.control.container.h-container > .c-content > .control-wrapper {
+  border-right: solid 1px #508ce6;
+}
+.control.container.h-container > .c-content > .control-wrapper:last-child {
+  border-right-style: none;
 }

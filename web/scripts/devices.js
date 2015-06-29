@@ -422,7 +422,7 @@ define(
                 $("#root-form-container").empty();
                 var that = this;
                 uccelloClt.setContext(params, function(result) {
-                    that._setContextUrl(params.vc, params.urlFormGuids?params.urlFormGuids:params.formGuids);
+                    that._setContextUrl(params.vc, params.urlFormGuids?params.urlFormGuids:result);
                     that._setAutoSendDeltas(true);
                     //that.getContexts();
                     if (cb) cb(result);

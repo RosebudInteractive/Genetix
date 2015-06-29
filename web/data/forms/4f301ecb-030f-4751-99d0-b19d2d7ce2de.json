@@ -293,19 +293,6 @@
                       "Columns": [
                         {
                           "$sys": {
-                            "guid": "490cac8a-f364-1c6f-d4a8-5802975d902c",
-                            "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
-                          },
-                          "fields": {
-                            "Id": 8001,
-                            "Name": "DataColumnState",
-                            "Label": "State",
-                            "Field": "3e9600e8-e4e8-cbef-39ab-c195fbe382cb",
-                            "Width": "5"
-                          }
-                        },
-                        {
-                          "$sys": {
                             "guid": "248c23d2-da4a-11a6-3562-c0f782d190e4",
                             "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
                           },
@@ -314,7 +301,7 @@
                             "Name": "DataColumnClient",
                             "Label": "Client",
                             "Field": "3df577412-24da-4d90-a172-f9970e58d1ba",
-                            "Width": "25"
+                            "Width": "18"
                           }
                         },
                         {
@@ -327,7 +314,7 @@
                             "Name": "DataColumnContact",
                             "Label": "Contact",
                             "Field": "004e4f1a-ded0-4c62-b6dd-d4253ff1dcb6",
-                            "Width": "30"
+                            "Width": "20"
                           }
                         },
                         {
@@ -340,7 +327,7 @@
                             "Name": "DataColumnPhone",
                             "Label": "Phone",
                             "Field": "a347e78f-2fe5-45ee-a3e5-bf4f47ccf367",
-                            "Width": "10"
+                            "Width": "15"
                           }
                         },
                         {
@@ -353,7 +340,7 @@
                             "Name": "DataColumnEmail",
                             "Label": "EMail",
                             "Field": "3ee5894e-ebdb-4bed-9b56-b518d1425cf8",
-                            "Width": "15"
+                            "Width": "20"
                           }
                         },
                         {
@@ -366,7 +353,7 @@
                             "Name": "DataColumnProba",
                             "Label": "Proba",
                             "Field": "07943441-8384-4500-a99a-946acd41e171",
-                            "Width": "5"
+                            "Width": "10"
                           }
                         },
                         {
@@ -413,7 +400,7 @@
                           "fields": {
                             "Id": 4568,
                             "Name": "FContainer1",
-                            "Width":1,
+                            "Width":2,
                             "LayoutProp": "true,",
                             "HasGrid": true,
                             "ColumnsCount": 8,
@@ -572,7 +559,7 @@
                             "Name": "FContainer2",
                             "Top": 0,
                             "Left": 0,
-                            "Width":2,
+                            "Width":1,
                             "LayoutProp": "true,br",
                             "HasGrid": true,
                             "ColumnsCount": 8,

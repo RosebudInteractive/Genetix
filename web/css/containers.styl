@@ -83,6 +83,7 @@ td.container-title
   color #508CE6
 .control-wrapper
   position relative
+  overflow hidden
 /* flex container */
 .f-row
   position relative
@@ -130,3 +131,17 @@ td.container-title
   /*padding-bottom 1em */
 .control.container.f-container
   float left
+  background-color #ffffff
+
+.iScrollLoneScrollbar
+  .iScrollIndicator
+    opacity 0
+  &:hover
+    .iScrollIndicator
+      opacity 1
+.control.container > .c-content > .control-wrapper
+  background #ffffff
+.control.container.h-container > .c-content > .control-wrapper
+  border-right solid 1px #508ce6
+  &:last-child
+    border-right-style none

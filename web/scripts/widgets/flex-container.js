@@ -24,16 +24,41 @@ define(
 
             _create: function() {
                 var that = this;
+                this._iscroll = null;
                 this._deserializeOptions();
                 if (this.options._isRootFlex) {
                     $(window).off("genetix:resize").on("genetix:resize", function () {
-                        that.resizeHandler();
+                        that._launchInfo.launchPending = true;
+                        console.warn("resize heppened");
+                        //that.resizeHandler();
                         //that.drawGridHandler();
                     });
 
                     setTimeout(function () {
                         that.resizeHandler();
-                    }, 100);
+                        that._refreshScroll();
+                        //setTimeout(function() {that._refreshScroll();}, 1000)
+                    }, 0);
+                    this._launchInfo = {
+                        lastLaunch: Date(),
+                        launchPending: false
+                    };
+
+                    setInterval(function () {
+                        try {
+                            if (that._launchInfo.launchPending) {
+                                that._launchInfo.lastLaunch = Date();
+                                console.warn("resize handler executed");
+                                that.resizeHandler();
+                                that._refreshScroll();
+                                that._launchInfo.launchPending = false;
+                            }
+                        } catch (e) {
+                            console.error(e);
+                        }
+                    }, 200);
+
+
                 } else if (this.options._isRoot) {
                     var parGen = this.parentFlex();
                     if (parGen) {
@@ -60,7 +85,7 @@ define(
                 var padding = params.padding;
                 item.children(".c-content").width(curColCount * curColWidth);
 
-                console.log("windowWidth: " + windowWidth + ", curColCount: " + curColCount + ", curColWidth: " + curColWidth);
+                console.log(params);
 
                 item//.children(".c-content")
                     .children(".control-wrapper.empty.padding").remove();
@@ -221,7 +246,8 @@ define(
 
                     for (var m = 0; m < children.length; m++) {
                         var childObj = children[m];
-                        if (childObj.isLabel && childObj.doNotBreak && childObj.isLineEnd)
+                        if ((childObj.isLabel && childObj.doNotBreak && childObj.isLineEnd) ||
+                            (childObj.isLabel && children.length == 1))
                             childObj.element.find(".control.label").css("text-align", "left");
                         else if (childObj.isLabel)
                             childObj.element.find(".control.label").css("text-align", "");
@@ -294,7 +320,7 @@ define(
             },
 
             _getGridParameters: function() {
-                var windowWidth = this._getRootRow().element.parent().width();
+                var windowWidth = Math.floor(this._getRootRow().element.parent().width() - 1);
                 var rootWidth = windowWidth;
                 var padding = this.padding() || 0;
 
@@ -326,6 +352,7 @@ define(
                 }
                 return {
                     windowWidth: windowWidth,
+                    windowOuterWidth: this._getRootRow().element.parent().outerWidth(),
                     curColCount: curColCount,
                     curColWidth: curColWidth,
                     padding: padding,
@@ -391,6 +418,42 @@ define(
                 return elObj;
             },
 
+            _refreshScroll: function() {
+                if (this._iscroll) {
+                    this._iscroll.destroy();
+                    this._iscroll = null;
+                }
+
+                    var parentDivSel = "#ch_" + this.options._lid;
+                    var _iscroll = new IScroll(parentDivSel, {
+                        snapStepY: 23,
+                        scrollX: false,
+                        scrollY: true,
+                        bottomPadding: 0,
+                        topPadding: 0,
+                        resize: true,
+                        scrollbars: true,
+                        mouseWheel: true,
+                        disableMouse: true,
+                        interactiveScrollbars: true,
+                        keyBindings: false,
+                        click: true,
+                        probeType: 3,
+                        rightPadding: 0
+                    });
+                    //_iscroll.on('scroll', function () {
+                    //    //gr.data("grid").updatePosition(this.y);
+                    //    if (this._grid)
+                    //        this._grid.grid("updatePosition", this.y);
+                    //});
+                    _iscroll.on('scrollStart', function() {
+                        $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: 1});
+                    });
+                    _iscroll.on('scrollEnd', function() {
+                        $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: ""});
+                    });
+                    this._iscroll = _iscroll;
+            },
 
             minColWidth: function(value) {
                 if (value !== undefined)

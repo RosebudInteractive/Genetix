@@ -43,8 +43,13 @@ define(
                 item.children().autosize({
                     callback: function (el) {
                         if ($(el).is(":focus")) {
+                            var oldH = $(el).parent().height();
                             $(el).parent().css({height: ""});
+                            $(el).parent().parent().css({height: ""});
                             $(el).parent().height($(el).parent().outerHeight());
+                            $(el).parent().parent().height($(el).parent().parent().outerHeight());
+                            if (oldH != $(el).parent().height())
+                                $(window).trigger("genetix:resize");
                         }
                     }
                 });
