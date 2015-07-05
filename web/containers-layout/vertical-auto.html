@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Genetix</title>
+    <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.structure.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.theme.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery.jscrollpane.css">
+    <link rel="stylesheet" type="text/css" href="/css/general.css">
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/css/controls.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery.resizableColumns.css">
+
+    <script src="/scripts/lib/uccello/uses/socket.io.js"></script>
+    <script src="/scripts/lib/uccello/uses/class-extend.js"></script>
+    <script src="/scripts/lib/uccello/uses/uccello-class-extend.js"></script>
+    <script src="/scripts/lib/jquery-1.11.2.js"></script>
+    <script src="/scripts/lib/jquery.sizes.js"></script>
+    <script type="text/javascript" src="/scripts/lib/jquery-ui.js"></script>
+    <script src="/scripts/lib/uccello/uses/url.js"></script>
+    <script src="/scripts/lib/uccello/uses/jquery.cookie.js"></script>
+    <script src="/scripts/lib/jquery.resizableColumns.js"></script>
+    <script src="/scripts/lib/jeditable/jquery.jeditable.mini.js"></script>
+    <script src="/scripts/lib/uccello/uses/require.js"></script>
+    <script src="/scripts/requre.config.js"></script>
+    <script src="/scripts/lib/jquery.autosize.js"></script>
+    <script src="/scripts/genetix_events.js"></script>
+    <script>
+        var webSocketServerPort = '8082';
+        $(document).ready(function () {
+            require(["flex-min-dimension"], function() {
+                $("#ch_179").genetixFlexMinDimention({
+                    minSize: 3,
+                    sizeUnits: "em",
+                    dimension: 0
+                });
+            });
+        });
+    </script>
+</head>
+<body class="is-disableselect">
+<div id="mainContent" class="is-disableselect container-front is-main-container">
+    <div class="is-system-panel clearfix">
+        <div class="system-panel-section-left no-spaces">
+            <div id="coral-button" class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+                <div class="system-toolbar-icon-wrapper">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#coral"></use>
+                        </svg>
+                </div>
+            </div>
+            <div id="process-button" class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+                <div class="system-toolbar-icon-wrapper">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#process"></use>
+                        </svg>
+                </div>
+            </div>
+            <div class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+                <div class="system-toolbar-icon-wrapper">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#compass"></use>
+                        </svg>
+                </div>
+            </div>
+            <div class="system-toolbar-icon" onclick="$(this).toggleClass('is-pressed')">
+                <div class="system-toolbar-icon-wrapper">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#eye"></use>
+                        </svg>
+                </div>
+            </div>
+            <div class="system-toolbar-icon" onclick="
+                        var d = $(this).find('div');
+                        d.find('svg').width('22px').height('22px');
+                        var h=d.html();
+                        if (h.indexOf('unsaved_interface') >= 0)
+                            h = h.replace('unsaved_interface', 'saved_interface');
+                        else
+                            h = h.replace('saved_interface', 'unsaved_interface');
+                        d.html(h);">
+                <div class="system-toolbar-icon-wrapper">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#unsaved_interface"></use>
+                        </svg>
+                </div>
+            </div>
+        </div>
+        <div class="system-panel-section-left no-spaces is-last">
+            <div class="stretch-element">
+                <div id="documents-menu-item" class="system-toolbar-menu-item is-active" title="Open Leads list">
+                    <div class="system-toolbar-icon-wrapper">
+                        <div class="system-toolbar-menu-item-text">
+                            <div>Leads</div>
+                            <div class="is-dot is-green">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="/images/Genetix.svg#dot"></use>
+                                    </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="crm-menu-item" class="system-toolbar-menu-item is-active">
+                    <div class="system-toolbar-icon-wrapper">
+                        <div class="system-toolbar-menu-item-text">
+                            <div>Companies</div>
+                            <div class="is-dot">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="/images/Genetix.svg#dot"></use>
+                                    </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="emk-menu-item" class="system-toolbar-menu-item">
+                    <div class="system-toolbar-icon-wrapper">
+                        <div class="system-toolbar-menu-item-text">
+                            <div>Lead edit</div>
+                            <div class="is-dot">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="/images/Genetix.svg#dot"></use>
+                                    </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edit-menu-item" class="system-toolbar-menu-item">
+                    <div class="system-toolbar-icon-wrapper">
+                        <div class="system-toolbar-menu-item-text">
+                            <div>Edit</div>
+                            <div class="is-dot">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="/images/Genetix.svg#dot"></use>
+                                    </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="more-menu-item" class="system-toolbar-menu-item">
+                    <div class="system-toolbar-icon-wrapper">
+                        <div class="system-toolbar-menu-item-text">
+                            <div>More documents</div>
+                            <div class="is-dot">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="/images/Genetix.svg#dot"></use>
+                                    </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="more-menu-item2" class="system-toolbar-menu-item">
+                    <div class="system-toolbar-icon-wrapper">
+                        <div class="system-toolbar-menu-item-text">
+                            <div>More2</div>
+                            <div class="is-dot">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="/images/Genetix.svg#dot"></use>
+                                    </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="more-menu-item3" class="system-toolbar-menu-item">
+                    <div class="system-toolbar-icon-wrapper">
+                        <div class="system-toolbar-menu-item-text">
+                            <div>More3</div>
+                            <div class="is-dot">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="/images/Genetix.svg#dot"></use>
+                                    </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="more-menu-item4" class="system-toolbar-menu-item">
+                    <div class="system-toolbar-icon-wrapper">
+                        <div class="system-toolbar-menu-item-text">
+                            <div>More4</div>
+                            <div class="is-dot">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                                        <use xlink:href="/images/Genetix.svg#dot"></use>
+                                    </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="system-panel-section-right no-spaces">
+            <div class="system-toolbar-icon has-right-border" onclick="$(this).toggleClass('is-pressed')">
+                <div class="system-toolbar-icon-wrapper is-dots">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#dots"></use>
+                        </svg>
+                </div>
+            </div>
+            <div class="system-toolbar-menu-item is-combo">
+                <div class="system-toolbar-icon-wrapper is-user-combo">
+                    <div id="userName-combo" class="text-btn-e is-arrow-drop">u1</div>
+                </div>
+            </div>
+            <div class="system-toolbar-icon is-device-close-icon" onclick="
+                        var d = $(this).find('div');
+                        d.find('svg').width('22px').height('22px');
+                        var h=d.html();
+                        if (h.indexOf('device_open') >= 0) {
+                            $('.is-content').removeClass('is-device-bar-hidden');
+                            h = h.replace('device_open', 'device_close');
+                        } else {
+                            $('.is-content').addClass('is-device-bar-hidden');
+                            h = h.replace('device_close', 'device_open');
+                        }
+                        d.html(h);">
+                <div class="system-toolbar-icon-wrapper">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#device_close"></use>
+                        </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="is-content">
+        <div class="is-content-wrapper">
+            <div id="root-form-container" class="is-left-content">
+                <div class="control form" id="155" style="top: 0px; left: 0px; width: 100%;">
+                    <div class="c-content">
+                        <div class="control-wrapper" id="ch_156" style="width: 100%; height: 100%; min-height: 0px;">
+                            <div class="control container v-container m-container" id="156">
+                                <div class="c-content" style="padding: 0px; overflow: auto; display: block">
+                                    <div class="control-wrapper" id="ch_176"
+                                         style="width: 100%; height: auto; min-height: 200px; background-color: #001bff">
+                                        <div id="mid_176" class="control reset-l" style="height: 100%; overflow: auto; position: relative">
+                                            <div class="grid-b is-disableselect has-horizontal-lines is-big no-alter-rows has-no-paginator"
+                                                 id="190" style="width: 100%; height: 693px; min-width: 750px; position: static">
+                                                <div class="grid-b is-footer" title="" style="height: 693px;">
+                                                    <div class="header-bl">
+                                                        <table class="table-bl" cellspacing="0" cellpadding="0">
+                                                            <thead>
+                                                            <tr>
+                                                                <th class="grid-th-bh is-margin is-last"></th>
+                                                                <th width="40" class="grid-th-bh is-checkedcolumn"
+                                                                    style="width: 40px; display: none;">
+                                                                    <div class="checkbox-b is-bordered th-checkbox-bh">
+                                                                        <input type="checkbox">
+
+                                                                        <div class="check-sign-e"></div>
+                                                                    </div>
+                                                                </th>
+                                                                <th class="grid-th-bh is-clickable-eff Client can-resize"
+                                                                    role="Client" style="width: 18%;">
+                                                                    <div class="th-text-be text-ellipsis-gm">Client
+                                                                    </div>
+                                                                </th>
+                                                                <th class="grid-th-bh is-clickable-eff Contact can-resize"
+                                                                    role="Contact" style="width: 20%;">
+                                                                    <div class="th-text-be text-ellipsis-gm">Contact
+                                                                    </div>
+                                                                </th>
+                                                                <th class="grid-th-bh is-clickable-eff Phone can-resize"
+                                                                    role="Phone" style="width: 15%;">
+                                                                    <div class="th-text-be text-ellipsis-gm">Phone</div>
+                                                                </th>
+                                                                <th class="grid-th-bh is-clickable-eff EMail can-resize"
+                                                                    role="EMail" style="width: 20%;">
+                                                                    <div class="th-text-be text-ellipsis-gm">EMail</div>
+                                                                </th>
+                                                                <th class="grid-th-bh is-clickable-eff Proba can-resize"
+                                                                    role="Proba" style="width: 10%;">
+                                                                    <div class="th-text-be text-ellipsis-gm">Proba</div>
+                                                                </th>
+                                                                <th class="grid-th-bh is-clickable-eff Amount is-last can-resize"
+                                                                    role="Amount">
+                                                                    <div class="th-text-be text-ellipsis-gm">Amount
+                                                                    </div>
+                                                                </th>
+                                                                <th class="grid-th-bh is-margin"></th>
+                                                            </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                    <div class="scrollable-bl" style="height: 693px;">
+                                                        <div class="scrollable-bll" style="overflow: hidden">
+                                                            <div style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); -webkit-transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; -webkit-transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                                                                <table class="table-bl" cellspacing="0" cellpadding="0">
+                                                                    <tbody>
+                                                                    <tr class="fake-header" style="height: 0px;">
+                                                                        <td class="is-margin"></td>
+                                                                        <td class="Client" role="Client"
+                                                                            style="width: 18%;"></td>
+                                                                        <td class="Contact" role="Contact"
+                                                                            style="width: 20%;"></td>
+                                                                        <td class="Phone" role="Phone"
+                                                                            style="width: 15%;"></td>
+                                                                        <td class="EMail" role="EMail"
+                                                                            style="width: 20%;"></td>
+                                                                        <td class="Proba" role="Proba"
+                                                                            style="width: 10%;"></td>
+                                                                        <td class="Amount" role="Amount"></td>
+                                                                        <td class="is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh is-check" tabindex="1">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Enherent</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Aaron Enherent
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">860-687-2221</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">
+                                                                                arychling@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">66</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">87595</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">SANS</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Daniel Chechill
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">212 616 4800</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">daniel@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">39</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">36699</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Minak</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Alexandra Minak
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">212 616 4800</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">
+                                                                                alexandram@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">63</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">8926</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Open Systems Te
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Brian Schissler
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">212 643 3100</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">brian@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">53</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">39302</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Mercury Technol
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Odell A Vozzo</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">212-483-0300 x2
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">mercu@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">36</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">66411</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">COMSYS</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Priti Goel</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">212-763-6965</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">PGoel@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">21</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">8099</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">LeakCo</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">David Leak</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">212 616 4800</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">davidl@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">76</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">56181</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Ertic</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">David Furell</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">212 616 4800</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">ertic@sans.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">52</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">94558</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Open Systems</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Mike Soyster</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">212-643-3100 ex
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">msoyster@opensy
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">14</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">90981</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">AmirCons</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Amir Ilyasov</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">646-416-6432</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">amir@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">10</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">77616</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">BorisM</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Boris Master</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">718-375-1597</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">masb@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">57</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">55884</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Human Capital</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Brian Lane</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">914-697-4893</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">bril@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">6</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">63257</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">UndoCorp</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Amir Ilyasov</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">(646) 416-6432
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">deram@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">97</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">98926</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">CheckinsInc.</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Checking Functi
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">718--314-5439</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">
+                                                                                pokerevent@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">1</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">10287</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">CPS/Comtech</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Jolyn Agugliaro
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">908-272-4141</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Jolyn@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">47</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">5125</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Code X, Inc.</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Aaron Rychling
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">860-627-5589</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">aaron@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">84</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">4793</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Forrest Solutio
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Richard Fernand
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">212-497-8037</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">gerre@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">71</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">44941</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">ComTech</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Ruben Sutton</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">212-763-6983</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">
+                                                                                RubenSutton@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">9</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">10752</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">CAT Technology
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Aman Madani</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">201-727-9299 x
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">catt@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">26</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">99819</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr class="grid-tr-bh">
+                                                                        <td class="grid-body-td-bh is-margin is-last"
+                                                                            style="width: 24px"></td>
+                                                                        <td class="grid-body-td-bh is-checkbox is-checkedcolumn"
+                                                                            style="width: 40px; display: none;">
+                                                                            <div class="checkbox-b is-bordered"><input
+                                                                                    type="checkbox">
+
+                                                                                <div class="check-sign-e"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Enherent Corp.
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">Kerri Kostak</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">860.687.2288</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">kerri@gmail.com
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh">
+                                                                            <div class="content-bhl">19</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-last">
+                                                                            <div class="content-bhl">99807</div>
+                                                                        </td>
+                                                                        <td class="grid-body-td-bh is-margin"></td>
+                                                                    </tr>
+                                                                    <tr style="height: 0px;"></tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="iScrollVerticalScrollbar iScrollLoneScrollbar"
+                                                                 style="position: absolute; z-index: 4; width: 0.25em; bottom: 2px; top: 38px; right: 0px;">
+                                                                <div class="iScrollIndicator"
+                                                                     style="width: 100%; transition-duration: 0ms; -webkit-transition-duration: 0ms; display: block; height: 592px; transform: translate(0px, 0px) translateZ(0px); transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); -webkit-transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);"></div>
+                                                            </div>
+                                                            <div class="iScrollHorizontalScrollbar iScrollLoneScrollbar"
+                                                                 style="position: absolute; z-index: 4; height: 0.25em; left: 2px; right: 2px; bottom: 2px;">
+                                                                <div class="iScrollIndicator"
+                                                                     style="height: 100%; transition-duration: 0ms; -webkit-transition-duration: 0ms; display: none; width: 471px; transform: translate(0px, 0px) translateZ(0px); transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); -webkit-transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="grid-paginator-b">
+                                                        <div class="grid-footer-icon">
+                                                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                          <use xlink:href="/images/controls.svg#arrow-right1"></use>
+                        </svg>
+                                                        </div>
+                                                        <div class="grid-footer-icon">
+                                                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                          <use xlink:href="/images/controls.svg#arrow-right"></use>
+                        </svg>
+                                                        </div>
+                                                        <div class="grid-footer-icon">
+                                                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                          <use xlink:href="/images/controls.svg#arrow-left"></use>
+                        </svg>
+                                                        </div>
+                                                        <div class="grid-footer-icon">
+                                                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                          <use xlink:href="/images/controls.svg#arrow-left1"></use>
+                        </svg>
+                                                        </div>
+                                                        <div class="text-with-icon-b">
+                                                            <div class="text-with-icon-b-wrapper">
+                                                                <div class="text-be">10</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="grid-footer-icon">
+                                                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                          <use xlink:href="/images/controls.svg#hamburger"></use>
+                        </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="control-wrapper" id="ch_179"
+                                         style="width: 100%; height: 350px; min-height: 350px; background-color: #009c48">
+                                        <div id="mid_179" class="control reset-l" style="height: 100%; overflow: auto;">
+                                            350px
+                                        </div>
+                                    </div>
+                                    <div class="control-wrapper" id="ch_190"
+                                         style="width: 100%; height: 100px; min-height: 100px; background-color: #468ddc">
+                                        <div id="mid_190" class="control reset-l" style="height: 100%; overflow: auto;">
+                                            100px
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="is-device-bar">
+                <div class="is-device-wrapper">
+                    <div class="is-device-icon is-tabs" id="tabs-placeholder">
+                        <div class="is-device-icon-wrapper">
+                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+            <use xlink:href="/images/Genetix.svg#forms"></use>
+        </svg>
+                        </div>
+                        <div class="is-device-text">
+                        </div>
+                    </div>
+                    <div class="is-device-icon is-device" id="97de41ab-1575-d085-1fb4-f3d0cbe5015f">
+                        <div class="is-device-icon-wrapper">
+                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="38px" height="38px" viewBox="0 0 38 38" xml:space="preserve" style="color: rgb(166, 183, 65);">
+            <use xlink:href="/images/Genetix.svg#pc"></use>
+        </svg>
+                        </div>
+                        <div class="is-device-text">MyComputer3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="is-system-footer clearfix">
+        <div class="is-system-footer-section-left no-spaces">
+            <div class="system-footer-icon">
+                <div class="system-footer-icon-wrapper">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#question"></use>
+                        </svg>
+                </div>
+            </div>
+        </div>
+        <div class="is-system-footer-section-left is-pressed no-spaces">
+            <div class="system-footer-icon is-pressed">
+                <div class="system-footer-icon-wrapper">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#lamp"></use>
+                        </svg>
+                </div>
+            </div>
+            <div class="system-footer-text is-pressed">
+                <span>10</span>
+            </div>
+        </div>
+        <div class="is-system-footer-section-left no-spaces is-last">
+            <div class="system-footer-text has-left-margin is-grey-text">
+                <span>22/10 11:30 AM - Meeting - Media Ocean</span>
+            </div>
+        </div>
+        <div class="is-system-footer-section-right no-spaces">
+            <div class="system-footer-icon has-right-border">
+                <div class="system-footer-icon-wrapper">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#bird"></use>
+                        </svg>
+                </div>
+            </div>
+            <div class="system-footer-icon is-last-icon">
+                <div class="system-footer-icon-wrapper">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22" xml:space="preserve">
+                            <use xlink:href="/images/Genetix.svg#arrow_up"></use>
+                        </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+                <span id="context-list-wrapper"
+                      style="position: absolute; top: 49px; left: 5px; display: none; z-index: 100">
+                    <select id="userContext">
+                        <option value="3c54580a-f29d-424a-9c06-849e87d61dd7">context1</option>
+                        <option value="9e019376-4bf1-3f0d-706c-768798e5cb70">context2</option>
+                        <option value="9958c3a9-de0b-abe6-2d27-4694e43a3137">context3</option>
+                        <option value="c8db2af2-30a2-ea73-8b38-d4105abfeb6d">context4</option>
+                        <option value="de47322f-bc07-abce-4ee0-049fdd682792">context5</option>
+                        <option value="4239231a-068e-f971-9fbb-f2e004aa3450">context6</option>
+                        <option value="08201e2e-c8a2-d0bb-00bd-e1258ad9fb40">context7</option>
+                        <option value="7b53e733-c87b-9415-777f-45b90ca988f2">context8</option>
+                        <option value="59831733-43ff-d807-6c2c-44ec4be7bec7">context9</option>
+                        <option value="611f9cb1-1126-b830-b6fd-db01a9bd90b4">context10</option>
+                        <option value="7aaed7f4-bdf8-25f6-661d-3f31a50daadf">context11 isOn</option>
+                    </select>
+                </span></div>
+</body>
+</html>

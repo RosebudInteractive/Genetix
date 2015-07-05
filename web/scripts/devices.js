@@ -370,7 +370,7 @@ define(
                                 //else
                                 if (item.getCol("Resources").count() != 0) {
                                     var resource = item.getCol("Resources").get(0);
-                                    formGuid = resource.get("ResGuid");
+                                    formGuid = resource.resGuid();//resource.get("ResGuid");
                                 }
 
 

@@ -48,8 +48,8 @@ define(
                                 height += "px";
                             else if (height.length > 0 && height[height.length - 1] == "%") {
                                 var perc = height.replace("%", "");
-                                height = "auto";
-                                flex = perc + " 0 auto";
+                                //height = "auto";
+                                flex = perc + " 0 " + height;
                             }
                         }
                         div.css({"height": height, "flex": flex, "-webkit-flex": flex, "-ms-flex": flex, "min-height": 0});

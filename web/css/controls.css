@@ -724,6 +724,7 @@ textarea {
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
+  overflow: auto;
 }
 .v-container.container > .c-content {
   flex-direction: column;
@@ -841,6 +842,10 @@ td.container-title {
 }
 .control.container.h-container > .c-content > .control-wrapper:last-child {
   border-right-style: none;
+}
+.reset-l {
+  position: absolute;
+  overflow: auto;
 }
 .control {
   box-sizing: border-box;
