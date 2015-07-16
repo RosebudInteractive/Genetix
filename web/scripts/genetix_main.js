@@ -3,7 +3,7 @@
  * Date: 23.02.2015
  * Time: 15:00
  */
-var uccelloClt = null, DEBUG = true;
+var uccelloClt = null, $u=null, DEBUG = true;
 var formGuid = "89f42efa-b160-842c-03b4-f3b536ca09d8";
 var form2Guid = "e7613a67-c36c-4ff5-a999-4d143bebc97c";
 var form3Guid = "4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9";
@@ -12,6 +12,7 @@ var form5Guid = "1bf3b1a3-edba-32ca-5033-75e3cf9a709a";
 var form6Guid = "4f301ecb-030f-4751-99d0-b19d2d7ce2de";
 var form7Guid = "156b663e-8b6f-4464-b3d1-65cac6537108";
 var form8Guid = "4112f74d-42cd-4dff-b288-d03f26825715";
+var form9Guid = "95a99d2b-73a6-4091-841f-5115b95fb720";
 
 var uri = window.location.href;
 if (uri.charAt(uri.length - 1) == "/")
@@ -245,6 +246,9 @@ $(document).ready( function() {
                             $("#more-menu-item4").click(function() {
                                 window.createContext([form8Guid])
                             });
+                            $("#empty-menu-item").click(function() {
+                                window.createContext([form9Guid])
+                            });
 
                             $("#coral-button").click(function() {
                                 if ($(this).hasClass("is-pressed")) {
@@ -400,6 +404,8 @@ $(document).ready( function() {
                         commClient: commClient
                     });
 
+                    // глобальная переменная для доступа к методом дебага
+                    $u = uccelloClt.getDebugApi();
 
 
                     // --------------------------------------------------------------------------------------------------------

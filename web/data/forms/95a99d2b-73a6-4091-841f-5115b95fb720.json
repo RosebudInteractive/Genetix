@@ -1,0 +1,17 @@
+{
+  "$sys":{
+    "guid":"95a99d2b-73a6-4091-841f-5115b95fb720",
+    "typeGuid":"29bc7a01-2065-4664-b1ad-7cc86f92c177"
+  },
+  "fields":{
+    "Id":1456,
+    "Name":"EmptyForm",
+    "Title": "EmptyForm",
+    "dbgName": "EmptyForm",
+    "IsCentered": false
+  },
+  "collections": {
+    "Children": [
+    ]
+  }
+}

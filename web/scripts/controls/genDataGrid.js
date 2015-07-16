@@ -16,7 +16,8 @@ define(
                 {fname:"VerticalLines", ftype:"boolean"},
                 {fname:"BigSize", ftype:"boolean"},
                 {fname:"WhiteHeader", ftype:"boolean"},
-                {fname:"HasFooter", ftype:"boolean"}
+                {fname:"HasFooter", ftype:"boolean"},
+                {fname:"Scroll", ftype:"boolean"}
             ],
             metaCols: [ ],
 
@@ -59,6 +60,9 @@ define(
             },
             hasFooter: function(value) {
                 return this._genericSetter("HasFooter", value);
+            },
+            scroll: function(value) {
+                return this._genericSetter("Scroll", value);
             },
 
             /**

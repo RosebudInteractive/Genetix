@@ -6,9 +6,10 @@ define(
         vButton.render = function(options) {
             var item = $('#' + this.getLid());
             if (item.length == 0) {
-                item = $(vButton._templates['button']).attr('id', this.getLid());
+                var pItem = $(vButton._templates['button']).attr('id', "mid_" + this.getLid());
+                item = pItem.children(".control").attr('id', this.getLid());
                 var parent = '#' + (this.getParent()? "ch_"+this.getLid():options.rootContainer);
-                $(parent).append(item);
+                $(parent).append(pItem);
             }
 
             item.find("input").val(this.caption());
@@ -24,6 +25,24 @@ define(
                 item.addClass(this.extendedClass());
             else
                 item.addClass("is-white");
+            vButton._genEventsForParent.call(this);
+        }
+
+        /**
+         * Оповещение парента об изменениях пропертей
+         * @private
+         */
+        vButton._genEventsForParent = function() {
+            var genEvent = false;
+            var changedFields = {};
+            if (this.isFldModified("Width")) { changedFields.Width = true; genEvent = true; }
+            if (this.isFldModified("Height")) { changedFields.Height = true; genEvent = true; }
+            if (genEvent) {
+                $('#ch_' + this.getLid()).trigger("genetix:childPropChanged", {
+                    control: this,
+                    properties: changedFields
+                });
+            }
         }
         return vButton;
     }

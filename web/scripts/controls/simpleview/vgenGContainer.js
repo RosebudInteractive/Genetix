@@ -10,7 +10,8 @@ define(
                 var cm = this.getControlMgr();
 
                 // объект контейнера
-                item = $(vGContainer._templates['container']).attr('id', lid);
+                var pItem = $(vGContainer._templates['container']).attr('id', "mid_" + lid);
+                item = pItem.children(".control").attr('id', this.getLid());
                 var cont = item.children(".c-content");
 
                 var columns = this.getCol('Columns');
@@ -80,7 +81,8 @@ define(
                 for(var i=0; i<childs.count();i++) {
                     var child = cm.get(childs.get(i).getGuid());
                     if (!child.left) continue;
-                    var div = $('<div class="control-wrapper"></div>').attr('id', 'ch_'+child.getLid());
+                    var div = $('<div class="control-wrapper"><div class="mid-wrapper"></div></div>').attr('id', 'ext_'+child.getLid());
+                    div.children().attr('id', 'ch_' + child.getLid());
                     var cell = tableEl.find('#td_'+lid+'_'+child.left()+'_'+child.top());
                     cell.children('.c-content').append(div);
                 }
@@ -90,7 +92,7 @@ define(
 
                 // добавляем в парент
                 var parent = this.getParent()? '#ch_' + lid: options.rootContainer;
-                $(parent).append(item);
+                $(parent).append(pItem);
 
                 item.find(".cont-title-icon").click(function () {
                     var table = $(this).parent().parent().parent().parent().parent();
@@ -110,10 +112,38 @@ define(
             }
 
             // убираем удаленные объекты
-            var del = this.getLogCol('Children').del;
+            var del = this.getLogCol('Children') && 'del' in this.getLogCol('Children')? this.getLogCol('Children').del: {};
             for (var guid in del)
-                $('#ch_' + del[guid].getLid()).remove();
+                $('#ext_' + del[guid].getLid()).remove();
 
+            $(window).on("genetix:resize", function () {
+                var childs = that.getCol('Children');
+                for(var i=0; i<childs.count();i++) {
+                    var child = that.getControlMgr().get(childs.get(i).getGuid());
+                    if (!child.left) continue;
+                    var div = $('#ext_' + child.getLid());
+                    div.children().css("height", div.height());
+                }
+            });
+
+            vGContainer._genEventsForParent.call(this);
+        }
+
+        /**
+         * Оповещение парента об изменениях пропертей
+         * @private
+         */
+        vGContainer._genEventsForParent = function() {
+            var genEvent = false;
+            var changedFields = {};
+            if (this.isFldModified("Width")) { changedFields.Width = true; genEvent = true; }
+            if (this.isFldModified("Height")) { changedFields.Height = true; genEvent = true; }
+            if (genEvent) {
+                $('#ext_' + this.getLid()).trigger("genetix:childPropChanged", {
+                    control: this,
+                    properties: changedFields
+                });
+            }
         }
 
         return vGContainer;

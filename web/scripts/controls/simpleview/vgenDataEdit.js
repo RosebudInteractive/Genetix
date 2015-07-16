@@ -7,12 +7,15 @@ define(
             var that = this;
             var item = $('#' + this.getLid());
             if (item.length == 0) {
+                var pItem = null;
                 if (this.multiline())
-                    item = $(vGenDataEdit._templates['multiLineEdit']).attr('id', this.getLid());
+                    pItem = $(vGenDataEdit._templates['multiLineEdit']).attr('id', "mid_" + this.getLid());
                 else
-                    item = $(vGenDataEdit._templates['edit']).attr('id', this.getLid());
+                    pItem = $(vGenDataEdit._templates['edit']).attr('id', "mid_" + this.getLid());
+                item = pItem.children(".control").attr('id', this.getLid());
+
                 var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
-                $(parent).append(item);
+                $(parent).append(pItem);
 
                 // сохранять при потере фокуса
                 item.blur(function () {
@@ -57,6 +60,24 @@ define(
 
             item.height(item.height());
 
+            vGenDataEdit._genEventsForParent.call(this);
+        }
+
+        /**
+         * Оповещение парента об изменениях пропертей
+         * @private
+         */
+        vGenDataEdit._genEventsForParent = function() {
+            var genEvent = false;
+            var changedFields = {};
+            if (this.isFldModified("Width")) { changedFields.Width = true; genEvent = true; }
+            if (this.isFldModified("Height")) { changedFields.Height = true; genEvent = true; }
+            if (genEvent) {
+                $('#ch_' + this.getLid()).trigger("genetix:childPropChanged", {
+                    control: this,
+                    properties: changedFields
+                });
+            }
         }
         return vGenDataEdit;
     }

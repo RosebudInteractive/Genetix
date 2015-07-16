@@ -10,12 +10,14 @@ define(
             options: {
                 minSize: 0,
                 sizeUnits: "px",
-                dimension: 0, // 0 - высота, 1 - ширина
+                dimension: 0, // 0 - пїЅпїЅпїЅпїЅпїЅпїЅ, 1 - пїЅпїЅпїЅпїЅпїЅпїЅ
                 realMinSize: 0
             },
 
             _create: function () {
                 var that = this;
+
+                this._oldFlex = this.element.css("flex");
 
                 if (this.options.sizeUnits == "em") {
                     var fontSize = this.element.css("font-size");
@@ -35,6 +37,8 @@ define(
             },
             _resizeHandler: function() {
                 var newSize = 0;
+                this.element.css("flex", this._oldFlex);
+                this.element.css("min-height", "0px");
                 if (this.options.dimension == 0) {
                     this.element.css("height", "");
                     newSize = this.element.height();
@@ -43,13 +47,17 @@ define(
                     this.element.css("width", "");
                     newSize = this.element.width();
                 }
-                if (newSize <= this.options.realMinSize) {
-                    if (this.options.dimension == 0)
-                        this.element.height(this.options.realMinSize);
-                    else
-                        this.element.width(this.options.realMinSize);
-                }
 
+                if (newSize <= this.options.realMinSize) {
+                    if (this.options.dimension == 0) {
+                        this.element.height(this.options.realMinSize);
+                        this.element.css("min-height", this.options.realMinSize + "px");
+                    } else {
+                        this.element.width(this.options.realMinSize);
+                        this.element.css("min-width", this.options.realMinSize + "px");
+                    }
+                    this.element.css("flex", "");
+                }
             }
         });
     }

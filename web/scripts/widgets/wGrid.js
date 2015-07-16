@@ -21,6 +21,7 @@ define(
                 layout:0,
                 lineHeight:0,
                 sortdir: 'asc',
+                scroll: true,
                 columns: [], // {text: 'Текст', type: 'text', editable: false, datafield: 'ID', width: '30%'}
                 source: {
                     datafields: [],
@@ -60,24 +61,35 @@ define(
             },
 
             fixHeight: function () {
-                var pad = this._grid.children(".scrollable-bl").padding();
-                var h = this._grid.parent().parent().height() - pad.top - pad.bottom;
-                this._grid.parent().height(this._grid.parent().parent().height());
-                this._grid.height(this._grid.parent().parent().height());
-                this._grid.children(".scrollable-bl").height(h);
-                this._trigger("sizechanged", null);
+                if (this.options.scroll) {
+                    var pad = this._grid.children(".scrollable-bl").padding();
+                    var h = this._grid.parent().parent().height() - pad.top - pad.bottom;
+                    this._grid.parent().height(this._grid.parent().parent().height());
+                    this._grid.height(this._grid.parent().parent().height());
+                    this._grid.children(".scrollable-bl").height(h);
+                    this._trigger("sizechanged", null);
+                } else {
+                    this._grid.parent().css("height", "auto");
+                    this._grid.css("height", "auto");
+                    this._trigger("sizechanged", null);
+                }
             },
 
             getVisiblePortion: function() {
                 //return (Math.floor(this.options.height / this._rowHeight) + 1);
-                if (this._rowHeight > 0)
+                if (!this.options.scroll)
+                    return this.options.source.localdata.length;
+                else if (this._rowHeight > 0)
                     return (Math.floor($(this)[0].element[0].children[0].children[1].clientHeight / this._rowHeight) + 1);
                 else
                     return 100;
             },
 
             getVisibleRange: function() {
-                return (Math.min(this.getVisiblePortion(), this.options.source.localdata.length - this.firstDataRow));
+                if (this.options.scroll)
+                    return (Math.min(this.getVisiblePortion(), this.options.source.localdata.length - this.firstDataRow));
+                else
+                    return this.options.source.localdata.length;
             },
 
             clearPageCache: function () {

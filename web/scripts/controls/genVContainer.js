@@ -11,7 +11,8 @@ define(
             className: "GenContainer",
             classGuid: "b75474ef-26d0-4298-9dad-4133edaa8a9c",
             metaFields: [
-                {fname:"Background", ftype:"string"}
+                {fname:"Background", ftype:"string"},
+                {fname:"HasPadding", ftype:"boolean"}
             ],
 
             init: function(cm, params) {
@@ -22,9 +23,9 @@ define(
             background: function(value) {
                 return this._genericSetter("Background", value);
             },
-            /*position: function(value) {
-                return this._genericSetter("Position", value);
-            }*/
+            hasPadding: function(value) {
+                return this._genericSetter("HasPadding", value);
+            }
         });
         return GenVContainer;
     }

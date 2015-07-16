@@ -23,6 +23,24 @@ define(
                 table.append(row);
             }
             table.css({top: this.top() + 'px', left: this.left() + 'px'});
+            vMatrixGrid._genEventsForParent.call(this);
+        }
+
+        /**
+         * Оповещение парента об изменениях пропертей
+         * @private
+         */
+        vMatrixGrid._genEventsForParent = function() {
+            var genEvent = false;
+            var changedFields = {};
+            if (this.isFldModified("Width")) { changedFields.Width = true; genEvent = true; }
+            if (this.isFldModified("Height")) { changedFields.Height = true; genEvent = true; }
+            if (genEvent) {
+                $('#ch_' + this.getLid()).trigger("genetix:childPropChanged", {
+                    control: this,
+                    properties: changedFields
+                });
+            }
         }
         return vMatrixGrid;
     }

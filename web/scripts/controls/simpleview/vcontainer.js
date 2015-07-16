@@ -6,7 +6,9 @@ define(
         vContainer.render = function(options) {
             var item = $('#' + this.getLid());
             if (item.length == 0) {
-                item = $(vContainer._templates['container']).attr('id', this.getLid());
+                var pItem = $(vContainer._templates['container']).attr('id', "mid_" + this.getLid());
+                item = pItem.children(".control");
+                item.attr('id', this.getLid());
                 var cont = item.children(".c-content");
                 var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
 
@@ -46,7 +48,7 @@ define(
                     cont.append(div);
                 }
 
-                $(parent).append(item);
+                $(parent).append(pItem);
 
 
             }
@@ -57,6 +59,24 @@ define(
             for (var guid in del)
                 $('#' + del[guid].getLid()).remove();
 
+            vContainer._genEventsForParent.call(this);
+        }
+
+        /**
+         * Оповещение парента об изменениях пропертей
+         * @private
+         */
+        vContainer._genEventsForParent = function() {
+            var genEvent = false;
+            var changedFields = {};
+            if (this.isFldModified("Width")) { changedFields.Width = true; genEvent = true; }
+            if (this.isFldModified("Height")) { changedFields.Height = true; genEvent = true; }
+            if (genEvent) {
+                $('#ch_' + this.getLid()).trigger("genetix:childPropChanged", {
+                    control: this,
+                    properties: changedFields
+                });
+            }
         }
         return vContainer;
     }

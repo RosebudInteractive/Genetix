@@ -9,11 +9,12 @@ define(
             if (item.length == 0) {
                 // объект контейнера
                 var allItems = $(vFContainer._templates['container']);
+                allItems.attr('id', "mid_" + this.getLid());
                 // добавляем в парент
                 var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(allItems);
 
-                item = allItems.first(".control").attr('id', this.getLid())
+                item = allItems.children(".control").attr('id', this.getLid())
 
                 var isRoot = this.hasGrid();
                 this._isRoot = isRoot;
@@ -50,7 +51,8 @@ define(
                     // если конец строки, то добавляем новый row
                     var curStrParts = curStr.trim().split(",");
 
-                    var div = $('<div class="control-wrapper"></div>').attr('id', 'ch_'+child.getLid());
+                    var div = $('<div class="control-wrapper"><div class="mid-wrapper"></div></div>').attr('id', 'ext_'+child.getLid());
+                    div.children().attr('id', 'ch_' + child.getLid());
                     var ch = vFContainer.getObj.call(this, curStr, row, div);
                     ch.width = child.width();
                     ch.isLabel = child.className == "GenLabel";
@@ -91,11 +93,39 @@ define(
             }
 
             // убираем удаленные объекты
-			var del = this.getLogCol('Children').del;
+            var del = this.getLogCol('Children') && 'del' in this.getLogCol('Children')? this.getLogCol('Children').del: {};
             for (var guid in del)
-                $('#ch_' + del[guid].getLid()).remove();
+                $('#ext_' + del[guid].getLid()).remove();
 
-        };
+            $(window).on("genetix:resize", function () {
+                var childs = that.getCol('Children');
+                for(var i=0; i<childs.count();i++) {
+                    var child = that.getControlMgr().get(childs.get(i).getGuid());
+                    if (!child.left) continue;
+                    var div = $('#ext_' + child.getLid());
+                    div.children().css("height", div.height());
+                }
+            });
+
+            vFContainer._genEventsForParent.call(this);
+        }
+
+        /**
+         * Оповещение парента об изменениях пропертей
+         * @private
+         */
+        vFContainer._genEventsForParent = function() {
+            var genEvent = false;
+            var changedFields = {};
+            if (this.isFldModified("Width")) { changedFields.Width = true; genEvent = true; }
+            if (this.isFldModified("Height")) { changedFields.Height = true; genEvent = true; }
+            if (genEvent) {
+                $('#ext_' + this.getLid()).trigger("genetix:childPropChanged", {
+                    control: this,
+                    properties: changedFields
+                });
+            }
+        }
 
         vFContainer.serializeOptions = function(options) {
             var serOptions = {

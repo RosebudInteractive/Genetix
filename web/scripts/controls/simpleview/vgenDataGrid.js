@@ -18,15 +18,23 @@ define(
 
             // если не создан грид
             if (grid.length == 0) {
-                grid = $(vDataGrid._templates['grid']).attr('id', this.getLid());
-                var parent = (this.getParent()? '#ch_' + this.getLid(): options.rootContainer);
-                $(parent).append(grid);
+                var pItem = $(vDataGrid._templates['grid']).attr('id', "mid_" + this.getLid());
+                grid = pItem.children(".grid-b").attr('id', this.getLid());
 
+                var parent = (this.getParent()? '#ch_' + this.getLid(): options.rootContainer);
+                $(parent).append(pItem);
+                if (!this.scroll())
+                    grid.css("position", "initial");
+
+                var hasStroll = true;
+                if (this.scroll() !== undefined)
+                    hasStroll = this.scroll() ? true : false
                 var opt = {
                     height: $(parent).height(),
                     width: "100%",
                     columns: [],
                     source: this.source,
+                    scroll: hasStroll,
                     selectrow: function (event, row, obj) {
                         if (row && 'Id' in row) {
                             event.stopPropagation();
@@ -90,6 +98,25 @@ define(
 
             //grid.css({top: this.top() + 'px', left: this.left() + 'px', width: this.width() + 'px', height: this.height() + 'px'});
             console.timeEnd('renderGrid '+this.name());
+
+            vDataGrid._genEventsForParent.call(this);
+        }
+
+        /**
+         * Оповещение парента об изменениях пропертей
+         * @private
+         */
+        vDataGrid._genEventsForParent = function() {
+            var genEvent = false;
+            var changedFields = {};
+            if (this.isFldModified("Width")) { changedFields.Width = true; genEvent = true; }
+            if (this.isFldModified("Height")) { changedFields.Height = true; genEvent = true; }
+            if (genEvent) {
+                $('#ch_' + this.getLid()).trigger("genetix:childPropChanged", {
+                    control: this,
+                    properties: changedFields
+                });
+            }
         }
 
         /**

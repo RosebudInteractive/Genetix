@@ -15,8 +15,11 @@
 .v-container.container > .c-content
 .g-container.container > .c-content
   padding 1.125em 1.125em 1.5em 1.125em
-
-
+.control-ext
+  width 100%
+  height 100%
+  box-sizing border-box
+  position relative
 .control.form > .c-content
 .c-container.container > .c-content
 .v-container.container > .c-content
@@ -85,6 +88,13 @@ td.container-title
 .control-wrapper
   position relative
   overflow hidden
+  box-sizing border-box
+.control-wrapper > div.mid-wrapper
+  height 100%
+  width 100%
+  position absolute
+  box-sizing border-box
+
 /* flex container */
 .f-row
   position relative
