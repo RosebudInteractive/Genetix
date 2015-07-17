@@ -15,7 +15,27 @@ define(
                 var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(pItem);
                 pItem.height($(parent).height());
+            } else {
+                pItem = $("#mid_" + this.getLid());
             }
+
+            if (this.verticalAlign()) {
+                pItem.css("display", "table-cell");
+                var vAl = this.verticalAlign().toUpperCase();
+                if (vAl == "TOP")
+                    pItem.css("vertical-align", "top");
+                else if (vAl == "BOTTOM")
+                    pItem.css("vertical-align", "bottom");
+                else
+                    pItem.css("vertical-align", "middle");
+            }
+            else {
+                pItem.css("display", "");
+                pItem.css("vertical-align", "");
+            }
+
+            if (this.height() == "auto")
+                item.css({height: "auto"});
 
             var cont = item.children(".c-content");
             // создаем врапперы для чайлдов
@@ -84,6 +104,13 @@ define(
                 else
                     div.css("min-height", "");
 
+                if (child.verticalAlign()) {
+                    var vAl = child.verticalAlign().toUpperCase();
+                    if (vAl == "CENTER") {
+                        chDiv.css("float", "");
+                        chDiv.css("display", "table");
+                    }
+                }
             }
 
             // убираем удаленные объекты
@@ -93,8 +120,9 @@ define(
 
             $(window).on("genetix:resize", function () {
                 var p = that.getParent()? '#ch_' + that.getLid(): options.rootContainer;
+                pp.css("height", "");
                 var pp = $("#mid_" + that.getLid());
-                pp.height($(p).height());
+                pp.css("height", $(p).height());
                 var childs = that.getCol('Children');
                 for(var i=0; i<childs.count();i++) {
                     var child = that.getControlMgr().get(childs.get(i).getGuid());

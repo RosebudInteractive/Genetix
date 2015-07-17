@@ -119,11 +119,23 @@ function genetixBuildExample7() {
         Height:"150px",
         MinHeight: "150px",
         Background: "red"
-    }, 'Container1');
+    }, 'MainContainer');
+    $u.add('GenVContainer', 'VContainer2', {
+        Width:"100%",
+        Height:"150px",
+        MinHeight: "250px",
+        Background: "yellow"
+    }, 'MainContainer');
+    $u.add('GenVContainer', 'VContainer3', {
+        Width:"100%",
+        Height:"150px",
+        MinHeight: "250px",
+        Background: "green"
+    }, 'MainContainer');
 
     var ds = $u.get("DatasetLead");
     var dsGuid = ds.getGuid();
-    $u.add('GenDataGrid', 'gridLeads', {
+    /*$u.add('GenDataGrid', 'gridLeads', {
         Width:"100%",
         Height:"auto",
         Scroll: false,
@@ -181,9 +193,9 @@ function genetixBuildExample7() {
         }
 
         col.Field = (dField ? dField.getGuid() : null);
-        $u.add('DataColumn', "DataColumn" + i, col, 'gridLeads');
+        $u.add('DataColumn', "DataColumn" + i, col, 'gridLeads', "Columns");
     }
-
+    */
     $u.r();
 }
 
@@ -194,7 +206,11 @@ function genetixCreateDataModel(parent) {
 }
 
 function genetixCreateLeadsDataSet(parent) {
-    $u.add('Dataset', 'DatasetLead', {Root: "c170c217-e519-7c23-2811-ff75cd4bfe81", Active: true}, parent, "Datasets");
+    $u.add('Dataset', 'DatasetLead', {
+        Root: "c170c217-e519-7c23-2811-ff75cd4bfe81",
+        Active: true,
+        "OnMoveCursor" : " { this.getControlMgr().getByName('FormParam1').value(newVal); } "
+    }, parent, "Datasets");
     var f = [
         {
             "Name": "Id"
@@ -230,7 +246,7 @@ function genetixCreateLeadsDataSet(parent) {
             "Name": "user"
         }
     ];
-    genetixCreateDatasetFields(parent, f);
+    genetixCreateDatasetFields("DatasetLead", f);
 }
 
 function genetixCreateDatasetFields(parent, fields) {
