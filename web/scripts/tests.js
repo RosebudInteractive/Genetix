@@ -141,7 +141,6 @@ function genetixBuildExample7() {
         Width:"100%",
         Height:"auto",
         Scroll: false,
-        MinHeight: "250px",
         Dataset: dsGuid
     }, 'MainContainer');
     var columns = [
