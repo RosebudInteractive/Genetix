@@ -203,8 +203,8 @@ $(document).ready( function() {
                     this.showMainForm = function(callback) {
                         var template = "text!templates/genetix.html";
 
-                        if (device.mobile() || device.tablet())
-                            template = "text!templates/genetix.m.html"
+                        //if (device.mobile() || device.tablet())
+                        //    template = "text!templates/genetix.m.html"
                         require([template], function (mainTemplate) {
                             var mainContent = $("#mainContent");
                             mainContent.empty();

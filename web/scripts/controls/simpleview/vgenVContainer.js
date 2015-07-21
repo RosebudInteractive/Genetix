@@ -59,89 +59,11 @@ define(
                     cont.append(div);
                     div.on("genetix:childPropChanged", function(event, data) {
                         vContainer.handleChildChanged.call(that, event, data);
-                    });
-                }
-                var chDiv = div.children();
-                if ("position" in child && child.position() == "center") {
-                    div.css({
-                        margin: "0",
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)"/*,
-                         "box-shadow": "1px 1px 0.75em 1px #3c4251",
-                         "-webkit-box-shadow" : "1px 1px 0.75em 1px #3c4251",
-                         "-moz-box-shadow" : "1px 1px 0.75em 1px #3c4251",
-                         "border-radius": "0.25em"*/
-                    });
-
-                } else {
-                    div.css({width: "100%"});
-                    var height = child.height() || "auto";
-                    var flex = "";
-                    if (height != "auto") {
-                        if ($.isNumeric(height))
-                            height += "px";
-                        else if (height.length > 0 && height[height.length - 1] == "%") {
-                            var perc = height.replace("%", "");
-                            height = "auto";
-                            flex = perc + " 0 auto";
-                        }
-                    }
-                    div.css({
-                        "height": height,
-                        "flex": flex,
-                        "-webkit-flex": flex,
-                        "-ms-flex": flex,
-                        "min-height": "0px"
+                        return false;
                     });
                 }
 
-                if (child.minHeight()) {
-                    var u = "em";
-                    var h = 0;
-                    if ($.isNumeric(child.minHeight()))
-                        h = child.minHeight();
-                    else {
-                        h = child.minHeight();
-                        h = h.substr(0, h.length - 2);
-                        u = h.substr(h.length - 2, 2);
-                    }
-                    div.genetixFlexMinDimention({
-                        minSize: h,
-                        sizeUnits: u,
-                        dimension: 0
-                    });
-                }
-
-                if (child.padLeft())
-                    chDiv.css("padding-left", child.padLeft());
-                else
-                    chDiv.css("padding-left", "");
-                if (child.padRight())
-                    chDiv.css("padding-right", child.padRight());
-                else
-                    chDiv.css("padding-right", "");
-                if (child.padTop())
-                    chDiv.css("padding-top", child.padTop());
-                else
-                    chDiv.css("padding-top", "");
-                if (child.padBottom())
-                    chDiv.css("padding-bottom", child.padBottom());
-                else
-                    chDiv.css("padding-bottom", "");
-                if (child.minWidth())
-                    div.css("min-width", child.minWidth());
-                else
-                    div.css("min-width", "");
-
-                if (child.verticalAlign()) {
-                    var vAl = child.verticalAlign().toUpperCase();
-                    if (vAl == "CENTER") {
-                        chDiv.css("float", "");
-                        chDiv.css("display", "table");
-                    }
-                }
+                vContainer._setChildCSS.call(this, child);
             }
 
             // убираем удаленные объекты
@@ -151,6 +73,8 @@ define(
 
             $(window).on("genetix:resize", function () {
                 var p = that.getParent()? '#ch_' + that.getLid(): options.rootContainer;
+                $(p).css("height", "");
+                $(p).css("height", $(p).parent().height());
                 var pp = $("#mid_" + that.getLid());
                 pp.css("height", "");
                 pp.css("height", $(p).height());
@@ -158,13 +82,109 @@ define(
                 for(var i=0; i<childs.count();i++) {
                     var child = that.getControlMgr().get(childs.get(i).getGuid());
                     if (!child.left) continue;
-                    var div = $('#ext_' + child.getLid());
-
-                    div.children().css("height", div.height());
-
+                    vContainer._setChildCSS.call(this, child);
                 }
             });
             vContainer._genEventsForParent.call(this);
+        }
+
+        vContainer._setChildCSS = function(child) {
+            var div = $("#ext_" + child.getLid())
+            var chDiv = div.children();
+            if ("position" in child && child.position() == "center") {
+                div.css({
+                    margin: "0",
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)"/*,
+                     "box-shadow": "1px 1px 0.75em 1px #3c4251",
+                     "-webkit-box-shadow" : "1px 1px 0.75em 1px #3c4251",
+                     "-moz-box-shadow" : "1px 1px 0.75em 1px #3c4251",
+                     "border-radius": "0.25em"*/
+                });
+
+            } else {
+                div.css({width: "100%"});
+                var height = child.height() || "auto";
+                var flex = "";
+                if (height != "auto") {
+                    if ($.isNumeric(height))
+                        height += "px";
+                    else if (height.length > 0 && height[height.length - 1] == "%") {
+                        var perc = height.replace("%", "");
+                        height = "auto";
+                        flex = perc + " 0 auto";
+                    }
+                    div.css({
+                        "height": height,
+                        "min-height": (flex == "" ? height : "0px")
+                    });
+                } else {
+                    var chEDiv = $("#" + child.getLid());
+                    div.css({
+                        "min-height" : "",
+                        "height": ""
+                    });
+                    div.css({
+                        "min-height" : chEDiv.height(),
+                        "height": chEDiv.height()
+                    });
+                }
+                div.css({
+                    "flex": flex,
+                    "-webkit-flex": flex,
+                    "-ms-flex": flex,
+                });
+            }
+
+            if (child.minHeight()) {
+                var u = "em";
+                var h = 0;
+                if ($.isNumeric(child.minHeight()))
+                    h = child.minHeight();
+                else {
+                    h = child.minHeight();
+                    h = h.substr(0, h.length - 2);
+                    u = h.substr(h.length - 2, 2);
+                }
+                div.genetixFlexMinDimention({
+                    minSize: h,
+                    sizeUnits: u,
+                    dimension: 0
+                });
+                div.genetixFlexMinDimention("executeResize");
+            }
+
+            if (child.padLeft())
+                chDiv.css("padding-left", child.padLeft());
+            else
+                chDiv.css("padding-left", "");
+            if (child.padRight())
+                chDiv.css("padding-right", child.padRight());
+            else
+                chDiv.css("padding-right", "");
+            if (child.padTop())
+                chDiv.css("padding-top", child.padTop());
+            else
+                chDiv.css("padding-top", "");
+            if (child.padBottom())
+                chDiv.css("padding-bottom", child.padBottom());
+            else
+                chDiv.css("padding-bottom", "");
+            if (child.minWidth())
+                div.css("min-width", child.minWidth());
+            else
+                div.css("min-width", "");
+
+            if (child.verticalAlign()) {
+                var vAl = child.verticalAlign().toUpperCase();
+                if (vAl == "CENTER") {
+                    chDiv.css("float", "");
+                    chDiv.css("display", "table");
+                }
+            }
+
         }
 
         /**
@@ -176,6 +196,17 @@ define(
             var changedFields = {};
             if (this.isFldModified("Width")) { changedFields.Width = true; genEvent = true; }
             if (this.isFldModified("Height")) { changedFields.Height = true; genEvent = true; }
+            if (this.isFldModified("HorizontalAlign")) { changedFields.HorizontalAlign = true; genEvent = true; }
+            if (this.isFldModified("VerticalAlign")) { changedFields.VerticalAlign = true; genEvent = true; }
+            if (this.isFldModified("MinWidth")) { changedFields.MinWidth = true; genEvent = true; }
+            if (this.isFldModified("MinHeight")) { changedFields.MinHeight = true; genEvent = true; }
+            if (this.isFldModified("MaxWidth")) { changedFields.MaxWidth = true; genEvent = true; }
+            if (this.isFldModified("MaxHeight")) { changedFields.MaxHeight = true; genEvent = true; }
+            if (this.isFldModified("PadLeft")) { changedFields.PadLeft = true; genEvent = true; }
+            if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
+            if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
+            if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+
             if (genEvent) {
                 $('#ext_' + this.getLid()).trigger("genetix:childPropChanged", {
                     control: this,
@@ -188,26 +219,7 @@ define(
             console.log(event);
             if (!("Height" in data.properties)) return;
             var child = data.control;
-            var div = $(event.target);
-            var height = child.height() || "auto";
-            var flex = "";
-            if (height != "auto") {
-                if ($.isNumeric(height))
-                    height += "px";
-                else if (height.length > 0 && height[height.length - 1] == "%") {
-                    var perc = height.replace("%", "");
-                    //height = "auto";
-                    flex = perc + " 0 " + height;
-                }
-            }
-            div.css({
-                "height": height,
-                "flex": flex,
-                "-webkit-flex": flex,
-                "-ms-flex": flex,
-                "min-height": 0
-            });
-
+            vContainer._setChildCSS.call(this, child);
         }
         return vContainer;
     }

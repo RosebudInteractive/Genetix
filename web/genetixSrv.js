@@ -27,14 +27,16 @@ app.engine('html', require('ejs').renderFile);
 app.get('/genetix', function(req, res){
     var device = new DeviceHelper(req.headers["user-agent"]);
     if (device.mobile() || device.tablet())
-        res.render('genetix.m.html', { webSocketServerPort: UCCELLO_CONFIG.webSocketServer.port});
+        res.render('genetix.html', { webSocketServerPort: UCCELLO_CONFIG.webSocketServer.port});
+        //res.render('genetix.m.html', { webSocketServerPort: UCCELLO_CONFIG.webSocketServer.port});
     else
         res.render('genetix.html', { webSocketServerPort: UCCELLO_CONFIG.webSocketServer.port});
 });
 app.get('/buttons', function(req, res){
     var device = new DeviceHelper(req.headers["user-agent"]);
     if (device.mobile() || device.tablet())
-        res.render('buttons.m.html');
+        res.render('buttons.html');
+        //res.render('buttons.m.html');
     else
         res.render('buttons.html');
 });
@@ -57,7 +59,7 @@ app.use("/scripts/lib/uccello", express.static(__dirname + '/../../'+uccelloDir)
  */
 function fakeAuthenticate(user, pass, done) {
     var err = null, row = null;
-    if (user.substring(0, 1)=='u' && pass.substring(0, 1)=='p')
+    if (user.substring(0, 1)=='u')
         row = {user_id:1, email:'user@user.com'};
     done(err, row);
 }

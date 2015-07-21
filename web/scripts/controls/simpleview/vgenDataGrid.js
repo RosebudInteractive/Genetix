@@ -16,6 +16,10 @@ define(
             var grid = $('#' + this.getLid());
             var dataset = null;
 
+            var hasStroll = true;
+            if (this.scroll() !== undefined)
+                hasStroll = this.scroll() ? true : false
+
             // если не создан грид
             if (grid.length == 0) {
                 var pItem = $(vDataGrid._templates['grid']).attr('id', "mid_" + this.getLid());
@@ -26,9 +30,6 @@ define(
                 if (!this.scroll())
                     grid.css("position", "initial");
 
-                var hasStroll = true;
-                if (this.scroll() !== undefined)
-                    hasStroll = this.scroll() ? true : false
                 var opt = {
                     height: $(parent).height(),
                     width: "100%",
@@ -93,6 +94,9 @@ define(
             else
                 grid.removeClass("has-no-paginator");
 
+            var cssPos = (hasStroll ? "absolute" : "relative");
+            grid.children().css({"position": cssPos});
+
             // отобразим данные
             vDataGrid._reloading(this);
 
@@ -111,6 +115,18 @@ define(
             var changedFields = {};
             if (this.isFldModified("Width")) { changedFields.Width = true; genEvent = true; }
             if (this.isFldModified("Height")) { changedFields.Height = true; genEvent = true; }
+            if (this.isFldModified("HorizontalAlign")) { changedFields.HorizontalAlign = true; genEvent = true; }
+            if (this.isFldModified("VerticalAlign")) { changedFields.VerticalAlign = true; genEvent = true; }
+            if (this.isFldModified("MinWidth")) { changedFields.MinWidth = true; genEvent = true; }
+            if (this.isFldModified("MinHeight")) { changedFields.MinHeight = true; genEvent = true; }
+            if (this.isFldModified("MaxWidth")) { changedFields.MaxWidth = true; genEvent = true; }
+            if (this.isFldModified("MaxHeight")) { changedFields.MaxHeight = true; genEvent = true; }
+            if (this.isFldModified("PadLeft")) { changedFields.PadLeft = true; genEvent = true; }
+            if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
+            if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
+            if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+
+            if (this._reloaded) { changedFields.Height = true; genEvent = true; }
             if (genEvent) {
                 $('#ch_' + this.getLid()).trigger("genetix:childPropChanged", {
                     control: this,
@@ -129,6 +145,7 @@ define(
             var data = [];
 
             if (o) {
+                o._reloaded = true;
                 var cm = o.getControlMgr();
 
                 var rootElem = null;

@@ -11,7 +11,7 @@ define(
                 var parent = (this.getParent()? '#ch_' + this.getLid(): options.rootContainer);
                 $(parent).append(pItem);
             }
-            item.css({width: "100%", height: "100%" }).html(this.label());
+            item.css({width: "100%"/*, height: "100%"*/ }).html(this.label());
             if (this.fontSize( ))
                 item.css({"font-size": this.fontSize()});
             if (this.color())
@@ -34,6 +34,17 @@ define(
             var changedFields = {};
             if (this.isFldModified("Width")) { changedFields.Width = true; genEvent = true; }
             if (this.isFldModified("Height")) { changedFields.Height = true; genEvent = true; }
+            if (this.isFldModified("HorizontalAlign")) { changedFields.HorizontalAlign = true; genEvent = true; }
+            if (this.isFldModified("VerticalAlign")) { changedFields.VerticalAlign = true; genEvent = true; }
+            if (this.isFldModified("MinWidth")) { changedFields.MinWidth = true; genEvent = true; }
+            if (this.isFldModified("MinHeight")) { changedFields.MinHeight = true; genEvent = true; }
+            if (this.isFldModified("MaxWidth")) { changedFields.MaxWidth = true; genEvent = true; }
+            if (this.isFldModified("MaxHeight")) { changedFields.MaxHeight = true; genEvent = true; }
+            if (this.isFldModified("PadLeft")) { changedFields.PadLeft = true; genEvent = true; }
+            if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
+            if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
+            if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+
             if (genEvent) {
                 $('#ch_' + this.getLid()).trigger("genetix:childPropChanged", {
                     control: this,

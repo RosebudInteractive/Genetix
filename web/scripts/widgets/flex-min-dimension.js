@@ -58,6 +58,10 @@ define(
                     }
                     this.element.css("flex", "");
                 }
+            },
+
+            executeResize: function() {
+                this._resizeHandler();
             }
         });
     }

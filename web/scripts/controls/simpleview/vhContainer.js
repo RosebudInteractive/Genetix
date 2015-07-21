@@ -50,6 +50,7 @@ define(
                     cont.append(div);
                     div.on("genetix:childPropChanged", function(event, data) {
                         vHContainer.handleChildChanged.call(that, event, data);
+                        return false;
                     });
                     cont.append(div);
 
@@ -120,8 +121,8 @@ define(
 
             $(window).on("genetix:resize", function () {
                 var p = that.getParent()? '#ch_' + that.getLid(): options.rootContainer;
-                pp.css("height", "");
                 var pp = $("#mid_" + that.getLid());
+                pp.css("height", "");
                 pp.css("height", $(p).height());
                 var childs = that.getCol('Children');
                 for(var i=0; i<childs.count();i++) {
@@ -143,6 +144,17 @@ define(
             var changedFields = {};
             if (this.isFldModified("Width")) { changedFields.Width = true; genEvent = true; }
             if (this.isFldModified("Height")) { changedFields.Height = true; genEvent = true; }
+            if (this.isFldModified("HorizontalAlign")) { changedFields.HorizontalAlign = true; genEvent = true; }
+            if (this.isFldModified("VerticalAlign")) { changedFields.VerticalAlign = true; genEvent = true; }
+            if (this.isFldModified("MinWidth")) { changedFields.MinWidth = true; genEvent = true; }
+            if (this.isFldModified("MinHeight")) { changedFields.MinHeight = true; genEvent = true; }
+            if (this.isFldModified("MaxWidth")) { changedFields.MaxWidth = true; genEvent = true; }
+            if (this.isFldModified("MaxHeight")) { changedFields.MaxHeight = true; genEvent = true; }
+            if (this.isFldModified("PadLeft")) { changedFields.PadLeft = true; genEvent = true; }
+            if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
+            if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
+            if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+
             if (genEvent) {
                 $('#ext_' + this.getLid()).trigger("genetix:childPropChanged", {
                     control: this,
@@ -163,8 +175,8 @@ define(
                     width += "px";
                 else if (width.length > 0 && width[width.length - 1] == "%") {
                     var perc = width.replace("%", "");
-                    //height = "auto";
-                    flex = perc + " 0 " + width;
+                    width = "auto";
+                    flex = perc + " 0 auto";
                 }
             }
             div.css({
@@ -172,7 +184,7 @@ define(
                 "flex": flex,
                 "-webkit-flex": flex,
                 "-ms-flex": flex,
-                "min-height": 0
+                "min-width": 0
             });
 
         }

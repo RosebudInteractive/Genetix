@@ -1,4 +1,4 @@
-/**
+п»ї/**
  * User: kiknadze
  * Date: 23.06.2015
  * Time: 15:54
@@ -98,7 +98,7 @@ define(
                     var children = rowObj.children;
 
                     rowEl.find(".control-wrapper.empty").remove();
-                    // общее ко-во колонок в строке, заодно удалим пустые элементы
+                    // РѕР±С‰РµРµ РєРѕ-РІРѕ РєРѕР»РѕРЅРѕРє РІ СЃС‚СЂРѕРєРµ, Р·Р°РѕРґРЅРѕ СѓРґР°Р»РёРј РїСѓСЃС‚С‹Рµ СЌР»РµРјРµРЅС‚С‹
                     var rowColCount = 0;
                     var j = 0;
                     while (j < children.length) {
@@ -133,7 +133,7 @@ define(
                         var breakOnNextLine = true;
                         while (j < length) {
                             var childObj = children[j];
-                            // если не помещается
+                            // РµСЃР»Рё РЅРµ РїРѕРјРµС‰Р°РµС‚СЃСЏ
                             if (tookColCount + childObj.width > curColCount) {
                                 if (j > 0)
                                     this._extendLineControls(rowObj, j - 1, curColCount);
@@ -154,14 +154,14 @@ define(
                             }
 
 
-                            // если это последний элемент, то расширим его
+                            // РµСЃР»Рё СЌС‚Рѕ РїРѕСЃР»РµРґРЅРёР№ СЌР»РµРјРµРЅС‚, С‚Рѕ СЂР°СЃС€РёСЂРёРј РµРіРѕ
                             if (j > 0 && j + 1 == length) {
                                 this._extendLineControls(rowObj, j, curColCount);
                             } else if (j + 1 != length && childObj.doNotBreak && breakOnNextLine) {
-                                // проверим поместится ли след контрол, если нет, то перенесем все на след. строку
+                                // РїСЂРѕРІРµСЂРёРј РїРѕРјРµСЃС‚РёС‚СЃСЏ Р»Рё СЃР»РµРґ РєРѕРЅС‚СЂРѕР», РµСЃР»Рё РЅРµС‚, С‚Рѕ РїРµСЂРµРЅРµСЃРµРј РІСЃРµ РЅР° СЃР»РµРґ. СЃС‚СЂРѕРєСѓ
                                 var nextChild = children[j+1];
-                                // Если не помещается, то расширим предыдущий элемент и к обработке след. контрола не переходим.
-                                // Повторяем вычисления для этого же контрола
+                                // Р•СЃР»Рё РЅРµ РїРѕРјРµС‰Р°РµС‚СЃСЏ, С‚Рѕ СЂР°СЃС€РёСЂРёРј РїСЂРµРґС‹РґСѓС‰РёР№ СЌР»РµРјРµРЅС‚ Рё Рє РѕР±СЂР°Р±РѕС‚РєРµ СЃР»РµРґ. РєРѕРЅС‚СЂРѕР»Р° РЅРµ РїРµСЂРµС…РѕРґРёРј.
+                                // РџРѕРІС‚РѕСЂСЏРµРј РІС‹С‡РёСЃР»РµРЅРёСЏ РґР»СЏ СЌС‚РѕРіРѕ Р¶Рµ РєРѕРЅС‚СЂРѕР»Р°
                                 if (curColCount - tookColCount < nextChild.width) {
                                     if (j > 0 && !(children[j - 1].isLineEnd)) {
                                         this._extendLineControls(rowObj, j-1, curColCount);
@@ -176,7 +176,7 @@ define(
                         }
                     }
 
-                    // выставим ширину и сбросим высоту
+                    // РІС‹СЃС‚Р°РІРёРј С€РёСЂРёРЅСѓ Рё СЃР±СЂРѕСЃРёРј РІС‹СЃРѕС‚Сѓ
                     for (var k = 0; k < children.length; k++) {
                         var childObj = children[k];
                         childObj.element.css({height: "auto"});
@@ -184,7 +184,7 @@ define(
                     }
                 }
 
-                // Если заданы отступы, то добавляем их к корневой строке
+                // Р•СЃР»Рё Р·Р°РґР°РЅС‹ РѕС‚СЃС‚СѓРїС‹, С‚Рѕ РґРѕР±Р°РІР»СЏРµРј РёС… Рє РєРѕСЂРЅРµРІРѕР№ СЃС‚СЂРѕРєРµ
                 if (padding != 0 && this.options._rows.length > 0) {
                     var rPadObj = this._getObj("PADDING", this.options._rows[0], null, this.options._rows[0].children.length - 1);
                     var lPadObj = this._getObj("PADDING", this.options._rows[0], null, -1);
@@ -192,7 +192,7 @@ define(
                     rPadObj.element.width(padding);
                 }
 
-                // пересчитаем дочерние хендлеры
+                // РїРµСЂРµСЃС‡РёС‚Р°РµРј РґРѕС‡РµСЂРЅРёРµ С…РµРЅРґР»РµСЂС‹
                 for (var  i= 0; i < this.options._childrenGenerators.length; i++) {
                     var genObj = this.options._childrenGenerators[i];
                     //genObj.func.call(genObj.context);
@@ -210,10 +210,15 @@ define(
                     var maxHeight = 0;
                     for (var m = 0; m < children.length; m++) {
                         var childObj = children[m];
-                        maxHeight = Math.max(maxHeight, childObj.element.height());
+                        var elId = childObj.element.attr("id");
+                        if (childObj.element.attr("id") && elId && elId.indexOf("cont-label-") >= 0) {
+                            maxHeight = Math.max(maxHeight, childObj.element.height());
+                        } else {
+                            maxHeight = Math.max(maxHeight, childObj.element.children().children().children().height());
+                        }
                     }
 
-                    // теперь выставим высоту у концов строк
+                    // С‚РµРїРµСЂСЊ РІС‹СЃС‚Р°РІРёРј РІС‹СЃРѕС‚Сѓ Сѓ РєРѕРЅС†РѕРІ СЃС‚СЂРѕРє
                     for (var m = 0; m < children.length; m++) {
                         var childObj = children[m];
                         if (childObj.isLineEnd)
@@ -231,7 +236,7 @@ define(
                         maxHeight = Math.max(maxHeight, childObj.element.height());
                     }
 
-                    // теперь выставим у всех высоту
+                    // С‚РµРїРµСЂСЊ РІС‹СЃС‚Р°РІРёРј Сѓ РІСЃРµС… РІС‹СЃРѕС‚Сѓ
                     for (var m = 0; m < children.length; m++) {
                         var childObj = children[m];
                         childObj.element.height(maxHeight);
@@ -240,7 +245,7 @@ define(
 
                 item.children(".control-wrapper.empty.padding").height(item.height());
 
-                // найдем лейблы и где необходимо выровняем по левому краю
+                // РЅР°Р№РґРµРј Р»РµР№Р±Р»С‹ Рё РіРґРµ РЅРµРѕР±С…РѕРґРёРјРѕ РІС‹СЂРѕРІРЅСЏРµРј РїРѕ Р»РµРІРѕРјСѓ РєСЂР°СЋ
                 for (var i = 0; i < this.options._rows.length; i++) {
                     var children = this.options._rows[i].children;
 
@@ -255,7 +260,7 @@ define(
                 }
 
                 var dEnd = new Date();
-                console.log("Длительность пересчета: " + (dEnd - dBegin) + " мСек.")
+                console.log("Р”Р»РёС‚РµР»СЊРЅРѕСЃС‚СЊ РїРµСЂРµСЃС‡РµС‚Р°: " + (dEnd - dBegin) + " РјРЎРµРє.")
             },
 
             _deserializeOptions: function() {
@@ -309,7 +314,7 @@ define(
                     extChild = rowObj.children[k];
                 }
 
-                // Если не найдено, то займем пустое место невидимым элементом
+                // Р•СЃР»Рё РЅРµ РЅР°Р№РґРµРЅРѕ, С‚Рѕ Р·Р°Р№РјРµРј РїСѓСЃС‚РѕРµ РјРµСЃС‚Рѕ РЅРµРІРёРґРёРјС‹Рј СЌР»РµРјРµРЅС‚РѕРј
                 if (!found && tookColCount < curColCount) {
                     var emptyChild = this._getObj("EMPTY", rowObj, null, lastElIdx);
                     emptyChild.realColCount = curColCount - tookColCount;
@@ -330,7 +335,7 @@ define(
                 }
 
 
-                // подсчитаем текущее ко-во колонок
+                // РїРѕРґСЃС‡РёС‚Р°РµРј С‚РµРєСѓС‰РµРµ РєРѕ-РІРѕ РєРѕР»РѕРЅРѕРє
                 var curColCount = Math.floor(rootWidth/this.minColWidth());
                 curColCount = (curColCount > this.columnsCount() ? this.columnsCount() : curColCount);
 

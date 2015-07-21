@@ -165,6 +165,7 @@ td.container-title {
 .control.container.f-container {
   float: left;
   background-color: #fff;
+  height: auto;
 }
 .iScrollLoneScrollbar .iScrollIndicator {
   opacity: 0;

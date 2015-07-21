@@ -539,6 +539,7 @@ h2 {
   position: relative;
   font-size: 0.8125em;
   line-height: 1.5em;
+  height: auto;
 }
 .control.label {
   float: right;
@@ -608,6 +609,7 @@ h2 {
 .control.edit textarea,
 .control.label {
   font-family: OpenSans;
+  height: auto;
 }
 .control.button input {
   font-family: OpenSans;
@@ -840,6 +842,7 @@ td.container-title {
 .control.container.f-container {
   float: left;
   background-color: #fff;
+  height: auto;
 }
 .iScrollLoneScrollbar .iScrollIndicator {
   opacity: 0;
