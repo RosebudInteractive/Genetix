@@ -9,7 +9,6 @@ define(
 
             className: "RootCompany",
             classGuid: "0c2f3ec8-ad4a-c311-a6fa-511609647747",
-            metaCols: [],
             metaFields: [],
 
             init: function(cm,params){

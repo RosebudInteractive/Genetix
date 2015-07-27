@@ -84,6 +84,8 @@ define(
                     if (!child.left) continue;
                     vContainer._setChildCSS.call(this, child);
                 }
+
+                vContainer._refreshScroll.call(that);
             });
             vContainer._genEventsForParent.call(this);
         }
@@ -220,6 +222,45 @@ define(
             if (!("Height" in data.properties)) return;
             var child = data.control;
             vContainer._setChildCSS.call(this, child);
+        }
+
+
+        vContainer._refreshScroll = function() {
+            if (this._iscroll) {
+                this._iscroll.destroy();
+                this._iscroll = null;
+            }
+
+            var parentDivSel = "#" + this.getLid();
+            parentDivSel = $(parentDivSel).children()[0];
+            var _iscroll = new IScroll(parentDivSel, {
+                snapStepY: 23,
+                scrollX: false,
+                scrollY: true,
+                bottomPadding: 0,
+                topPadding: 0,
+                resize: true,
+                scrollbars: true,
+                mouseWheel: true,
+                disableMouse: true,
+                interactiveScrollbars: true,
+                keyBindings: false,
+                click: true,
+                probeType: 3,
+                rightPadding: 0
+            });
+            //_iscroll.on('scroll', function () {
+            //    //gr.data("grid").updatePosition(this.y);
+            //    if (this._grid)
+            //        this._grid.grid("updatePosition", this.y);
+            //});
+            _iscroll.on('scrollStart', function() {
+                $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: 1});
+            });
+            _iscroll.on('scrollEnd', function() {
+                $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: ""});
+            });
+            this._iscroll = _iscroll;
         }
         return vContainer;
     }

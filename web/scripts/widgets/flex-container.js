@@ -429,7 +429,7 @@ define(
                     this._iscroll = null;
                 }
 
-                    var parentDivSel = "#ch_" + this.options._lid;
+                    var parentDivSel = "#mid_" + this.options._lid;
                     var _iscroll = new IScroll(parentDivSel, {
                         snapStepY: 23,
                         scrollX: false,

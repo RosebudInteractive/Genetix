@@ -30,8 +30,10 @@ define(
 
             // устанавливаем значение
             if (this.dataset() && this.dataField()) {
-                var dataset = that.getControlMgr().get(that.dataset());
-                item.val(dataset? dataset.getField(this.dataField()): '');
+                //var dataset = that.getControlMgr().get(that.dataset());
+                var dataset = that.dataset();
+                item.attr('disabled', false);
+                item.find("input").val(dataset? dataset.getField(this.dataField()): '');
             }
 
             if (this.title()) {
