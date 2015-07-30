@@ -560,7 +560,7 @@
                                         "Dataset": "c2de9609-237a-c3b3-12ac-43bf5b35c169",
                                         "DataField": "State",
                                         "Width": 2,
-                                        "LayoutProp": "true,"
+                                        "LayoutProp": "true,br"
                                       }
                                     },
                                     {
@@ -572,7 +572,7 @@
                                         "Id": 3007,
                                         "Name": "LabelContent",
                                         "Label": "Содержание",
-                                        "Width": 8,
+                                        "Width": 2,
                                         "LayoutProp": "true,nbr"
                                       }
                                     },
@@ -586,9 +586,9 @@
                                         "Name": "content",
                                         "Dataset": "c2de9609-237a-c3b3-12ac-43bf5b35c169",
                                         "DataField": "Content",
-                                        "Width": 8,
+                                        "Width": 6,
                                         "LayoutProp": "true,br",
-                                        "Multiline": false
+                                        "Multiline": true
                                       }
                                     },
                                     {
@@ -903,7 +903,7 @@
                                         "Name": "town",
                                         "Dataset": "c2de9609-237a-c3b3-12ac-43bf5b35c169",
                                         "DataField": "City",
-                                        "Width": 3,
+                                        "Width": 2,
                                         "LayoutProp": "true,br"
                                       }
                                     },
