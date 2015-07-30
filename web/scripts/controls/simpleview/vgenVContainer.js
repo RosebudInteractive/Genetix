@@ -16,6 +16,11 @@ define(
                 pItem = $("#mid_" + this.getLid());
             }
 
+            if (this.separateChildren())
+                item.addClass("separate-children");
+            else
+                item.removeClass("separate-children");
+
             if (this.verticalAlign()) {
                 pItem.css("display", "table-cell");
                 var vAl = this.verticalAlign().toUpperCase();
@@ -184,7 +189,11 @@ define(
                 if (vAl == "CENTER") {
                     chDiv.css("float", "");
                     chDiv.css("display", "table");
+                    chDiv.css("height", div.height());
                 }
+            } else {
+                chDiv.css("float", "");
+                chDiv.css("display", "");
             }
 
         }
@@ -226,10 +235,12 @@ define(
 
 
         vContainer._refreshScroll = function() {
-            if (this._iscroll) {
+            /*if (this._iscroll) {
                 this._iscroll.destroy();
                 this._iscroll = null;
             }
+            var children = this.getCol('Children');
+            if (children.count() == 0) return;
 
             var parentDivSel = "#" + this.getLid();
             parentDivSel = $(parentDivSel).children()[0];
@@ -260,7 +271,7 @@ define(
             _iscroll.on('scrollEnd', function() {
                 $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: ""});
             });
-            this._iscroll = _iscroll;
+            this._iscroll = _iscroll;    */
         }
         return vContainer;
     }

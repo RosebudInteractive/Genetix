@@ -18,7 +18,8 @@ define(
                 var that = this;
 
                 this._oldFlex = this.element.css("flex");
-
+                if (this._oldFlex == "0 1 auto")
+                    this._oldFlex = "";
                 if (this.options.sizeUnits == "em") {
                     var fontSize = this.element.css("font-size");
                     fontSize = fontSize.replace("px", "");

@@ -290,6 +290,65 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    "$sys": {
+                      "guid": "504729ba-e002-d856-b694-271ca843a98c",
+                      "typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
+                    },
+                    "fields": {
+                      "Id": 2005,
+                      "Name": "DatasetLeadLog",
+                      "Root": "bb48579c-808e-291e-0242-0facc4876051",
+                      "Active": true,
+                      "OnMoveCursor" : " { this.getControlMgr().getByName('FormParam1').value(newVal); } ",
+                      "ObjType": "c4fa07b5-03f7-4041-6305-fbd301e7408a",
+                      "Master": "c2de9609-237a-c3b3-12ac-43bf5b35c169"
+                    },
+                    "collections": {
+                      "Fields": [
+                        {
+                          "$sys": {
+                            "guid": "cdec4144-dbdf-85c6-db91-231bb402ee84",
+                            "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                          },
+                          "fields": {
+                            "Id": 5002,
+                            "Name": "Id"
+                          }
+                        },
+                        {
+                          "$sys": {
+                            "guid": "c63d1dd4-ffa2-2bd0-f9b4-8f658018c1c3",
+                            "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                          },
+                          "fields": {
+                            "Id": 5001,
+                            "Name": "LeadId"
+                          }
+                        },
+                        {
+                          "$sys": {
+                            "guid": "b707c450-6cba-c9ee-f62d-4ce35f449c5f",
+                            "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                          },
+                          "fields": {
+                            "Id": 5001,
+                            "Name": "Date"
+                          }
+                        },
+                        {
+                          "$sys": {
+                            "guid": "4507be07-a3ff-65d9-465c-7f8d6ff122a5",
+                            "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                          },
+                          "fields": {
+                            "Id": 5001,
+                            "Name": "Content"
+                          }
+                        }
+                      ]
+                    }
                   }
                 ]
               }
@@ -303,7 +362,8 @@
                 "Id": 2002,
                 "Name": "HContainer",
                 "Width": "100%",
-                "Height": "100%"
+                "Height": "100%",
+                "SeparateChildren": true
               },
               "collections": {
                 "Children": [
@@ -333,7 +393,7 @@
                           "fields": {
                             "Id": 5001,
                             "Label": "Date",
-                            "Width": 10,
+                            "Width": 20,
                             "Field": "a0e1e0e0-0c82-29ba-cd5d-b770aa9ffcc9"
                           }
                         },
@@ -345,7 +405,7 @@
                           "fields": {
                             "Id": 5002,
                             "Label": "State",
-                            "Width": 7,
+                            "Width": 20,
                             "Field": "7e81d9b8-ffdd-9adb-b27e-50bed6bf9648"
                           }
                         },
@@ -357,7 +417,7 @@
                           "fields": {
                             "Id": 5003,
                             "Label": "Name",
-                            "Width": 56,
+                            "Width": 60,
                             "Field": "bb76eac7-7f14-532f-bb28-72122339d7e0"
                           }
                         }
@@ -377,6 +437,67 @@
                     },
                     "collections": {
                       "Children": [
+                        {
+                          "$sys": {
+                            "guid": "98b7fc25-f8e4-450e-a480-b9e79344fbf3",
+                            "typeGuid": "638c1e37-2105-9676-f3c9-dfc2746d1265"
+                          },
+                          "fields": {
+                            "Id": 2002,
+                            "Name": "HContainer2",
+                            "Width": "100%",
+                            "Height": "3em"
+                          },
+                          "collections": {
+                            "Children": [
+                              {
+                                "$sys": {
+                                  "guid": "05c44d12-1edb-4678-b1c4-fefa47609530",
+                                  "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                },
+                                "fields": {
+                                  "Id": 3007,
+                                  "Name": "LabelIncom",
+                                  "Label": "Обращение",
+                                  "FontSize": "1.125em",
+                                  "Width": "130",
+                                  "Color": "#000000",
+                                  "FontWeight": 500,
+                                  "PadTop": "15px"
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "e5249d79-cc5b-4f28-8a2a-65588db31d80",
+                                  "typeGuid": "bf0b0b35-4025-48ff-962a-1761aa7b3a7b"
+                                },
+                                "fields": {
+                                  "Id": 3007,
+                                  "Name": "btn1",
+                                  "Caption": "Сохранить",
+                                  "Width": "97",
+                                  "ExtendedClass": "is-green",
+                                  "PadTop": "20px",
+                                  "PadLeft": "15px"
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "09989829-4d62-4105-a901-80ace092beb8",
+                                  "typeGuid": "bf0b0b35-4025-48ff-962a-1761aa7b3a7b"
+                                },
+                                "fields": {
+                                  "Id": 3007,
+                                  "Name": "btn2",
+                                  "Caption": "Отмена",
+                                  "Width": "67",
+                                  "PadTop": "20px",
+                                  "PadLeft": "5px"
+                                }
+                              }
+                            ]
+                          }
+                        },
                         {
                           "$sys": {
                             "guid": "1215a0ae-a3bd-356a-1c98-e80244b95d52",
@@ -407,12 +528,11 @@
                                   "Id": 4568,
                                   "Name": "FContainer1",
                                   "Width":2,
-                                  "LayoutProp": "true,",
+                                  "LayoutProp": "true,br",
                                   "HasGrid": true,
                                   "ColumnsCount": 8,
                                   "MinColWidth": 60,
-                                  "MaxColWidth": 70,
-                                  "Title": "Обращение"
+                                  "MaxColWidth": 70
                                 },
                                 "collections": {
                                   "Children": [
@@ -452,7 +572,7 @@
                                         "Id": 3007,
                                         "Name": "LabelContent",
                                         "Label": "Содержание",
-                                        "Width": 8,
+                                        "Width": 2,
                                         "LayoutProp": "true,nbr"
                                       }
                                     },
@@ -466,7 +586,7 @@
                                         "Name": "content",
                                         "Dataset": "c2de9609-237a-c3b3-12ac-43bf5b35c169",
                                         "DataField": "Content",
-                                        "Width": 8,
+                                        "Width": 2,
                                         "LayoutProp": "true,br",
                                         "Multiline": false
                                       }

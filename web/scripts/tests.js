@@ -255,3 +255,37 @@ function genetixCreateDatasetFields(parent, fields) {
         $u.add('DataField', fields[i].Name, {}, parent, "Fields");
     }
 }
+
+function genetixBuildExample8() {
+    $u.add('GenVContainer', 'MainContainer', {Width:"100%", Height:"100%"}, 'EmptyForm');
+    $u.add('GenVContainer', 'Container1', {Width:"100%", Height:"100%"}, 'MainContainer');
+    $u.add('GenVContainer', 'VContainer1', {Width:"100%", Height:"50%", MinHeight: "150px"}, 'Container1');
+    $u.add('GenVContainer', 'VContainer2', {
+            Width:"100%", Height:"100%", MinHeight: "200px"}, 'VContainer1'
+    );
+    $u.add('GenVContainer', 'VContainer3',
+        {
+            Width:"200px", Height:"100%", MinHeight: "250px",
+            PadTop: "20px", PadRight: "20px",PadLeft: "20px",PadBottom: "20px",
+            HorizontalAlign: "Left", VerticalAlign: "Center",
+            Background: "green"
+        }, 'VContainer2');
+    $u.add('HContainer', 'HContainer1', {Width:"100%", Height:"50%"}, 'Container1');
+    $u.add('GenVContainer', 'Container3', {Width:"30%", Height:"100%", Background: "red", PadLeft: "20px"}, 'HContainer1');
+    $u.add('GenVContainer', 'Container4', {Width:"30%", Height:"100%", Background: "grey"}, 'HContainer1');
+    $u.add('GenVContainer', 'Container7',
+        { Width:"100%", Height:"100%",
+            PadTop: "5%", PadRight: "5%",PadLeft: "5%",PadBottom: "5%",
+            Background: "greenyellow", MinHeight: "200px", MinWidth: "200px"},
+        'Container4');
+    $u.add('GenVContainer', 'Container5', {Width:"40%", Height:"100%", Background: "yellow"}, 'HContainer1');
+        $u.add('GenDataEdit', 'DataEdit', {
+            Width:"50px", Height:"100%",
+            HorizontalAlign: "center",
+            VerticalAlign: "center"
+        }, 'Container5');
+    $u.add('GenVContainer', 'Container2', {Width:"100%", Height:"200px", Background: "blue"}, 'Container1');
+    $u.add('GenDataGrid', 'GenDataGrid1', {Width:"100%", Height:"100%", MinHeight: "250px", }, 'Container2');
+
+    $u.r();
+}

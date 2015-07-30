@@ -15,6 +15,7 @@ define(
                 {fname:"Color",ftype:"string"},
                 {fname:"FontFamily",ftype:"string"},
                 {fname:"FontWeight",ftype:"string"}
+
             ],
 
             /**

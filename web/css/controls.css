@@ -795,6 +795,7 @@ td.container-title {
 }
 .f-row > div {
   float: left;
+  float: left;
 }
 .grid {
   top: 0;
@@ -853,10 +854,12 @@ td.container-title {
 .control.container > .c-content > .control-wrapper {
   background: #fff;
 }
-.control.container.h-container > .c-content > .control-wrapper {
+.control.container.h-container.separate-children > .c-content > .control-wrapper,
+.control.container.v-container.separate-children > .c-content > .control-wrapper {
   border-right: solid 1px #508ce6;
 }
-.control.container.h-container > .c-content > .control-wrapper:last-child {
+.control.container.h-container.separate-children > .c-content > .control-wrapper:last-child,
+.control.container.v-container.separate-children > .c-content > .control-wrapper:last-child {
   border-right-style: none;
 }
 .reset-l {

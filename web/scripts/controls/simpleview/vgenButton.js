@@ -10,7 +10,31 @@ define(
                 item = pItem.children(".control").attr('id', this.getLid());
                 var parent = '#' + (this.getParent()? "ch_"+this.getLid():options.rootContainer);
                 $(parent).append(pItem);
+                $(parent).css("position", "relative");
+            } else {
+                pItem = $("#mid_" + this.getLid());
             }
+
+            if (this.verticalAlign()) {
+                pItem.css("display", "table-cell");
+                var vAl = this.verticalAlign().toUpperCase();
+                if (vAl == "TOP")
+                    pItem.css("vertical-align", "top");
+                else if (vAl == "BOTTOM")
+                    pItem.css("vertical-align", "bottom");
+                else
+                    pItem.css("vertical-align", "middle");
+            }
+            else {
+                pItem.css("display", "");
+                pItem.css("vertical-align", "");
+            }
+
+            if (this.horizontalAlign()) {
+                if (this.horizontalAlign().toUpperCase() == "CENTER")
+                    item.css("margin", "0 auto")
+            } else
+                item.css("margin", "");
 
             item.find("input").val(this.caption());
             if (this.background())

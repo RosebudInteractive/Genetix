@@ -19,6 +19,11 @@ define(
                 pItem = $("#mid_" + this.getLid());
             }
 
+            if (this.separateChildren())
+                item.addClass("separate-children");
+            else
+                item.removeClass("separate-children");
+
             if (this.verticalAlign()) {
                 pItem.css("display", "table-cell");
                 var vAl = this.verticalAlign().toUpperCase();
@@ -74,8 +79,10 @@ define(
                 var width=child.width() || "auto";
                 var flex = "";
                 if (width != "auto") {
-                    if ($.isNumeric(width))
+                    if ($.isNumeric(width)) {
                         width += "px";
+                        div.css({width: width});
+                    }
                     else if (width.length > 0 && width[width.length - 1] == "%") {
                         var perc = width.replace("%", "");
                         flex = perc + " 0 " + width;

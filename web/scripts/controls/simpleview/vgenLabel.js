@@ -10,7 +10,25 @@ define(
                 item = pItem.children(".control").attr('id', this.getLid());
                 var parent = (this.getParent()? '#ch_' + this.getLid(): options.rootContainer);
                 $(parent).append(pItem);
+            } else {
+                pItem = $("#mid_" + this.getLid());
             }
+
+            if (this.verticalAlign()) {
+                pItem.css("display", "table-cell");
+                var vAl = this.verticalAlign().toUpperCase();
+                if (vAl == "TOP")
+                    pItem.css("vertical-align", "top");
+                else if (vAl == "BOTTOM")
+                    pItem.css("vertical-align", "bottom");
+                else
+                    pItem.css("vertical-align", "middle");
+            }
+            else {
+                pItem.css("display", "");
+                pItem.css("vertical-align", "");
+            }
+
             item.css({width: "100%"/*, height: "100%"*/ }).html(this.label());
             if (this.fontSize( ))
                 item.css({"font-size": this.fontSize()});

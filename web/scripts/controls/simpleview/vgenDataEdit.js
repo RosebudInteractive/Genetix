@@ -16,6 +16,7 @@ define(
 
                 var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(pItem);
+                $(parent).css("position", "relative");
 
                 // сохранять при потере фокуса
                 item.blur(function () {
@@ -26,7 +27,34 @@ define(
                         });
                     }
                 });
+            } else {
+                pItem = $("#mid_" + this.getLid());
             }
+
+            if (this.verticalAlign()) {
+                pItem.css("display", "table-cell");
+                var vAl = this.verticalAlign().toUpperCase();
+                if (vAl == "TOP")
+                    pItem.css("vertical-align", "top");
+                else if (vAl == "BOTTOM")
+                    pItem.css("vertical-align", "bottom");
+                else
+                    pItem.css("vertical-align", "middle");
+            }
+            else {
+                pItem.css("display", "");
+                pItem.css("vertical-align", "");
+            }
+
+            if (this.width() && this.horizontalAlign())
+                item.css("width", this.width());
+            else
+                item.css("width", "");
+            if (this.horizontalAlign()) {
+                if (this.horizontalAlign().toUpperCase() == "CENTER")
+                    item.css("margin", "0 auto")
+            } else
+                item.css("margin", "")
 
             // устанавливаем значение
             if (this.dataset() && this.dataField()) {

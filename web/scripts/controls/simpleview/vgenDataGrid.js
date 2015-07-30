@@ -62,7 +62,25 @@ define(
                 this._iscroll = null;
 
 
+            } else {
+                pItem = $("#mid_" + this.getLid());
             }
+
+            if (this.verticalAlign()) {
+                pItem.css("display", "table-cell");
+                var vAl = this.verticalAlign().toUpperCase();
+                if (vAl == "TOP")
+                    pItem.css("vertical-align", "top");
+                else if (vAl == "BOTTOM")
+                    pItem.css("vertical-align", "bottom");
+                else
+                    pItem.css("vertical-align", "middle");
+            }
+            else {
+                pItem.css("display", "");
+                pItem.css("vertical-align", "");
+            }
+
             // Отрендерим св-ва
             if (this.whiteHeader())
                 grid.addClass("white-header");
