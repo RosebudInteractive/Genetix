@@ -29,6 +29,11 @@ define(
                 pItem.css("vertical-align", "");
             }
 
+            if (this.horizontalAlign() && this.horizontalAlign().toUpperCase() == "LEFT")
+                item.css({"text-align": "left"});
+            else
+                item.css({"text-align": "right"});
+
             item.css({width: "100%"/*, height: "100%"*/ }).html(this.label());
             if (this.fontSize( ))
                 item.css({"font-size": this.fontSize()});

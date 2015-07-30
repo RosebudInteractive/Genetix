@@ -1020,6 +1020,24 @@
                               }
                             ]
                           }
+                        },
+                        {
+                          "$sys": {
+                            "guid": "92fc310b-9771-4cad-b172-0c28325c6760",
+                            "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                          },
+                          "fields": {
+                            "Id": 3007,
+                            "Name": "LabelHistory",
+                            "Label": "История",
+                            "FontSize": "1.125em",
+                            "Width": "130",
+                            "Color": "#000000",
+                            "FontWeight": 500,
+                            "PadTop": "15px",
+                            "Height": "3em",
+                            "HorizontalAlign": "left"
+                          }
                         }
                       ]
                     }

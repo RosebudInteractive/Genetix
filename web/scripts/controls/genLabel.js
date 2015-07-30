@@ -14,7 +14,8 @@ define(
                 {fname:"FontSize",ftype:"string"},
                 {fname:"Color",ftype:"string"},
                 {fname:"FontFamily",ftype:"string"},
-                {fname:"FontWeight",ftype:"string"}
+                {fname:"FontWeight",ftype:"string"},
+                {fname:"AlignLeft",ftype:"boolean"}
 
             ],
 
