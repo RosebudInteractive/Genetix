@@ -29,6 +29,7 @@ $(document).ready( function() {
     require(
         ["./lib/uccello/config/config", "./deviceHelper"],
         function(Config, DeviceHelper) {
+
             var device = new DeviceHelper(window.navigator.userAgent.toLowerCase());
             var config = {
                 controls: [
@@ -255,6 +256,12 @@ $(document).ready( function() {
                             });
                             $("#empty-menu-item").click(function() {
                                 window.createContext([form9Guid])
+                            });
+
+                            $(".system-toolbar-icon.is-device-close-icon").click(function() {
+                                setTimeout(function() {
+                                    $(window).trigger("genetix:resize");
+                                }, 300);
                             });
 
                             $("#coral-button").click(function() {
