@@ -17,7 +17,8 @@ define(
                 {fname:"BigSize", ftype:"boolean"},
                 {fname:"WhiteHeader", ftype:"boolean"},
                 {fname:"HasFooter", ftype:"boolean"},
-                {fname:"Scroll", ftype:"boolean"}
+                {fname:"Scroll", ftype:"boolean"},
+                {fname:"BodyBackground", ftype:"string"}
             ],
             metaCols: [ ],
 
