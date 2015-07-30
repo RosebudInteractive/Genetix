@@ -77,7 +77,7 @@ define(
                     }
                 }
                 var width=child.width() || "auto";
-                var flex = "";
+                var flex = "none";
                 if (width != "auto") {
                     if ($.isNumeric(width)) {
                         width += "px";
@@ -176,7 +176,7 @@ define(
             var child = data.control;
             var div = $(event.target);
             var width = child.width() || "auto";
-            var flex = "";
+            var flex = "none";
             if (width != "auto") {
                 if ($.isNumeric(width))
                     width += "px";

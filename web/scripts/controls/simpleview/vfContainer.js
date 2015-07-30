@@ -84,6 +84,10 @@ define(
                 wOptions._parentFlex = vFContainer.getParentFlex.call(this);
                 wOptions._templates = vFContainer._templates;
                 wOptions._lid = this.getLid();
+                wOptions.recalculated = function() {
+                    that._recalculated = true;
+                    vFContainer._genEventsForParent.call(that);
+                }
                 this._containerWidget = item.genetixFlexContainer(wOptions);
 
                 var serOptions = vFContainer.serializeOptions.call(this, wOptions);
@@ -106,7 +110,7 @@ define(
                     div.children().css("height", div.height());
                 }
             });
-
+            this._recalculated = true;
             vFContainer._genEventsForParent.call(this);
         }
 
@@ -117,6 +121,8 @@ define(
         vFContainer._genEventsForParent = function() {
             var genEvent = false;
             var changedFields = {};
+            if (this._recalculated) { changedFields.Height = true; genEvent = true; }
+            this._recalculated = false;
             if (this.isFldModified("Width")) { changedFields.Width = true; genEvent = true; }
             if (this.isFldModified("Height")) { changedFields.Height = true; genEvent = true; }
             if (this.isFldModified("HorizontalAlign")) { changedFields.HorizontalAlign = true; genEvent = true; }

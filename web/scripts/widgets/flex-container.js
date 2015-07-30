@@ -260,7 +260,9 @@ define(
                 }
 
                 var dEnd = new Date();
-                console.log("Длительность пересчета: " + (dEnd - dBegin) + " мСек.")
+                console.log("Длительность пересчета: " + (dEnd - dBegin) + " мСек.");
+                if (this.options._isRootFlex)
+                    this._trigger("recalculated", null);
             },
 
             _deserializeOptions: function() {

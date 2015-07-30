@@ -114,7 +114,7 @@ define(
             } else {
                 div.css({width: "100%"});
                 var height = child.height() || "auto";
-                var flex = "";
+                var flex = "none";
                 if (height != "auto") {
                     if ($.isNumeric(height))
                         height += "px";
@@ -227,7 +227,6 @@ define(
         }
 
         vContainer.handleChildChanged = function(event, data) {
-            console.log(event);
             if (!("Height" in data.properties)) return;
             var child = data.control;
             vContainer._setChildCSS.call(this, child);
