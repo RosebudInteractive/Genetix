@@ -73,8 +73,13 @@ define(
                 this.options._childrenGenerators.push(generator);
             },
 
-            resizeHandler: function() {
+            resizeHandler: function(secondIteration) {
+                secondIteration = secondIteration || false;
                 console.log(this.options);
+                //Запомним наличие вертикального скрола у парента
+                var parentContent = $("#ext_" + this.getLid()).parent();
+                var scrolls = parentContent.hasScrollBar();
+
                 var dBegin = new Date();
                 var item = $('#' + this.getLid());
                 item.children(".c-content").css("width", "100%");
@@ -186,7 +191,7 @@ define(
 
                 // Если заданы отступы, то добавляем их к корневой строке
                 if (padding != 0 && this.options._rows.length > 0) {
-                    var rPadObj = this._getObj("PADDING", this.options._rows[0], null, this.options._rows[0].children.length - 1);
+                      var rPadObj = this._getObj("PADDING", this.options._rows[0], null, this.options._rows[0].children.length - 1);
                     var lPadObj = this._getObj("PADDING", this.options._rows[0], null, -1);
                     lPadObj.element.width(padding);
                     rPadObj.element.width(padding);
@@ -261,8 +266,17 @@ define(
 
                 var dEnd = new Date();
                 console.log("Длительность пересчета: " + (dEnd - dBegin) + " мСек.");
-                if (this.options._isRootFlex)
+                if (this.options._isRootFlex){
                     this._trigger("recalculated", null);
+                    var that = this;
+                    // дадим время браузеру отобразить скролы
+                    setTimeout(function() {
+                        var newScrolls = parentContent.hasScrollBar();
+                        if (scrolls.vertical != newScrolls.vertical && !secondIteration) {
+                            $(window).trigger("genetix:resize");
+                        }
+                    }, 0);
+                }
             },
 
             _deserializeOptions: function() {

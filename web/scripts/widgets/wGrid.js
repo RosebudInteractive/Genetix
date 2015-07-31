@@ -114,6 +114,7 @@ define(
                 this._bodyTable.empty();
                 this.clearPageCache();
                 this.renderData();
+                $(window).trigger("genetix:resize");
             },
 
             renderHeader: function(){
