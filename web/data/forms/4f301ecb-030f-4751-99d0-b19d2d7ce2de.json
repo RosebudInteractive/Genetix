@@ -369,56 +369,90 @@
                 "Children": [
                   {
                     "$sys": {
-                      "guid": "ea3555fb-d449-4505-408d-5d9378ec9726",
-                      "typeGuid": "55d59ec4-77ac-4296-85e1-def78aa93d55"
+                      "guid": "28a179c9-b4eb-4583-a32d-2e4418a68c08",
+                      "typeGuid": "b75474ef-26d0-4298-9dad-4133edaa8a9c"
                     },
                     "fields": {
-                      "Id": 2005,
-                      "Name": "DataGridLead",
+                      "Id": 2002,
+                      "Name": "GridContainer2",
                       "Width": "50%",
-                      "Height": "100%",
-                      "Dataset": "c2de9609-237a-c3b3-12ac-43bf5b35c169",
-                      "BigSize": true,
-                      "Alternate": false,
-                      "HorizontalLines": true,
-                      "HasFooter": false
+                      "Height": "100%"
                     },
                     "collections": {
-                      "Columns": [
+                      "Children": [
                         {
                           "$sys": {
-                            "guid": "181548f0-fdc0-9c90-ebaf-4a44c20f90e0",
-                            "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
+                            "guid": "3284cc52-2cce-4dc8-9377-69718c34a669",
+                            "typeGuid": "b75474ef-26d0-4298-9dad-4133edaa8a9c"
                           },
                           "fields": {
-                            "Id": 5001,
-                            "Label": "Date",
-                            "Width": 20,
-                            "Field": "a0e1e0e0-0c82-29ba-cd5d-b770aa9ffcc9"
+                            "Id": 2002,
+                            "Name": "ToolbarContainer1",
+                            "Width": "100%",
+                            "Height": "4.875em",
+                            "Background": "#D7E2F5"
+                          },
+                          "collections": {
+                            "Children": [
+                            ]
                           }
                         },
                         {
                           "$sys": {
-                            "guid": "40263777-70c8-3532-a683-6cec83378999",
-                            "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
+                            "guid": "ea3555fb-d449-4505-408d-5d9378ec9726",
+                            "typeGuid": "55d59ec4-77ac-4296-85e1-def78aa93d55"
                           },
                           "fields": {
-                            "Id": 5002,
-                            "Label": "State",
-                            "Width": 20,
-                            "Field": "7e81d9b8-ffdd-9adb-b27e-50bed6bf9648"
-                          }
-                        },
-                        {
-                          "$sys": {
-                            "guid": "19d70a3d-1b52-2c0d-831a-7d4a35ddb56e",
-                            "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
+                            "Id": 2005,
+                            "Name": "DataGridLead",
+                            "Width": "50%",
+                            "Height": "100%",
+                            "Dataset": "c2de9609-237a-c3b3-12ac-43bf5b35c169",
+                            "BigSize": true,
+                            "Alternate": false,
+                            "HorizontalLines": true,
+                            "HasFooter": false,
+                            "WhiteHeader": true
                           },
-                          "fields": {
-                            "Id": 5003,
-                            "Label": "Name",
-                            "Width": 60,
-                            "Field": "bb76eac7-7f14-532f-bb28-72122339d7e0"
+                          "collections": {
+                            "Columns": [
+                              {
+                                "$sys": {
+                                  "guid": "181548f0-fdc0-9c90-ebaf-4a44c20f90e0",
+                                  "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
+                                },
+                                "fields": {
+                                  "Id": 5001,
+                                  "Label": "Date",
+                                  "Width": 20,
+                                  "Field": "a0e1e0e0-0c82-29ba-cd5d-b770aa9ffcc9"
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "40263777-70c8-3532-a683-6cec83378999",
+                                  "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
+                                },
+                                "fields": {
+                                  "Id": 5002,
+                                  "Label": "State",
+                                  "Width": 20,
+                                  "Field": "7e81d9b8-ffdd-9adb-b27e-50bed6bf9648"
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "19d70a3d-1b52-2c0d-831a-7d4a35ddb56e",
+                                  "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
+                                },
+                                "fields": {
+                                  "Id": 5003,
+                                  "Label": "Name",
+                                  "Width": 60,
+                                  "Field": "bb76eac7-7f14-532f-bb28-72122339d7e0"
+                                }
+                              }
+                            ]
                           }
                         }
                       ]
@@ -440,61 +474,17 @@
                         {
                           "$sys": {
                             "guid": "98b7fc25-f8e4-450e-a480-b9e79344fbf3",
-                            "typeGuid": "638c1e37-2105-9676-f3c9-dfc2746d1265"
+                            "typeGuid": "b75474ef-26d0-4298-9dad-4133edaa8a9c"
                           },
                           "fields": {
                             "Id": 2002,
-                            "Name": "HContainer2",
+                            "Name": "ToolbarContainer2",
                             "Width": "100%",
-                            "Height": "3em"
+                            "Height": "4.875em",
+                            "Background": "#D7E2F5"
                           },
                           "collections": {
                             "Children": [
-                              {
-                                "$sys": {
-                                  "guid": "05c44d12-1edb-4678-b1c4-fefa47609530",
-                                  "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
-                                },
-                                "fields": {
-                                  "Id": 3007,
-                                  "Name": "LabelIncom",
-                                  "Label": "Обращение",
-                                  "FontSize": "1.125em",
-                                  "Width": "130",
-                                  "Color": "#000000",
-                                  "FontWeight": 500,
-                                  "PadTop": "15px"
-                                }
-                              },
-                              {
-                                "$sys": {
-                                  "guid": "e5249d79-cc5b-4f28-8a2a-65588db31d80",
-                                  "typeGuid": "bf0b0b35-4025-48ff-962a-1761aa7b3a7b"
-                                },
-                                "fields": {
-                                  "Id": 3007,
-                                  "Name": "btn1",
-                                  "Caption": "Сохранить",
-                                  "Width": "97",
-                                  "ExtendedClass": "is-green",
-                                  "PadTop": "20px",
-                                  "PadLeft": "15px"
-                                }
-                              },
-                              {
-                                "$sys": {
-                                  "guid": "09989829-4d62-4105-a901-80ace092beb8",
-                                  "typeGuid": "bf0b0b35-4025-48ff-962a-1761aa7b3a7b"
-                                },
-                                "fields": {
-                                  "Id": 3007,
-                                  "Name": "btn2",
-                                  "Caption": "Отмена",
-                                  "Width": "67",
-                                  "PadTop": "20px",
-                                  "PadLeft": "5px"
-                                }
-                              }
                             ]
                           }
                         },
@@ -545,7 +535,8 @@
                                         "HasGrid": true,
                                         "ColumnsCount": 8,
                                         "MinColWidth": 60,
-                                        "MaxColWidth": 70
+                                        "MaxColWidth": 70,
+                                        "Title": "Обращение"
                                       },
                                       "collections": {
                                         "Children": [

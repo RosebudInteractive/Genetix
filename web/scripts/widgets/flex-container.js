@@ -27,7 +27,7 @@ define(
                 this._iscroll = null;
                 this._deserializeOptions();
                 if (this.options._isRootFlex) {
-                    $(window).off("genetix:resize").on("genetix:resize", function () {
+                    $(window).on("genetix:resize", function () {
                         that._launchInfo.launchPending = true;
                         console.warn("resize heppened");
                         //that.resizeHandler();

@@ -215,6 +215,13 @@ define(
                     this.element.show("fast");
                 }
 
+                this._MouseInside = false;
+                var that = this;
+                setTimeout(function () {
+                    if (!that._MouseInside)
+                        that.hide();
+                }, 1000);
+
             },
 
             hide: function() {

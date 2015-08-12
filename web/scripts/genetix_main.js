@@ -261,7 +261,7 @@ $(document).ready( function() {
                             $(".system-toolbar-icon.is-device-close-icon").click(function() {
                                 setTimeout(function() {
                                     $(window).trigger("genetix:resize");
-                                }, 300);
+                                }, 150);
                             });
 
                             $("#coral-button").click(function() {

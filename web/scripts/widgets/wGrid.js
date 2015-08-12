@@ -71,7 +71,11 @@ define(
                 } else {
                     this._grid.parent().css("height", "auto");
                     this._grid.css("height", "auto");
-                    this._trigger("sizechanged", null);
+                    try {
+                        this._trigger("sizechanged", null);
+                    } catch (e) {
+                        console.error(e)
+                    }
                 }
             },
 
