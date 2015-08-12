@@ -8,7 +8,7 @@
 	defaults = {
 		className: 'autosizejs',
 		id: 'autosizejs',
-		append: '\n',
+		append: '', //\n',
 		callback: false,
 		resizeDelay: 10,
 		placeholder: true

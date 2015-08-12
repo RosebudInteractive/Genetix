@@ -185,6 +185,7 @@ define(
                     for (var k = 0; k < children.length; k++) {
                         var childObj = children[k];
                         childObj.element.css({height: "auto"});
+                        childObj.element.children().css({height: "auto"});
                         childObj.element.outerWidth(childObj.realColCount * curColWidth);
                     }
                 }
@@ -219,7 +220,9 @@ define(
                         if (childObj.element.attr("id") && elId && elId.indexOf("cont-label-") >= 0) {
                             maxHeight = Math.max(maxHeight, childObj.element.height());
                         } else {
-                            maxHeight = Math.max(maxHeight, childObj.element.children().children().children().height());
+                            var h = childObj.element.children().children().children().css("height");
+                            if (h) h = h.replace("px", "");
+                            maxHeight = Math.max(maxHeight, h);
                         }
                     }
 
@@ -227,7 +230,7 @@ define(
                     for (var m = 0; m < children.length; m++) {
                         var childObj = children[m];
                         if (childObj.isLineEnd)
-                            childObj.element.height(maxHeight);
+                            childObj.element.css("height", maxHeight);
                     }
                 }
 
@@ -244,7 +247,8 @@ define(
                     // теперь выставим у всех высоту
                     for (var m = 0; m < children.length; m++) {
                         var childObj = children[m];
-                        childObj.element.height(maxHeight);
+                        childObj.element.css("height", maxHeight);
+                        childObj.element.children().css("height", maxHeight);
                     }
                 }
 

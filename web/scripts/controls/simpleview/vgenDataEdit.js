@@ -79,8 +79,8 @@ define(
                             var oldH = $(el).parent().height();
                             $(el).parent().css({height: ""});
                             $(el).parent().parent().css({height: ""});
-                            $(el).parent().height($(el).parent().outerHeight());
-                            $(el).parent().parent().height($(el).parent().parent().outerHeight());
+                            $(el).parent().height($(el).css("height").replace("px", "")); //$(el).parent().height());
+                            $(el).parent().parent().height($(el).parent().parent().height());
                             if (oldH != $(el).parent().height())
                                 $(window).trigger("genetix:resize");
                         }
