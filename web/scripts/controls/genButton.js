@@ -14,7 +14,8 @@ define(
                 {fname:"Background",ftype:"string"},
                 {fname:"Color",ftype:"string"},
                 {fname:"BorderColor",ftype:"string"},
-                {fname:"ExtendedClass",ftype:"string"}
+                {fname:"ExtendedClass",ftype:"string"},
+                {fname:"ContentAlign",ftype:"string"}
             ],
 
             /**

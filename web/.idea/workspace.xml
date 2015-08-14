@@ -2,139 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/156b663e-8b6f-4464-b3d1-65cac6537108.json" afterPath="$PROJECT_DIR$/data/forms/156b663e-8b6f-4464-b3d1-65cac6537108.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/1bf3b1a3-edba-32ca-5033-75e3cf9a709a.json" afterPath="$PROJECT_DIR$/data/forms/1bf3b1a3-edba-32ca-5033-75e3cf9a709a.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/4112f74d-42cd-4dff-b288-d03f26825715.json" afterPath="$PROJECT_DIR$/data/forms/4112f74d-42cd-4dff-b288-d03f26825715.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json" afterPath="$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controls/genToolbar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controls/genToolbarButton.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbar.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbarButton.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenToolbar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenToolbarButton.js" />
+      <change type="MOVED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\css\toolbar.css" afterPath="$PROJECT_DIR$/css/system-toolbar.css" />
+      <change type="MOVED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\css\toolbar.styl" afterPath="$PROJECT_DIR$/css/system-toolbar.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json" afterPath="$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/88b9280f-7cce-7739-1e65-a883371cd498.json" afterPath="$PROJECT_DIR$/data/forms/88b9280f-7cce-7739-1e65-a883371cd498.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json" afterPath="$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-1.json" afterPath="$PROJECT_DIR$/data/tables/address-1.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10.json" afterPath="$PROJECT_DIR$/data/tables/address-10.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10000.json" afterPath="$PROJECT_DIR$/data/tables/address-10000.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10085.json" afterPath="$PROJECT_DIR$/data/tables/address-10085.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10095.json" afterPath="$PROJECT_DIR$/data/tables/address-10095.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10131.json" afterPath="$PROJECT_DIR$/data/tables/address-10131.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10204.json" afterPath="$PROJECT_DIR$/data/tables/address-10204.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10268.json" afterPath="$PROJECT_DIR$/data/tables/address-10268.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10339.json" afterPath="$PROJECT_DIR$/data/tables/address-10339.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10392.json" afterPath="$PROJECT_DIR$/data/tables/address-10392.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10440.json" afterPath="$PROJECT_DIR$/data/tables/address-10440.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10469.json" afterPath="$PROJECT_DIR$/data/tables/address-10469.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10522.json" afterPath="$PROJECT_DIR$/data/tables/address-10522.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10561.json" afterPath="$PROJECT_DIR$/data/tables/address-10561.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10586.json" afterPath="$PROJECT_DIR$/data/tables/address-10586.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10614.json" afterPath="$PROJECT_DIR$/data/tables/address-10614.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10672.json" afterPath="$PROJECT_DIR$/data/tables/address-10672.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10686.json" afterPath="$PROJECT_DIR$/data/tables/address-10686.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10771.json" afterPath="$PROJECT_DIR$/data/tables/address-10771.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10828.json" afterPath="$PROJECT_DIR$/data/tables/address-10828.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10877.json" afterPath="$PROJECT_DIR$/data/tables/address-10877.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-10924.json" afterPath="$PROJECT_DIR$/data/tables/address-10924.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-11.json" afterPath="$PROJECT_DIR$/data/tables/address-11.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-12.json" afterPath="$PROJECT_DIR$/data/tables/address-12.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-13.json" afterPath="$PROJECT_DIR$/data/tables/address-13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-14.json" afterPath="$PROJECT_DIR$/data/tables/address-14.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-15.json" afterPath="$PROJECT_DIR$/data/tables/address-15.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-16.json" afterPath="$PROJECT_DIR$/data/tables/address-16.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-17.json" afterPath="$PROJECT_DIR$/data/tables/address-17.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-18.json" afterPath="$PROJECT_DIR$/data/tables/address-18.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-19.json" afterPath="$PROJECT_DIR$/data/tables/address-19.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-2.json" afterPath="$PROJECT_DIR$/data/tables/address-2.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-20.json" afterPath="$PROJECT_DIR$/data/tables/address-20.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-3.json" afterPath="$PROJECT_DIR$/data/tables/address-3.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-4.json" afterPath="$PROJECT_DIR$/data/tables/address-4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-5.json" afterPath="$PROJECT_DIR$/data/tables/address-5.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-6.json" afterPath="$PROJECT_DIR$/data/tables/address-6.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-7.json" afterPath="$PROJECT_DIR$/data/tables/address-7.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-8.json" afterPath="$PROJECT_DIR$/data/tables/address-8.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/address-9.json" afterPath="$PROJECT_DIR$/data/tables/address-9.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/cf07df23-abfe-9887-a353-09a00faf99d8.json" afterPath="$PROJECT_DIR$/data/forms/cf07df23-abfe-9887-a353-09a00faf99d8.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/company.json" afterPath="$PROJECT_DIR$/data/tables/company.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/company_tst.json" afterPath="$PROJECT_DIR$/data/tables/company_tst.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-1.json" afterPath="$PROJECT_DIR$/data/tables/contact-1.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-10.json" afterPath="$PROJECT_DIR$/data/tables/contact-10.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-11.json" afterPath="$PROJECT_DIR$/data/tables/contact-11.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-12.json" afterPath="$PROJECT_DIR$/data/tables/contact-12.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-13.json" afterPath="$PROJECT_DIR$/data/tables/contact-13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-14.json" afterPath="$PROJECT_DIR$/data/tables/contact-14.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-15.json" afterPath="$PROJECT_DIR$/data/tables/contact-15.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-16.json" afterPath="$PROJECT_DIR$/data/tables/contact-16.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-17.json" afterPath="$PROJECT_DIR$/data/tables/contact-17.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-18.json" afterPath="$PROJECT_DIR$/data/tables/contact-18.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-19.json" afterPath="$PROJECT_DIR$/data/tables/contact-19.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-2.json" afterPath="$PROJECT_DIR$/data/tables/contact-2.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-20.json" afterPath="$PROJECT_DIR$/data/tables/contact-20.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-3.json" afterPath="$PROJECT_DIR$/data/tables/contact-3.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-4.json" afterPath="$PROJECT_DIR$/data/tables/contact-4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-5.json" afterPath="$PROJECT_DIR$/data/tables/contact-5.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-6.json" afterPath="$PROJECT_DIR$/data/tables/contact-6.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-7.json" afterPath="$PROJECT_DIR$/data/tables/contact-7.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-8.json" afterPath="$PROJECT_DIR$/data/tables/contact-8.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact-9.json" afterPath="$PROJECT_DIR$/data/tables/contact-9.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-1.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-1.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-10.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-10.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-11.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-11.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-12.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-12.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-13.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-14.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-14.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-15.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-15.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-16.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-16.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-17.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-17.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-18.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-18.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-19.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-19.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-2.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-2.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-20.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-20.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-3.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-3.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-4.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-5.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-5.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-6.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-6.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-7.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-7.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-8.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-8.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-9.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-9.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-1.json" afterPath="$PROJECT_DIR$/data/tables/contract-1.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-10.json" afterPath="$PROJECT_DIR$/data/tables/contract-10.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-11.json" afterPath="$PROJECT_DIR$/data/tables/contract-11.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-12.json" afterPath="$PROJECT_DIR$/data/tables/contract-12.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-13.json" afterPath="$PROJECT_DIR$/data/tables/contract-13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-14.json" afterPath="$PROJECT_DIR$/data/tables/contract-14.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-15.json" afterPath="$PROJECT_DIR$/data/tables/contract-15.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-16.json" afterPath="$PROJECT_DIR$/data/tables/contract-16.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-17.json" afterPath="$PROJECT_DIR$/data/tables/contract-17.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-18.json" afterPath="$PROJECT_DIR$/data/tables/contract-18.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-19.json" afterPath="$PROJECT_DIR$/data/tables/contract-19.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-2.json" afterPath="$PROJECT_DIR$/data/tables/contract-2.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-20.json" afterPath="$PROJECT_DIR$/data/tables/contract-20.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-3.json" afterPath="$PROJECT_DIR$/data/tables/contract-3.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-4.json" afterPath="$PROJECT_DIR$/data/tables/contract-4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-5.json" afterPath="$PROJECT_DIR$/data/tables/contract-5.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-6.json" afterPath="$PROJECT_DIR$/data/tables/contract-6.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-7.json" afterPath="$PROJECT_DIR$/data/tables/contract-7.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-8.json" afterPath="$PROJECT_DIR$/data/tables/contract-8.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contract-9.json" afterPath="$PROJECT_DIR$/data/tables/contract-9.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/e7613a67-c36c-4ff5-a999-4d143bebc97c.json" afterPath="$PROJECT_DIR$/data/forms/e7613a67-c36c-4ff5-a999-4d143bebc97c.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead.json" afterPath="$PROJECT_DIR$/data/tables/lead.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-1.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-1.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-10.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-10.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-11.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-11.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-12.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-12.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-13.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-14.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-14.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-15.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-15.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-16.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-16.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-17.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-17.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-18.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-18.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-19.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-19.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-2.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-2.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-20.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-20.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-3.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-3.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-4.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-5.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-5.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-6.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-6.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-7.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-7.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-8.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-8.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/lead_log-9.json" afterPath="$PROJECT_DIR$/data/tables/lead_log-9.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/opportunity.json" afterPath="$PROJECT_DIR$/data/tables/opportunity.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/Genetix.svg" afterPath="$PROJECT_DIR$/images/Genetix.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/genButton.js" afterPath="$PROJECT_DIR$/scripts/controls/genButton.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/general.styl" afterPath="$PROJECT_DIR$/css/general.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/genetix.html" afterPath="$PROJECT_DIR$/views/genetix.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/genetixSrv.js" afterPath="$PROJECT_DIR$/genetixSrv.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/genetix_main.js" afterPath="$PROJECT_DIR$/scripts/genetix_main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/toolbar.styl" afterPath="$PROJECT_DIR$/css/toolbar.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -166,51 +51,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="vgenDataGrid.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js">
+      <file leaf-file-name="toolbar.styl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/toolbar.styl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.39673278">
+              <caret line="20" column="75" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controls.styl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/controls.styl">
+      <file leaf-file-name="system-toolbar.styl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/system-toolbar.styl">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+              <caret line="74" column="14" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="containers.styl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/containers.styl">
+      <file leaf-file-name="genToolbar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/genToolbar.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="153" column="50" selection-start-line="153" selection-start-column="50" selection-end-line="153" selection-end-column="50" />
+              <caret line="4" column="15" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="containers.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/containers.css">
+      <file leaf-file-name="vgenToolbar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenToolbar.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="104" column="15" selection-start-line="104" selection-start-column="15" selection-end-line="104" selection-end-column="15" />
-              <folding />
+              <caret line="54" column="62" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#59#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="flex-container.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/widgets/flex-container.js">
+      <file leaf-file-name="vgenToolbarButton.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenToolbarButton.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+              <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -219,161 +106,38 @@
       <file leaf-file-name="4f301ecb-030f-4751-99d0-b19d2d7ce2de.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.3846154">
-              <caret line="300" column="30" selection-start-line="300" selection-start-column="30" selection-end-line="300" selection-end-column="30" />
+            <state vertical-scroll-proportion="-24.76923">
+              <caret line="1096" column="0" selection-start-line="1096" selection-start-column="0" selection-end-line="1096" selection-end-column="0" />
               <folding>
+                <element signature="e#1305#13805#0" expanded="false" />
+                <element signature="e#14289#18388#0" expanded="false" />
                 <element signature="e#16357#18296#0" expanded="false" />
-                <element signature="e#18919#19619#0" expanded="false" />
-                <element signature="e#22303#29232#0" expanded="false" />
-                <element signature="e#52459#53349#0" expanded="false" />
-                <element signature="e#53381#55839#0" expanded="false" />
+                <element signature="e#19710#20510#0" expanded="false" />
+                <element signature="e#20542#21281#0" expanded="false" />
+                <element signature="e#21313#22113#0" expanded="false" />
+                <element signature="e#22818#55006#0" expanded="false" />
+                <element signature="e#24882#31811#0" expanded="false" />
+                <element signature="e#56029#58487#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="156b663e-8b6f-4464-b3d1-65cac6537108.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/forms/156b663e-8b6f-4464-b3d1-65cac6537108.json">
+      <file leaf-file-name="toolbarButton.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbarButton.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.0384617">
-              <caret line="195" column="35" selection-start-line="195" selection-start-column="35" selection-end-line="195" selection-end-column="35" />
+            <state vertical-scroll-proportion="-7.1923075">
+              <caret line="11" column="34" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="grid.styl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/grid.styl">
+      <file leaf-file-name="genToolbarButton.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/genToolbarButton.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="111" column="29" selection-start-line="111" selection-start-column="29" selection-end-line="111" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="1bf3b1a3-edba-32ca-5033-75e3cf9a709a.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/forms/1bf3b1a3-edba-32ca-5033-75e3cf9a709a.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.0384617">
-              <caret line="172" column="35" selection-start-line="172" selection-start-column="35" selection-end-line="172" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="4112f74d-42cd-4dff-b288-d03f26825715.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/forms/4112f74d-42cd-4dff-b288-d03f26825715.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.0384617">
-              <caret line="196" column="35" selection-start-line="196" selection-start-column="35" selection-end-line="196" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.0384617">
-              <caret line="184" column="57" selection-start-line="184" selection-start-column="57" selection-end-line="184" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="88b9280f-7cce-7739-1e65-a883371cd498.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/forms/88b9280f-7cce-7739-1e65-a883371cd498.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.0384617">
-              <caret line="307" column="35" selection-start-line="307" selection-start-column="35" selection-end-line="307" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="89f42efa-b160-842c-03b4-f3b536ca09d8.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.615385">
-              <caret line="75" column="128" selection-start-line="75" selection-start-column="128" selection-end-line="75" selection-end-column="128" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cf07df23-abfe-9887-a353-09a00faf99d8.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/forms/cf07df23-abfe-9887-a353-09a00faf99d8.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.0384617">
-              <caret line="167" column="35" selection-start-line="167" selection-start-column="35" selection-end-line="167" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="e7613a67-c36c-4ff5-a999-4d143bebc97c.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/forms/e7613a67-c36c-4ff5-a999-4d143bebc97c.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29288703">
-              <caret line="52" column="14" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vgenVContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wGrid.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/widgets/wGrid.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="75" column="33" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
-              <folding>
-                <marker date="1439378768490" expanded="true" signature="5849:5859" placeholder="..." />
-                <marker date="1439378768490" expanded="true" signature="6022:6032" placeholder="..." />
-                <marker date="1439378768490" expanded="true" signature="10674:10685" placeholder="..." />
-                <marker date="1439378768490" expanded="true" signature="10911:10921" placeholder="..." />
-                <marker date="1439378768490" expanded="true" signature="14355:14365" placeholder="..." />
-                <marker date="1439378768490" expanded="true" signature="17530:17540" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="genDataGrid.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/genDataGrid.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vhContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vhContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="genVContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/genVContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -384,8 +148,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Html5" />
         <option value="JavaScript File" />
+        <option value="Html5" />
       </list>
     </option>
   </component>
@@ -406,14 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/containers-layout/sandbox-inner.css" />
-        <option value="$PROJECT_DIR$/css/controls.css" />
-        <option value="$PROJECT_DIR$/containers-layout/samples-template.html" />
-        <option value="$PROJECT_DIR$/containers-layout/sandbox.html" />
-        <option value="$PROJECT_DIR$/containers-layout/frame-template.html" />
-        <option value="$PROJECT_DIR$/containers-layout/sandbox-inner.styl" />
-        <option value="$PROJECT_DIR$/containers-layout/sandbox-inner.js" />
-        <option value="$PROJECT_DIR$/scripts/templates/genetix.html" />
         <option value="$PROJECT_DIR$/../../Uccello/controls/fContainer.js" />
         <option value="$PROJECT_DIR$/../../Uccello/controls/aControl.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/fContainer.html" />
@@ -423,28 +179,20 @@
         <option value="$PROJECT_DIR$/../../Uccello/controls/hContainer.js" />
         <option value="$PROJECT_DIR$/scripts/controls/genLabel.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenLabel.js" />
-        <option value="$PROJECT_DIR$/genetixSrv.js" />
         <option value="$PROJECT_DIR$/scripts/controls/genDataGrid.js" />
         <option value="$PROJECT_DIR$/scripts/DataControls/dataLeadLog.js" />
         <option value="$PROJECT_DIR$/scripts/genetix_events.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vfContainer.js" />
         <option value="$PROJECT_DIR$/scripts/widgets/jquery-has-scrolls.js" />
         <option value="$PROJECT_DIR$/scripts/lib/jquery-has-scrolls.js" />
-        <option value="$PROJECT_DIR$/views/genetix.html" />
-        <option value="$PROJECT_DIR$/css/toolbar.styl" />
         <option value="$PROJECT_DIR$/scripts/lib/jquery.autosize.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/dataEdit.html" />
         <option value="$PROJECT_DIR$/css/edit.styl" />
-        <option value="$PROJECT_DIR$/css/general.styl" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" />
-        <option value="$PROJECT_DIR$/images/Genetix.svg" />
         <option value="$PROJECT_DIR$/css/popup.styl" />
         <option value="$PROJECT_DIR$/scripts/widgets/popup.js" />
-        <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
         <option value="$PROJECT_DIR$/scripts/widgets/wGrid.js" />
         <option value="$PROJECT_DIR$/scripts/widgets/flex-container.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vhContainer.js" />
         <option value="$PROJECT_DIR$/css/grid.styl" />
         <option value="$PROJECT_DIR$/css/controls.styl" />
         <option value="$PROJECT_DIR$/css/containers.styl" />
@@ -455,8 +203,24 @@
         <option value="$PROJECT_DIR$/data/forms/cf07df23-abfe-9887-a353-09a00faf99d8.json" />
         <option value="$PROJECT_DIR$/data/forms/e7613a67-c36c-4ff5-a999-4d143bebc97c.json" />
         <option value="$PROJECT_DIR$/data/forms/1bf3b1a3-edba-32ca-5033-75e3cf9a709a.json" />
-        <option value="$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json" />
         <option value="$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vhContainer.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" />
+        <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
+        <option value="$PROJECT_DIR$/genetixSrv.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/genButton.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/genToolbarButton.js" />
+        <option value="$PROJECT_DIR$/../../Uccello/controls/button.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/genToolbar.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenToolbarButton.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbarButton.html" />
+        <option value="$PROJECT_DIR$/images/Genetix.svg" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenToolbar.js" />
+        <option value="$PROJECT_DIR$/css/general.styl" />
+        <option value="$PROJECT_DIR$/views/genetix.html" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbar.html" />
+        <option value="$PROJECT_DIR$/css/toolbar.styl" />
+        <option value="$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json" />
       </list>
     </option>
   </component>
@@ -527,8 +291,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -601,6 +365,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -620,6 +398,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="widgets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="widgets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -753,9 +571,59 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toolbar.styl" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system-toolbar.styl" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1260,7 +1128,8 @@
       <workItem from="1438362783150" duration="4125000" />
       <workItem from="1439195142686" duration="9685000" />
       <workItem from="1439277774269" duration="6250000" />
-      <workItem from="1439365991196" duration="10469000" />
+      <workItem from="1439365991196" duration="11200000" />
+      <workItem from="1439440990861" duration="21739000" />
     </task>
     <task id="LOCAL-00021" summary="рефактор девайсов и сессии и верстка попапов">
       <created>1425332346890</created>
@@ -1560,7 +1429,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69285000" />
+    <option name="totallyTimeSpent" value="91755000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1288" y="-132" width="1296" height="1040" extended-state="6" />
@@ -1573,7 +1442,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1957638" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34770516" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31432545" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3137033" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23101777" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1583,7 +1452,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3997735" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997735" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1652,7 +1521,7 @@
           <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="60" />
+      <option name="time" value="61" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1661,199 +1530,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/genetix.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56801194">
-          <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/lib/jquery-has-scrolls.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="80" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#60#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/lock.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/controls.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15246637">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/templates/genetix.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="106" column="34" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/toolbar.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="156" column="58" selection-start-line="156" selection-start-column="20" selection-end-line="156" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33274338">
-          <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33274338">
-          <caret line="833" column="0" selection-start-line="833" selection-start-column="0" selection-end-line="833" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/lib/jquery.autosize.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="35" selection-start-line="86" selection-start-column="35" selection-end-line="86" selection-end-column="35" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <marker date="1439218061277" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/edit.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/general.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="51" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/dataEdit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/Genetix.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
-          <caret line="17" column="76" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/popup.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/controls.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46893787">
-          <caret line="509" column="40" selection-start-line="509" selection-start-column="6" selection-end-line="509" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/popup.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="165" column="29" selection-start-line="165" selection-start-column="17" selection-end-line="165" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/widgets/popup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="225" column="31" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vcContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenGContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="118" column="26" selection-start-line="118" selection-start-column="26" selection-end-line="118" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="264" column="38" selection-start-line="264" selection-start-column="31" selection-end-line="264" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/genetix_events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui-impose/containers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.538462">
@@ -1866,7 +1542,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="113" column="30" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1898,7 +1573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1906,7 +1580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1915,12 +1588,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="75" column="33" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
           <folding>
-            <marker date="1439378768490" expanded="true" signature="5849:5859" placeholder="..." />
-            <marker date="1439378768490" expanded="true" signature="6022:6032" placeholder="..." />
-            <marker date="1439378768490" expanded="true" signature="10674:10685" placeholder="..." />
-            <marker date="1439378768490" expanded="true" signature="10911:10921" placeholder="..." />
-            <marker date="1439378768490" expanded="true" signature="14355:14365" placeholder="..." />
-            <marker date="1439378768490" expanded="true" signature="17530:17540" placeholder="..." />
+            <marker date="1439378768490" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439378768490" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439378768490" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439378768490" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439378768490" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439378768490" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1929,30 +1602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genVContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vhContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1969,14 +1618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/controls.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -2007,7 +1648,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/forms/156b663e-8b6f-4464-b3d1-65cac6537108.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0384617">
+        <state vertical-scroll-proportion="0.0">
           <caret line="195" column="35" selection-start-line="195" selection-start-column="35" selection-end-line="195" selection-end-column="35" />
           <folding />
         </state>
@@ -2015,7 +1656,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/forms/1bf3b1a3-edba-32ca-5033-75e3cf9a709a.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0384617">
+        <state vertical-scroll-proportion="0.0">
           <caret line="172" column="35" selection-start-line="172" selection-start-column="35" selection-end-line="172" selection-end-column="35" />
           <folding />
         </state>
@@ -2023,7 +1664,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/forms/4112f74d-42cd-4dff-b288-d03f26825715.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0384617">
+        <state vertical-scroll-proportion="0.0">
           <caret line="196" column="35" selection-start-line="196" selection-start-column="35" selection-end-line="196" selection-end-column="35" />
           <folding />
         </state>
@@ -2031,29 +1672,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0384617">
+        <state vertical-scroll-proportion="0.0">
           <caret line="184" column="57" selection-start-line="184" selection-start-column="57" selection-end-line="184" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.3846154">
-          <caret line="300" column="30" selection-start-line="300" selection-start-column="30" selection-end-line="300" selection-end-column="30" />
-          <folding>
-            <element signature="e#16357#18296#0" expanded="false" />
-            <element signature="e#18919#19619#0" expanded="false" />
-            <element signature="e#22303#29232#0" expanded="false" />
-            <element signature="e#52459#53349#0" expanded="false" />
-            <element signature="e#53381#55839#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/forms/88b9280f-7cce-7739-1e65-a883371cd498.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0384617">
+        <state vertical-scroll-proportion="0.0">
           <caret line="307" column="35" selection-start-line="307" selection-start-column="35" selection-end-line="307" selection-end-column="35" />
           <folding />
         </state>
@@ -2061,7 +1688,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.615385">
+        <state vertical-scroll-proportion="0.0">
           <caret line="75" column="128" selection-start-line="75" selection-start-column="128" selection-end-line="75" selection-end-column="128" />
           <folding />
         </state>
@@ -2069,16 +1696,266 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/forms/cf07df23-abfe-9887-a353-09a00faf99d8.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0384617">
+        <state vertical-scroll-proportion="0.0">
           <caret line="167" column="35" selection-start-line="167" selection-start-column="35" selection-end-line="167" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/hContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="35" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/forms/e7613a67-c36c-4ff5-a999-4d143bebc97c.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29288703">
-          <caret line="52" column="14" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
+        <state vertical-scroll-proportion="-16.346153">
+          <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/genLabel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/hContainer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04091456">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/label.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384">
+          <caret line="3" column="56" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/genVContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="225" column="43" selection-start-line="225" selection-start-column="43" selection-end-line="225" selection-end-column="43" />
+          <folding>
+            <element signature="e#4306#7822#0" expanded="false" />
+            <element signature="e#7974#9494#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vhContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <folding>
+            <element signature="e#6309#7829#0" expanded="false" />
+            <element signature="e#7894#8710#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/genButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6132265">
+          <caret line="18" column="42" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="37" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/button.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="24" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/button.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384">
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Genetix.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.307693">
+          <caret line="214" column="53" selection-start-line="214" selection-start-column="50" selection-end-line="214" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/templates/genetix.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/genetix.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="15" column="72" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbarButton.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenToolbarButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/container.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384">
+          <caret line="3" column="43" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenToolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="62" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#59#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genetixSrv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4166666">
+          <caret line="93" column="49" selection-start-line="93" selection-start-column="49" selection-end-line="93" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33730158">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/genToolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.106694564">
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/general.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/controls.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4047619">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/genToolbarButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/system-toolbar.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="14" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.76923">
+          <caret line="1096" column="0" selection-start-line="1096" selection-start-column="0" selection-end-line="1096" selection-end-column="0" />
+          <folding>
+            <element signature="e#1305#13805#0" expanded="false" />
+            <element signature="e#14289#18388#0" expanded="false" />
+            <element signature="e#16357#18296#0" expanded="false" />
+            <element signature="e#19710#20510#0" expanded="false" />
+            <element signature="e#20542#21281#0" expanded="false" />
+            <element signature="e#21313#22113#0" expanded="false" />
+            <element signature="e#22818#55006#0" expanded="false" />
+            <element signature="e#24882#31811#0" expanded="false" />
+            <element signature="e#56029#58487#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/toolbar.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39673278">
+          <caret line="20" column="75" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="21" />
           <folding />
         </state>
       </provider>

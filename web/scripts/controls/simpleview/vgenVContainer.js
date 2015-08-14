@@ -104,11 +104,7 @@ define(
                     position: "absolute",
                     top: "50%",
                     left: "50%",
-                    transform: "translate(-50%, -50%)"/*,
-                     "box-shadow": "1px 1px 0.75em 1px #3c4251",
-                     "-webkit-box-shadow" : "1px 1px 0.75em 1px #3c4251",
-                     "-moz-box-shadow" : "1px 1px 0.75em 1px #3c4251",
-                     "border-radius": "0.25em"*/
+                    transform: "translate(-50%, -50%)"
                 });
 
             } else {

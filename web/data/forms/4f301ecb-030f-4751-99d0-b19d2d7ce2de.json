@@ -472,17 +472,74 @@
                         {
                           "$sys": {
                             "guid": "98b7fc25-f8e4-450e-a480-b9e79344fbf3",
-                            "typeGuid": "b75474ef-26d0-4298-9dad-4133edaa8a9c"
+                            "typeGuid": "afc2da5a-ad87-4d0c-83dd-96df7ae1b3b6"
                           },
                           "fields": {
                             "Id": 2002,
-                            "Name": "ToolbarContainer2",
+                            "Name": "Toolbar1",
                             "Width": "100%",
                             "Height": "4.875em",
-                            "Background": "#D7E2F5"
+                            "ToolbarSize": "big",
+                            "ToolbarColor": "blue",
+                            "CaptionStyle": "None",
+                            "ContentAlign": "left"
                           },
                           "collections": {
                             "Children": [
+                              {
+                                "$sys": {
+                                  "guid": "f8fe591c-dd3f-4694-a5df-fb946a196a95",
+                                  "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
+                                },
+                                "fields": {
+                                  "Id": 2002,
+                                  "Name": "ToolbarBtn1",
+                                  "CaptionStyle": "Both",
+                                  "Caption": "Edit",
+                                  "Image": "Genetix.svg#edit"
+                                },
+                                "collections": {
+                                  "Children": [
+
+                                  ]
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "f1bdd169-2d5b-44ad-81ad-269316622378",
+                                  "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
+                                },
+                                "fields": {
+                                  "Id": 2002,
+                                  "Name": "ToolbarBtn2",
+                                  "CaptionStyle": "Text",
+                                  "Caption": "Action"
+                                },
+                                "collections": {
+                                  "Children": [
+
+                                  ]
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "d3b77423-a507-4f42-add4-c3c1d2978a61",
+                                  "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
+                                },
+                                "fields": {
+                                  "Id": 2002,
+                                  "Name": "ToolbarBtn3",
+                                  "CaptionStyle": "Image",
+                                  "Caption": "Edit",
+                                  "Image": "Genetix.svg#add"
+                                },
+                                "collections": {
+                                  "Children": [
+
+                                  ]
+                                }
+                              }
+
                             ]
                           }
                         },
@@ -1026,19 +1083,21 @@
                               {
                                 "$sys": {
                                   "guid": "92fc310b-9771-4cad-b172-0c28325c6760",
-                                  "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
+                                  "typeGuid": "afc2da5a-ad87-4d0c-83dd-96df7ae1b3b6"
                                 },
                                 "fields": {
                                   "Id": 3007,
-                                  "Name": "LabelHistory",
-                                  "Label": "История",
-                                  "FontSize": "1.125em",
-                                  "Width": "130",
-                                  "Color": "#000000",
-                                  "FontWeight": 500,
-                                  "PadTop": "15px",
-                                  "Height": "3em",
-                                  "HorizontalAlign": "left"
+                                  "Name": "ToolBar2",
+                                  "Width": "100%",
+                                  "Height": "2.8125em",
+                                  "ToolbarSize": "big",
+                                  "ToolbarColor": "blue",
+                                  "CaptionStyle": "None",
+                                  "ContentAlign": "left"
+                                },
+                                "collections": {
+                                  "Children": [
+                                  ]
                                 }
                               },
                               {
