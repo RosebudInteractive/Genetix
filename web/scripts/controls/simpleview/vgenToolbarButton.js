@@ -20,7 +20,68 @@ define(
                 pItem = $("#mid_" + this.getLid());
             }
 
+            var cStyle = this.captionStyle() || "text";
+            cStyle = cStyle.toUpperCase();
+            item.removeClass("has-caption has-image has-both");
+            if (cStyle == "TEXT")
+                item.addClass("has-caption");
+            else if (cStyle == "IMAGE")
+                item.addClass("has-image");
+            else
+                item.addClass("has-both");
+
+            vButton._setPressedState.call(this);
+            var that = this;
+            pItem.click(function() {
+                vButton._setPressedState.call(that);
+            });
+
+            var imgWrapper = item.find(".t-button-icon-wrapper");
+            imgWrapper.empty();
+            if (this.image()) {
+                var imgTmpl = vButton._templates['svg'];
+                imgTmpl = imgTmpl.replace("###IMAGE###", this.image());
+                var toolbar = this.getParent();
+                var tStyle = toolbar.toolbarSize() || "big";
+                tStyle = tStyle.toUpperCase();
+                var imgSize = "16";
+                if (tStyle  == "BIG") imgSize = "22";
+                while (imgTmpl.indexOf("###SIZE###") != -1)
+                    imgTmpl = imgTmpl.replace("###SIZE###", imgSize);
+                imgWrapper.append($(imgTmpl));
+            }
+
+            var captionWrapper = item.find(".t-button-caption");
+            if (this.caption())
+                captionWrapper.text(this.caption());
+            else
+                captionWrapper.text("");
+
             vButton._genEventsForParent.call(this);
+        }
+
+        vButton._setPressedState = function() {
+            var item = $('#' + this.getLid());
+            var bKind = this.buttonKind() || "normal";
+            bKind = bKind.toUpperCase();
+            var isPressed = this.pressed() || false;
+            if (bKind == "NORMAL") {
+                item.removeClass("is-pressed");
+            } else {
+                if (isPressed) item.addClass("is-pressed");
+                else item.removeClass("is-pressed");
+            }
+
+            if (bKind == "NORMAL") {
+                item.removeClass("is-toggle is-radio");
+                item.addClass("is-normal");
+            } else if (bKind == "RADIO") {
+                item.removeClass("is-toggle is-normal");
+                item.addClass("is-radio");
+            } else {
+                item.removeClass("is-radio is-normal");
+                item.addClass("is-toggle");
+            }
         }
 
         /**

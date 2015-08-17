@@ -46,6 +46,62 @@ define(
             }
 
             var cont = item.children(".c-content");
+            var space = "";
+            if (this.spacing()) {
+                space = this.spacing();
+                if ($.isNumeric(space))
+                    space += "px";
+                cont.css({"padding-left": space, "padding-right" : space});
+            } else
+                cont.css({"padding-left": "", "padding-right" : ""});
+
+            var contAlign = this.contentAlign() || "left";
+            contAlign = contAlign.toUpperCase();
+            if (contAlign == "LEFT") {
+                item.addClass("is-left");
+                item.removeClass("is-right");
+            } else {
+                item.removeClass("is-left");
+                item.addClass("is-right");
+            }
+
+            var tCaptionStyle = this.captionStyle() || "none";
+            tCaptionStyle = tCaptionStyle.toUpperCase();
+            var elWrapper = cont.children(".c-caption-wrapper");
+            elWrapper.css("padding-right", space);
+            if (tCaptionStyle == "NONE") {
+                elWrapper.css("display", "none");
+            } else {
+                var imgWrapper = elWrapper.find(".t-caption-icon-wrapper");
+                imgWrapper.empty();
+                if (this.image()) {
+                    var imgTmpl = vToolbar._templates['svg'];
+                    imgTmpl = imgTmpl.replace("###IMAGE###", this.image());
+                    var tStyle = this.toolbarSize() || "big";
+                    tStyle = tStyle.toUpperCase();
+                    var imgSize = "16";
+                    if (tStyle  == "BIG") imgSize = "22";
+                    while (imgTmpl.indexOf("###SIZE###") != -1)
+                        imgTmpl = imgTmpl.replace("###SIZE###", imgSize);
+                    imgWrapper.append($(imgTmpl));
+                }
+                elWrapper.find(".t-caption-text").text(this.caption());
+
+                cont.children(".c-caption-wrapper").css("display", "");
+                if (tCaptionStyle == "TEXT") {
+                    elWrapper.find(".t-caption-icon-wrapper").css("display", "none");
+                    elWrapper.find(".t-caption-title-wrapper").css("display", "");
+                } else if (tCaptionStyle == "IMAGE") {
+                    elWrapper.find(".t-caption-icon-wrapper").css("display", "");
+                    elWrapper.find(".t-caption-title-wrapper").css("display", "none");
+                } else {
+                    elWrapper.find(".t-caption-icon-wrapper").css("display", "");
+                    elWrapper.find(".t-caption-title-wrapper").css("display", "");
+                }
+
+
+            }
+
             // создаем врапперы для чайлдов
             var children = this.getCol('Children');
             for(var i=0; i<children.count();i++) {

@@ -16,7 +16,8 @@ define(
                 {fname:"CaptionStyle",ftype:"string"}, //None, Text, Image, Both
                 {fname:"Caption",ftype:"string"},
                 {fname:"Image",ftype:"string"},
-                {fname:"ContentAlign",ftype:"string"}
+                {fname:"ContentAlign",ftype:"string"},
+                {fname:"Spacing",ftype:"string"}
             ],
 
             init: function(cm,params){
@@ -46,6 +47,9 @@ define(
             },
             contentAlign: function(value) {
                 return this._genericSetter("ContentAlign", value);
+            },
+            spacing: function(value) {
+                return this._genericSetter("Spacing", value);
             }
         });
         return Toolbar;
