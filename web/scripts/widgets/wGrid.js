@@ -53,10 +53,12 @@ define(
                 this.fixHeight();
                 this.clearPageCache();
                 $(window).on("genetix:resize", function () {
-                    var parent = that._headTable.parent();
-                    parent.width(that._bodyTable.width());
-                    //parent.resizableColumns("syncHandleWidths");
-                    that.fixHeight();
+                    setTimeout(function() {
+                        var parent = that._headTable.parent();
+                        parent.width(that._bodyTable.width());
+                        //parent.resizableColumns("syncHandleWidths");
+                        that.fixHeight();
+                    }, 350);
                 });
             },
 
@@ -118,7 +120,7 @@ define(
                 this._bodyTable.empty();
                 this.clearPageCache();
                 this.renderData();
-                $(window).trigger("genetix:resize");
+                //$(window).trigger("genetix:resize");
             },
 
             renderHeader: function(){

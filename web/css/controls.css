@@ -857,7 +857,7 @@ td.container-title {
 }
 .control.container.h-container.separate-children > .c-content > .control-wrapper,
 .control.container.v-container.separate-children > .c-content > .control-wrapper {
-  border-right: solid 1px #508ce6;
+  border-right: solid 1px #d7e2f5;
 }
 .control.container.h-container.separate-children > .c-content > .control-wrapper:last-child,
 .control.container.v-container.separate-children > .c-content > .control-wrapper:last-child {

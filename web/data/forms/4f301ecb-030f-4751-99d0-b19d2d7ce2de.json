@@ -452,8 +452,8 @@
                                 },
                                 "fields": {
                                   "Id": 5001,
-                                  "Label": "Date",
-                                  "Width": 20,
+                                  "Label": "Дата",
+                                  "Width": 15,
                                   "Field": "a0e1e0e0-0c82-29ba-cd5d-b770aa9ffcc9"
                                 }
                               },
@@ -464,9 +464,9 @@
                                 },
                                 "fields": {
                                   "Id": 5002,
-                                  "Label": "State",
-                                  "Width": 20,
-                                  "Field": "7e81d9b8-ffdd-9adb-b27e-50bed6bf9648"
+                                  "Label": "Компания",
+                                  "Width": 15,
+                                  "Field": "bb76eac7-7f14-532f-bb28-72122339d7e0"
                                 }
                               },
                               {
@@ -476,9 +476,21 @@
                                 },
                                 "fields": {
                                   "Id": 5003,
-                                  "Label": "Name",
-                                  "Width": 60,
-                                  "Field": "bb76eac7-7f14-532f-bb28-72122339d7e0"
+                                  "Label": "Город",
+                                  "Width": 35,
+                                  "Field": "771cf450-fb24-04ae-dbdc-a1d1ea4a1450"
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "bc31fe42-59ce-4cca-b13b-1816f95113d8",
+                                  "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
+                                },
+                                "fields": {
+                                  "Id": 5003,
+                                  "Label": "Контакт",
+                                  "Width": 35,
+                                  "Field": "81d400b0-8f58-a800-576f-19ea369a994d"
                                 }
                               }
                             ]
@@ -1228,7 +1240,8 @@
                                   "HorizontalLines": true,
                                   "HasFooter": false,
                                   "Dataset": "504729ba-e002-d856-b694-271ca843a98c",
-                                  "Scroll": false
+                                  "Scroll": false,
+                                  "WhiteHeader": true
                                 },
                                 "collections": {
                                   "Columns": [
