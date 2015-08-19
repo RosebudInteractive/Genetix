@@ -60,6 +60,7 @@ $(document).ready( function() {
                     {className:'GenToolbar', component:'genToolbar', viewset:true, guid:'afc2da5a-ad87-4d0c-83dd-96df7ae1b3b6'},
                     {className:'GenButton', component:'genButton', viewset:true, guid:'bf0b0b35-4025-48ff-962a-1761aa7b3a7b'},
                     {className:'GenToolbarButton', component:'genToolbarButton', viewset:true, guid:'6ddef43f-252a-46e3-bb68-2a5a52f0702e'},
+                    {className:'GenToolbarSeparator', component:'genToolbarSeparator', viewset:true, guid:'050fd0ed-873a-4637-916b-145cb71e425f'},
                     {className:'GenDataEdit', component:'genDataEdit', viewset:true, guid:'567cadd5-7f9d-4cd8-a24d-7993f065f5f9'},
                     {className:'GenForm', component:'genForm', viewset:true, guid:'29bc7a01-2065-4664-b1ad-7cc86f92c177'},
                     {className:'Form', viewset:true},

@@ -406,7 +406,7 @@
                                   "Id": 2002,
                                   "Name": "ToolbarBtn0_1",
                                   "CaptionStyle": "Image",
-                                  "Caption": "Add",
+                                  "Caption": "Добавить",
                                   "Image": "Genetix.svg#add"
                                 }
                               },
@@ -419,8 +419,21 @@
                                   "Id": 2002,
                                   "Name": "ToolbarBtn0_2",
                                   "CaptionStyle": "Image",
-                                  "Caption": "Delete",
-                                  "Image": "Genetix.svg#trash"
+                                  "Caption": "Исправить",
+                                  "Image": "Genetix.svg#edit"
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "315cb786-e110-4c05-92b5-4be039da62bc",
+                                  "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
+                                },
+                                "fields": {
+                                  "Id": 2002,
+                                  "Name": "ToolbarBtn0_3",
+                                  "CaptionStyle": "Image",
+                                  "Caption": "В архив",
+                                  "Image": "Genetix.svg#box"
                                 }
                               }
                             ]
@@ -539,8 +552,70 @@
                                   "Id": 2002,
                                   "Name": "ToolbarBtn1",
                                   "CaptionStyle": "Image",
-                                  "Caption": "Edit",
+                                  "Caption": "Исправить",
                                   "Image": "Genetix.svg#edit"
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "4164e787-a930-4261-92a1-c616f7d2f68f",
+                                  "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
+                                },
+                                "fields": {
+                                  "Id": 2002,
+                                  "Name": "ToolbarBtn2",
+                                  "CaptionStyle": "Image",
+                                  "Caption": "Сохранить",
+                                  "Image": "Genetix.svg#saved"
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "185cad94-a603-4003-9dc9-386ac1c1d2d8",
+                                  "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
+                                },
+                                "fields": {
+                                  "Id": 2002,
+                                  "Name": "ToolbarBtn3",
+                                  "CaptionStyle": "Image",
+                                  "Caption": "Отмена",
+                                  "Image": "Genetix.svg#cancel"
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "556710ee-9b60-4c2c-bdb6-1796a5246743",
+                                  "typeGuid": "050fd0ed-873a-4637-916b-145cb71e425f"
+                                },
+                                "fields": {
+                                  "Id": 2002,
+                                  "Name": "ToolbarSeparator3"
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "a577092c-7a85-4b67-bd83-232597c1afc6",
+                                  "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
+                                },
+                                "fields": {
+                                  "Id": 2002,
+                                  "Name": "ToolbarBtn4",
+                                  "CaptionStyle": "Image",
+                                  "Caption": "В архив",
+                                  "Image": "Genetix.svg#box"
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "64fb904e-4220-49e5-b06f-5280f2546ee4",
+                                  "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
+                                },
+                                "fields": {
+                                  "Id": 2002,
+                                  "Name": "ToolbarBtn5",
+                                  "CaptionStyle": "Image",
+                                  "Caption": "Преобразовать",
+                                  "Image": "Genetix.svg#lead_convert"
                                 }
                               }
                             ]

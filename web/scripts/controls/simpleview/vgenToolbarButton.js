@@ -40,14 +40,16 @@ define(
             imgWrapper.empty();
             if (this.image()) {
                 var imgTmpl = vButton._templates['svg'];
-                imgTmpl = imgTmpl.replace("###IMAGE###", this.image());
                 var toolbar = this.getParent();
                 var tStyle = toolbar.toolbarSize() || "big";
                 tStyle = tStyle.toUpperCase();
                 var imgSize = "16";
+                var imgName = this.image();
                 if (tStyle  == "BIG") imgSize = "22";
+                else imgName += "_16";
                 while (imgTmpl.indexOf("###SIZE###") != -1)
                     imgTmpl = imgTmpl.replace("###SIZE###", imgSize);
+                imgTmpl = imgTmpl.replace("###IMAGE###", imgName);
                 imgWrapper.append($(imgTmpl));
             }
 
