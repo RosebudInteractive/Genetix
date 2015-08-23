@@ -272,4 +272,12 @@
             C19.513,5.499,15.625,2.041,10.997,2.041z M2,10H0c0.233-2.647,1.493-5.005,3.268-6.779L0,0h8v8L4.689,4.642
             C3.278,6.053,2.226,7.91,2,10z M0.002,11.059C0.001,11.05,0,11.041,0,11.031c0-0.01,0.001-0.019,0.002-0.028V11.059z"/>
     </svg>
+    <svg>
+        <g id="dots2">
+            <circle fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" cx="8" cy="8" r="2"/>
+            <circle fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" cx="2" cy="8" r="2"/>
+            <circle fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" cx="14" cy="8" r="2"/>
+        </g>
+    </svg>
+
 </svg>

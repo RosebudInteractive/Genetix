@@ -21,6 +21,10 @@ define(
                 var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(pItem);
                 pItem.height($(parent).height());
+                $(window).on("genetix:resize", function () {
+                    vToolbar._handleResize.call(that);
+                });
+                vToolbar._renderPopup.call(this);
             } else {
                 pItem = $("#mid_" + this.getLid());
             }
@@ -46,14 +50,15 @@ define(
             }
 
             var cont = item.children(".c-content");
+            var dots = item.children(".c-toolbar-dots");
             var space = "";
             if (this.spacing()) {
                 space = this.spacing();
                 if ($.isNumeric(space))
                     space += "px";
-                cont.css({"padding-left": space, "padding-right" : space});
-            } else
-                cont.css({"padding-left": "", "padding-right" : ""});
+            }
+            cont.css({"padding-left": space, "padding-right": space});
+            dots.css({"padding-right" : space});
 
             var contAlign = this.contentAlign() || "left";
             contAlign = contAlign.toUpperCase();
@@ -132,9 +137,59 @@ define(
             vToolbar._genEventsForParent.call(this);
         }
 
+        vToolbar._handleResize = function() {
+            var hasHiddenItems = vToolbar._hasHiddenItems.call(this);
+            var item = $('#' + this.getLid());
+            var dots = item.children(".c-toolbar-dots");
+            var cont = item.children(".c-content");
+            var space = "";
+            if (this.spacing()) {
+                space = this.spacing();
+                if ($.isNumeric(space))
+                    space += "px";
+            }
+            cont.css({"padding-left": space, "padding-right": space});
+            dots.css({"padding-right" : space});
+            dots.hide();
+
+            if (hasHiddenItems) {
+                dots.show();
+                var alParam = "padding-right";
+                var contAlign = this.contentAlign() || "left";
+                contAlign = contAlign.toUpperCase();
+                var padVal = dots.outerWidth();
+                if (contAlign != "LEFT")
+                    alParam = "padding-left";
+                var cssObj = {};
+                cssObj[alParam] = padVal;
+                cont.css(cssObj);
+            }
+        }
+
+        vToolbar._hasHiddenItems = function() {
+            var hiddenItems = vToolbar._getHiddenItems.call(this);
+            return (hiddenItems.length > 0);
+        };
+
+        vToolbar._getHiddenItems = function() {
+            var hiddenChildren = [];
+            var item = $('#' + this.getLid());
+            var cont = item.children(".c-content");
+            var children = this.getCol('Children');
+            var height = cont.height();
+            for(var i=0; i<children.count();i++) {
+                var child = this.getControlMgr().get(children.get(i).getGuid());
+                var chDiv = $('#ext_'+child.getLid());
+                var pos = chDiv.position();
+                if (height <= pos.top)
+                    hiddenChildren.push(child);
+            }
+
+            return hiddenChildren;
+        }
+
         vToolbar._setChildCSS = function(child) {
             var div = $("#ext_" + child.getLid())
-            var chDiv = div.children();
             var width=child.width() || "auto";
             if ($.isNumeric(width))
                 width += "px";
@@ -178,6 +233,54 @@ define(
             if (!("Height" in data.properties)) return;
             var child = data.control;
             vToolbar._setChildCSS.call(this, child);
+        }
+
+        vToolbar._renderPopup = function() {
+            var that = this;
+            var item = $('#' + this.getLid());
+            var dots = item.children(".c-toolbar-dots");
+
+            var tStyle = this.toolbarSize() || "big";
+            tStyle = tStyle.toUpperCase();
+
+            var popupDiv = $("<div></div>");
+            $("body").append(popupDiv);
+            this._popupDiv = popupDiv.genetixPopup({
+                buttonControl: dots,
+                leftIcons: true,
+                rightIcons: false,
+                leftViewBoxSize: 22,
+                offsetX: -5,
+                offsetY: (tStyle == "BIG" ? -20 : -10),
+                bigArrowInterval: false
+            });
+
+
+            dots.click(function () {
+                var popupData = vToolbar._preparePopupData.call(that);
+                that._popupDiv.genetixPopup("show", popupData);
+            });
+
+        }
+
+        vToolbar._preparePopupData = function() {
+            var hiddenChildren = vToolbar._getHiddenItems.call(this);
+            var popupData = [];
+
+            for (var i = 0; i < hiddenChildren.length; i++) {
+                var child = hiddenChildren[i];
+                if (!child.left) continue;
+
+                var cnt = {
+                    id: ("tPopupId-" + child.getLid()),
+                    title: child.caption(),
+                    subTree: [],
+                    leftIcon: (child.image() ? "/images/" + child.image() : null)
+                };
+                popupData.push(cnt);
+            }
+
+            return popupData;
         }
 
         return vToolbar;

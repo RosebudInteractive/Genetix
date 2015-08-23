@@ -33,6 +33,8 @@ define(
                     this.element.addClass("big-interval");
                 if (this.options.leftIcons)
                     this.element.addClass("has-left-icons");
+                if (this.options.rightIcons)
+                    this.element.addClass("has-right-icons");
                 if (this.options.extendedClass != "")
                     this.element.addClass(this.options.extendedClass);
 
@@ -181,9 +183,6 @@ define(
                 // уберем все стили, относящиеся к позиции выпирающего уголка
                 this.element.removeClass("is-right is-top is-left is-bottom-right is-bottom-left is-top-right is-top-left");
 
-                // TODO добавить интелекта к позиционированию
-                this.element.addClass("is-right is-top ");
-
                 this.element.children(".dropdown-menu-item2-b").find(".right-icon").removeClass("is-pressed");
                 var cRight = 0;
                 var cBott = 0;
@@ -198,7 +197,8 @@ define(
 
                 this.element.css({
                     right: $('body').innerWidth() - cRight + this.options.offsetX,
-                    top: cBott + this.options.offsetY
+                    top: cBott + this.options.offsetY,
+                    bottom: ""
                 });
 
                 if (this.options.bigArrowInterval)
@@ -210,10 +210,53 @@ define(
                     $("#" + firstItem).prependTo(this.element);
                 }
 
+                var $w = $(window);
+                var partial = false,
+                    $t        = this.element,
+                    t         = $t.get(0),
+                    vpWidth   = $w.width(),
+                    vpHeight  = $w.height(),
+                    direction = 'vertical',
+                    clientSize = true;//t.offsetWidth * t.offsetHeight;
+                var viewTop         = $w.scrollTop(),
+                    viewBottom      = viewTop + vpHeight,
+                    viewLeft        = $w.scrollLeft(),
+                    viewRight       = viewLeft + vpWidth,
+                    offset          = this.options.buttonControl.offset(),
+                    _top            = offset.top + this.options.buttonControl.outerHeight(),
+                    _bottom         = _top + $t.height(),
+                    _left           = offset.left,
+                    _right          = _left + $t.width(),
+                    compareTop      = partial === true ? _bottom : _top,
+                    compareBottom   = partial === true ? _top : _bottom,
+                    compareLeft     = partial === true ? _right : _left,
+                    compareRight    = partial === true ? _left : _right;
+                var vis = true;
+                if(direction === 'both')
+                    vis = !!clientSize && ((compareBottom <= viewBottom) && (compareTop >= viewTop)) && ((compareRight <= viewRight) && (compareLeft >= viewLeft));
+                else if(direction === 'vertical')
+                    vis =  !!clientSize && ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+                else if(direction === 'horizontal')
+                    vis = !!clientSize && ((compareRight <= viewRight) && (compareLeft >= viewLeft));
+
+
+                if (!vis) {
+                    this.element.css({
+                        top: "",
+                        bottom: viewBottom - cBott + this.options.offsetY + this.options.buttonControl.height()
+                    });
+                    this.element.addClass("is-right is-bottom ");
+                } else
+                    this.element.addClass("is-right is-top ");
+
                 if (this.options.menuItems.length != 0) {
                     this.element.find(".dropdown2-b").hide();
                     this.element.show("fast");
                 }
+
+
+
+
 
                 this._MouseInside = false;
                 var that = this;

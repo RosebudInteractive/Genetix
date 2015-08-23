@@ -376,7 +376,7 @@
 .dropdown-menu-item2-b .text-bl {
   font-size: 0.75em;
   padding-left: 2.5em;
-  padding-right: 4em;
+  padding-right: 2em;
   border-radius: 0.1875em;
   white-space: nowrap;
   -webkit-text-overflow: ellipsis;
@@ -419,6 +419,9 @@
 }
 .dropdown2-b.has-left-icons .dropdown-menu-item2-b:not(.is-title) .text-bl {
   padding-left: 3.8333em;
+}
+.dropdown2-b.has-right-icons .dropdown-menu-item2-b:not(.is-title) .text-bl {
+  padding-right: 4em;
 }
 .dropdown2-b.is-right > .arrow-be {
   margin-left: -1.1825em;
