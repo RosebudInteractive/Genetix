@@ -84,10 +84,12 @@
 .control.toolbar.is-blue > .c-content .tool-button-content {
   color: #718ab2;
 }
-.control.toolbar.is-blue > .c-toolbar-dots .control-wrapper:hover,
-.control.toolbar.is-blue > .c-content .control-wrapper:hover,
-.control.toolbar.is-blue > .c-toolbar-dots .tool-button-content:hover,
-.control.toolbar.is-blue > .c-content .tool-button-content:hover {
+.control.toolbar.is-white > .c-content .control.button.tool-button:not(.is-disabled) .control-wrapper:hover,
+.control.toolbar.is-white > .c-content .control.button.tool-button:not(.is-disabled) .tool-button-content:hover {
+  color: #323845;
+}
+.control.toolbar.is-blue > .c-content .control.button.tool-button:not(.is-disabled) .control-wrapper:hover,
+.control.toolbar.is-blue > .c-content .control.button.tool-button:not(.is-disabled) .tool-button-content:hover {
   color: #323845;
 }
 .control.toolbar > .c-toolbar-dots {
@@ -103,11 +105,14 @@
   right: 0px;
 }
 .control.toolbar.is-right > .c-toolbar-dots {
-  left: 0px;
+  right: 0px;
 }
 .control.button.tool-button {
   display: table;
   height: 100%;
+}
+.control.button.tool-button.is-disabled {
+  opacity: 0.5;
 }
 .tool-button-content {
   display: table-cell;

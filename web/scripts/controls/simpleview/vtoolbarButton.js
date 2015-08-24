@@ -59,6 +59,10 @@ define(
             else
                 captionWrapper.text("");
 
+            var enabled = (this.enabled() === undefined ? true : this.enabled());
+            if (enabled) item.removeClass("is-disabled");
+            else item.addClass("is-disabled");
+
             vButton._genEventsForParent.call(this);
         }
 

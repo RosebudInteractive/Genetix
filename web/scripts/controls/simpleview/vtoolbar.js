@@ -132,13 +132,11 @@ define(
             for (var guid in del)
                 $('#ext_' + del[guid].getLid()).remove();
 
-            $(window).on("genetix:resize", function () {
-            });
             vToolbar._genEventsForParent.call(this);
+            vToolbar._handleResize.call(this);
         }
 
         vToolbar._handleResize = function() {
-            var hasHiddenItems = vToolbar._hasHiddenItems.call(this);
             var item = $('#' + this.getLid());
             var dots = item.children(".c-toolbar-dots");
             var cont = item.children(".c-content");
@@ -151,6 +149,7 @@ define(
             cont.css({"padding-left": space, "padding-right": space});
             dots.css({"padding-right" : space});
             dots.hide();
+            var hasHiddenItems = vToolbar._hasHiddenItems.call(this);
 
             if (hasHiddenItems) {
                 dots.show();
@@ -158,8 +157,8 @@ define(
                 var contAlign = this.contentAlign() || "left";
                 contAlign = contAlign.toUpperCase();
                 var padVal = dots.outerWidth();
-                if (contAlign != "LEFT")
-                    alParam = "padding-left";
+                //if (contAlign != "LEFT")
+                //    alParam = "padding-left";
                 var cssObj = {};
                 cssObj[alParam] = padVal;
                 cont.css(cssObj);
@@ -249,7 +248,7 @@ define(
                 buttonControl: dots,
                 leftIcons: true,
                 rightIcons: false,
-                leftViewBoxSize: 22,
+                leftViewBoxSize: 16,
                 offsetX: -5,
                 offsetY: (tStyle == "BIG" ? -20 : -10),
                 bigArrowInterval: false
@@ -275,7 +274,7 @@ define(
                     id: ("tPopupId-" + child.getLid()),
                     title: child.caption(),
                     subTree: [],
-                    leftIcon: (child.image() ? "/images/" + child.image() : null)
+                    leftIcon: (child.image() ? "/images/" + child.image() + "_16" : null)
                 };
                 popupData.push(cnt);
             }

@@ -78,6 +78,7 @@ define(
                 var popupData = this.options.menuItems;
                 var that = this;
 
+                this.element.children(".dropdown-menu-item2-b").remove();
                 for (i = 0; i < popupData.length; i++) {
                     var data = popupData[i];
                     var itemEl = $("#" + data.id);
@@ -224,7 +225,7 @@ define(
                     viewRight       = viewLeft + vpWidth,
                     offset          = this.options.buttonControl.offset(),
                     _top            = offset.top + this.options.buttonControl.outerHeight(),
-                    _bottom         = _top + $t.height(),
+                    _bottom         = _top + $t.outerHeight(),
                     _left           = offset.left,
                     _right          = _left + $t.width(),
                     compareTop      = partial === true ? _bottom : _top,

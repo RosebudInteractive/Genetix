@@ -566,7 +566,8 @@
                                   "Name": "ToolbarBtn2",
                                   "CaptionStyle": "Image",
                                   "Caption": "Сохранить",
-                                  "Image": "Genetix.svg#saved"
+                                  "Image": "Genetix.svg#saved",
+                                  "Enabled": false
                                 }
                               },
                               {
@@ -579,7 +580,8 @@
                                   "Name": "ToolbarBtn3",
                                   "CaptionStyle": "Image",
                                   "Caption": "Отмена",
-                                  "Image": "Genetix.svg#cancel"
+                                  "Image": "Genetix.svg#cancel",
+                                  "Enabled": false
                                 }
                               },
                               {
@@ -1229,7 +1231,7 @@
                                               "Id": 2002,
                                               "Name": "ToolbarBtn2_3",
                                               "CaptionStyle": "Text",
-                                              "Caption": "Другие контакты",
+                                              "Caption": "Задачи",
                                               "ButtonKind": "Radio",
                                               "RadioGroup": "DetailTabs",
                                               "Pressed": false
