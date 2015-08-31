@@ -69,7 +69,8 @@ $(document).ready( function() {
                     {className:'GContainer', viewset:true},
                     {className:'Toolbar', viewset:true},
                     {className:'ToolbarButton', viewset:true},
-                    {className:'ToolbarSeparator', viewset:true}
+                    {className:'ToolbarSeparator', viewset:true},
+                    {className:'LayersContainer', viewset:true}
                 ],
                 controlsPath: 'controls/',
                 uccelloPath: 'lib/uccello/',

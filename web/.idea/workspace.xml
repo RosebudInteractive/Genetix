@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview\vgenToolbar.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbar.js" />
-      <change type="MOVED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview\vgenToolbarButton.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js" />
-      <change type="MOVED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview\vgenToolbarSeparator.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarSeparator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/templates/lContainer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vlayersContainer.js" />
+      <change type="DELETED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\genToolbar.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\genToolbarButton.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\genToolbarSeparator.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json" afterPath="$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/containers.css" afterPath="$PROJECT_DIR$/css/containers.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/containers.styl" afterPath="$PROJECT_DIR$/css/containers.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/controls.css" afterPath="$PROJECT_DIR$/css/controls.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/controls.styl" afterPath="$PROJECT_DIR$/css/controls.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/genetixSrv.js" afterPath="$PROJECT_DIR$/genetixSrv.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/genetix_main.js" afterPath="$PROJECT_DIR$/scripts/genetix_main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/popup.css" afterPath="$PROJECT_DIR$/css/popup.css" />
@@ -15,6 +20,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/popup.styl" afterPath="$PROJECT_DIR$/css/popup.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/toolbar.css" afterPath="$PROJECT_DIR$/css/toolbar.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/toolbar.styl" afterPath="$PROJECT_DIR$/css/toolbar.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbarButton.html" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbarButton.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbar.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -50,40 +58,8 @@
       <file leaf-file-name="toolbar.styl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/toolbar.styl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vtoolbar.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vtoolbar.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="153" column="33" selection-start-line="153" selection-start-column="33" selection-end-line="153" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#59#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="genToolbarButton.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/genToolbarButton.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="42" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="genToolbar.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/genToolbar.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="67" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="67" />
+            <state vertical-scroll-proportion="-10.0">
+              <caret line="140" column="56" selection-start-line="140" selection-start-column="56" selection-end-line="140" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -93,124 +69,37 @@
         <entry file="file://$PROJECT_DIR$/../../Uccello/controls/toolbarButton.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="49" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+              <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="toolbarSeparator.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Uccello/controls/toolbarSeparator.js">
+      <file leaf-file-name="button.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Uccello/controls/button.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="38" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+              <caret line="46" column="58" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="toolbar.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Uccello/controls/toolbar.js">
+      <file leaf-file-name="vtoolbar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vtoolbar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+            <state vertical-scroll-proportion="-17.692308">
+              <caret line="342" column="45" selection-start-line="342" selection-start-column="45" selection-end-line="342" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Uccello/config/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="85" column="50" selection-start-line="85" selection-start-column="50" selection-end-line="85" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="popup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/widgets/popup.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="224" column="101" selection-start-line="224" selection-start-column="57" selection-end-line="224" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.visible.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/lib/jquery.visible.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="genetix.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/genetix.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="popup.styl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/popup.styl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="92" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="devices.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/devices.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="373" column="26" selection-start-line="373" selection-start-column="26" selection-end-line="373" selection-end-column="26" />
-              <folding>
-                <element signature="e#6706#7024#0" expanded="false" />
-                <element signature="e#7089#9414#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vtoolbarButton.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="43" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="4f301ecb-030f-4751-99d0-b19d2d7ce2de.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="587" column="77" selection-start-line="587" selection-start-column="41" selection-end-line="587" selection-end-column="41" />
-              <folding>
-                <element signature="e#11306#13757#0" expanded="false" />
-                <element signature="e#17773#21191#0" expanded="false" />
-                <element signature="e#47871#59336#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="genetix_main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="genetix_main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4639376">
-              <caret line="63" column="62" selection-start-line="63" selection-start-column="58" selection-end-line="63" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="70" column="65" selection-start-line="70" selection-start-column="62" selection-end-line="70" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -220,27 +109,27 @@
         <entry file="file://$PROJECT_DIR$/genetixSrv.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="107" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+              <caret line="105" column="64" selection-start-line="105" selection-start-column="50" selection-end-line="105" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="genToolbarSeparator.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/genToolbarSeparator.js">
+      <file leaf-file-name="vlayersContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vlayersContainer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="24" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <caret line="100" column="87" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vtoolbarSeparator.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarSeparator.js">
+      <file leaf-file-name="containers.styl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/containers.styl">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <caret line="144" column="37" selection-start-line="144" selection-start-column="30" selection-end-line="144" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -250,8 +139,134 @@
         <entry file="file://$PROJECT_DIR$/css/controls.styl">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="10" column="85" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vgenVContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="84" column="41" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layersContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Uccello/controls/layersContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Uccello/config/config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="152" column="69" selection-start-line="152" selection-start-column="10" selection-end-line="152" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lContainer.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/lContainer.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.65384614">
+              <caret line="1" column="38" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vtoolbarButton.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.076923">
+              <caret line="83" column="30" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="toolbar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Uccello/controls/toolbar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="58" column="59" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="toolbarButton.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbarButton.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.538462">
+              <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#3;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="4f301ecb-030f-4751-99d0-b19d2d7ce2de.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.9615383">
+              <caret line="438" column="64" selection-start-line="438" selection-start-column="31" selection-end-line="438" selection-end-column="31" />
+              <folding>
+                <element signature="e#11306#13757#0" expanded="false" />
+                <element signature="e#20482#23900#0" expanded="false" />
+                <element signature="e#26003#26693#0" expanded="false" />
+                <element signature="e#26725#27413#0" expanded="false" />
+                <element signature="e#50580#62045#0" expanded="false" />
+                <element signature="e#67246#70845#0" expanded="false" />
+                <element signature="e#71756#74545#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="popup.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scripts/widgets/popup.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.30607966">
+              <caret line="41" column="102" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="popup.styl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/popup.styl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.807693">
+              <caret line="68" column="39" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="devices.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/devices.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="342" column="0" selection-start-line="339" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
+              <folding>
+                <element signature="e#6706#7024#0" expanded="false" />
+                <element signature="e#7089#9414#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -261,8 +276,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Html5" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -283,11 +298,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenLabel.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/genDataGrid.js" />
-        <option value="$PROJECT_DIR$/scripts/DataControls/dataLeadLog.js" />
-        <option value="$PROJECT_DIR$/scripts/genetix_events.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vfContainer.js" />
         <option value="$PROJECT_DIR$/scripts/widgets/jquery-has-scrolls.js" />
         <option value="$PROJECT_DIR$/scripts/lib/jquery-has-scrolls.js" />
         <option value="$PROJECT_DIR$/scripts/lib/jquery.autosize.js" />
@@ -310,10 +320,7 @@
         <option value="$PROJECT_DIR$/css/general.styl" />
         <option value="$PROJECT_DIR$/scripts/controls/genToolbarButton.js" />
         <option value="$PROJECT_DIR$/scripts/controls/genToolbar.js" />
-        <option value="$PROJECT_DIR$/../../Uccello/controls/button.js" />
         <option value="$PROJECT_DIR$/scripts/widgets/wGrid.js" />
-        <option value="$PROJECT_DIR$/css/containers.styl" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbarButton.html" />
         <option value="$PROJECT_DIR$/scripts/controls/genToolbarSeparator.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbarSeparator.html" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenToolbarSeparator.js" />
@@ -321,19 +328,27 @@
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbar.html" />
         <option value="$PROJECT_DIR$/views/genetix.html" />
         <option value="$PROJECT_DIR$/scripts/lib/jquery.visible.js" />
-        <option value="$PROJECT_DIR$/css/popup.styl" />
-        <option value="$PROJECT_DIR$/css/controls.styl" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenToolbarButton.js" />
-        <option value="$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json" />
-        <option value="$PROJECT_DIR$/scripts/widgets/popup.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenToolbar.js" />
-        <option value="$PROJECT_DIR$/css/toolbar.styl" />
+        <option value="$PROJECT_DIR$/../../Uccello/controls/toolbarSeparator.js" />
+        <option value="$PROJECT_DIR$/../../Uccello/controls/button.js" />
+        <option value="$PROJECT_DIR$/../../Uccello/controls/toolbarButton.js" />
         <option value="$PROJECT_DIR$/../../Uccello/controls/toolbar.js" />
         <option value="$PROJECT_DIR$/../../Uccello/config/config.js" />
-        <option value="$PROJECT_DIR$/../../Uccello/controls/toolbarButton.js" />
-        <option value="$PROJECT_DIR$/../../Uccello/controls/toolbarSeparator.js" />
-        <option value="$PROJECT_DIR$/genetixSrv.js" />
+        <option value="$PROJECT_DIR$/../../Uccello/controls/layersContainer.js" />
+        <option value="$PROJECT_DIR$/css/toolbar.styl" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbarButton.html" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js" />
         <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
+        <option value="$PROJECT_DIR$/genetixSrv.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/lContainer.html" />
+        <option value="$PROJECT_DIR$/css/containers.styl" />
+        <option value="$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vlayersContainer.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbar.js" />
+        <option value="$PROJECT_DIR$/css/popup.styl" />
+        <option value="$PROJECT_DIR$/css/controls.styl" />
+        <option value="$PROJECT_DIR$/scripts/widgets/popup.js" />
       </list>
     </option>
   </component>
@@ -404,7 +419,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -603,6 +617,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simpleview" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -617,7 +671,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="forms" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -634,15 +692,12 @@
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controls.styl" />
-              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -674,11 +729,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview\templates" />
       <recent name="C:\Projects\PMT\genetix\Sources\Uccello\controls" />
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\lib" />
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\DataControls" />
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\data\meta" />
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\data\tables" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\lib" />
@@ -1157,7 +1212,8 @@
       <workItem from="1440063294432" duration="10669000" />
       <workItem from="1440140942072" duration="17051000" />
       <workItem from="1440323847022" duration="7528000" />
-      <workItem from="1440417633346" duration="1880000" />
+      <workItem from="1440417633346" duration="13545000" />
+      <workItem from="1440664975384" duration="33491000" />
     </task>
     <task id="LOCAL-00021" summary="рефактор девайсов и сессии и верстка попапов">
       <created>1425332346890</created>
@@ -1457,11 +1513,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172317000" />
+    <option name="totallyTimeSpent" value="217473000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1470,16 +1526,17 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1957638" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34770516" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3118644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3114383" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20410784" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16174583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16046213" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30041724" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2503477" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20385051" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1489,7 +1546,6 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2823366" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49652296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1558,34 +1614,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/container.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="43" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/general.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/system-toolbar.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/controls.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/lib/jquery-1.11.0.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35">
@@ -1621,20 +1649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/containers.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="158" column="47" selection-start-line="158" selection-start-column="14" selection-end-line="158" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/button.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="36" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/label.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.040816326">
@@ -1667,7 +1681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="39" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1675,23 +1688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbarButton.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/Genetix.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="275" column="42" selection-start-line="275" selection-start-column="22" selection-end-line="275" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1699,7 +1695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="84" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1731,30 +1726,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/devices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="373" column="26" selection-start-line="373" selection-start-column="26" selection-end-line="373" selection-end-column="26" />
-          <folding>
-            <element signature="e#6706#7024#0" expanded="false" />
-            <element signature="e#7089#9414#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genToolbarSeparator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarSeparator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1769,7 +1744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1791,69 +1765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/popup.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="92" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/controls.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="587" column="77" selection-start-line="587" selection-start-column="41" selection-end-line="587" selection-end-column="41" />
-          <folding>
-            <element signature="e#11306#13757#0" expanded="false" />
-            <element signature="e#17773#21191#0" expanded="false" />
-            <element signature="e#47871#59336#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/widgets/popup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="224" column="101" selection-start-line="224" selection-start-column="57" selection-end-line="224" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vtoolbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="153" column="33" selection-start-line="153" selection-start-column="33" selection-end-line="153" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#59#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/toolbar.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="43" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1865,19 +1776,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genToolbarButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Uccello/controls/dataColumn.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26984128">
           <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1885,7 +1787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1893,46 +1794,72 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24531025">
           <caret line="10" column="33" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/dataGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/toolbar.js">
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/aDataControl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/config/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="85" column="50" selection-start-line="85" selection-start-column="50" selection-end-line="85" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genToolbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="67" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/toolbarButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="49" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding />
+          <caret line="16" column="38" selection-start-line="13" selection-start-column="41" selection-end-line="16" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../Uccello/controls/toolbarSeparator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.17577548">
           <caret line="7" column="38" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Genetix.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="211" column="12" selection-start-line="211" selection-start-column="12" selection-end-line="211" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/toolbar.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0">
+          <caret line="140" column="56" selection-start-line="140" selection-start-column="56" selection-end-line="140" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/toolbarButton.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.538462">
+          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#3;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/button.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="58" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="65" selection-start-line="70" selection-start-column="62" selection-end-line="70" selection-end-column="62" />
           <folding />
         </state>
       </provider>
@@ -1940,15 +1867,146 @@
     <entry file="file://$PROJECT_DIR$/genetixSrv.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <caret line="105" column="64" selection-start-line="105" selection-start-column="50" selection-end-line="105" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/lContainer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4639376">
-          <caret line="63" column="62" selection-start-line="63" selection-start-column="58" selection-end-line="63" selection-end-column="58" />
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="1" column="38" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/config/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="152" column="69" selection-start-line="152" selection-start-column="10" selection-end-line="152" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/toolbarButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/containers.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="144" column="37" selection-start-line="144" selection-start-column="30" selection-end-line="144" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/layersContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="84" column="41" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/toolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="59" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="83" column="30" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vlayersContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="87" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/widgets/templates/popup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.9615383">
+          <caret line="438" column="64" selection-start-line="438" selection-start-column="31" selection-end-line="438" selection-end-column="31" />
+          <folding>
+            <element signature="e#11306#13757#0" expanded="false" />
+            <element signature="e#20482#23900#0" expanded="false" />
+            <element signature="e#26003#26693#0" expanded="false" />
+            <element signature="e#26725#27413#0" expanded="false" />
+            <element signature="e#50580#62045#0" expanded="false" />
+            <element signature="e#67246#70845#0" expanded="false" />
+            <element signature="e#71756#74545#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/devices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="342" column="0" selection-start-line="339" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
+          <folding>
+            <element signature="e#6706#7024#0" expanded="false" />
+            <element signature="e#7089#9414#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vtoolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.692308">
+          <caret line="342" column="45" selection-start-line="342" selection-start-column="45" selection-end-line="342" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/controls.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="85" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/popup.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.807693">
+          <caret line="68" column="39" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/widgets/popup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30607966">
+          <caret line="41" column="102" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
           <folding />
         </state>
       </provider>

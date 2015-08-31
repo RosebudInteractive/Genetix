@@ -104,7 +104,8 @@ var config = {
         {className:'GContainer', viewset:true},
         {className:'Toolbar', viewset:true},
         {className:'ToolbarButton', viewset:true},
-        {className:'ToolbarSeparator', viewset:true}
+        {className:'ToolbarSeparator', viewset:true},
+        {className:'LayersContainer', viewset:true}
     ],
     controlsPath: __dirname+'/scripts/controls/',
     dataPath: __dirname+'/data/',

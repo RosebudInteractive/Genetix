@@ -10,12 +10,31 @@ define(
         vButton._templates = template.parseTemplate(tpl);
         vButton.render = function(options) {
             var item = $('#' + this.getLid());
+            var that = this;
             if (item.length == 0) {
                 var pItem = $(vButton._templates['button']).attr('id', "mid_" + this.getLid());
                 item = pItem.children(".control").attr('id', this.getLid());
                 var parent = '#' + (this.getParent()? "ch_"+this.getLid():options.rootContainer);
                 $(parent).append(pItem);
                 $(parent).css("position", "relative");
+
+                var toolbar = this.getParent();
+                var tStyle = toolbar.toolbarSize() || "big";
+                tStyle = tStyle.toUpperCase();
+                var tColor = toolbar.toolbarColor() || "blue";
+                tColor = tColor.toUpperCase();
+                var bKind = this.buttonKind() || "normal";
+                bKind = bKind.toUpperCase();
+                if (tColor  == "BLUE" && tStyle == "BIG" && bKind == "RADIO") {
+                    pItem.append($(vButton._templates['leftCorner1']))
+                    pItem.append($(vButton._templates['leftCorner2']))
+                    pItem.append($(vButton._templates['rightCorner1']))
+                    pItem.append($(vButton._templates['rightCorner2']))
+                }
+
+                pItem.click(function() {
+                    vButton._togglePressed.call(that);
+                });
             } else {
                 pItem = $("#mid_" + this.getLid());
             }
@@ -31,10 +50,6 @@ define(
                 item.addClass("has-both");
 
             vButton._setPressedState.call(this);
-            var that = this;
-            pItem.click(function() {
-                vButton._setPressedState.call(that);
-            });
 
             var imgWrapper = item.find(".t-button-icon-wrapper");
             imgWrapper.empty();
@@ -66,17 +81,49 @@ define(
             vButton._genEventsForParent.call(this);
         }
 
+        vButton._togglePressed = function() {
+            var that = this;
+            var bKind = that.buttonKind() || "normal";
+            bKind = bKind.toUpperCase();
+
+            if (bKind == "NORMAL") return;
+            else if (bKind == "RADIO") {
+                //var curPressed = that.pressed() || false;
+                //if (curPressed) return;
+                this.getControlMgr().userEventHandler(this, function () {
+                    that.pressed(true);
+                    vButton._genPressedChanged.call(that);
+                });
+            } else {
+                this.getControlMgr().userEventHandler(this, function(){
+                    that.pressed(!that.pressed());
+                    vButton._genPressedChanged.call(that);
+                });
+            }
+        }
+
+        vButton._genPressedChanged = function() {
+            $('#ch_' + this.getLid()).trigger("genetix:pressedChanged", {
+                control: this
+            });
+        }
+
         vButton._setPressedState = function() {
             var item = $('#' + this.getLid());
             var bKind = this.buttonKind() || "normal";
             bKind = bKind.toUpperCase();
             var isPressed = this.pressed() || false;
+            var cornersVis = "none";
             if (bKind == "NORMAL") {
                 item.removeClass("is-pressed");
+
             } else {
-                if (isPressed) item.addClass("is-pressed");
+                if (isPressed) { item.addClass("is-pressed"); cornersVis = "" }
                 else item.removeClass("is-pressed");
             }
+
+            var pItem = $("#mid_" + this.getLid());
+            pItem.children("span").css("display", cornersVis);
 
             if (bKind == "NORMAL") {
                 item.removeClass("is-toggle is-radio");
@@ -109,6 +156,7 @@ define(
             if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
             if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
             if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+            //if (this.isFldModified("Pressed")) { changedFields.Pressed = true; genEvent = true; }
 
             if (genEvent) {
                 $('#ch_' + this.getLid()).trigger("genetix:childPropChanged", {

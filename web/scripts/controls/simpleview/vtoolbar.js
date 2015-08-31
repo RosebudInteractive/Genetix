@@ -121,6 +121,21 @@ define(
                         vToolbar.handleChildChanged.call(that, event, data);
                         return false;
                     });
+                    div.on("genetix:pressedChanged", function(event, data) {
+                        var btn = data.control;
+                        vToolbar._setChildPressed.call(that, btn);
+
+                        var bKind = btn.buttonKind() || "normal";
+                        bKind = bKind.toUpperCase();
+
+                        if (bKind == "RADIO" && btn.tabNumber() !== undefined && that.layersContainer()) {
+                            var lc = that.layersContainer();
+                            lc.tabNumber(btn.tabNumber());
+                        }
+
+
+                        return false;
+                    });
                     cont.append(div);
 
                 }
@@ -149,19 +164,44 @@ define(
             cont.css({"padding-left": space, "padding-right": space});
             dots.css({"padding-right" : space});
             dots.hide();
+            vToolbar._restoreVisibility.call(this);
             var hasHiddenItems = vToolbar._hasHiddenItems.call(this);
 
             if (hasHiddenItems) {
                 dots.show();
-                var alParam = "padding-right";
-                var contAlign = this.contentAlign() || "left";
-                contAlign = contAlign.toUpperCase();
                 var padVal = dots.outerWidth();
-                //if (contAlign != "LEFT")
-                //    alParam = "padding-left";
                 var cssObj = {};
+                var alParam = "padding-right";
                 cssObj[alParam] = padVal;
                 cont.css(cssObj);
+                var that = this;
+                vToolbar._correctHiddenItems.call(that);
+            }
+        }
+
+        vToolbar._restoreVisibility = function() {
+            var item = $('#' + this.getLid());
+            var cont = item.children(".c-content");
+            var children = this.getCol('Children');
+            for(var i=0; i<children.count();i++) {
+                var child = this.getControlMgr().get(children.get(i).getGuid());
+                var chDiv = $('#ext_'+child.getLid());
+                chDiv.css("display", "");
+            }
+        }
+
+        vToolbar._correctHiddenItems = function() {
+            var contAlign = this.contentAlign() || "left";
+            contAlign = contAlign.toUpperCase();
+            var hasHiddenItems = vToolbar._hasHiddenItems.call(this);
+            if (contAlign == "LEFT" || !hasHiddenItems) return;
+            vToolbar._restoreVisibility.call(this);
+            var hiddenItems = vToolbar._getHiddenItems.call(this);
+            var children = this.getCol('Children');
+            for (var i = hiddenItems.length - 1; i >=0; i--) {
+                var child = this.getControlMgr().get(children.get(i).getGuid());
+                var chDiv = $('#ext_'+child.getLid());
+                chDiv.css("display", "none");
             }
         }
 
@@ -180,7 +220,7 @@ define(
                 var child = this.getControlMgr().get(children.get(i).getGuid());
                 var chDiv = $('#ext_'+child.getLid());
                 var pos = chDiv.position();
-                if (height <= pos.top)
+                if (height <= pos.top || chDiv.css("display") == "none")
                     hiddenChildren.push(child);
             }
 
@@ -229,9 +269,29 @@ define(
         }
 
         vToolbar.handleChildChanged = function(event, data) {
-            if (!("Height" in data.properties)) return;
+            if (!("Height" in data.properties) && !("Pressed" in data.properties)) return;
+
             var child = data.control;
-            vToolbar._setChildCSS.call(this, child);
+            if ("Height" in data.properties)
+                vToolbar._setChildCSS.call(this, child);
+        }
+
+        vToolbar._setChildPressed = function(changedChild) {
+            var bKind = changedChild.buttonKind() || "normal";
+            bKind = bKind.toUpperCase();
+            if (bKind != "RADIO") return;
+
+            var children = this.getCol('Children');
+            for(var i=0; i<children.count();i++) {
+                var child = this.getControlMgr().get(children.get(i).getGuid());
+                if (!child.buttonKind) continue;
+                bKind = child.buttonKind() || "normal";
+                bKind = bKind.toUpperCase();
+                if (bKind != "RADIO") continue;
+                if (child.getLid() == changedChild.getLid()) continue;
+                child.pressed(false);
+            }
+
         }
 
         vToolbar._renderPopup = function() {
@@ -270,13 +330,20 @@ define(
                 var child = hiddenChildren[i];
                 if (!child.left) continue;
 
-                var cnt = {
-                    id: ("tPopupId-" + child.getLid()),
-                    title: child.caption(),
-                    subTree: [],
-                    leftIcon: (child.image() ? "/images/" + child.image() + "_16" : null)
-                };
-                popupData.push(cnt);
+                if (!child.caption){
+                    if (popupData.length != 0)
+                        popupData.push({
+                            type: "separator"
+                        });
+                } else {
+                    var cnt = {
+                        id: ("tPopupId-" + child.getLid()),
+                        title: child.caption(),
+                        subTree: [],
+                        leftIcon: (child.image() ? "/images/" + child.image() + "_16" : null)
+                    };
+                    popupData.push(cnt);
+                }
             }
 
             return popupData;

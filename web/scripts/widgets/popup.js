@@ -179,6 +179,33 @@ define(
                 if (buttonControl)
                     this.options.buttonControl = buttonControl;
 
+                var hasLeftIcons = this.options.leftIcons;
+                if (hasLeftIcons) {
+                    // проверим передана ли хотябы одна
+                    var found = false;
+                    for (var i = 0; i < popupData.length; i++) {
+                        if (popupData[i].leftIcon) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    hasLeftIcons &= found;
+                }
+
+
+                if (this.options.bigArrowInterval)
+                    this.element.addClass("big-interval");
+                else
+                    this.element.removeClass("big-interval");
+                if (hasLeftIcons)
+                    this.element.addClass("has-left-icons");
+                else
+                    this.element.removeClass("has-left-icons");
+                if (this.options.rightIcons)
+                    this.element.addClass("has-right-icons");
+                else
+                    this.element.removeClass("has-right-icons");
+
                 this._renderContent();
 
                 // уберем все стили, относящиеся к позиции выпирающего уголка
