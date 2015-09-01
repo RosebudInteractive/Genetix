@@ -50,7 +50,7 @@ define(
             }
 
             var cont = item.children(".c-content");
-            var dots = item.children(".c-toolbar-dots");
+            var dots = item.children(".c-content").children(".c-toolbar-dots");
             var space = "";
             if (this.spacing()) {
                 space = this.spacing();
@@ -58,16 +58,18 @@ define(
                     space += "px";
             }
             cont.css({"padding-left": space, "padding-right": space});
-            dots.css({"padding-right" : space});
+            //dots.css({"padding-right" : space});
 
             var contAlign = this.contentAlign() || "left";
             contAlign = contAlign.toUpperCase();
             if (contAlign == "LEFT") {
                 item.addClass("is-left");
                 item.removeClass("is-right");
+                dots.css("float", "left");
             } else {
                 item.removeClass("is-left");
                 item.addClass("is-right");
+                dots.css("float", "right");
             }
 
             var tCaptionStyle = this.captionStyle() || "none";
@@ -136,7 +138,11 @@ define(
 
                         return false;
                     });
-                    cont.append(div);
+
+                    if (contAlign == "LEFT")
+                        cont.children(".c-toolbar-dots").before(div);
+                    else
+                        cont.append(div);
 
                 }
                 vToolbar._setChildCSS(child);
@@ -153,7 +159,7 @@ define(
 
         vToolbar._handleResize = function() {
             var item = $('#' + this.getLid());
-            var dots = item.children(".c-toolbar-dots");
+            var dots = item.children(".c-content").children(".c-toolbar-dots");
             var cont = item.children(".c-content");
             var space = "";
             if (this.spacing()) {
@@ -162,26 +168,23 @@ define(
                     space += "px";
             }
             cont.css({"padding-left": space, "padding-right": space});
-            dots.css({"padding-right" : space});
+            //dots.css({"padding-right" : space});
             dots.hide();
             vToolbar._restoreVisibility.call(this);
             var hasHiddenItems = vToolbar._hasHiddenItems.call(this);
 
             if (hasHiddenItems) {
                 dots.show();
-                var padVal = dots.outerWidth();
-                var cssObj = {};
-                var alParam = "padding-right";
-                cssObj[alParam] = padVal;
-                cont.css(cssObj);
-                var that = this;
-                vToolbar._correctHiddenItems.call(that);
+                //var padVal = dots.outerWidth();
+                //var cssObj = {};
+                //var alParam = "padding-right";
+                //cssObj[alParam] = padVal;
+                //cont.css(cssObj);
+                vToolbar._correctHiddenItems.call(this);
             }
         }
 
         vToolbar._restoreVisibility = function() {
-            var item = $('#' + this.getLid());
-            var cont = item.children(".c-content");
             var children = this.getCol('Children');
             for(var i=0; i<children.count();i++) {
                 var child = this.getControlMgr().get(children.get(i).getGuid());
@@ -194,14 +197,38 @@ define(
             var contAlign = this.contentAlign() || "left";
             contAlign = contAlign.toUpperCase();
             var hasHiddenItems = vToolbar._hasHiddenItems.call(this);
-            if (contAlign == "LEFT" || !hasHiddenItems) return;
+            if (!hasHiddenItems) return;
             vToolbar._restoreVisibility.call(this);
             var hiddenItems = vToolbar._getHiddenItems.call(this);
             var children = this.getCol('Children');
-            for (var i = hiddenItems.length - 1; i >=0; i--) {
-                var child = this.getControlMgr().get(children.get(i).getGuid());
-                var chDiv = $('#ext_'+child.getLid());
-                chDiv.css("display", "none");
+            if (contAlign != "LEFT") {
+                for (var i = hiddenItems.length - 1; i >= 0; i--) {
+                    var child = this.getControlMgr().get(children.get(i).getGuid());
+                    var chDiv = $('#ext_' + child.getLid());
+                    chDiv.css("display", "none");
+                }
+            } else {
+                for (var i = 0 ; i < hiddenItems.length; i++) {
+                    var child = hiddenItems[i]; //this.getControlMgr().get(children.get(i).getGuid());
+                    var chDiv = $('#ext_' + child.getLid());
+                    chDiv.css("display", "none");
+                }
+            }
+            var item = $('#' + this.getLid());
+            var cont = item.children(".c-content")
+            var height = cont.height();
+            var dots = cont.children(".c-toolbar-dots");
+            var pos = dots.position();
+            // Если не поместилось троеточие, скроем еще одну кнопку
+            if (height <= pos.top) {
+                for (var i = children.count() - 1; i >= 0 ; i--) {
+                    var child = this.getControlMgr().get(children.get(i).getGuid());
+                    var chDiv = $('#ext_' + child.getLid());
+                    if (chDiv.css("display") != "none") {
+                        chDiv.css("display", "none");
+                        break;
+                    }
+                }
             }
         }
 
@@ -297,7 +324,7 @@ define(
         vToolbar._renderPopup = function() {
             var that = this;
             var item = $('#' + this.getLid());
-            var dots = item.children(".c-toolbar-dots");
+            var dots = item.children(".c-content").children(".c-toolbar-dots");
 
             var tStyle = this.toolbarSize() || "big";
             tStyle = tStyle.toUpperCase();

@@ -6,6 +6,7 @@
 $(document).ready( function() {
 
     $(window).resize(function() {
+        $(window).trigger("genetix:initResize");
         $(window).trigger("genetix:resize");
     });
 });

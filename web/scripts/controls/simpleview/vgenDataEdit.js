@@ -19,11 +19,11 @@ define(
                 $(parent).css("position", "relative");
 
                 // сохранять при потере фокуса
-                item.blur(function () {
+                item.find("input, textarea").blur(function () {
                     if (that.dataset() && that.dataField()) {
                         that.getControlMgr().userEventHandler(that, function () {
-                            var dataset = that.getControlMgr().get(that.dataset());
-                            dataset.setField(that.dataField(), item.val());
+                            var dataset = that.dataset();
+                            dataset.setField(that.dataField(), item.find("input, textarea").val());
                         });
                     }
                 });
@@ -60,8 +60,7 @@ define(
             if (this.dataset() && this.dataField()) {
                 //var dataset = that.getControlMgr().get(that.dataset());
                 var dataset = that.dataset();
-                item.attr('disabled', false);
-                item.find("input").val(dataset? dataset.getField(this.dataField()): '');
+                item.find("input, textarea").val(dataset? dataset.getField(this.dataField()): '');
             }
 
             if (this.title()) {

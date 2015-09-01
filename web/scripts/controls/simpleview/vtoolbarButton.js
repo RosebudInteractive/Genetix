@@ -52,8 +52,10 @@ define(
             vButton._setPressedState.call(this);
 
             var imgWrapper = item.find(".t-button-icon-wrapper");
-            imgWrapper.empty();
-            if (this.image()) {
+            if (!this.image())
+                imgWrapper.empty();
+            else if ((this.image() && imgWrapper.children().length == 0) || this.isFldModified("Image")) {
+                imgWrapper.empty();
                 var imgTmpl = vButton._templates['svg'];
                 var toolbar = this.getParent();
                 var tStyle = toolbar.toolbarSize() || "big";

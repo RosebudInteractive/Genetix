@@ -10,8 +10,6 @@ define(
          * @param options
          */
         vDataGrid.render = function(options) {
-            console.time('renderGrid '+this.name());
-
             var that = this;
             var grid = $('#' + this.getLid());
             var dataset = null;
@@ -119,7 +117,6 @@ define(
             vDataGrid._reloading(this);
 
             //grid.css({top: this.top() + 'px', left: this.left() + 'px', width: this.width() + 'px', height: this.height() + 'px'});
-            console.timeEnd('renderGrid '+this.name());
 
             vDataGrid._genEventsForParent.call(this);
         }

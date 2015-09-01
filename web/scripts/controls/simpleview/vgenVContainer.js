@@ -12,6 +12,33 @@ define(
                 item = pItem.children(".control").attr('id', this.getLid());
                 var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(pItem);
+                var c = item.children(".c-content");
+                var scrollPos = 0;
+                var scrollRemembered = false;
+                $(window).on("genetix:initResize", function() {
+                    if (!scrollRemembered)
+                        scrollPos = c.scrollTop();
+                });
+                $(window).on("genetix:resize", function () {
+                    var p = that.getParent()? '#ch_' + that.getLid(): options.rootContainer;
+                    $(p).css("height", "");
+                    $(p).css("height", $(p).parent().height());
+                    var pp = $("#mid_" + that.getLid());
+                    pp.css("height", "");
+                    pp.css("height", $(p).height());
+                    var childs = that.getCol('Children');
+                    for(var i=0; i<childs.count();i++) {
+                        var child = that.getControlMgr().get(childs.get(i).getGuid());
+                        if (!child.left) continue;
+                        vContainer._setChildCSS.call(this, child);
+                    }
+                    vContainer._refreshScroll.call(that);
+                    setTimeout(function () {
+                        c.scrollTop(scrollPos);
+                        scrollRemembered = false;
+                    }, 100);
+                });
+
             } else {
                 pItem = $("#mid_" + this.getLid());
             }
@@ -76,22 +103,6 @@ define(
             for (var guid in del)
                 $('#ext_' + del[guid].getLid()).remove();
 
-            $(window).on("genetix:resize", function () {
-                var p = that.getParent()? '#ch_' + that.getLid(): options.rootContainer;
-                $(p).css("height", "");
-                $(p).css("height", $(p).parent().height());
-                var pp = $("#mid_" + that.getLid());
-                pp.css("height", "");
-                pp.css("height", $(p).height());
-                var childs = that.getCol('Children');
-                for(var i=0; i<childs.count();i++) {
-                    var child = that.getControlMgr().get(childs.get(i).getGuid());
-                    if (!child.left) continue;
-                    vContainer._setChildCSS.call(this, child);
-                }
-
-                vContainer._refreshScroll.call(that);
-            });
             vContainer._genEventsForParent.call(this);
         }
 

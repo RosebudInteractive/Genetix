@@ -55,7 +55,7 @@ define(
                 $(window).on("genetix:resize", function () {
                     setTimeout(function() {
                         var parent = that._headTable.parent();
-                        parent.width(that._bodyTable.width());
+                        //parent.width(that._bodyTable.width());
                         //parent.resizableColumns("syncHandleWidths");
                         that.fixHeight();
                     }, 350);
