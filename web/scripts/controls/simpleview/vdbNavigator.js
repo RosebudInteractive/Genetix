@@ -9,7 +9,7 @@ define(
             if (editor.length == 0) {
                 editor = $(vDBNavigator._templates['navigator']).attr('id', that.getLid());
 
-                var parent = (that.getParent()? '#' + that.getParent().getLid(): options.rootContainer);
+                var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(editor);
                 // перейти к паренту
                 editor.find('.dragRight').click(function () {
@@ -26,12 +26,25 @@ define(
 
                 var dbSelector = editor.find('.dbSelector');
                 dbSelector.append('<option />');
+                if (!this.params.dbSelector){ // если базы не указаны берем из контроллера
+                    this.params.dbSelector = [];
+                    var dbList = that.getControlMgr().getController().getDbList();
+                    for(var i=0; i<dbList.length; i++)
+                        this.params.dbSelector.push({name:dbList[i].db.getName(), guid:dbList[i].db.getGuid()});
+                }
                 for(var i=0, len=this.params.dbSelector.length; i<len; i++) {
                     var option = $('<option />').attr('value', this.params.dbSelector[i].guid).html(this.params.dbSelector[i].name);
                     dbSelector.append(option);
                 }
                 dbSelector.change(function(){
                     var val = $(this).val();
+                    var db = that.getControlMgr().getController().getDB(val);
+                    editor.find('.dbVersionSpan').html(
+                        //'DB versions valid:'+db.getVersion('valid')+
+                        //' sent:'+db.getVersion('sent')+
+                        //' draft:'+db.getVersion('draft')+
+                        ' guid:'+db.getGuid()
+                    );
                     for(var i=0, len=that.params.dbSelector.length; i<len; i++) {
                         if (val == that.params.dbSelector[i].guid) {
                             that.getControlMgr().userEventHandler(that, function () {
@@ -43,7 +56,6 @@ define(
                 });
 
             }
-            editor.css({top: that.top() + 'px', left: that.left() + 'px'});
 
             var left = editor.find('.left');
             var centerTop = editor.find('.centerTop');
@@ -71,7 +83,8 @@ define(
 
             // отображаем слева рут элементы
             dbSelector.val(that.dataBase());
-            var controller = that.getControlMgr().getDB().getController();
+            //var controller = that.getControlMgr().getDB().getController();
+            var controller = that.getControlMgr().getController();
             var db = that.dataBase()? controller.getDB(that.dataBase()): null;
             if (db) {
                 var rootElemLink = null;
@@ -79,8 +92,15 @@ define(
                 var cnt = rootElem? 1: db.countRoot();
 
                 for (var i = 0; i < cnt; i++) {
-                    var root = rootElem? db.getObj(rootElem): db.getRoot(i).obj;
-                    var name = root.get('Name');
+                    //var root = rootElem? db.getObj(rootElem): db.getRoot(i).obj;
+                    var root = rootElem ? db: db.getRoot(i).obj;
+                    var name = 'name' in root? root.name(): null;
+
+                    // читаемые названия для рутов данных
+                    if ('getObjType' in root &&  root.getObjType() && 'getRtype' in root.getObjType() && root.getObjType().getRtype() == "data") {
+                        name = root.getObjType().get(0);
+                    }
+
                     if (!name)
                         name = root.getGuid();
 
@@ -98,6 +118,8 @@ define(
                             }, {obj:a.data('obj')});
                             return false;
                         });
+
+                    link.attr('title', 'getRootVersion' in root? 'Root versions valid:'+root.getRootVersion('valid')+' sent:'+root.getRootVersion('sent')+' draft:'+root.getRootVersion('draft'): '');
                     left.append(leftTpl);
 
                     if (!rootElemLink && this.rootElem() == root.getGuid())
@@ -166,7 +188,7 @@ define(
             var centerBottom = editor.find('.centerBottom');
             var right = editor.find('.right');
             var parent = this._activeRoot.getParent();
-            var name = parent.get('Name') ? parent.get('Name') : parent.getGuid();
+            var name = 'name' in parent &&  parent.name() ? parent.name() : parent.getGuid();
             left.empty();
             centerTop.empty();
             centerBottom.empty();
@@ -248,7 +270,7 @@ define(
             var centerBottom = editor.find('.centerBottom.level'+level);
             for (var i = 0, len = obj.count(); i < len; i++) {
                 var col = obj.get(i);
-                var name = col.get('Name');
+                var name = 'name' in col && col.name()? col.name(): null;
                 if (!name)
                     name = col.getGuid();
                 var centerTpl = $(vDBNavigator._templates['centerTop']);
@@ -282,18 +304,25 @@ define(
             // отображаем справа поля
             var right = editor.find('.right');
             right.empty();
-            for (var i = 0, len = obj.count(); i < len; i++) {
-                if (obj.getFieldType) {
-                    var rightTpl = $(vDBNavigator._templates['right']);
-                    rightTpl.find('.name').html(obj.getFieldName(i));
-                    rightTpl.find('.type').html(obj.getFieldType(i));
-                    rightTpl.find('.value').attr('name', obj.getFieldName(i)).data('obj', obj).val(obj.get(i));
-                    rightTpl.find('.save').click(function () {
-                        var val = $(this).parent().find('.value');
-                        val.data('obj').set(val.attr('name'), val.val());
-                        return false;
-                    });
-                    right.append(rightTpl);
+            if (obj.count) {
+
+                if ("getGuid" in obj)
+                    right.append('<p><span class="name" style="width: 54px;vertical-align: top;">Guid</span> <textarea style="width: 157px;height: 30px;" class="value"  >'+obj.getGuid()+'</textarea> <input style="vertical-align: top;" class="save" type="button" value="c" title="copy" onclick="$(this).prev().select(); document.execCommand(\'copy\');"></p>');
+                if ("getTypeGuid" in obj)
+                    right.append('<p><span class="name" style="width: 54px;vertical-align: top;">TypeGuid</span> <textarea style="width: 157px;height: 30px;" class="value"  >'+obj.getTypeGuid()+'</textarea> <input style="vertical-align: top;" class="save" type="button" value="c" title="copy" onclick="$(this).prev().select(); document.execCommand(\'copy\');"></p>');
+                for (var i = 0, len = obj.count(); i < len; i++) {
+                    if (obj.getFieldType) {
+                        var rightTpl = $(vDBNavigator._templates['right']);
+                        rightTpl.find('.name').html(obj.getFieldName(i));
+                        rightTpl.find('.type').html(obj.getFieldType(i));
+                        rightTpl.find('.value').attr('name', obj.getFieldName(i)).data('obj', obj).val(obj.get(i));
+                        rightTpl.find('.save').click(function () {
+                            var val = $(this).parent().find('.value');
+                            val.data('obj')[val.attr('name').charAt(0).toLowerCase() + val.attr('name').slice(1)](val.val());
+                            return false;
+                        });
+                        right.append(rightTpl);
+                    }
                 }
             }
         }
@@ -339,4 +368,4 @@ define(
             if (f3) f3.click();
         };
         return vDBNavigator;
-});
+    });

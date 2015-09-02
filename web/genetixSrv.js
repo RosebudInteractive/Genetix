@@ -73,7 +73,7 @@ var config = {
         { className: 'DataCompany', component: '../DataControls/dataCompany', guid: '59583572-20fa-1f58-8d3f-5114af0f2c51' },
         { className: 'DataTstCompany', component:'../DataControls/dataTstCompany', guid:'34c6f03d-f6ba-2203-b32b-c7d54cd0185a'},
         { className: 'DataAddress', component: '../DataControls/dataAddress', guid: '16ec0891-1144-4577-f437-f98699464948' },
-        { className: 'DataLead', component: '../DataControls/dataLead', guid: '86c611ee-ed58-10be-66f0-dfbb60ab8907' },
+      //  { className: 'DataLead', component: '../DataControls/dataLead', guid: '86c611ee-ed58-10be-66f0-dfbb60ab8907' },
         { className: 'DataLeadLog', component:'../DataControls/dataLeadLog', guid:'c4fa07b5-03f7-4041-6305-fbd301e7408a'},
         { className: 'DataOpportunity', component: '../DataControls/dataOpportunity', guid: '5b64caea-45b0-4973-1496-f0a9a44742b7' },
         { className: 'DataIncomeplan', component: '../DataControls/dataIncomeplan', guid: '56cc264c-5489-d367-1783-2673fde2edaf' },
@@ -86,30 +86,24 @@ var config = {
         { className: 'RootIncomeplan', component: '../DataControls/rootIncomeplan', guid: '194fbf71-2f84-b763-eb9c-177bf9ac565d' },
         { className: 'RootLead', component: '../DataControls/rootLead', guid: '31c99003-c0fc-fbe6-55eb-72479c255556' },
         { className: 'RootLeadLog', component:'../DataControls/rootLeadLog', guid:'bedf1851-cd51-657e-48a0-10ac45e31e20'},
-        {className:'GenDataGrid', component:'genDataGrid', viewsets:true, guid:'55d59ec4-77ac-4296-85e1-def78aa93d55'},
-        {className:'GenLabel', component:'genLabel', viewsets:true, guid:'151c0d05-4236-4732-b0bd-ddcf69a35e25'},
-        {className:'GenVContainer', component:'genVContainer', viewset:true, guid:'b75474ef-26d0-4298-9dad-4133edaa8a9c'},
-        {className:'GenGContainer', component:'genGContainer', viewset:true, guid:'93ada11b-8c2a-4b06-b5ee-8622d607b0a4'},
-        {className:'GenGColumn', component:'genGColumn', viewset:false, guid:'8d1b679e-4cfe-4faa-aecb-f0c53cf8e35a'},
-        {className:'GenButton', component:'genButton', viewsets:true, guid:'bf0b0b35-4025-48ff-962a-1761aa7b3a7b'},
-        {className:'GenDataEdit', component:'genDataEdit', viewset:true, guid:'567cadd5-7f9d-4cd8-a24d-7993f065f5f9'},
-        {className:'GenForm', component:'genForm', viewset:true, guid:'29bc7a01-2065-4664-b1ad-7cc86f92c177'},
-        // контролы уччелло
-        {className:'Form', viewsets:true},
-        {className:'Container', viewset:true},
-        {className:'CContainer', viewset:true},
-        {className:'HContainer', viewset:true},
-        {className:'VContainer', viewset:true},
-        {className:'FContainer', viewset:true},
-        {className:'GContainer', viewset:true},
-        {className:'Toolbar', viewset:true},
-        {className:'ToolbarButton', viewset:true},
-        {className:'ToolbarSeparator', viewset:true},
-        {className:'LayersContainer', viewset:true}
-    ],
+        {className:'GenDataGrid', component:'genDataGrid', guid:'55d59ec4-77ac-4296-85e1-def78aa93d55'},
+        {className:'GenLabel', component:'genLabel', guid:'151c0d05-4236-4732-b0bd-ddcf69a35e25'},
+        {className:'GenVContainer', component:'genVContainer', guid:'b75474ef-26d0-4298-9dad-4133edaa8a9c'},
+        {className:'GenGContainer', component:'genGContainer', guid:'93ada11b-8c2a-4b06-b5ee-8622d607b0a4'},
+        {className:'GenGColumn', component:'genGColumn', guid:'8d1b679e-4cfe-4faa-aecb-f0c53cf8e35a'},
+        {className:'GenButton', component:'genButton', guid:'bf0b0b35-4025-48ff-962a-1761aa7b3a7b'},
+        {className:'GenDataEdit', component:'genDataEdit', guid:'567cadd5-7f9d-4cd8-a24d-7993f065f5f9'},
+        {className:'GenForm', component:'genForm', guid:'29bc7a01-2065-4664-b1ad-7cc86f92c177'}
+    ] ,
+
+    classGuids: {
+        'DataLead': "86c611ee-ed58-10be-66f0-dfbb60ab8907"
+    },
     controlsPath: __dirname+'/scripts/controls/',
     dataPath: __dirname+'/data/',
     uccelloPath: __dirname+'/../../'+uccelloDir+'/'
+
+
 };
 
 // модуль настроек

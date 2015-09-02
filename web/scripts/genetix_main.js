@@ -261,6 +261,10 @@ $(document).ready( function() {
                             $("#empty-menu-item").click(function() {
                                 window.createContext([form9Guid])
                             });
+                            $("#more-menu-navigator").click(function() {
+                               window.viewNavigator();
+                            });
+
 
                             $(".system-toolbar-icon.is-device-close-icon").click(function() {
                                 setTimeout(function() {
@@ -375,11 +379,22 @@ $(document).ready( function() {
                      * Создать серверный контекст
                      * @param formGuids массив гуидов ресурсов, который загружается в контекст
                      */
-                    window.createContext = function(formGuids) {
+                   /* window.createContext = function(formGuids) {
                         $("#root-form-container").empty();
 
                         uccelloClt.createContext('server', formGuids, function(result){
                             that.selectContext({vc:result.vc, side:result.side, formGuids:result.roots, urlFormGuids:result.roots[0]});
+                        });
+                    }*/
+
+                    /**
+                     * Создать серверный контекст
+                     * @param formGuids массив гуидов ресурсов, который загружается в контекст
+                     */
+                    window.createContext = function(formGuids) {
+                        $("#root-form-container").empty();
+                        uccelloClt.createContext('server', formGuids, function(result){
+                            that.selectContext({vc:result.vc, side:result.side, formGuids:result.roots, urlFormGuids:'all'});
                         });
                     }
 
@@ -453,19 +468,57 @@ $(document).ready( function() {
                         });
                     }
 
+                    that.vNavigator = null;
+                    //that.vNavigator.database = null;
+                    window.viewNavigator = function() {
+                        //if (!that.vNavigator){
+                        require(['./controls/simpleview/vdbNavigator'], function(VDbNavigator){
+                            $('#clientNav').remove();
+                            that.vNavigator = VDbNavigator;
+                            that.vNavigator.getLid = function(){return 'clientNav';};
+                            that.vNavigator.getParent = function(){return null;};
+                            that.vNavigator.top = function(){return 5;};
+                            that.vNavigator.left = function(){return 3;};
+                            that.vNavigator.nlevels = function(){return 3;};
+                            //that.vNavigator.database = null;
+                            that.vNavigator.level = null;
+                            that.vNavigator.rootelem = null;
+                            that.vNavigator.level = function(val){if(val !== undefined) that.vNavigator.level=val; return that.vNavigator.level;};
+                            that.vNavigator.dataBase = function(val){if(val !== undefined) that.vNavigator.database=val; return that.vNavigator.database;};
+                            that.vNavigator.rootElem = function(val){if(val !== undefined) that.vNavigator.rootelem=val; return that.vNavigator.rootelem;};
+                            that.vNavigator.getControlMgr = function(){ return uccelloClt.getContext()? uccelloClt.getContextCM(): uccelloClt.getSysCM(); };
+                            that.vNavigator.params = {};
+
+                            that.vNavigator.render({rootContainer:'#dbNavigatorForm'});
+                            $('#clientNav').find('.dbSelector').change(function(){
+                                that.vNavigator.rootelem = null;
+                                that.vNavigator.render({rootContainer:'#dbNavigatorForm'});
+                            });
+                            $('#dbNavigatorForm').dialog('open');
+                        });
+                        /*} else {
+                         that.vNavigator.render({rootContainer:'#dbNavigatorForm'});
+                         $('#dbNavigatorForm').dialog('open');
+                         }*/
+                    }
+
                     this.setContextUrl = function(context, formGuids) {
                         window.isHashchange = false;
                         document.location = that.getContextUrl(context, formGuids);
 
                     }
 
-                    this.getContextUrl = function(context, formGuids) {
+
+                    this.getContextUrl = function(context, formGuids, timeout) {
                         var location = document.location.href;
                         location = location.replace(/#.*/, '');
+                        location = location.replace(/\?runtest=1/, '?runtesttab=1');
                         formGuids = !formGuids || formGuids=='all'?'all':formGuids;
                         if (formGuids !='all' && typeof formGuids == "string") formGuids = [formGuids];
-                        return location+'#context='+context+'&formGuids='+(!formGuids || formGuids=='all'?'all':formGuids.join(','))
+                        formGuids = !formGuids || formGuids=='all'?'all':formGuids.join(',');
+                        return location+'#context='+context+(formGuids=='all'?'':'&formGuids='+formGuids)+(timeout?'&timeout='+timeout:'');
                     }
+
 
                     $(window).on('hashchange', function() {
                         if (window.isHashchange) {
@@ -475,6 +528,17 @@ $(document).ready( function() {
                                 $('#userContext').val(vcObj.dataBase()).change();
                         }
                         window.isHashchange = true;
+                    });
+
+                    $('#dbNavigatorForm').dialog({
+                        title: "Database Navigator",
+                        resizable: true,
+                        width:900,
+                        height:600,
+                        modal: true,
+                        autoOpen: false,
+                        buttons: {
+                        }
                     });
                 }
             );
