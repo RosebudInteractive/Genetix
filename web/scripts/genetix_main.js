@@ -472,7 +472,7 @@ $(document).ready( function() {
                     //that.vNavigator.database = null;
                     window.viewNavigator = function() {
                         //if (!that.vNavigator){
-                        require(['./controls/simpleview/vdbNavigator'], function(VDbNavigator){
+                        require(['./lib/uccello/lib/simpleview/vdbNavigator'], function(VDbNavigator){
                             $('#clientNav').remove();
                             that.vNavigator = VDbNavigator;
                             that.vNavigator.getLid = function(){return 'clientNav';};
