@@ -83,7 +83,7 @@
                                                     },
                                                     "fields": {
                                                         "Id": 5001,
-                                                        "Name": "state"
+                                                        "Name": "Source"
                                                     }
                                                 },
                                                 {
@@ -93,17 +93,17 @@
                                                     },
                                                     "fields": {
                                                         "Id": 5003,
-                                                        "Name": "client"
+                                                        "Name": "State"
                                                     }
                                                 },
                                                 {
                                                     "$sys": {
-                                                        "guid": "7e046710-cb8b-9414-5097-139ffe7ed389",
+                                                        "guid": "23e1320b-8c99-4d82-008a-0c9fe678db08",
                                                         "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                                     },
                                                     "fields": {
                                                         "Id": 5004,
-                                                        "Name": "companyId"
+                                                        "Name": "Content"
                                                     }
                                                 },
                                                 {
@@ -113,7 +113,7 @@
                                                     },
                                                     "fields": {
                                                         "Id": 5005,
-                                                        "Name": "contact"
+                                                        "Name": "Creation"
                                                     }
                                                 },
                                                 {
@@ -123,7 +123,7 @@
                                                     },
                                                     "fields": {
                                                         "Id": 5006,
-                                                        "Name": "phone"
+                                                        "Name": "Closed"
                                                     }
                                                 },
                                                 {
@@ -133,65 +133,150 @@
                                                     },
                                                     "fields": {
                                                         "Id": 5007,
-                                                        "Name": "email"
+                                                        "Name": "OpportunityId"
                                                     }
                                                 },
                                                 {
                                                     "$sys": {
-                                                        "guid": "0eeebe01-ee89-2923-80aa-d05d195b006d",
+                                                        "guid": "4c5fedcb-c43c-fb33-17e6-6df0e3b3e728",
                                                         "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                                     },
                                                     "fields": {
                                                         "Id": 5008,
-                                                        "Name": "contactId"
+                                                        "Name": "ContactId"
                                                     }
                                                 },
                                                 {
                                                     "$sys": {
-                                                        "guid": "03d0837e-f530-9ecc-471c-61b860a05fa2",
+                                                        "guid": "81d400b0-8f58-a800-576f-19ea369a994d",
                                                         "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                                     },
                                                     "fields": {
                                                         "Id": 5009,
-                                                        "Name": "proba"
+                                                        "Name": "FirstName"
                                                     }
                                                 },
                                                 {
                                                     "$sys": {
-                                                        "guid": "7e31b95d-36ad-ff55-0390-2e1f4c4de3c6",
+                                                        "guid": "fc1bdfc6-906f-a742-1218-8454d9125623",
                                                         "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                                     },
                                                     "fields": {
                                                         "Id": 5010,
-                                                        "Name": "amount"
+                                                        "Name": "LastName"
                                                     }
                                                 },
                                                 {
                                                     "$sys": {
-                                                        "guid": "18113bf8-9b2f-98b1-2cbf-9e1470e7d8bf",
+                                                        "guid": "d0c2d70e-7572-de26-f8a3-a527e529db0d",
                                                         "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                                     },
                                                     "fields": {
                                                         "Id": 5011,
-                                                        "Name": "user"
+                                                        "Name": "Title"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "eca1ef71-09a7-11a2-e244-d611df8dd77a",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 5012,
+                                                        "Name": "MobilePhone"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "2fec5ab0-24cf-83e5-5486-19dda237c4bf",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 5013,
+                                                        "Name": "WorkPhone"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "f0b24e9c-b140-bf20-1083-1edf425dfa74",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 5014,
+                                                        "Name": "Email"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "6819d5a5-0789-eda5-3cf8-43f128545ec9",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 5015,
+                                                        "Name": "CompanyId"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "bb76eac7-7f14-532f-bb28-72122339d7e0",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 5016,
+                                                        "Name": "Company"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "0bf0fc84-9c00-4d78-447b-242a18e3cd7d",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 5017,
+                                                        "Name": "Industry"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "808e498c-0586-17d0-1ce5-0ef3e65d6e12",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 5018,
+                                                        "Name": "NbEmpl"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "771cf450-fb24-04ae-dbdc-a1d1ea4a1450",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 5019,
+                                                        "Name": "City"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "dad54b1c-2a3c-a272-049a-42dd2a3a1351",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 5020,
+                                                        "Name": "Address"
+                                                    }
+                                                },
+                                                {
+                                                    "$sys": {
+                                                        "guid": "7e6cdfb8-93d7-8dee-38f0-3e2cce92bfd6",
+                                                        "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+                                                    },
+                                                    "fields": {
+                                                        "Id": 5021,
+                                                        "Name": "PostalCode"
                                                     }
                                                 }
                                             ]
-                                        }
-                                    },
-                                    {
-                                        "$sys": {
-                                            "guid": "da185853-e1aa-8b58-2de5-7cbc0d685501",
-                                            "typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
-                                        },
-                                        "fields": {
-                                            "Id": 2005,
-                                            "Name": "DatasetIncomeplan",
-                                            "ObjType": "8770f400-fd42-217c-90f5-507ca52943c2",
-                                            "Active": true,
-                                            "Master": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a"
-                                        },
-                                        "collections": {
                                         }
                                     }
                                 ]
@@ -270,7 +355,7 @@
                                             "Width": 100,
                                             "Height": 20,
                                             "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
-                                            "DataField": "state",
+                                            "DataField": "State",
                                             "Title": "Lead state"
                                         }
                                     },
@@ -281,12 +366,12 @@
                                         },
                                         "fields": {
                                             "Id": 3007,
-                                            "Name": "LabelClient",
+                                            "Name": "LabelContent",
                                             "Top": 110,
                                             "Left": 25,
                                             "Width": 100,
                                             "Height": 20,
-                                            "Label": "Client"
+                                            "Label": "Content"
                                         }
                                     },
                                     {
@@ -296,13 +381,13 @@
                                         },
                                         "fields": {
                                             "Id": 3007,
-                                            "Name": "LeadClient",
+                                            "Name": "LeadContent",
                                             "Top": 105,
                                             "Left": 100,
                                             "Width": 100,
                                             "Height": 20,
                                             "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
-                                            "DataField": "client"
+                                            "DataField": "Content"
                                         }
                                     },
                                     {
@@ -312,12 +397,12 @@
                                         },
                                         "fields": {
                                             "Id": 3007,
-                                            "Name": "LabelCompanyId",
+                                            "Name": "LabelCreation",
                                             "Top": 110,
                                             "Left": 320,
                                             "Width": 100,
                                             "Height": 20,
-                                            "Label": "CompanyId"
+                                            "Label": "Creation"
                                         }
                                     },
                                     {
@@ -327,13 +412,13 @@
                                         },
                                         "fields": {
                                             "Id": 3007,
-                                            "Name": "LeadCompanyId",
+                                            "Name": "LeadCreation",
                                             "Top": 105,
                                             "Left": 410,
                                             "Width": 100,
                                             "Height": 20,
                                             "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
-                                            "DataField": "companyId"
+                                            "DataField": "Creation"
                                         }
                                     },
                                     {

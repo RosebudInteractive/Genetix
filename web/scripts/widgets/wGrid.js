@@ -69,6 +69,7 @@ define(
                     this._grid.parent().height(this._grid.parent().parent().height());
                     this._grid.height(this._grid.parent().parent().height());
                     this._grid.children(".scrollable-bl").height(h);
+                    this.reloading(null, null);
                     this._trigger("sizechanged", null);
                 } else {
                     this._grid.parent().css("height", "auto");
@@ -111,7 +112,7 @@ define(
                     this.options.columns = columns;
                 if (source != null)
                     this.options.source = source;
-                if (columns) {
+                if (columns || !(this._fackeHeader)) {
                     this.renderHeader();
                     var headers = this._headTable.children('tr').children('th');
                     this._addeventsheaders(headers);

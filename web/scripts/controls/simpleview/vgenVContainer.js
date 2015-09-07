@@ -19,6 +19,9 @@ define(
                     if (!scrollRemembered)
                         scrollPos = c.scrollTop();
                 });
+
+                vContainer._bindScrollingHeader.call(this);
+
                 $(window).on("genetix:resize", function () {
                     var p = that.getParent()? '#ch_' + that.getLid(): options.rootContainer;
                     $(p).css("height", "");
@@ -104,6 +107,40 @@ define(
                 $('#ext_' + del[guid].getLid()).remove();
 
             vContainer._genEventsForParent.call(this);
+        }
+
+        vContainer._bindScrollingHeader = function() {
+            var item = $('#' + this.getLid());
+            var cont = item.children(".c-content");
+
+            var t, l = (new Date()).getTime();
+            item.children(".scroll-header").hide();
+
+            cont.scroll(function(){
+                var now = (new Date()).getTime();
+
+                if(now - l > 400){
+                    $(this).trigger('scrollStart');
+                    l = now;
+                }
+
+                clearTimeout(t);
+                t = setTimeout(function(){
+                    cont.trigger('scrollEnd');
+                }, 300);
+            });
+
+            cont.bind('scrollStart', function(){
+                console.log('scrollStart');
+                item.children(".scroll-header").show();
+                return false;
+            });
+
+            cont.bind('scrollEnd', function(){
+                console.log('scrollEnd');
+                item.children(".scroll-header").hide();
+                return false;
+            });
         }
 
         vContainer._setChildCSS = function(child) {

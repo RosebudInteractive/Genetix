@@ -1016,8 +1016,6 @@ var IScroll = (function (window, document, Math) {
                 return;
             }
 
-            e.preventDefault();
-
             var wheelDeltaX, wheelDeltaY,
                 newX, newY,
                 that = this;
@@ -1082,6 +1080,9 @@ var IScroll = (function (window, document, Math) {
             } else if ( newY < this.maxScrollY ) {
                 newY = this.maxScrollY;
             }
+
+            if (this.x == newX && this.y == newY) return;
+            e.preventDefault();
 
             this._execEvent('scrollStart');
             this.scrollTo(newX, newY, 0);

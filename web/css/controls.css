@@ -874,6 +874,15 @@ td.container-title {
   position: absolute;
   overflow: auto;
 }
+.control.container > .scroll-header {
+  background-color: #fff;
+  position: absolute;
+  top: 0px;
+  opacity: 0.5;
+  width: 100%;
+  height: 1.5em;
+  z-index: 2;
+}
 .control {
   box-sizing: border-box;
   -moz-box-sizing: border-box;

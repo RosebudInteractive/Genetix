@@ -97,7 +97,8 @@ $(document).ready( function() {
                         $("#root-form-container").empty();
 
                         uccelloClt.setContext(params, function(result) {
-                            that.setContextUrl(params.vc, params.urlFormGuids?params.urlFormGuids:params.formGuids);
+                            //that.setContextUrl(params.vc, params.urlFormGuids?params.urlFormGuids:params.formGuids);
+                            that.setContextUrl(params.vc, result);
                             that.setAutoSendDeltas(true);
                             that.getContexts();
                             if (cb) cb(result);
@@ -298,8 +299,8 @@ $(document).ready( function() {
                             var vcObj = uccelloClt.getSysCM().get(vc);
                             var formGuids = url('#formGuids') ? url('#formGuids').split(',') : null;
                             if (formGuids) {
-                                that.selectContext({vc:vc,  side: 'server', formGuids:formGuids}, function(){
-                                    uccelloClt.createRoot(formGuids, "res", null, vcObj);
+                                that.selectContext({vc:vc,  side: 'server', formGuids:formGuids}, function(formsGuidsCreated){
+                                    uccelloClt.createRoot(formsGuidsCreated, "res", null, vcObj);
                                 });
                             } else {
                                 that.selectContext({vc:vc,  side: 'server'});
