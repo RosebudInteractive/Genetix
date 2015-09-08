@@ -1,7 +1,10 @@
 define(
-    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/label.html'],
-    function(template, tpl) {
+    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/label.html'
+        , '/scripts/controls/simpleview/vbase.js'],
+    function(template, tpl, Base) {
         var vLabel = {};
+        for (var i in Base)
+            vLabel[i] = Base[i];
         vLabel._templates = template.parseTemplate(tpl);
         vLabel.render = function(options) {
             var item = $('#' + this.getLid());
@@ -45,6 +48,7 @@ define(
             if (this.fontWeight())
                 item.css({"font-weight": this.fontWeight()});
 
+            vLabel._setVisible.call(this);
             vLabel._genEventsForParent.call(this);
         }
 
@@ -67,6 +71,7 @@ define(
             if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
             if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
             if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+            if (this.isFldModified("Visible")) { changedFields.Visible = true; genEvent = true; }
 
             if (genEvent) {
                 $('#ch_' + this.getLid()).trigger("genetix:childPropChanged", {

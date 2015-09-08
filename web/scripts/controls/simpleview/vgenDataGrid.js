@@ -1,7 +1,10 @@
 define(
-    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/dataGrid.html', "wGrid", "/scripts/lib/iscroll.js"],
-    function(template, tpl) {
+    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/dataGrid.html',
+        '/scripts/controls/simpleview/vbase.js', "wGrid", "/scripts/lib/iscroll.js"],
+    function(template, tpl, Base) {
         var vDataGrid = {};
+        for (var i in Base)
+            vDataGrid[i] = Base[i];
         vDataGrid._templates = template.parseTemplate(tpl);
 
 
@@ -118,6 +121,7 @@ define(
 
             //grid.css({top: this.top() + 'px', left: this.left() + 'px', width: this.width() + 'px', height: this.height() + 'px'});
 
+            vDataGrid._setVisible.call(this);
             vDataGrid._genEventsForParent.call(this);
         }
 
@@ -140,6 +144,7 @@ define(
             if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
             if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
             if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+            if (this.isFldModified("Visible")) { changedFields.Visible = true; genEvent = true; }
 
             if (this._reloaded) { changedFields.Height = true; genEvent = true; }
             if (genEvent) {

@@ -1,7 +1,10 @@
 define(
-    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/button.html'],
-    function(template, tpl) {
+    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/button.html'
+        , '/scripts/controls/simpleview/vbase.js'],
+    function(template, tpl, Base) {
         var vButton = {};
+        for (var i in Base)
+            vButton[i] = Base[i];
         vButton._templates = template.parseTemplate(tpl);
         vButton.render = function(options) {
             var item = $('#' + this.getLid());
@@ -49,6 +52,7 @@ define(
                 item.addClass(this.extendedClass());
             else
                 item.addClass("is-white");
+            vButton._setVisible.call(this);
             vButton._genEventsForParent.call(this);
         }
 
@@ -71,6 +75,7 @@ define(
             if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
             if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
             if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+            if (this.isFldModified("Visible")) { changedFields.Visible = true; genEvent = true; }
 
             if (genEvent) {
                 $('#ch_' + this.getLid()).trigger("genetix:childPropChanged", {

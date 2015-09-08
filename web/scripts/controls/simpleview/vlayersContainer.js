@@ -4,9 +4,12 @@
  * Time: 13:32
  */
 define(
-    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/lContainer.html'],
-    function(template, tpl) {
+    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/lContainer.html'
+        , '/scripts/controls/simpleview/vbase.js'],
+    function(template, tpl, Base) {
         var lContainer = {};
+        for (var i in Base)
+            lContainer[i] = Base[i];
         lContainer._templates = template.parseTemplate(tpl);
 
         lContainer.render = function(options) {
@@ -90,7 +93,7 @@ define(
                     cont.append(div);
                     div.css({"width": "100%", "height": "100%"});
                 }
-                lContainer._setChildCSS(child);
+                lContainer._setChildCSS.call(this, child);
             }
 
             lContainer._setVisibleTab.call(this);
@@ -100,6 +103,7 @@ define(
             for (var guid in del)
                 $('#ext_' + del[guid].getLid()).remove();
 
+            lContainer._setVisible.call(this);
             lContainer._genEventsForParent.call(this);
             setTimeout(function() {
                 lContainer._handleResize.call(that);
@@ -221,6 +225,8 @@ define(
                 chDiv.css("float", "");
                 chDiv.css("display", "");
             }
+
+            lContainer._setVisibleTab.call(this);
         }
 
         /**
@@ -242,6 +248,7 @@ define(
             if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
             if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
             if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+            if (this.isFldModified("Visible")) { changedFields.Visible = true; genEvent = true; }
 
             if (genEvent) {
                 $('#ext_' + this.getLid()).trigger("genetix:childPropChanged", {

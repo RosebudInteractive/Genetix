@@ -1,7 +1,10 @@
 define(
-    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/hContainer.html'],
-    function(template, tpl) {
+    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/hContainer.html'
+        , '/scripts/controls/simpleview/vbase.js'],
+    function(template, tpl, Base) {
         var vHContainer = {};
+        for (var i in Base)
+            vHContainer[i] = Base[i];
         vHContainer._templates = template.parseTemplate(tpl);
         vHContainer.render = function(options) {
             var that = this;
@@ -139,6 +142,7 @@ define(
                     div.children().css("height", div.height());
                 }
             });
+            vHContainer._setVisible.call(this);
             vHContainer._genEventsForParent.call(this);
         }
 
@@ -161,6 +165,7 @@ define(
             if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
             if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
             if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+            if (this.isFldModified("Visible")) { changedFields.Visible = true; genEvent = true; }
 
             if (genEvent) {
                 $('#ext_' + this.getLid()).trigger("genetix:childPropChanged", {
@@ -171,28 +176,39 @@ define(
         }
 
         vHContainer.handleChildChanged = function(event, data) {
-            console.log(event);
-            if (!("Width" in data.properties)) return;
             var child = data.control;
-            var div = $(event.target);
-            var width = child.width() || "auto";
-            var flex = "none";
-            if (width != "auto") {
-                if ($.isNumeric(width))
-                    width += "px";
-                else if (width.length > 0 && width[width.length - 1] == "%") {
-                    var perc = width.replace("%", "");
-                    width = "auto";
-                    flex = perc + " 0 auto";
+            if ("Width" in data.properties) {
+                var div = $(event.target);
+                var width = child.width() || "auto";
+                var flex = "none";
+                if (width != "auto") {
+                    if ($.isNumeric(width))
+                        width += "px";
+                    else if (width.length > 0 && width[width.length - 1] == "%") {
+                        var perc = width.replace("%", "");
+                        width = "auto";
+                        flex = perc + " 0 auto";
+                    }
+                }
+                div.css({
+                    "width": width,
+                    "flex": flex,
+                    "-webkit-flex": flex,
+                    "-ms-flex": flex,
+                    "min-width": 0
+                });
+            }
+
+            if ("Visible" in data.properties || "Width" in data.properties) {
+                var children = this.getCol('Children');
+                for(var i=0; i<children.count();i++) {
+                    var ch= this.getControlMgr().get(children.get(i).getGuid());
+                    if (!ch.left) continue;
+                    var div = $('#ext_' + ch.getLid());
+                    if (ch.getLid() == child.getLid()) continue;
+                    $(window).trigger("genetix:resize");
                 }
             }
-            div.css({
-                "width": width,
-                "flex": flex,
-                "-webkit-flex": flex,
-                "-ms-flex": flex,
-                "min-width": 0
-            });
 
         }
 

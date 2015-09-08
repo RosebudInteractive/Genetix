@@ -1,7 +1,10 @@
 define(
-    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/form.html'],
-    function(template, tpl) {
+    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/form.html'
+        , '/scripts/controls/simpleview/vbase.js'],
+    function(template, tpl, Base) {
         var vForm = {};
+        for (var i in Base)
+            vForm[i] = Base[i];
         vForm._templates = template.parseTemplate(tpl);
         vForm.render = function(options) {
             var that = this;
@@ -93,6 +96,7 @@ define(
                     div.children().css("height", div.height());
                 }
             });
+            vForm._setVisible.call(this);
             vForm._genEventsForParent.call(this);
         }
 
@@ -115,6 +119,7 @@ define(
             if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
             if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
             if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+            if (this.isFldModified("Visible")) { changedFields.Visible = true; genEvent = true; }
 
             if (genEvent) {
                 $('#ext_' + this.getLid()).trigger("genetix:childPropChanged", {
@@ -148,7 +153,7 @@ define(
                 "min-height": 0
             });
 
-        }
+        };
 
         return vForm;
     }

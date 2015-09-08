@@ -1,7 +1,10 @@
 define(
-    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/fContainer.html', "flex-container"],
-    function(template, tpl) {
+    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/fContainer.html',
+        '/scripts/controls/simpleview/vbase.js', "flex-container"],
+    function(template, tpl, Base) {
         var vFContainer = {};
+        for (var i in Base)
+            vFContainer[i] = Base[i];
         vFContainer._templates = template.parseTemplate(tpl);
         vFContainer.render = function(options) {
             var that = this;
@@ -65,6 +68,9 @@ define(
                         row.grow = false;
                     }
 
+                    div.on("genetix:childPropChanged", function(event, data) {
+                        vFContainer.handleChildChanged.call(that, event, data);
+                    });
                 }
 
                 // нижний отступ
@@ -111,6 +117,7 @@ define(
                 }
             });
             this._recalculated = true;
+            vFContainer._setVisible.call(this);
             vFContainer._genEventsForParent.call(this);
         }
 
@@ -135,6 +142,7 @@ define(
             if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
             if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
             if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+            if (this.isFldModified("Visible")) { changedFields.Visible = true; genEvent = true; }
             if (genEvent) {
                 $('#ext_' + this.getLid()).trigger("genetix:childPropChanged", {
                     control: this,
@@ -321,6 +329,12 @@ define(
             return rowObj;
         };
 
+        vFContainer.handleChildChanged = function(event, data) {
+            if (!("Visible" in data.properties)) return;
+            if (vFContainer.isRootFlex.call(this)) {
+                vFContainer.getParentFlex.call(this).trigger("genetix:flexRecalculate");
+            }
+        };
 
         return vFContainer;
     }

@@ -4,9 +4,12 @@
  * Time: 8:32
  */
 define(
-    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/toolbar.html'],
-    function(template, tpl) {
+    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/toolbar.html'
+        , '/scripts/controls/simpleview/vbase.js'],
+    function(template, tpl, Base) {
         var vToolbar = {};
+        for (var i in Base)
+            vToolbar[i] = Base[i];
         vToolbar._templates = template.parseTemplate(tpl);
 
         vToolbar.render = function(options) {
@@ -153,6 +156,7 @@ define(
             for (var guid in del)
                 $('#ext_' + del[guid].getLid()).remove();
 
+            vToolbar._setVisible.call(this);
             vToolbar._genEventsForParent.call(this);
             vToolbar._handleResize.call(this);
         }
@@ -286,6 +290,7 @@ define(
             if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
             if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
             if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+            if (this.isFldModified("Visible")) { changedFields.Visible = true; genEvent = true; }
 
             if (genEvent) {
                 $('#ext_' + this.getLid()).trigger("genetix:childPropChanged", {

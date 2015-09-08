@@ -5,7 +5,7 @@
  */
 var uccelloClt = null, $u=null, DEBUG = true;
 var formGuid = "89f42efa-b160-842c-03b4-f3b536ca09d8";
-var form2Guid = "e7613a67-c36c-4ff5-a999-4d143bebc97c";
+var form2Guid = "d5779b46-5c7e-4537-b25e-a8e5e27fb86f";
 var form3Guid = "4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9";
 var form4Guid = "cf07df23-abfe-9887-a353-09a00faf99d8";
 var form5Guid = "1bf3b1a3-edba-32ca-5033-75e3cf9a709a";
@@ -262,7 +262,7 @@ $(document).ready( function() {
                             $("#empty-menu-item").click(function() {
                                 window.createContext([form9Guid])
                             });
-                            $("#more-menu-navigator").click(function() {
+                            $("#menu-navigator").click(function() {
                                window.viewNavigator();
                             });
 

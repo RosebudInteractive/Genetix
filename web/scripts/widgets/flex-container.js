@@ -30,8 +30,11 @@ define(
                     $(window).on("genetix:resize", function () {
                         that._launchInfo.launchPending = true;
                         console.warn("resize heppened");
-                        //that.resizeHandler();
-                        //that.drawGridHandler();
+                    });
+
+                    this.element.on("genetix:flexRecalculate", function () {
+                        that._launchInfo.launchPending = true;
+                        console.warn("resize heppened");
                     });
 
                     setTimeout(function () {

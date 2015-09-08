@@ -1,7 +1,10 @@
 define(
-    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/container.html'],
-    function(template, tpl) {
+    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/container.html'
+        , '/scripts/controls/simpleview/vbase.js'],
+    function(template, tpl, Base) {
         var vContainer = {};
+        for (var i in Base)
+            vContainer[i] = Base[i];
         vContainer._templates = template.parseTemplate(tpl);
         vContainer.render = function(options) {
             var item = $('#' + this.getLid());
@@ -59,6 +62,7 @@ define(
             for (var guid in del)
                 $('#' + del[guid].getLid()).remove();
 
+            vContainer._setVisible.call(this);
             vContainer._genEventsForParent.call(this);
         }
 
@@ -81,6 +85,7 @@ define(
             if (this.isFldModified("PadRight")) { changedFields.PadRight = true; genEvent = true; }
             if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
             if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
+            if (this.isFldModified("Visible")) { changedFields.Visible = true; genEvent = true; }
             if (genEvent) {
                 $('#ch_' + this.getLid()).trigger("genetix:childPropChanged", {
                     control: this,

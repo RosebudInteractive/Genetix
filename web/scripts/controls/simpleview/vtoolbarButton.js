@@ -4,9 +4,13 @@
  * Time: 12:59
  */
 define(
-    ['/scripts/lib/uccello/uses/template.js', 'text!./templates/toolbarButton.html'],
-    function(template, tpl) {
+    ['/scripts/lib/uccello/uses/template.js'
+        , 'text!./templates/toolbarButton.html'
+        , '/scripts/controls/simpleview/vbase.js'
+    ], function(template, tpl, Base) {
         var vButton = {};
+        for (var i in Base)
+            vButton[i] = Base[i];
         vButton._templates = template.parseTemplate(tpl);
         vButton.render = function(options) {
             var item = $('#' + this.getLid());
@@ -34,9 +38,17 @@ define(
 
                 pItem.click(function() {
                     vButton._togglePressed.call(that);
+
+                    if ("onClick" in that) {
+                        that.getControlMgr().userEventHandler(that, function(){
+                            that.onClick.apply(that);
+                        });
+                    }
+
                 });
             } else {
                 pItem = $("#mid_" + this.getLid());
+
             }
 
             var cStyle = this.captionStyle() || "text";
@@ -80,7 +92,9 @@ define(
             if (enabled) item.removeClass("is-disabled");
             else item.addClass("is-disabled");
 
+            vButton._setVisible.call(this);
             vButton._genEventsForParent.call(this);
+
         }
 
         vButton._togglePressed = function() {
@@ -159,6 +173,7 @@ define(
             if (this.isFldModified("PadTop")) { changedFields.PadTop = true; genEvent = true; }
             if (this.isFldModified("PadBottom")) { changedFields.PadBottom = true; genEvent = true; }
             //if (this.isFldModified("Pressed")) { changedFields.Pressed = true; genEvent = true; }
+            if (this.isFldModified("Visible")) { changedFields.Visible = true; genEvent = true; }
 
             if (genEvent) {
                 $('#ch_' + this.getLid()).trigger("genetix:childPropChanged", {
