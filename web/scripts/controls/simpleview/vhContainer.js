@@ -53,8 +53,8 @@ define(
                 if (!child.left) continue;
                 var div = $('#ext_'+child.getLid());
                 if (div.length == 0) {
-                    div = $('<div class="control-wrapper"><div class="mid-wrapper"></div></div>').attr('id', 'ext_' + child.getLid());
-                    div.children().attr('id', 'ch_' + child.getLid());
+                    div = $('<div class="control-wrapper"><div class="control-separator"/><div class="mid-wrapper"></div></div>').attr('id', 'ext_' + child.getLid());
+                    div.children(".mid-wrapper").attr('id', 'ch_' + child.getLid());
                     cont.append(div);
                     div.on("genetix:childPropChanged", function(event, data) {
                         vHContainer.handleChildChanged.call(that, event, data);

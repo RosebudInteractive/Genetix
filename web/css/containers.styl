@@ -154,11 +154,6 @@ td.container-title
       opacity 1
 .control.container > .c-content > .control-wrapper
   background #ffffff
-.control.container.h-container.separate-children > .c-content > .control-wrapper
-.control.container.v-container.separate-children > .c-content > .control-wrapper
-  border-right solid 1px #d7e2f5
-  &:last-child
-    border-right-style none
 .reset-l
   position absolute
   overflow auto
@@ -170,3 +165,26 @@ td.container-title
   width 100%
   height 1.5em
   z-index 2
+/* controls separator */
+.control-separator
+  display none
+  position absolute
+  background-image url("/images/1px_border.png")
+  background-repeat repeat
+  z-index 2
+.control.container.h-container.separate-children > .c-content > .control-wrapper > .control-separator
+.control.container.v-container.separate-children > .c-content > .control-wrapper > .control-separator
+  display block
+  &:last-child
+    display none
+.control.container.h-container.separate-children > .c-content > .control-wrapper > .control-separator
+  top 0px
+  right 0px
+  height 100%
+  width 1px
+.control.container.v-container.separate-children > .c-content > .control-wrapper > .control-separator
+  bottom 0px
+  left 0px
+  width 100%
+  height 1px
+/* controls separator end */
