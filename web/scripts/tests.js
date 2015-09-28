@@ -289,3 +289,53 @@ function genetixBuildExample8() {
 
     $u.r();
 }
+
+function genetixTabStopTest1() {
+    $u.add('GenVContainer', 'MainContainer', {Width:"100%", Height:"100%"}, 'EmptyForm');
+    $u.add('GenDataEdit', 'Edit1', {
+        Width:"100%",
+        Height:"30px"
+    }, 'MainContainer');
+    $u.add('GenDataEdit', 'Edit2', {
+        Width:"100%",
+        Height:"30px"
+    }, 'MainContainer');
+    $u.add('GenDataEdit', 'Edit3', {
+        Width:"100%",
+        Height:"30px"
+    }, 'MainContainer');
+    $u.r();
+}
+
+function genetixTabStopTest2() {
+    $u.add('GenVContainer', 'MainContainer', {Width:"100%", Height:"100%"}, 'EmptyForm');
+    $u.add('GenDataEdit', 'Edit1', {
+        Width:"100%",
+        Height:"30px"
+    }, 'MainContainer');
+    $u.add('GenDataEdit', 'Edit2', {
+        Width:"100%",
+        Height:"30px"
+    }, 'MainContainer');
+    $u.add('GenDataEdit', 'Edit3', {
+        Width:"100%",
+        Height:"30px"
+    }, 'MainContainer');
+
+    $u.add('GenVContainer', 'ChildContainer1', {Width:"100%", Height:"50%"}, 'MainContainer');
+    $u.add('GenDataEdit', 'Edit4', {
+        Width:"100%",
+        Height:"30px"
+    }, 'ChildContainer1');
+    $u.add('GenDataEdit', 'Edit5', {
+        Width:"100%",
+        Height:"30px"
+    }, 'ChildContainer1');
+
+    $u.add('GenVContainer', 'ChildContainer2', {Width:"100%", Height:"50%"}, 'MainContainer');
+    $u.add('GenDataEdit', 'Edit6', {
+        Width:"100%",
+        Height:"30px"
+    }, 'ChildContainer2');
+    $u.r();
+}
