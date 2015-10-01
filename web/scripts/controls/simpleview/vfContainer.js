@@ -70,6 +70,7 @@ define(
 
                     div.on("genetix:childPropChanged", function(event, data) {
                         vFContainer.handleChildChanged.call(that, event, data);
+                        return false;
                     });
                 }
 
@@ -330,7 +331,34 @@ define(
         };
 
         vFContainer.handleChildChanged = function(event, data) {
-            if (!("Visible" in data.properties)) return;
+            if (!("Visible" in data.properties) && !("Height" in data.properties)) return;
+            if ("Height" in data.properties) {
+                var child = data.control;
+                var height = child.height() || "auto";
+                var div = $("#ext_" + child.getLid())
+                var chDiv = div.children();
+                chDiv.css("height", "");
+                if (height != "auto") {
+                    if ($.isNumeric(height))
+                        height += "px";
+                    else if (height.length > 0 && height[height.length - 1] == "%") {
+                        height = "auto";
+                    }
+                    div.css({
+                        "height": height
+                    });
+                } else {
+                    var chEDiv = $("#" + child.getLid());
+                    div.css({
+                        "min-height" : "",
+                        "height": ""
+                    });
+                    div.css({
+                        "min-height" : chEDiv.height(),
+                        "height": chEDiv.height()
+                    });
+                }
+            }
             if (vFContainer.isRootFlex.call(this)) {
                 vFContainer.getParentFlex.call(this).trigger("genetix:flexRecalculate");
             }

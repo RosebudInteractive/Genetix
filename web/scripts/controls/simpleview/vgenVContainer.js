@@ -19,7 +19,7 @@ define(
                 var scrollPos = 0;
                 var scrollRemembered = false;
                 $(window).on("genetix:initResize", function() {
-                    if (!scrollRemembered)
+                    if (!scrollRemembered && c.scrollTop() != 0)
                         scrollPos = c.scrollTop();
                 });
 
@@ -40,7 +40,8 @@ define(
                     }
                     vContainer._refreshScroll.call(that);
                     setTimeout(function () {
-                        c.scrollTop(scrollPos);
+                        if (scrollPos != 0)
+                            c.scrollTop(scrollPos);
                         scrollRemembered = false;
                     }, 100);
                 });

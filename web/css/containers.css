@@ -113,9 +113,9 @@ td.container-title {
   position: relative;
   box-sizing: border-box;
   float: left;
+  width: 100%;
 }
 .f-row > div {
-  float: left;
   float: left;
 }
 .grid {

@@ -77,15 +77,16 @@ define(
             if (this.multiline()) {
                 item.children().autosize({
                     callback: function (el) {
-                        if ($(el).is(":focus")) {
-                            var oldH = $(el).parent().height();
-                            $(el).parent().css({height: ""});
-                            $(el).parent().parent().css({height: ""});
-                            $(el).parent().height($(el).css("height").replace("px", "")); //$(el).parent().height());
-                            $(el).parent().parent().height($(el).parent().parent().height());
-                            if (oldH != $(el).parent().height())
-                                $(window).trigger("genetix:resize");
-                        }
+                        var oldH = $(el).parent().height();
+                        $(el).parent().css({height: ""});
+                        $(el).parent().parent().css({height: ""});
+                        $(el).parent().height($(el).css("height").replace("px", "")); //$(el).parent().height());
+                        $(el).parent().parent().height($(el).parent().css("height").replace("px", ""));
+                        if (oldH != $(el).parent().height())
+                            $('#ch_' + that.getLid()).trigger("genetix:childPropChanged", {
+                                control: that,
+                                properties: {Height: true}
+                            });
                     }
                 });
             }

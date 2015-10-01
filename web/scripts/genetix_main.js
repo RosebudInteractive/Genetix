@@ -267,10 +267,14 @@ $(document).ready( function() {
                             });
 
 
-                            $(".system-toolbar-icon.is-device-close-icon").click(function() {
-                                setTimeout(function() {
-                                    $(window).trigger("genetix:resize");
-                                }, 150);
+                            //$(".system-toolbar-icon.is-device-close-icon").click(function() {
+                            //    setTimeout(function() {
+                            //        $(window).trigger("genetix:resize");
+                            //    }, 150);
+                            //});
+
+                            $(".is-device-bar").bind( 'transitionend', function() {
+                                $(window).trigger("genetix:resize");
                             });
 
                             $("#coral-button").click(function() {

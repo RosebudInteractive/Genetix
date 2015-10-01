@@ -26,15 +26,17 @@ define(
                 var that = this;
                 this._iscroll = null;
                 this._deserializeOptions();
+                this._curColCount = null;
                 if (this.options._isRootFlex) {
                     $(window).on("genetix:resize", function () {
-                        that._launchInfo.launchPending = true;
-                        console.warn("resize heppened");
+                        //that._launchInfo.launchPending = true;
+                        that.resizeHandler();
+                        that._refreshScroll();
                     });
 
                     this.element.on("genetix:flexRecalculate", function () {
-                        that._launchInfo.launchPending = true;
-                        console.warn("resize heppened");
+                        that.resizeHandler(null, true);
+                        that._refreshScroll();
                     });
 
                     setTimeout(function () {
@@ -47,7 +49,7 @@ define(
                         launchPending: false
                     };
 
-                    setInterval(function () {
+                    /*setInterval(function () {
                         try {
                             if (that._launchInfo.launchPending) {
                                 that._launchInfo.lastLaunch = Date();
@@ -59,7 +61,7 @@ define(
                         } catch (e) {
                             console.error(e);
                         }
-                    }, 200);
+                    }, 200); */
 
 
                 } else if (this.options._isRoot) {
@@ -76,9 +78,30 @@ define(
                 this.options._childrenGenerators.push(generator);
             },
 
-            resizeHandler: function(secondIteration) {
+            _needToRecalc: function() {
+                var params = this._getGridParameters();
+                if (this._curColCount == null || params.curColCount != this._curColCount) {
+                    for (var  i= 0; i < this.options._childrenGenerators.length; i++) {
+                        var genObj = this.options._childrenGenerators[i];
+                        genObj._curColCount = null;
+                    }
+                    return true;
+                }
+                else if (params.curColCount == this._curColCount) {
+                    // Если равно, то надо проверить дочерние флексы
+                    for (var  i= 0; i < this.options._childrenGenerators.length; i++) {
+                        var genObj = this.options._childrenGenerators[i];
+                        if (this.options._childrenGenerators[i]._needToRecalc()) return true;
+                    }
+                    return false;
+                }
+            },
+
+            resizeHandler: function(secondIteration, force) {
+                if (!this._needToRecalc() && !force) return;
+                if (this.options._isRootFlex)
+                    console.log("Flex recalculated");
                 secondIteration = secondIteration || false;
-                console.log(this.options);
                 //Запомним наличие вертикального скрола у парента
                 var parentContent = $("#ext_" + this.getLid()).parent();
                 var scrolls = parentContent.hasScrollBar();
@@ -87,13 +110,16 @@ define(
                 var item = $('#' + this.getLid());
                 item.children(".c-content").css("width", "100%");
                 var params = this._getGridParameters();
+
+                this._curColCount = params.curColCount;
+
                 var windowWidth = params.windowWidth;
                 var curColCount = params.curColCount;
                 var curColWidth = params.curColWidth;
                 var padding = params.padding;
-                item.children(".c-content").width(curColCount * curColWidth);
-
-                console.log(params);
+                //item.children(".c-content").width(curColCount * curColWidth);
+                item.children(".c-content").css("width", (((curColCount * curColWidth)/windowWidth) * 100) + "%");
+                var allWidth = curColCount * curColWidth;
 
                 item//.children(".c-content")
                     .children(".control-wrapper.empty.padding").remove();
@@ -189,7 +215,7 @@ define(
                         var childObj = children[k];
                         childObj.element.css({height: "auto"});
                         childObj.element.children().css({height: "auto"});
-                        childObj.element.outerWidth(childObj.realColCount * curColWidth);
+                        childObj.element.css("width", (((childObj.realColCount * curColWidth) / allWidth)*100) + "%" );
                     }
                 }
 
@@ -197,15 +223,15 @@ define(
                 if (padding != 0 && this.options._rows.length > 0) {
                       var rPadObj = this._getObj("PADDING", this.options._rows[0], null, this.options._rows[0].children.length - 1);
                     var lPadObj = this._getObj("PADDING", this.options._rows[0], null, -1);
-                    lPadObj.element.width(padding);
-                    rPadObj.element.width(padding);
+                    lPadObj.element.css("width", ((padding/windowWidth)*100) + "%");
+                    rPadObj.element.css("width", ((padding/windowWidth)*100) + "%");
                 }
 
                 // пересчитаем дочерние хендлеры
                 for (var  i= 0; i < this.options._childrenGenerators.length; i++) {
                     var genObj = this.options._childrenGenerators[i];
                     //genObj.func.call(genObj.context);
-                    this.options._childrenGenerators[i].resizeHandler();
+                    this.options._childrenGenerators[i].resizeHandler(null, force);
                     //this._childrenGenerators[i].drawGridHandler();
                 }
 
@@ -348,6 +374,7 @@ define(
             },
 
             _getGridParameters: function() {
+                var begDate = new Date();
                 var windowWidth = Math.floor(this._getRootRow().element.parent().width() - 1);
                 var rootWidth = windowWidth;
                 var padding = this.padding() || 0;
@@ -378,6 +405,9 @@ define(
                         curColCount = Math.floor(rootWidth / curColWidth);
                     }
                 }
+
+                var endDate = new Date();
+                console.log("Длительность пересчета колонок: " + (endDate - begDate) + " мСек.")
                 return {
                     windowWidth: windowWidth,
                     windowOuterWidth: this._getRootRow().element.parent().outerWidth(),
