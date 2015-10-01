@@ -473,30 +473,36 @@ $(document).ready( function() {
                     // навигатор без объекта
                     that.vNavigator = null;
                     window.viewNavigator = function() {
-                        require(['./lib/uccello/lib/simpleview/vdbNavigator'], function(VDbNavigator){
-                            $('#clientNav').remove();
-                            that.vNavigator = VDbNavigator;
-                            that.vNavigator.getLid = function(){return 'clientNav';};
-                            that.vNavigator.getParent = function(){return null;};
-                            that.vNavigator.top = function(){return 5;};
-                            that.vNavigator.left = function(){return 3;};
-                            that.vNavigator.nlevels = function(){return 3;};
-                            that.vNavigator.level = null;
-                            that.vNavigator.rootelem = null;
-                            that.vNavigator.tabnumber = 0;
-                            that.vNavigator.level = function(val){if(val !== undefined) that.vNavigator.level=val; return that.vNavigator.level;};
-                            that.vNavigator.dataBase = function(val){if(val !== undefined) that.vNavigator.database=val; return that.vNavigator.database;};
-                            that.vNavigator.rootElem = function(val){if(val !== undefined) that.vNavigator.rootelem=val; return that.vNavigator.rootelem;};
-                            that.vNavigator.tabNum = function(val){if(val !== undefined) that.vNavigator.tabnumber=val; return that.vNavigator.tabnumber;};
-                            that.vNavigator.getControlMgr = function(){ return uccelloClt.getContext()? uccelloClt.getContextCM(): uccelloClt.getSysCM(); };
-                            that.vNavigator.params = {};
-                            that.vNavigator.render({rootContainer:'#dbNavigatorForm'});
-                            $('#clientNav').find('.dbSelector').change(function(){
+                        if (!that.vNavigator){
+                            require(['./lib/uccello/lib/simpleview/vdbNavigator'], function(VDbNavigator){
+                                $('#clientNav').remove();
+                                that.vNavigator = VDbNavigator;
+                                that.vNavigator.getLid = function(){return 'clientNav';};
+                                that.vNavigator.getParent = function(){return null;};
+                                that.vNavigator.top = function(){return 5;};
+                                that.vNavigator.left = function(){return 3;};
+                                that.vNavigator.nlevels = function(){return 3;};
+                                that.vNavigator.level = null;
                                 that.vNavigator.rootelem = null;
+                                that.vNavigator.tabnumber = 0;
+                                that.vNavigator.level = function(val){if(val !== undefined) that.vNavigator.level=val; return that.vNavigator.level;};
+                                that.vNavigator.dataBase = function(val){if(val !== undefined) that.vNavigator.database=val; return that.vNavigator.database;};
+                                that.vNavigator.rootElem = function(val){if(val !== undefined) that.vNavigator.rootelem=val; return that.vNavigator.rootelem;};
+                                that.vNavigator.tabNum = function(val){if(val !== undefined) that.vNavigator.tabnumber=val; return that.vNavigator.tabnumber;};
+                                that.vNavigator.getControlMgr = function(){ return uccelloClt.getSysCM(); };
+                                that.vNavigator.params = {noEvent:true};
+
                                 that.vNavigator.render({rootContainer:'#dbNavigatorForm'});
+                                $('#clientNav').find('.dbSelector').change(function(){
+                                    that.vNavigator.rootelem = null;
+                                    that.vNavigator.render({rootContainer:'#dbNavigatorForm'});
+                                });
+                                $('#dbNavigatorForm').dialog('open');
                             });
+                        } else {
+                            that.vNavigator.render({rootContainer:'#dbNavigatorForm'});
                             $('#dbNavigatorForm').dialog('open');
-                        });
+                        }
                     }
 
                     this.setContextUrl = function(context, formGuids) {
