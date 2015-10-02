@@ -67,25 +67,25 @@ function fakeAuthenticate(user, pass, done) {
 
 var config = {
     controls:[
-        { className: 'DataContact', component: '../DataControls/dataContact', guid: '73596fd8-6901-2f90-12d7-d1ba12bae8f4' },
-        { className: 'DataTstContact', component:'../DataControls/dataTstContact', guid:'27ce7537-7295-1a45-472c-a422e63035c7'},
-        { className: 'DataContract', component: '../DataControls/dataContract', guid: '08a0fad1-d788-3604-9a16-3544a6f97721' },
-        { className: 'DataCompany', component: '../DataControls/dataCompany', guid: '59583572-20fa-1f58-8d3f-5114af0f2c51' },
-        { className: 'DataTstCompany', component:'../DataControls/dataTstCompany', guid:'34c6f03d-f6ba-2203-b32b-c7d54cd0185a'},
-        { className: 'DataAddress', component: '../DataControls/dataAddress', guid: '16ec0891-1144-4577-f437-f98699464948' },
+        //{ className: 'DataContact', component: '../DataControls/dataContact', guid: '73596fd8-6901-2f90-12d7-d1ba12bae8f4' },
+        //{ className: 'DataTstContact', component:'../DataControls/dataTstContact', guid:'27ce7537-7295-1a45-472c-a422e63035c7'},
+        //{ className: 'DataContract', component: '../DataControls/dataContract', guid: '08a0fad1-d788-3604-9a16-3544a6f97721' },
+        //{ className: 'DataCompany', component: '../DataControls/dataCompany', guid: '59583572-20fa-1f58-8d3f-5114af0f2c51' },
+        //{ className: 'DataTstCompany', component:'../DataControls/dataTstCompany', guid:'34c6f03d-f6ba-2203-b32b-c7d54cd0185a'},
+        //{ className: 'DataAddress', component: '../DataControls/dataAddress', guid: '16ec0891-1144-4577-f437-f98699464948' },
       //  { className: 'DataLead', component: '../DataControls/dataLead', guid: '86c611ee-ed58-10be-66f0-dfbb60ab8907' },
-        { className: 'DataLeadLog', component:'../DataControls/dataLeadLog', guid:'c4fa07b5-03f7-4041-6305-fbd301e7408a'},
-        { className: 'DataOpportunity', component: '../DataControls/dataOpportunity', guid: '5b64caea-45b0-4973-1496-f0a9a44742b7' },
-        { className: 'DataIncomeplan', component: '../DataControls/dataIncomeplan', guid: '56cc264c-5489-d367-1783-2673fde2edaf' },
-        { className: 'RootAddress', component: '../DataControls/rootAddress', guid: '07e64ce0-4a6c-978e-077d-8f6810bf9386' },
-        { className: 'RootCompany', component: '../DataControls/rootCompany', guid: '0c2f3ec8-ad4a-c311-a6fa-511609647747' },
-        { className: 'RootTstCompany', component:'../DataControls/rootTstCompany', guid:'c4d626bf-1639-2d27-16df-da3ec0ee364e'},
-        { className: 'RootContact', component: '../DataControls/rootContact', guid: 'ad17cab2-f41a-36ef-37da-aac967bbe356' },
-        { className: 'RootTstContact', component:'../DataControls/rootTstContact', guid:'de984440-10bd-f1fd-2d50-9af312e1cd4f'},
-        { className: 'RootContract', component: '../DataControls/rootContract', guid: '4f7d9441-8fcc-ba71-2a1d-39c1a284fc9b' },
-        { className: 'RootIncomeplan', component: '../DataControls/rootIncomeplan', guid: '194fbf71-2f84-b763-eb9c-177bf9ac565d' },
-        { className: 'RootLead', component: '../DataControls/rootLead', guid: '31c99003-c0fc-fbe6-55eb-72479c255556' },
-        { className: 'RootLeadLog', component:'../DataControls/rootLeadLog', guid:'bedf1851-cd51-657e-48a0-10ac45e31e20'},
+      //  { className: 'DataLeadLog', component:'../DataControls/dataLeadLog', guid:'c4fa07b5-03f7-4041-6305-fbd301e7408a'},
+      //  { className: 'DataOpportunity', component: '../DataControls/dataOpportunity', guid: '5b64caea-45b0-4973-1496-f0a9a44742b7' },
+      //  { className: 'DataIncomeplan', component: '../DataControls/dataIncomeplan', guid: '56cc264c-5489-d367-1783-2673fde2edaf' },
+      //  { className: 'RootAddress', component: '../DataControls/rootAddress', guid: '07e64ce0-4a6c-978e-077d-8f6810bf9386' },
+      //  { className: 'RootCompany', component: '../DataControls/rootCompany', guid: '0c2f3ec8-ad4a-c311-a6fa-511609647747' },
+      //  { className: 'RootTstCompany', component:'../DataControls/rootTstCompany', guid:'c4d626bf-1639-2d27-16df-da3ec0ee364e'},
+      //  { className: 'RootContact', component: '../DataControls/rootContact', guid: 'ad17cab2-f41a-36ef-37da-aac967bbe356' },
+      //  { className: 'RootTstContact', component:'../DataControls/rootTstContact', guid:'de984440-10bd-f1fd-2d50-9af312e1cd4f'},
+      //  { className: 'RootContract', component: '../DataControls/rootContract', guid: '4f7d9441-8fcc-ba71-2a1d-39c1a284fc9b' },
+      //  { className: 'RootIncomeplan', component: '../DataControls/rootIncomeplan', guid: '194fbf71-2f84-b763-eb9c-177bf9ac565d' },
+      //  { className: 'RootLead', component: '../DataControls/rootLead', guid: '31c99003-c0fc-fbe6-55eb-72479c255556' },
+      //  { className: 'RootLeadLog', component:'../DataControls/rootLeadLog', guid:'bedf1851-cd51-657e-48a0-10ac45e31e20'},
         {className:'GenDataGrid', component:'genDataGrid', guid:'55d59ec4-77ac-4296-85e1-def78aa93d55'},
         {className:'GenLabel', component:'genLabel', guid:'151c0d05-4236-4732-b0bd-ddcf69a35e25'},
         {className:'GenVContainer', component:'genVContainer', guid:'b75474ef-26d0-4298-9dad-4133edaa8a9c'},
@@ -97,7 +97,26 @@ var config = {
     ] ,
 
     classGuids: {
-        'DataLead': "86c611ee-ed58-10be-66f0-dfbb60ab8907"
+        "RootTstCompany": "c4d626bf-1639-2d27-16df-da3ec0ee364e",
+        "DataTstCompany": "34c6f03d-f6ba-2203-b32b-c7d54cd0185a",
+        "RootTstContact": "de984440-10bd-f1fd-2d50-9af312e1cd4f",
+        "DataTstContact": "27ce7537-7295-1a45-472c-a422e63035c7",
+        "RootContract": "4f7d9441-8fcc-ba71-2a1d-39c1a284fc9b",
+        "DataContract": "08a0fad1-d788-3604-9a16-3544a6f97721",
+        "RootAddress": "07e64ce0-4a6c-978e-077d-8f6810bf9386",
+        "DataAddress": "16ec0891-1144-4577-f437-f98699464948",
+        "RootLeadLog": "bedf1851-cd51-657e-48a0-10ac45e31e20",
+        "DataLeadLog": "c4fa07b5-03f7-4041-6305-fbd301e7408a",
+        "RootIncomeplan": "194fbf71-2f84-b763-eb9c-177bf9ac565d",
+        "DataIncomeplan": "56cc264c-5489-d367-1783-2673fde2edaf",
+        "RootOpportunity": "3fe7cd6f-b146-8898-7215-e89a2d8ea702",
+        "DataOpportunity": "5b64caea-45b0-4973-1496-f0a9a44742b7",
+        "RootCompany": "0c2f3ec8-ad4a-c311-a6fa-511609647747",
+        "DataCompany": "59583572-20fa-1f58-8d3f-5114af0f2c51",
+        "RootContact": "ad17cab2-f41a-36ef-37da-aac967bbe356",
+        "DataContact": "73596fd8-6901-2f90-12d7-d1ba12bae8f4",
+        "DataLead": "86c611ee-ed58-10be-66f0-dfbb60ab8907",
+        "RootLead": "31c99003-c0fc-fbe6-55eb-72479c255556"
     },
     controlsPath: __dirname+'/scripts/controls/',
     dataPath: __dirname+'/data/',
@@ -124,7 +143,7 @@ if (UCCELLO_CONFIG.logger.clearOnStart) {
 }
 
 // модуль сервера
-var UccelloServ = require('../../'+uccelloDir+'/uccelloServ');
+/*var UccelloServ = require('../../'+uccelloDir+'/uccelloServ');
 var CommunicationServer = require('../../' + uccelloDir + '/connection/commServer');
 var communicationServer = new CommunicationServer.Server(UCCELLO_CONFIG.webSocketServer);
 var uccelloServ = new UccelloServ({ authenticate: fakeAuthenticate, commServer: communicationServer });
@@ -133,5 +152,29 @@ var uccelloServ = new UccelloServ({ authenticate: fakeAuthenticate, commServer: 
 http.createServer(app).listen(UCCELLO_CONFIG.webServer.port);
 console.log('Web server started http://127.0.0.1:'+UCCELLO_CONFIG.webServer.port+'/');
 
+communicationServer.start();
+console.log("Communication Server started (port: " + UCCELLO_CONFIG.webSocketServer.port + ").");*/
+
+
+//----------------------
+
+// модуль сервера
+var UccelloServ = require('../../'+uccelloDir+'/uccelloServ');
+var CommunicationServer = require('../../' + uccelloDir + '/connection/commServer');
+
+// комуникационный модуль
+UCCELLO_CONFIG.webSocketServer = UCCELLO_CONFIG.webSocketServer ? UCCELLO_CONFIG.webSocketServer : {};
+
+var communicationServer = new CommunicationServer.Server(UCCELLO_CONFIG.webSocketServer);
+var uccelloServ = new UccelloServ({
+    authenticate: fakeAuthenticate,
+    commServer: communicationServer
+});
+
+// запускаем http сервер
+http.createServer(app).listen(UCCELLO_CONFIG.webServer.port, '0.0.0.0');
+console.log('Web server started http://127.0.0.1:'+UCCELLO_CONFIG.webServer.port+'/');
+
+// зщапускаем коммуникационный сервер
 communicationServer.start();
 console.log("Communication Server started (port: " + UCCELLO_CONFIG.webSocketServer.port + ").");
