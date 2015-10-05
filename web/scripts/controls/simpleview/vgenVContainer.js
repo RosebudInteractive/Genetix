@@ -16,11 +16,13 @@ define(
                 var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(pItem);
                 var c = item.children(".c-content");
-                var scrollPos = 0;
+                var scrollPos = null;
                 var scrollRemembered = false;
                 $(window).on("genetix:initResize", function() {
-                    if (!scrollRemembered && c.scrollTop() != 0)
+                    if (!scrollRemembered) {
                         scrollPos = c.scrollTop();
+                        c.css("overflow", "none");
+                    }
                 });
 
                 vContainer._bindScrollingHeader.call(this);
@@ -40,10 +42,12 @@ define(
                     }
                     vContainer._refreshScroll.call(that);
                     setTimeout(function () {
-                        if (scrollPos != 0)
+                        if (scrollPos != null) {
+                            c.css("overflow", "");
                             c.scrollTop(scrollPos);
+                        }
                         scrollRemembered = false;
-                    }, 100);
+                    }, 0);
                 });
 
             } else {
