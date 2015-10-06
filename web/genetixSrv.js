@@ -9,7 +9,7 @@ console.log('Using folder: '+uccelloDir);
 // порт web
 var uccelloPortWeb = process.argv[3]&&process.argv[3]!='-'?process.argv[3]:1326;
 // порт websocket
-var uccelloPortWs = process.argv[4]&&process.argv[4]!='-'?process.argv[4]:8082;
+var uccelloPortWsf = process.argv[4]&&process.argv[4]!='-'?process.argv[4]:8082;
 
 
 // Модули nodejs
@@ -120,16 +120,38 @@ var config = {
     },
     controlsPath: __dirname+'/scripts/controls/',
     dataPath: __dirname+'/data/',
-    uccelloPath: __dirname+'/../../'+uccelloDir+'/'
-
-
+    uccelloPath: __dirname+'/../../'+uccelloDir+'/',
+    dataman: {
+        connection: {
+            host: "localhost",
+            username: "root",
+            password: "masterkey",
+            database: "genetix_test",
+            provider: "mysql",
+            connection_options: {},
+            provider_options: {},
+            pool: {
+                max: 5,
+                min: 0,
+                idle: 10000
+            },
+        },
+        importData: {
+            autoimport: false,
+            dir: "../web/data/tables"
+        },
+        trace: {
+            sqlCommands: true,
+            importDir: true
+        }
+    }
 };
 
 // модуль настроек
 var UccelloConfig = require('../../'+uccelloDir+'/config/config');
 UCCELLO_CONFIG = new UccelloConfig(config);
 if (uccelloPortWeb) UCCELLO_CONFIG.webServer.port = uccelloPortWeb;
-if (uccelloPortWs) UCCELLO_CONFIG.webSocketServer.port = uccelloPortWs;
+if (uccelloPortWsf) UCCELLO_CONFIG.webSocketServer.port = uccelloPortWsf;
 DEBUG = true;
 
 

@@ -62,7 +62,6 @@ define(
                 this._grid = grid.grid(opt);
                 this._iscroll = null;
 
-
             } else {
                 pItem = $("#mid_" + this.getLid());
             }
@@ -118,6 +117,14 @@ define(
 
             // отобразим данные
             vDataGrid._reloading(this);
+
+            var currentControl = this.getRoot().currentControl();
+            if (currentControl && currentControl==this)
+                pItem.find("tr[tabIndex=1]").focus();
+            pItem.find("tr").off("click").on("click", function() {
+                that.setFocused();
+            });
+
 
             //grid.css({top: this.top() + 'px', left: this.left() + 'px', width: this.width() + 'px', height: this.height() + 'px'});
 

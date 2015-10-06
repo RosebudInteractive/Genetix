@@ -8,11 +8,16 @@ define(
         vLabel._templates = template.parseTemplate(tpl);
         vLabel.render = function(options) {
             var item = $('#' + this.getLid());
+            var that = this;
             if (item.length == 0) {
                 var pItem = $(vLabel._templates['label']).attr('id', "mid_" + this.getLid());
                 item = pItem.children(".control").attr('id', this.getLid());
                 var parent = (this.getParent()? '#ch_' + this.getLid(): options.rootContainer);
                 $(parent).append(pItem);
+                item.click(function(){
+                    if (that.tabStop() === undefined || that.tabStop())
+                        that.setFocused();
+                });
             } else {
                 pItem = $("#mid_" + this.getLid());
             }
@@ -31,6 +36,15 @@ define(
                 pItem.css("display", "");
                 pItem.css("vertical-align", "");
             }
+
+            if (this.tabStop() === undefined || this.tabStop())
+                item.attr("tabIndex", "0");
+            else
+                item.attr("tabIndex", "-1");
+
+            var currentControl = this.getRoot().currentControl();
+            if (currentControl && currentControl==this)
+                item.focus();
 
             if (this.horizontalAlign() && this.horizontalAlign().toUpperCase() == "LEFT")
                 item.css({"text-align": "left"});

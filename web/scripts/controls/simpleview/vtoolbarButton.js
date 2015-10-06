@@ -44,7 +44,7 @@ define(
                             that.onClick.apply(that);
                         });
                     }
-
+                    that.setFocused();
                 });
             } else {
                 pItem = $("#mid_" + this.getLid());
@@ -91,6 +91,12 @@ define(
             var enabled = (this.enabled() === undefined ? true : this.enabled());
             if (enabled) item.removeClass("is-disabled");
             else item.addClass("is-disabled");
+
+            var currentControl = this.getRoot().currentControl();
+            if (currentControl && currentControl==this)
+                item.addClass("has-focus");
+            else
+                item.removeClass("has-focus");
 
             vButton._setVisible.call(this);
             vButton._genEventsForParent.call(this);

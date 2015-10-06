@@ -7,6 +7,7 @@ define(
             vButton[i] = Base[i];
         vButton._templates = template.parseTemplate(tpl);
         vButton.render = function(options) {
+            var that = this;
             var item = $('#' + this.getLid());
             if (item.length == 0) {
                 var pItem = $(vButton._templates['button']).attr('id', "mid_" + this.getLid());
@@ -14,9 +15,16 @@ define(
                 var parent = '#' + (this.getParent()? "ch_"+this.getLid():options.rootContainer);
                 $(parent).append(pItem);
                 $(parent).css("position", "relative");
+                item.click(function(){
+                    that.setFocused();
+                });
             } else {
                 pItem = $("#mid_" + this.getLid());
             }
+
+            var currentControl = this.getRoot().currentControl();
+            if (currentControl && currentControl==this)
+                item.find("input").focus();
 
             if (this.verticalAlign()) {
                 pItem.css("display", "table-cell");

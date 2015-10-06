@@ -30,9 +30,16 @@ define(
                         });
                     }
                 });
+                item.click(function(){
+                    that.setFocused();
+                });
             } else {
                 pItem = $("#mid_" + this.getLid());
             }
+
+            var currentControl = this.getRoot().currentControl();
+            if (currentControl && currentControl==this)
+                item.find("input, textarea").focus();
 
             if (this.verticalAlign()) {
                 pItem.css("display", "table-cell");

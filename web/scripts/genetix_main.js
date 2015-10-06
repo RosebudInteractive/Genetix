@@ -547,6 +547,24 @@ $(document).ready( function() {
                         buttons: {
                         }
                     });
+
+
+                    // обработка tab и shift+tab
+                    $(window).keydown(function(e) {
+                        var keyCode = e.keyCode || e.which, control;
+                        if (keyCode == 9) {
+                            e.preventDefault();
+                            var form = uccelloClt.getContextCM().getByName('MainForm');
+                            var focusControl = form.currentControl()?form.currentControl():form;
+                            if (e.shiftKey) {
+                                control = focusControl.prev(true);
+                            } else {
+                                control = focusControl.next(true);
+                            }
+                            control.setFocused();
+                        }
+                    });
+
                 }
             );
         });
