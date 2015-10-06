@@ -2,40 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/colors.styl" afterPath="$PROJECT_DIR$/css/colors.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/contact_tst-1.json" afterPath="$PROJECT_DIR$/data/tables/contact_tst-1.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/edit.styl" afterPath="$PROJECT_DIR$/css/edit.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/genetixSrv.js" afterPath="$PROJECT_DIR$/genetixSrv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/genetix_main.js" afterPath="$PROJECT_DIR$/scripts/genetix_main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-1.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-1.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-10.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-10.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-11.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-11.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-12.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-12.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-13.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-14.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-14.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-15.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-15.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-16.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-16.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-17.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-17.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-18.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-18.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-19.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-19.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-2.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-2.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-20.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-20.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-3.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-3.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-4.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-5.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-5.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-6.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-6.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-7.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-7.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-8.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-8.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/incomeplan-9.json" afterPath="$PROJECT_DIR$/data/tables/incomeplan-9.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/metaTables.json" afterPath="$PROJECT_DIR$/data/meta/metaTables.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/toolbar.css" afterPath="$PROJECT_DIR$/css/toolbar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/toolbar.styl" afterPath="$PROJECT_DIR$/css/toolbar.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenLabel.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenLabel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="genetixSrv.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="genetixSrv.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/genetixSrv.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="149" column="38" selection-start-line="149" selection-start-column="18" selection-end-line="149" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.6546091">
+              <caret line="146" column="5" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -177,10 +144,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wGrid.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="wGrid.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/widgets/wGrid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41516244">
+            <state vertical-scroll-proportion="-13.269231">
               <caret line="497" column="33" selection-start-line="497" selection-start-column="19" selection-end-line="497" selection-end-column="19" />
               <folding />
             </state>
@@ -336,7 +303,6 @@
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" />
         <option value="$PROJECT_DIR$/css/edit.styl" />
         <option value="$PROJECT_DIR$/css/colors.styl" />
-        <option value="$PROJECT_DIR$/genetixSrv.js" />
         <option value="$PROJECT_DIR$/../../Uccello/controls/form.js" />
         <option value="$PROJECT_DIR$/css/toolbar.styl" />
         <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
@@ -345,6 +311,7 @@
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
+        <option value="$PROJECT_DIR$/genetixSrv.js" />
       </list>
     </option>
   </component>
@@ -1102,7 +1069,7 @@
       <workItem from="1443423988465" duration="13275000" />
       <workItem from="1443681954379" duration="28951000" />
       <workItem from="1443789087162" duration="12679000" />
-      <workItem from="1444039770451" duration="14316000" />
+      <workItem from="1444039770451" duration="15026000" />
     </task>
     <task id="LOCAL-00021" summary="рефактор девайсов и сессии и верстка попапов">
       <created>1425332346890</created>
@@ -1402,7 +1369,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="389861000" />
+    <option name="totallyTimeSpent" value="390571000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1288" y="-132" width="1296" height="1040" extended-state="6" />
@@ -1790,14 +1757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/genetixSrv.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="149" column="38" selection-start-line="149" selection-start-column="18" selection-end-line="149" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Uccello/controls/form.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1818,14 +1777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="43" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="549" column="36" selection-start-line="549" selection-start-column="0" selection-end-line="549" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1888,8 +1839,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/widgets/wGrid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41516244">
+        <state vertical-scroll-proportion="-13.269231">
           <caret line="497" column="33" selection-start-line="497" selection-start-column="19" selection-end-line="497" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="549" column="36" selection-start-line="549" selection-start-column="0" selection-end-line="549" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genetixSrv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6546091">
+          <caret line="146" column="5" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
           <folding />
         </state>
       </provider>
