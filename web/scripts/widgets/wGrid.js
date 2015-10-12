@@ -54,6 +54,7 @@ define(
                 this.clearPageCache();
                 $(window).on("genetix:resize", function () {
                     setTimeout(function() {
+                        console.log("setTimeout wGrid");
                         var parent = that._headTable.parent();
                         //parent.width(that._bodyTable.width());
                         //parent.resizableColumns("syncHandleWidths");

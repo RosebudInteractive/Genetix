@@ -40,10 +40,10 @@ define(
                     });
 
                     setTimeout(function () {
-                        that.resizeHandler();
+                        console.log("setTimeout flex-container 1");
+                        that.resizeHandler(false, true);
                         that._refreshScroll();
-                        //setTimeout(function() {that._refreshScroll();}, 1000)
-                    }, 0);
+                    }, 100);
                     this._launchInfo = {
                         lastLaunch: Date(),
                         launchPending: false
@@ -138,7 +138,7 @@ define(
                     while (j < children.length) {
                         var childObj = children[j];
                         if (!childObj.isEmpty) {
-                            rowColCount += childObj.width;
+                            rowColCount += (childObj.isVisible ? childObj.width : 0);
                             j++;
                         } else {
                             childObj.element.remove();
@@ -154,7 +154,7 @@ define(
                         var j = 0;
                         while (j < length) {
                             var childObj = children[j];
-                            childObj.realColCount = childObj.width;
+                            childObj.realColCount = (childObj.isVisible ? childObj.width : 0);
                             childObj.isExtendedToEnd = false;
                             tookColCount += childObj.realColCount;
 
@@ -167,22 +167,23 @@ define(
                         var breakOnNextLine = true;
                         while (j < length) {
                             var childObj = children[j];
+                            var ctrlWidth = (childObj.isVisible ? childObj.width : 0);
                             // если не помещается
-                            if (tookColCount + childObj.width > curColCount) {
+                            if (tookColCount + ctrlWidth > curColCount) {
                                 if (j > 0)
                                     this._extendLineControls(rowObj, j - 1, curColCount);
-                                if (childObj.width >= curColCount) {
+                                if (ctrlWidth >= curColCount) {
                                     childObj.realColCount = curColCount;
                                     childObj.isExtendedToEnd = true;
                                     childObj.isLineEnd = true;
                                     tookColCount = 0;
                                 } else {
-                                    childObj.realColCount = childObj.width;
+                                    childObj.realColCount = ctrlWidth;
                                     childObj.isExtendedToEnd = false;
                                     tookColCount = childObj.realColCount;
                                 }
                             } else {
-                                childObj.realColCount = childObj.width;
+                                childObj.realColCount = ctrlWidth;
                                 childObj.isExtendedToEnd = false;
                                 tookColCount += childObj.realColCount;
                             }
@@ -304,6 +305,7 @@ define(
                     var that = this;
                     // дадим время браузеру отобразить скролы
                     setTimeout(function() {
+                        console.log("setTimeout flex-container 2");
                         var newScrolls = parentContent.hasScrollBar();
                         if (scrolls.vertical != newScrolls.vertical && !secondIteration) {
                             $(window).trigger("genetix:resize");
@@ -349,7 +351,7 @@ define(
                 k = lastElIdx;
                 extChild = rowObj.children[k];
                 while (k >= 0 && !extChild.isLineEnd && tookColCount < curColCount) {
-                    if (extChild.grow || (extChild.grow == null && rowObj.grow)) {
+                    if ((extChild.grow || (extChild.grow == null && rowObj.grow)) && extChild.isVisible) {
                         extChild.realColCount++;
                         extChild.isExtendedToEnd = true;
                         tookColCount++;
@@ -547,6 +549,18 @@ define(
                 if (value !== undefined)
                     this.options._lid = value;
                 return this.options._lid;
+            },
+            visible: function(lid, value) {
+                for (var i = 0; i < this.options._rows.length; i++) {
+                    var row = this.options._rows[i];
+                    for (var j = 0; j < row.children.length; j++) {
+                        var childObj = row.children[j];
+                        if (childObj.lid == lid) {
+                            childObj.isVisible = value;
+                            return;
+                        }
+                    }
+                }
             }
         });
 

@@ -43,6 +43,7 @@ define(
                             that.getControlMgr().userEventHandler(that, function(){
                                 var ds = that.dataset();
                                 if (ds.cursor() != row.Id) ds.cursor(row.Id);
+                                that.setFocused();
                             });
 
                             //setTimeout(function () {
@@ -61,6 +62,13 @@ define(
 
                 this._grid = grid.grid(opt);
                 this._iscroll = null;
+
+                grid.on("click", function() {
+                    console.log("Data grid click!!!");
+                    that.getControlMgr().userEventHandler(that, function(){
+                        that.setFocused();
+                    });
+                });
 
             } else {
                 pItem = $("#mid_" + this.getLid());
@@ -116,20 +124,29 @@ define(
             grid.children().css({"position": cssPos});
 
             // отобразим данные
-            vDataGrid._reloading(this);
+            //if (!this._isInitialized) {
+            //set
+            //setTimeout(function() {
+                vDataGrid._reloading(that);
+                var currentControl = that.getRoot().currentControl();
+                if (currentControl && currentControl==that)
+                    pItem.find("tr[tabIndex=1]").focus();
+            //},0);
+            //}
 
             var currentControl = this.getRoot().currentControl();
             if (currentControl && currentControl==this)
                 pItem.find("tr[tabIndex=1]").focus();
-            pItem.find("tr").off("click").on("click", function() {
-                that.setFocused();
-            });
-
 
             //grid.css({top: this.top() + 'px', left: this.left() + 'px', width: this.width() + 'px', height: this.height() + 'px'});
 
             vDataGrid._setVisible.call(this);
             vDataGrid._genEventsForParent.call(this);
+        }
+
+        vDataGrid.setFocus = function() {
+            var pItem = $("#mid_" + this.getLid());
+            pItem.find("tr[tabIndex=1]").focus();
         }
 
         /**

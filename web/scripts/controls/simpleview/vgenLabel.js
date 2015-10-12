@@ -16,7 +16,9 @@ define(
                 $(parent).append(pItem);
                 item.click(function(){
                     if (that.tabStop() === undefined || that.tabStop())
-                        that.setFocused();
+                        that.getControlMgr().userEventHandler(that, function(){
+                            that.setFocused();
+                        });
                 });
             } else {
                 pItem = $("#mid_" + this.getLid());

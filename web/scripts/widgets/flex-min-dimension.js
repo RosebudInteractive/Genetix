@@ -33,6 +33,7 @@ define(
                 });
 
                 setTimeout(function() {
+                    console.log("setTimeout flex-min-dimention");
                     that._resizeHandler();
                 }, 0);
             },

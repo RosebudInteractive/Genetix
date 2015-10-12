@@ -44,6 +44,7 @@ define(
                 this.element.mouseleave(function () {
                     that._MouseInside = false;
                     setTimeout(function () {
+                        console.log("setTimeout popup 1");
                         if (!that._MouseInside)
                             that.hide();
                     }, 500);
@@ -289,6 +290,7 @@ define(
                 this._MouseInside = false;
                 var that = this;
                 setTimeout(function () {
+                    console.log("setTimeout popup 2");
                     if (!that._MouseInside)
                         that.hide();
                 }, 1000);

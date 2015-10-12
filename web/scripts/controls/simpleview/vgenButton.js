@@ -16,7 +16,9 @@ define(
                 $(parent).append(pItem);
                 $(parent).css("position", "relative");
                 item.click(function(){
-                    that.setFocused();
+                    that.getControlMgr().userEventHandler(that, function(){
+                        that.setFocused();
+                    });
                 });
             } else {
                 pItem = $("#mid_" + this.getLid());

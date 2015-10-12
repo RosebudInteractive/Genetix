@@ -44,7 +44,9 @@ define(
                             that.onClick.apply(that);
                         });
                     }
-                    that.setFocused();
+                    that.getControlMgr().userEventHandler(that, function(){
+                        that.setFocused();
+                    });
                 });
             } else {
                 pItem = $("#mid_" + this.getLid());

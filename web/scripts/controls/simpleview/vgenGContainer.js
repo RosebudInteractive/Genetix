@@ -107,6 +107,7 @@ define(
                 });
 
                 setTimeout(function() {
+                    console.log("setTimeout GContainer");
                     item.find("tr.container-title").children().each(function () {
                         $(this).width($(this).width());
                     });

@@ -106,6 +106,7 @@ define(
             lContainer._setVisible.call(this);
             lContainer._genEventsForParent.call(this);
             setTimeout(function() {
+                console.log("setTimeout layersContainer");
                 lContainer._handleResize.call(that);
                 $(window).trigger("genetix:resize");
             }, 100);

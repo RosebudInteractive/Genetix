@@ -42,6 +42,7 @@ define(
                     }
                     vContainer._refreshScroll.call(that);
                     setTimeout(function () {
+                        console.log("setTimeout vcontainer 1");
                         if (scrollPos != null) {
                             c.css("overflow", "");
                             c.scrollTop(scrollPos);
@@ -135,6 +136,7 @@ define(
 
                 clearTimeout(t);
                 t = setTimeout(function(){
+                    console.log("setTimeout vcontainer 1");
                     cont.trigger('scrollEnd');
                 }, 300);
             });
@@ -183,10 +185,6 @@ define(
                 } else {
                     var chEDiv = $("#" + child.getLid());
                     div.css({
-                        "min-height" : "",
-                        "height": ""
-                    });
-                    div.css({
                         "min-height" : chEDiv.height(),
                         "height": chEDiv.height()
                     });
@@ -194,7 +192,7 @@ define(
                 div.css({
                     "flex": flex,
                     "-webkit-flex": flex,
-                    "-ms-flex": flex,
+                    "-ms-flex": flex
                 });
             }
 

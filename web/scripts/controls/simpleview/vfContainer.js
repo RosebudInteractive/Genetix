@@ -40,6 +40,7 @@ define(
                     var tObj = vFContainer.getObj.call(this, "true,", tRow, lbEl);
                     tObj.label = this.title();
                     tObj.element.find(".control.label").text(this.title());
+                    tObj.isVisible = true;
                 }
 
                 var row = vFContainer.getRow.call(this, item);
@@ -59,6 +60,8 @@ define(
                     var ch = vFContainer.getObj.call(this, curStr, row, div);
                     ch.width = child.width();
                     ch.isLabel = child.className == "GenLabel";
+                    ch.lid = child.getLid();
+                    ch.isVisible = (child.visible() === undefined ? true : child.visible());
 
                     if (curStrParts[curStrParts.length - 1].length >= 2 &&
                         curStrParts[curStrParts.length - 1].toUpperCase().trim().substr(0,2) == "BR") {
@@ -332,8 +335,8 @@ define(
 
         vFContainer.handleChildChanged = function(event, data) {
             if (!("Visible" in data.properties) && !("Height" in data.properties)) return;
+            var child = data.control;
             if ("Height" in data.properties) {
-                var child = data.control;
                 var height = child.height() || "auto";
                 var div = $("#ext_" + child.getLid())
                 var chDiv = div.children();
@@ -359,9 +362,12 @@ define(
                     });
                 }
             }
-            if (vFContainer.isRootFlex.call(this)) {
-                vFContainer.getParentFlex.call(this).trigger("genetix:flexRecalculate");
+            if ("Visible" in data.properties) {
+                var fWidg = vFContainer.getWidget.call(this);
+                var vis = (child.visible() === undefined ? true : child.visible());
+                fWidg.genetixFlexContainer("visible", child.getLid(), vis);
             }
+            vFContainer.getParentFlex.call(this).trigger("genetix:flexRecalculate");
         };
 
         return vFContainer;

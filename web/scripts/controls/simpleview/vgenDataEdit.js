@@ -29,10 +29,30 @@ define(
                             dataset.setField(that.dataField(), item.find("input, textarea").val());
                         });
                     }
+                    that.isChanged = false;
                 });
                 item.click(function(){
-                    that.setFocused();
+                    that.getControlMgr().userEventHandler(that, function(){
+                        that.setFocused();
+                    });
                 });
+
+                if (this.multiline()) {
+                    item.children().autosize({
+                        callback: function (el) {
+                            var oldH = $(el).parent().height();
+                            $(el).parent().css({height: ""});
+                            $(el).parent().parent().css({height: ""});
+                            $(el).parent().height($(el).css("height").replace("px", "")); //$(el).parent().height());
+                            $(el).parent().parent().height($(el).parent().css("height").replace("px", ""));
+                            if (oldH != $(el).parent().height())
+                                $('#ch_' + that.getLid()).trigger("genetix:childPropChanged", {
+                                    control: that,
+                                    properties: {Height: true}
+                                });
+                        }
+                    });
+                }
             } else {
                 pItem = $("#mid_" + this.getLid());
             }
@@ -66,11 +86,19 @@ define(
             } else
                 item.css("margin", "")
 
-            // устанавливаем значение
-            if (this.dataset() && this.dataField()) {
-                //var dataset = that.getControlMgr().get(that.dataset());
-                var dataset = that.dataset();
-                item.find("input, textarea").val(dataset? dataset.getField(this.dataField()): '');
+
+            // при изменении значения
+            item.keydown(function () {
+                that.isChanged = true;
+            });
+
+            if (!this.isChanged) {
+                // устанавливаем значение
+                if (this.dataset() && this.dataField()) {
+                    //var dataset = that.getControlMgr().get(that.dataset());
+                    var dataset = that.dataset();
+                    item.find("input, textarea").val(dataset ? dataset.getField(this.dataField()) : '');
+                }
             }
 
             if (this.title()) {
@@ -81,22 +109,6 @@ define(
                 });
             } else
                 item.removeAttr("title");
-            if (this.multiline()) {
-                item.children().autosize({
-                    callback: function (el) {
-                        var oldH = $(el).parent().height();
-                        $(el).parent().css({height: ""});
-                        $(el).parent().parent().css({height: ""});
-                        $(el).parent().height($(el).css("height").replace("px", "")); //$(el).parent().height());
-                        $(el).parent().parent().height($(el).parent().css("height").replace("px", ""));
-                        if (oldH != $(el).parent().height())
-                            $('#ch_' + that.getLid()).trigger("genetix:childPropChanged", {
-                                control: that,
-                                properties: {Height: true}
-                            });
-                    }
-                });
-            }
 
             item.height(item.height());
 

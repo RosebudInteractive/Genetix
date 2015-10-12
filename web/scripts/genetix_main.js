@@ -13,6 +13,7 @@ var form6Guid = "4f301ecb-030f-4751-99d0-b19d2d7ce2de";
 var form7Guid = "156b663e-8b6f-4464-b3d1-65cac6537108";
 var form8Guid = "4112f74d-42cd-4dff-b288-d03f26825715";
 var form9Guid = "95a99d2b-73a6-4091-841f-5115b95fb720";
+var form10Guid = "46e56f92-cfd9-45c0-9b94-9c7258e68839";
 
 var uri = window.location.href;
 if (uri.charAt(uri.length - 1) == "/")
@@ -235,7 +236,7 @@ $(document).ready( function() {
                             // подпишемся на клики
                             var toolPos = { my: 'center top', at: 'center bottom', collision: 'none' };
                             $("#documents-menu-item").click(function() {
-                                window.createContext([formGuid])
+                                window.createContext([form6Guid])
                             }).tooltip().tooltip('option', 'position', toolPos).
                                tooltip('option', 'tooltipClass', 'bottom');
                             $("#crm-menu-item").click(function() {
@@ -245,13 +246,13 @@ $(document).ready( function() {
                                 window.createContext([form3Guid])
                             });
                             $("#edit-menu-item").click(function() {
-                                window.createContext([form4Guid])
+                                window.createContext([form10Guid])
                             });
                             $("#more-menu-item").click(function() {
                                 window.createContext([form5Guid])
                             });
                             $("#more-menu-item2").click(function() {
-                                window.createContext([form6Guid])
+                                window.createContext([formGuid])
                             });
                             $("#more-menu-item3").click(function() {
                                 window.createContext([form7Guid])
@@ -562,7 +563,10 @@ $(document).ready( function() {
                                 control = focusControl.next(true);
                             }
                             control.setFocused();
+                        } else if (keyCode == 88 && e.altKey) {
+                            viewNavigator();
                         }
+
                     });
 
                 }

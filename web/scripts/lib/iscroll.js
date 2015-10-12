@@ -616,6 +616,7 @@ var IScroll = (function (window, document, Math) {
             clearTimeout(this.resizeTimeout);
 
             this.resizeTimeout = setTimeout(function () {
+                console.log("setTimeout iscroll 1");
                 that.refresh();
             }, this.options.resizePolling);
         },
@@ -1023,6 +1024,7 @@ var IScroll = (function (window, document, Math) {
             // Execute the scrollEnd event after 400ms the wheel stopped scrolling
             clearTimeout(this.wheelTimeout);
             this.wheelTimeout = setTimeout(function () {
+                console.log("setTimeout iscroll 2");
                 that._execEvent('scrollEnd');
             }, 400);
 

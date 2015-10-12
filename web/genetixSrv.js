@@ -122,28 +122,28 @@ var config = {
     dataPath: __dirname+'/data/',
     uccelloPath: __dirname+'/../../'+uccelloDir+'/',
     dataman: {
-    //    connection: {
-    //        host: "localhost",
-    //        username: "root",
-    //        password: "masterkey",
-    //        database: "genetix_test",
-    //        provider: "mysql",
-    //        connection_options: {},
-    //        provider_options: {},
-    //        pool: {
-    //            max: 5,
-    //            min: 0,
-    //            idle: 10000
-    //        },
-    //    },
-    //    importData: {
-    //        autoimport: false,
-    //        dir: "../web/data/tables"
-    //    },
-    //    trace: {
-    //        sqlCommands: true,
-    //        importDir: true
-    //    }
+        connection: {
+            host: "localhost",
+            username: "root",
+            password: "masterkey",
+            database: "genetix_test",
+            provider: "mysql",
+            connection_options: {},
+            provider_options: {},
+            pool: {
+                max: 5,
+                min: 0,
+                idle: 10000
+            },
+        },
+        importData: {
+            autoimport: false,
+            dir: "../web/data/tables"
+        },
+        trace: {
+            sqlCommands: true,
+            importDir: true
+        }
     }
 };
 

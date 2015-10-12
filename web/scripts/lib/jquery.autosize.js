@@ -210,6 +210,7 @@
 			function resize () {
 				clearTimeout(timeout);
 				timeout = setTimeout(function(){
+					console.log("setTimeout autosize");
 					var newWidth = $ta.width();
 
 					if (newWidth !== width) {
