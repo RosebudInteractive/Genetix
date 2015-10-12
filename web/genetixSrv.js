@@ -122,7 +122,7 @@ var config = {
     dataPath: __dirname+'/data/',
     uccelloPath: __dirname+'/../../'+uccelloDir+'/',
     dataman: {
-        connection: {
+        /*connection: {
             host: "localhost",
             username: "root",
             password: "masterkey",
@@ -143,7 +143,7 @@ var config = {
         trace: {
             sqlCommands: true,
             importDir: true
-        }
+        }*/
     }
 };
 

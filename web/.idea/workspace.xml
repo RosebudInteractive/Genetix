@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/forms/46e56f92-cfd9-45c0-9b94-9c7258e68839.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json" afterPath="$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/widgets/flex-container.js" afterPath="$PROJECT_DIR$/scripts/widgets/flex-container.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/widgets/flex-min-dimension.js" afterPath="$PROJECT_DIR$/scripts/widgets/flex-min-dimension.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/genDataGrid.js" afterPath="$PROJECT_DIR$/scripts/controls/genDataGrid.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/genetixSrv.js" afterPath="$PROJECT_DIR$/genetixSrv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/genetix_main.js" afterPath="$PROJECT_DIR$/scripts/genetix_main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/lib/iscroll.js" afterPath="$PROJECT_DIR$/scripts/lib/iscroll.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/lib/jquery.autosize.js" afterPath="$PROJECT_DIR$/scripts/lib/jquery.autosize.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/widgets/popup.js" afterPath="$PROJECT_DIR$/scripts/widgets/popup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vfContainer.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vfContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenGContainer.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenGContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenLabel.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenLabel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vlayersContainer.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vlayersContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/widgets/wGrid.js" afterPath="$PROJECT_DIR$/scripts/widgets/wGrid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,11 +34,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="vgenVContainer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="vgenVContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.89193547">
+            <state vertical-scroll-proportion="0.0">
               <caret line="194" column="36" selection-start-line="194" selection-start-column="36" selection-end-line="194" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="genetixSrv.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/genetixSrv.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9">
+              <caret line="146" column="5" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -104,16 +94,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="21" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vfContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vfContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.3076925">
-              <caret line="345" column="23" selection-start-line="345" selection-start-column="23" selection-end-line="345" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -338,7 +318,6 @@
         <option value="$PROJECT_DIR$/css/colors.styl" />
         <option value="$PROJECT_DIR$/css/toolbar.styl" />
         <option value="$PROJECT_DIR$/../../Uccello/controls/form.js" />
-        <option value="$PROJECT_DIR$/genetixSrv.js" />
         <option value="$PROJECT_DIR$/scripts/controls/genDataGrid.js" />
         <option value="$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vfContainer.js" />
@@ -359,6 +338,7 @@
         <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
         <option value="$PROJECT_DIR$/data/forms/46e56f92-cfd9-45c0-9b94-9c7258e68839.json" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" />
+        <option value="$PROJECT_DIR$/genetixSrv.js" />
       </list>
     </option>
   </component>
@@ -1122,7 +1102,7 @@
       <workItem from="1443423988465" duration="13275000" />
       <workItem from="1443681954379" duration="28951000" />
       <workItem from="1443789087162" duration="12679000" />
-      <workItem from="1444039770451" duration="52225000" />
+      <workItem from="1444039770451" duration="52275000" />
     </task>
     <task id="LOCAL-00021" summary="рефактор девайсов и сессии и верстка попапов">
       <created>1425332346890</created>
@@ -1422,7 +1402,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="427770000" />
+    <option name="totallyTimeSpent" value="427820000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1288" y="-132" width="1296" height="1040" extended-state="6" />
@@ -1445,7 +1425,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26840317" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26840317" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1762,14 +1742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/genetixSrv.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29677418">
-          <caret line="133" column="53" selection-start-line="133" selection-start-column="23" selection-end-line="133" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vfContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.3076925">
@@ -1951,8 +1923,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.89193547">
+        <state vertical-scroll-proportion="0.0">
           <caret line="194" column="36" selection-start-line="194" selection-start-column="36" selection-end-line="194" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genetixSrv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9">
+          <caret line="146" column="5" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
           <folding />
         </state>
       </provider>
