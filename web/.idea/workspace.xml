@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/genetixSrv.js" afterPath="$PROJECT_DIR$/genetixSrv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ui-impose/test.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/genDataGrid.js" afterPath="$PROJECT_DIR$/scripts/controls/genDataGrid.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/genetix_main.js" afterPath="$PROJECT_DIR$/scripts/genetix_main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,11 +49,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="genetixSrv.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="genetixSrv.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/genetixSrv.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9">
-              <caret line="146" column="5" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="122" column="26" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui-impose/test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.038462">
+              <caret line="23" column="25" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="popup.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui-impose/popup.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="52" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -57,7 +82,7 @@
       <file leaf-file-name="46e56f92-cfd9-45c0-9b94-9c7258e68839.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/forms/46e56f92-cfd9-45c0-9b94-9c7258e68839.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="7.3076925">
+            <state vertical-scroll-proportion="0.0">
               <caret line="709" column="53" selection-start-line="709" selection-start-column="51" selection-end-line="709" selection-end-column="51" />
               <folding>
                 <element signature="e#1305#13805#0" expanded="false" />
@@ -79,40 +104,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aControl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Uccello/controls/aControl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="241" column="33" selection-start-line="241" selection-start-column="33" selection-end-line="241" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vgenButton.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="4f301ecb-030f-4751-99d0-b19d2d7ce2de.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.115385">
-              <caret line="1216" column="0" selection-start-line="692" selection-start-column="0" selection-end-line="1216" selection-end-column="0" />
+            <state vertical-scroll-proportion="-5.019231">
+              <caret line="1384" column="56" selection-start-line="1384" selection-start-column="56" selection-end-line="1384" selection-end-column="56" />
               <folding>
                 <element signature="e#1665#11286#0" expanded="false" />
                 <element signature="e#11306#13757#0" expanded="false" />
                 <element signature="e#20482#23900#0" expanded="false" />
                 <element signature="e#24497#29339#0" expanded="false" />
                 <element signature="e#29959#62147#0" expanded="false" />
-                <element signature="e#62179#70947#0" expanded="false" />
-                <element signature="e#70979#76505#0" expanded="false" />
-                <element signature="e#71756#74545#0" expanded="false" />
                 <element signature="e#74583#75474#0" expanded="false" />
                 <element signature="e#75512#76403#0" expanded="false" />
               </folding>
@@ -123,18 +125,28 @@
       <file leaf-file-name="genetix_main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.192307">
-              <caret line="250" column="21" selection-start-line="250" selection-start-column="21" selection-end-line="250" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="568" column="0" selection-start-line="568" selection-start-column="0" selection-end-line="568" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vgenDataGrid.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js">
+      <file leaf-file-name="genDataGrid.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/genDataGrid.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="43" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+              <caret line="31" column="40" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vgenDataGrid.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.44964027">
+              <caret line="332" column="32" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -164,7 +176,7 @@
         <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="111" column="40" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+              <caret line="103" column="26" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -251,23 +263,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controlMgr.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Uccello/controls/controlMgr.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="274" column="28" selection-start-line="274" selection-start-column="28" selection-end-line="274" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Html5" />
         <option value="JavaScript File" />
+        <option value="Html5" />
       </list>
     </option>
   </component>
@@ -288,7 +290,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/genetix.html" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/container.html" />
         <option value="$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json" />
         <option value="$PROJECT_DIR$/scripts/templates/genetix.html" />
@@ -318,14 +319,12 @@
         <option value="$PROJECT_DIR$/css/colors.styl" />
         <option value="$PROJECT_DIR$/css/toolbar.styl" />
         <option value="$PROJECT_DIR$/../../Uccello/controls/form.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/genDataGrid.js" />
         <option value="$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vfContainer.js" />
         <option value="$PROJECT_DIR$/../../Uccello/controls/aControl.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenButton.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenLabel.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
         <option value="$PROJECT_DIR$/scripts/widgets/flex-container.js" />
         <option value="$PROJECT_DIR$/scripts/widgets/flex-min-dimension.js" />
         <option value="$PROJECT_DIR$/scripts/widgets/wGrid.js" />
@@ -334,11 +333,14 @@
         <option value="$PROJECT_DIR$/scripts/lib/iscroll.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vlayersContainer.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenGContainer.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" />
-        <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
         <option value="$PROJECT_DIR$/data/forms/46e56f92-cfd9-45c0-9b94-9c7258e68839.json" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" />
         <option value="$PROJECT_DIR$/genetixSrv.js" />
+        <option value="$PROJECT_DIR$/ui-impose/test.html" />
+        <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/genDataGrid.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
       </list>
     </option>
   </component>
@@ -360,8 +362,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1288" />
-    <option name="y" value="-132" />
+    <option name="x" value="1592" />
+    <option name="y" value="-8" />
     <option name="width" value="1296" />
     <option name="height" value="1040" />
   </component>
@@ -409,6 +411,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -471,7 +476,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
+              <option name="myItemId" value="ui-impose" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -486,10 +491,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -565,11 +566,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="containers-layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1102,7 +1114,8 @@
       <workItem from="1443423988465" duration="13275000" />
       <workItem from="1443681954379" duration="28951000" />
       <workItem from="1443789087162" duration="12679000" />
-      <workItem from="1444039770451" duration="52275000" />
+      <workItem from="1444039770451" duration="54590000" />
+      <workItem from="1444720903291" duration="4896000" />
     </task>
     <task id="LOCAL-00021" summary="рефактор девайсов и сессии и верстка попапов">
       <created>1425332346890</created>
@@ -1402,11 +1415,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="427820000" />
+    <option name="totallyTimeSpent" value="435031000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1288" y="-132" width="1296" height="1040" extended-state="6" />
-    <editor active="true" />
+    <frame x="1592" y="-8" width="1296" height="1040" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1425,7 +1438,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26840317" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3114383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1507,20 +1520,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/dataEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/connection/connect.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3325554">
-          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Uccello/connection/session.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3325554">
@@ -1553,7 +1552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1596,7 +1594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1604,7 +1601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="283" column="0" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1612,7 +1608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1620,7 +1615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1628,9 +1622,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="171" column="48" selection-start-line="171" selection-start-column="48" selection-end-line="171" selection-end-column="48" />
-          <folding>
-            <marker date="1444396063198" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1646,7 +1638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="70" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1662,7 +1653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.730769">
           <caret line="225" column="34" selection-start-line="225" selection-start-column="34" selection-end-line="225" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1670,7 +1660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.1153846">
           <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1678,7 +1667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1686,7 +1674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1694,7 +1681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1702,15 +1688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genDataGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1726,7 +1703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="172" column="28" selection-start-line="172" selection-start-column="28" selection-end-line="172" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1746,14 +1722,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.3076925">
           <caret line="345" column="23" selection-start-line="345" selection-start-column="23" selection-end-line="345" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../Uccello/controls/controlMgr.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="274" column="28" selection-start-line="274" selection-start-column="28" selection-end-line="274" selection-end-column="28" />
+          <caret line="280" column="28" selection-start-line="280" selection-start-column="28" selection-end-line="280" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1786,14 +1761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="55" column="83" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1873,44 +1840,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="111" column="40" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.192307">
-          <caret line="250" column="21" selection-start-line="250" selection-start-column="21" selection-end-line="250" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.115385">
-          <caret line="1216" column="0" selection-start-line="692" selection-start-column="0" selection-end-line="1216" selection-end-column="0" />
-          <folding>
-            <element signature="e#1665#11286#0" expanded="false" />
-            <element signature="e#11306#13757#0" expanded="false" />
-            <element signature="e#20482#23900#0" expanded="false" />
-            <element signature="e#24497#29339#0" expanded="false" />
-            <element signature="e#29959#62147#0" expanded="false" />
-            <element signature="e#62179#70947#0" expanded="false" />
-            <element signature="e#70979#76505#0" expanded="false" />
-            <element signature="e#71756#74545#0" expanded="false" />
-            <element signature="e#74583#75474#0" expanded="false" />
-            <element signature="e#75512#76403#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/forms/46e56f92-cfd9-45c0-9b94-9c7258e68839.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.3076925">
+        <state vertical-scroll-proportion="0.0">
           <caret line="709" column="53" selection-start-line="709" selection-start-column="51" selection-end-line="709" selection-end-column="51" />
           <folding>
             <element signature="e#1305#13805#0" expanded="false" />
@@ -1931,8 +1863,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/genetixSrv.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9">
-          <caret line="146" column="5" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="122" column="26" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui-impose/popup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="52" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui-impose/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.038462">
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="568" column="0" selection-start-line="568" selection-start-column="0" selection-end-line="568" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="26" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/genDataGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="40" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.019231">
+          <caret line="1384" column="56" selection-start-line="1384" selection-start-column="56" selection-end-line="1384" selection-end-column="56" />
+          <folding>
+            <element signature="e#1665#11286#0" expanded="false" />
+            <element signature="e#11306#13757#0" expanded="false" />
+            <element signature="e#20482#23900#0" expanded="false" />
+            <element signature="e#24497#29339#0" expanded="false" />
+            <element signature="e#29959#62147#0" expanded="false" />
+            <element signature="e#74583#75474#0" expanded="false" />
+            <element signature="e#75512#76403#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44964027">
+          <caret line="332" column="32" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
           <folding />
         </state>
       </provider>

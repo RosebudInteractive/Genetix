@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="/scripts/lib/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/scripts/lib/jquery-ui.js"></script>
+    <script>
+        document.addEventListener('afterscriptexecute', function(e){
+            console.log('Script executed: ', e.target);
+        }, false);
+
+        $(window).load(function () {
+            $("#btn").click(function () {
+                console.log("Click");
+            });
+        });
+    </script>
+    <script type="text/javascript">console.log('foo')</script>
+    <script type="text/javascript">console.log('bar')</script></head>
+<body>
+<input id="btn" type="button"/>
+</body>
+</html>

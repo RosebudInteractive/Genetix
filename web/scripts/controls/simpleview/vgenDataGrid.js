@@ -328,6 +328,7 @@ define(
         vDataGrid.renderCursor = function(id) {
             if (!id) return false;
             this._grid.grid('selectrow', id, true);
+            vDataGrid.setFocus.call(this);
         }
 
         /**

@@ -57,8 +57,7 @@ define(
                 pItem = $("#mid_" + this.getLid());
             }
 
-            var currentControl = this.getRoot().currentControl();
-            if (currentControl && currentControl==this)
+            if (this.getRoot().isFldModified("CurrentControl") && (this.getRoot().currentControl() == this))
                 item.find("input, textarea").focus();
 
             if (this.verticalAlign()) {

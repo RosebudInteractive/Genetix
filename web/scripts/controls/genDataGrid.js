@@ -29,10 +29,6 @@ define(
              */
             init: function(cm, params) {
                 UccelloClass.super.apply(this, [cm, params]);
-                this.params = params;
-
-                this.initRender();
-
                 this._source = {
                     datatype: "json",
                     datafields: [],
@@ -65,26 +61,6 @@ define(
             scroll: function(value) {
                 return this._genericSetter("Scroll", value);
             },
-
-            /**
-             * Нужно перерендерить только курсор
-             * @returns {boolean}
-             */
-            isOnlyCursor: function() {
-                if (this.dataset()) {
-                    var ds = this.dataset();
-                    if  ((!ds.isDataSourceModified()) && (ds.isFldModified("Cursor")) && (!this.isDataModified()))
-                        return true;
-                    else
-                        return false;
-                }
-                else return false;
-            },
-
-            initRender: function() {
-                this.pvt.renderDataVer = undefined;
-            }
-
 
         });
         return GenDataGrid;
