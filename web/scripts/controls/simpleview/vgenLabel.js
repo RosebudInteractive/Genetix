@@ -42,7 +42,7 @@ define(
             if (this.tabStop() === undefined || this.tabStop())
                 item.attr("tabIndex", "0");
             else
-                item.attr("tabIndex", "-1");
+                item.attr("tabIndex", "");
 
             var currentControl = this.getRoot().currentControl();
             if (currentControl && currentControl==this)

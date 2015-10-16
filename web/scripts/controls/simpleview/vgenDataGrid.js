@@ -127,16 +127,15 @@ define(
             //if (!this._isInitialized) {
             //set
             //setTimeout(function() {
-                vDataGrid._reloading(that);
-                var currentControl = that.getRoot().currentControl();
-                if (currentControl && currentControl==that)
-                    pItem.find("tr[tabIndex=1]").focus();
+            vDataGrid._reloading(that);
             //},0);
             //}
 
             var currentControl = this.getRoot().currentControl();
             if (currentControl && currentControl==this)
                 pItem.find("tr[tabIndex=1]").focus();
+            else
+                pItem.find("tr[tabIndex=1]").blur();
 
             //grid.css({top: this.top() + 'px', left: this.left() + 'px', width: this.width() + 'px', height: this.height() + 'px'});
 

@@ -44,9 +44,10 @@ define(
                             that.onClick.apply(that);
                         });
                     }
-                    that.getControlMgr().userEventHandler(that, function(){
-                        that.setFocused();
-                    });
+                    if (that.tabStop())
+                        that.getControlMgr().userEventHandler(that, function(){
+                            that.setFocused();
+                        });
                 });
             } else {
                 pItem = $("#mid_" + this.getLid());
@@ -95,8 +96,10 @@ define(
             else item.addClass("is-disabled");
 
             var currentControl = this.getRoot().currentControl();
-            if (currentControl && currentControl==this)
+            if (currentControl && currentControl==this) {
                 item.addClass("has-focus");
+                item.focus();
+            }
             else
                 item.removeClass("has-focus");
 

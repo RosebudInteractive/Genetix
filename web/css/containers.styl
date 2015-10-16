@@ -146,6 +146,10 @@ td.container-title
   float left
   background-color #ffffff
   height auto
+.iScrollIndicator
+  transition all 0.1s ease-out
+.iScrollVerticalScrollbar
+  padding-right 2px
 .iScrollLoneScrollbar
   .iScrollIndicator
     opacity 0
@@ -158,13 +162,17 @@ td.container-title
   position absolute
   overflow auto
 .control.container > .scroll-header
-  background-color #ffffff
   position absolute
   top 0px
-  opacity 0.5
   width 100%
   height 1.5em
   z-index 2
+  /*background-color #ffffff
+  opacity 0.5*/
+  background-image -webkit-linear-gradient(bottom, transparent, white)
+  background-image    -moz-linear-gradient(bottom, transparent, white)
+  background-image      -o-linear-gradient(bottom, transparent, white)
+  background-image         linear-gradient(bottom, transparent, white)
 /* controls separator */
 .control-separator
   display none

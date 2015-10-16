@@ -184,8 +184,8 @@ define(
                 if (hasLeftIcons) {
                     // проверим передана ли хотябы одна
                     var found = false;
-                    for (var i = 0; i < popupData.length; i++) {
-                        if (popupData[i].leftIcon) {
+                    for (var i = 0; i < this.options.menuItems.length; i++) {
+                        if (this.options.menuItems[i].leftIcon) {
                             found = true;
                             break;
                         }

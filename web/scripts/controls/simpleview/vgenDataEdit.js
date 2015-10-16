@@ -96,7 +96,10 @@ define(
                 if (this.dataset() && this.dataField()) {
                     //var dataset = that.getControlMgr().get(that.dataset());
                     var dataset = that.dataset();
-                    item.find("input, textarea").val(dataset ? dataset.getField(this.dataField()) : '');
+                    var input = item.find("input, textarea");
+                    input.val(dataset ? dataset.getField(this.dataField()) : '');
+                    if (this.multiline())
+                        input.trigger("autosize.resize");
                 }
             }
 

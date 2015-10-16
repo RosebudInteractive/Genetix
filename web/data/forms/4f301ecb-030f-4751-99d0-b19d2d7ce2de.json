@@ -739,7 +739,8 @@
                                               "Name": "LabelStatus",
                                               "Label": "Статус",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -753,7 +754,8 @@
                                               "Dataset": "c2de9609-237a-c3b3-12ac-43bf5b35c169",
                                               "DataField": "State",
                                               "Width": 2,
-                                              "LayoutProp": "true,br"
+                                              "LayoutProp": "true,br",
+                                              "Title": "Статус"
                                             }
                                           },
                                           {
@@ -766,7 +768,8 @@
                                               "Name": "LabelContent",
                                               "Label": "Содержание",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -794,7 +797,8 @@
                                               "Name": "LabelSource",
                                               "Label": "Источник",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -821,7 +825,8 @@
                                               "Name": "LabelClosed",
                                               "Label": "Закрыт",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -871,7 +876,8 @@
                                               "Name": "LabelFirstName",
                                               "Label": "Фамилия",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -898,7 +904,8 @@
                                               "Name": "LabelWorkPhone",
                                               "Label": "Рабочий тел.",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -925,7 +932,8 @@
                                               "Name": "LabelName",
                                               "Label": "Имя",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -952,7 +960,8 @@
                                               "Name": "LabelMobile",
                                               "Label": "Мобильный тел.",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -979,7 +988,8 @@
                                               "Name": "LabelContSource",
                                               "Label": "Источник",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -1006,7 +1016,8 @@
                                               "Name": "LabelEmail",
                                               "Label": "Эл. адрес",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -1056,7 +1067,8 @@
                                               "Name": "LabelCompany",
                                               "Label": "Компания",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -1083,7 +1095,8 @@
                                               "Name": "LabelTown",
                                               "Label": "Город",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -1110,7 +1123,8 @@
                                               "Name": "LabelSector",
                                               "Label": "Отрасль",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -1137,7 +1151,8 @@
                                               "Name": "LabelIndex",
                                               "Label": "Почтовый адрес",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -1164,7 +1179,8 @@
                                               "Name": "LabelWorkersCount",
                                               "Label": "Кол. сотрудников",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {
@@ -1191,7 +1207,8 @@
                                               "Name": "LabelAddress",
                                               "Label": "Адрес",
                                               "Width": 2,
-                                              "LayoutProp": "false,nbr"
+                                              "LayoutProp": "false,nbr",
+                                              "TabStop": false
                                             }
                                           },
                                           {

@@ -169,6 +169,12 @@ td.container-title {
   background-color: #fff;
   height: auto;
 }
+.iScrollIndicator {
+  transition: all 0.1s ease-out;
+}
+.iScrollVerticalScrollbar {
+  padding-right: 2px;
+}
 .iScrollLoneScrollbar .iScrollIndicator {
   opacity: 0;
 }
@@ -183,13 +189,17 @@ td.container-title {
   overflow: auto;
 }
 .control.container > .scroll-header {
-  background-color: #fff;
   position: absolute;
   top: 0px;
-  opacity: 0.5;
   width: 100%;
   height: 1.5em;
   z-index: 2;
+/*background-color #ffffff
+  opacity 0.5*/
+  background-image: -webkit-linear-gradient(bottom, transparent, #fff);
+  background-image: -moz-linear-gradient(bottom, transparent, #fff);
+  background-image: -o-linear-gradient(bottom, transparent, #fff);
+  background-image: linear-gradient(bottom, transparent, #fff);
 }
 /* controls separator */
 .control-separator {

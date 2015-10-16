@@ -87,11 +87,17 @@
   right 0px
 .control.toolbar.is-right > .c-content > .c-toolbar-dots
   right 0px*/
-
-
+.control.toolbar.is-big.is-blue
+  .control-ext
+    padding-top 6px
+.control.toolbar.is-big
+  .control.button.tool-button.is-radio
+    height 5.538461538461538em
 .control.button.tool-button
   display table
   height 100%
+  &:focus
+    outline 0
 .control.button.tool-button.is-disabled
   opacity 0.5
 .tool-button-content
@@ -146,15 +152,13 @@
 .control.toolbar.is-big.is-blue
   .control.button.tool-button.has-caption
   .control.button.tool-button.has-both
-    margin-top 0.46155em
     border-top-left-radius 5px
     border-top-right-radius 5px
-    margin-left 6px
-    margin-right 6px
+    margin-left 0.46155em
+    margin-right 0.46155em
     padding-left 1.15385em
     padding-right 1.15385em
   .control.button.tool-button.has-both
-    height 100%
     .t-button-icon-wrapper
       margin auto
   .control.button.tool-button.has-caption

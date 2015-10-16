@@ -35,7 +35,7 @@
 .grid-b.has-no-paginator .grid-paginator-b {
   display: none;
 }
-.grid-b.has-horizontal-lines tr.grid-tr-bh:not(:first-child):not(:focus) td.grid-body-td-bh,
+.grid-b.has-horizontal-lines tr.grid-tr-bh:not(:first-child):not(:focus):not(:hover) td.grid-body-td-bh,
 .grid-b.has-horizontal-lines tr.grid-tr-bh:not(:first-child):not(.is-check) td.grid-body-td-bh {
   box-shadow: inset 0 0.0625em 0 #d7e2f5;
   -webkit-box-shadow: inset 0 0.0625em 0 #d7e2f5;
@@ -374,7 +374,7 @@
   transition: all 0.2s linear;
 }
 .dropdown-menu-item2-b .text-bl {
-  font-size: 0.75em;
+  font-size: 0.8125em;
   padding-left: 2.5em;
   padding-right: 2em;
   border-radius: 0.1875em;
@@ -421,10 +421,10 @@
   display: none;
 }
 .dropdown2-b.has-left-icons .dropdown-menu-item2-b:not(.is-title) .text-bl {
-  padding-left: 3.8333em;
+  padding-left: 3.538461538461538em;
 }
 .dropdown2-b.has-right-icons .dropdown-menu-item2-b:not(.is-title) .text-bl {
-  padding-right: 4em;
+  padding-right: 3.692307692307692em;
 }
 .dropdown2-b.is-right > .arrow-be {
   margin-left: -1.1825em;
@@ -630,23 +630,25 @@ tr > td > div.c-content > div.control-wrapper > .control.label {
 textarea {
   resize: none;
 }
-.ui-tooltip {
+body .ui-tooltip {
+  font-size: 1em !important;
   background: #4f5e73;
   color: #fff;
   border-color: #435061;
-  border-width: 1px;
+  border-width: 0px !important;
   padding: 0;
   opacity: 1;
-  box-shadow: 0px 1px 6px 0px rgba(56,70,90,0.35);
-  -webkit-box-shadow: 0px 1px 6px 0px rgba(56,70,90,0.35);
-  -moz-box-shadow: 0px 1px 6px 0px rgba(56,70,90,0.35);
+  box-shadow: 0px 1px 6px 0px rgba(56,70,90,0.25);
+  -webkit-box-shadow: 0px 1px 6px 0px rgba(56,70,90,0.25);
+  -moz-box-shadow: 0px 1px 6px 0px rgba(56,70,90,0.25);
 }
 .ui-tooltip-content {
   font-family: OpenSans;
   font-size: 0.75em;
   line-height: 1.25em;
   position: relative;
-  padding: 1em;
+  padding: 0.75em 1em 0.75em 1em;
+  font-weight: 500;
 }
 .ui-tooltip-content::after {
   content: '';
@@ -853,6 +855,12 @@ td.container-title {
   background-color: #fff;
   height: auto;
 }
+.iScrollIndicator {
+  transition: all 0.1s ease-out;
+}
+.iScrollVerticalScrollbar {
+  padding-right: 2px;
+}
 .iScrollLoneScrollbar .iScrollIndicator {
   opacity: 0;
 }
@@ -867,13 +875,17 @@ td.container-title {
   overflow: auto;
 }
 .control.container > .scroll-header {
-  background-color: #fff;
   position: absolute;
   top: 0px;
-  opacity: 0.5;
   width: 100%;
   height: 1.5em;
   z-index: 2;
+/*background-color #ffffff
+  opacity 0.5*/
+  background-image: -webkit-linear-gradient(bottom, transparent, #fff);
+  background-image: -moz-linear-gradient(bottom, transparent, #fff);
+  background-image: -o-linear-gradient(bottom, transparent, #fff);
+  background-image: linear-gradient(bottom, transparent, #fff);
 }
 .control-separator {
   display: none;
