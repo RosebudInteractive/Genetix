@@ -13,6 +13,7 @@ define(
 
             if (item.length == 0) {
                 item = $(vDbTreeView._templates['dbTreeView']).attr('id', this.getLid());
+                tree = item.find('.tree');
                 item.focus(function(){
                     if (that.getRoot().currentControl() != that) {
                         that.getControlMgr().userEventHandler(that, function(){
@@ -28,7 +29,18 @@ define(
                 var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(item);
 
-                tree = item.find('.tree').treegrid({
+                var layoutPane = item.find(".layout");
+                layoutPane.css({width: "100%", "height": "100%"});
+                layoutPane.panel({
+                    border: false
+                });
+                $(window).on("genetix:resize", function () {
+                    layoutPane.panel('resize');
+                    tree.treegrid('resize');
+                });
+
+
+                tree = tree.treegrid({
                     loader: function(param, success, error) {
                         var treeItem = null;
                         if(param.id) {
@@ -54,6 +66,8 @@ define(
                     columns:[[
                         {title:'Name',field:'text',width:180}
                     ]],
+                    fit: true,
+                    region: "center",
                     onBeforeExpand: function(row) {
                         if (row.data && row.data.treeItem && !row.data.treeItem.isOpen())
                             that.getControlMgr().userEventHandler(that, function() {
