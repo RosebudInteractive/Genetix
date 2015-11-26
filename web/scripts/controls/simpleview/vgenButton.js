@@ -19,14 +19,20 @@ define(
                     that.getControlMgr().userEventHandler(that, function(){
                         that.setFocused();
                     });
+                }).focus(function() {
+                    if (that.getRoot().currentControl() != that) {
+                        that.getControlMgr().userEventHandler(that, function () {
+                            that.setFocused();
+                        });
+                    }
                 });
             } else {
                 pItem = $("#mid_" + this.getLid());
             }
 
-            var currentControl = this.getRoot().currentControl();
-            if (currentControl && currentControl==this)
-                item.find("input").focus();
+            // выставляем фокус
+            if ($(':focus').attr('id') != this.getLid() && this.getRoot().isFldModified("CurrentControl") && this.getRoot().currentControl() == this)
+                $('#ch_'+this.getLid()).find('input').focus();
 
             if (this.verticalAlign()) {
                 pItem.css("display", "table-cell");

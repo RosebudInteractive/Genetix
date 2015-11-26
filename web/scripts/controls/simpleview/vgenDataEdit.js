@@ -35,6 +35,12 @@ define(
                     that.getControlMgr().userEventHandler(that, function(){
                         that.setFocused();
                     });
+                }).focus(function() {
+                    if (that.getRoot().currentControl() != that) {
+                        that.getControlMgr().userEventHandler(that, function () {
+                            that.setFocused();
+                        });
+                    }
                 });
 
                 if (this.multiline()) {

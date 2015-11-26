@@ -114,7 +114,14 @@ define(
 
             // создаем врапперы для чайлдов
             var children = this.getCol('Children');
-            for(var i=0; i<children.count();i++) {
+            var minIdx = 0;
+            var maxIdx = children.count() - 1;
+            if (contAlign == "RIGHT") {
+                minIdx = maxIdx;
+                maxIdx = 0;
+            }
+            var i = minIdx;
+            for(var j=0; j < children.count(); j++) {
                 var child = this.getControlMgr().get(children.get(i).getGuid());
                 if (!child.left) continue;
                 var div = $('#ext_'+child.getLid());
@@ -142,13 +149,16 @@ define(
                         return false;
                     });
 
-                    if (contAlign == "LEFT")
-                        cont.children(".c-toolbar-dots").before(div);
-                    else
-                        cont.append(div);
+                    //if (contAlign == "LEFT")
+                    //    cont.children(".c-toolbar-dots").before(div);
+                    //else
+                    cont.append(div);
 
                 }
                 vToolbar._setChildCSS(child);
+
+                if (contAlign == "RIGHT") i--;
+                else i++;
             }
 
             // убираем удаленные объекты

@@ -45,9 +45,14 @@ define(
                         });
                     }
                     if (that.tabStop())
-                        that.getControlMgr().userEventHandler(that, function(){
+                        item.focus();
+                });
+                item.focus(function() {
+                    if (that.getRoot().currentControl() != that) {
+                        that.getControlMgr().userEventHandler(that, function () {
                             that.setFocused();
                         });
+                    }
                 });
             } else {
                 pItem = $("#mid_" + this.getLid());
@@ -96,11 +101,10 @@ define(
             else item.addClass("is-disabled");
 
             var currentControl = this.getRoot().currentControl();
-            if (currentControl && currentControl==this) {
+            if (this.getRoot().isFldModified("CurrentControl") && this.getRoot().currentControl() == this) {
                 item.addClass("has-focus");
                 item.focus();
-            }
-            else
+            } else
                 item.removeClass("has-focus");
 
             vButton._setVisible.call(this);
@@ -115,6 +119,10 @@ define(
 
             if (bKind == "NORMAL") return;
             else if (bKind == "RADIO") {
+
+
+
+
                 //var curPressed = that.pressed() || false;
                 //if (curPressed) return;
                 this.getControlMgr().userEventHandler(this, function () {

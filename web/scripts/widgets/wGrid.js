@@ -1,10 +1,10 @@
 define(
     'wGrid',
     ['/scripts/lib/uccello/uses/template.js', 'text!./widgets/templates/grid.html'],
-    function(template, tpl) {
+    function (template, tpl) {
         var templates = template.parseTemplate(tpl);
 
-        $.widget( "custom.grid", {
+        $.widget("custom.grid", {
 
             // Здесь задается список настроек и их значений по умолчанию
             options: {
@@ -18,24 +18,24 @@ define(
                 selectedrow: {},
                 checkedColumn: false,
                 hint: '',
-                layout:0,
-                lineHeight:0,
+                layout: 0,
+                lineHeight: 0,
                 sortdir: 'asc',
                 scroll: true,
                 columns: [], // {text: 'Текст', type: 'text', editable: false, datafield: 'ID', width: '30%'}
                 source: {
                     datafields: [],
                     localdata: [],
-                    id:'id'
+                    id: 'id'
                 },
                 ds: null
             },
 
             // Функция, вызываемая при активации виджета на элементе
-            _create: function() {
+            _create: function () {
                 var that = this;
                 this.selectedrow = {}; // выбранная строчка
-                this.sort = {el:null, datafield:null, dir:null}; // текущая сортировка
+                this.sort = {el: null, datafield: null, dir: null}; // текущая сортировка
                 this.layouts = ['is-striped-bg', 'is-horizontal-div', 'is-vertical-div'];
                 this.lineHeights = ['is-normal', 'is-enlarged'];
                 this.element.css({width: this.options.width, height: this.options.height});
@@ -53,7 +53,7 @@ define(
                 this.fixHeight();
                 this.clearPageCache();
                 $(window).on("genetix:resize", function () {
-                    setTimeout(function() {
+                    setTimeout(function () {
                         console.log("setTimeout wGrid");
                         var parent = that._headTable.parent();
                         //parent.width(that._bodyTable.width());
@@ -83,7 +83,7 @@ define(
                 }
             },
 
-            getVisiblePortion: function() {
+            getVisiblePortion: function () {
                 //return (Math.floor(this.options.height / this._rowHeight) + 1);
                 if (!this.options.scroll)
                     return this.options.source.localdata.length;
@@ -93,7 +93,7 @@ define(
                     return 100;
             },
 
-            getVisibleRange: function() {
+            getVisibleRange: function () {
                 if (this.options.scroll)
                     return (Math.min(this.getVisiblePortion(), this.options.source.localdata.length - this.firstDataRow));
                 else
@@ -107,7 +107,7 @@ define(
                 this.rowsCache = [];
             },
 
-            reloading: function(columns, source) {
+            reloading: function (columns, source) {
 
                 if (columns != null)
                     this.options.columns = columns;
@@ -125,7 +125,7 @@ define(
                 //$(window).trigger("genetix:resize");
             },
 
-            renderHeader: function(){
+            renderHeader: function () {
                 this._headTable.empty();
                 var that = this;
                 this._colCount = 0;
@@ -138,13 +138,13 @@ define(
                     // отступ
                     var th = $('<th class="grid-th-bh is-margin is-last"></th>');
                     var ftd = $('<td class="is-margin"/>');
-                    th.data('GridHeaders', {data:{}, type:'margin'});
+                    th.data('GridHeaders', {data: {}, type: 'margin'});
                     tr.append(th);
                     fakeHeader.append(ftd);
                     // чекбокс
                     th = $('<th width="40" class="grid-th-bh is-checkedcolumn" style="width:40px"><div class="checkbox-b is-bordered th-checkbox-bh"><input type="checkbox"><div class="check-sign-e"></div></div></th>');
                     ftd = $('<td style="width:40px"/>');
-                    th.data('GridHeaders', {data:{}, type:'checkbox'});
+                    th.data('GridHeaders', {data: {}, type: 'checkbox'});
                     if (!this.options.checkedColumn) {
                         th.hide();
                         ftd.hide();
@@ -152,12 +152,12 @@ define(
                     tr.append(th);
                     // остальные столбцы
                     for (var i = 0; i < this.options.columns.length; i++) {
-                        th = $('<th class="grid-th-bh is-clickable-eff ' + this.options.columns[i].text +'"></th>');
+                        th = $('<th class="grid-th-bh is-clickable-eff ' + this.options.columns[i].text + '"></th>');
                         th.attr("role", this.options.columns[i].text);
-                        if (i == (this.options.columns.length -1))
+                        if (i == (this.options.columns.length - 1))
                             th.addClass("is-last");
                         th.addClass("can-resize");
-                        th.data('GridHeaders', {data:this.options.columns[i], type:'item'});
+                        th.data('GridHeaders', {data: this.options.columns[i], type: 'item'});
                         var text = $('<div class="th-text-be text-ellipsis-gm"></div>').html(this.options.columns[i].text);
                         th.append(text);
                         if (this.options.columns[i].width)
@@ -172,7 +172,7 @@ define(
                     }
                     // отступ
                     th = $('<th class="grid-th-bh is-margin" ></th>');
-                    th.data('GridHeaders', {data:{}, type:'margin'});
+                    th.data('GridHeaders', {data: {}, type: 'margin'});
                     tr.append(th);
                     ftd = $('<td class="is-margin"/>');
                     fakeHeader.append(ftd);
@@ -189,18 +189,18 @@ define(
 
                 //parent.resizableColumns({selector: "tr th.can-resize"});
                 /*parent.on("column:resize", function (event, sender, leftColumn, rightColumn, leftWidth, rightWidth) {
-                    var lFieldName = leftColumn.attr("role");
-                    var rFieldName = rightColumn.attr("role");
-                    var bodyTable = sender.$table.parent().parent().find("div.scrollable-bl table.table-bl");
-                    if (DEBUG)
-                        console.log({sender: sender, l:leftColumn, r:rightColumn, wl:leftWidth, wr:rightWidth, bt: bodyTable});
-                    bodyTable.find("tr.fake-header td[role='" + lFieldName + "']").width(leftWidth + "%");
-                    bodyTable.find("tr.fake-header td[role='" + rFieldName + "']").width(rightWidth + "%");
-                });*/
+                 var lFieldName = leftColumn.attr("role");
+                 var rFieldName = rightColumn.attr("role");
+                 var bodyTable = sender.$table.parent().parent().find("div.scrollable-bl table.table-bl");
+                 if (DEBUG)
+                 console.log({sender: sender, l:leftColumn, r:rightColumn, wl:leftWidth, wr:rightWidth, bt: bodyTable});
+                 bodyTable.find("tr.fake-header td[role='" + lFieldName + "']").width(leftWidth + "%");
+                 bodyTable.find("tr.fake-header td[role='" + rFieldName + "']").width(rightWidth + "%");
+                 });*/
 
                 this._headTable.find("th.can-resize").each(function () {
                     var colName = $(this).attr("role");
-                   // var t = parent.resizableColumns();
+                    // var t = parent.resizableColumns();
                     that._fackeHeader.find("td[role='" + colName + "']").css("width", this.style.width);
                 });
             },
@@ -208,22 +208,22 @@ define(
             addEmptyRow: function () {
                 var that = this;
                 var tr = $('<tr class="grid-tr-bh"></tr>');
-                tr.click(function(){
+                tr.click(function () {
                     that._selectrow($(this), true);
                     $(this).focus();
                 })/*.hover(function() {
-                    $(this).next().find("td").css({
-                        "box-shadow": "none",
-                        "-webkit-box-shadow" : "none",
-                        "-moz-box-shadow" : "none"
-                    });
-                }).mouseleave(function() {
-                    $(this).next().find("td").css({
-                        "box-shadow": "",
-                        "-webkit-box-shadow" : "",
-                        "-moz-box-shadow" : ""
-                    });
-                })*/;
+                 $(this).next().find("td").css({
+                 "box-shadow": "none",
+                 "-webkit-box-shadow" : "none",
+                 "-moz-box-shadow" : "none"
+                 });
+                 }).mouseleave(function() {
+                 $(this).next().find("td").css({
+                 "box-shadow": "",
+                 "-webkit-box-shadow" : "",
+                 "-moz-box-shadow" : ""
+                 });
+                 })*/;
                 tr.colRef = [];
                 tr.cells = [];
                 // отступ
@@ -242,8 +242,8 @@ define(
                 for (var i = 0; i < this.options.columns.length; i++) {
                     td = $('<td class="grid-body-td-bh"><div class="content-bhl"></div></td>');
                     tr.append(td);
-                    tr.cells[i+2] = td;
-                    tr.colRef[i+2] = i;
+                    tr.cells[i + 2] = td;
+                    tr.colRef[i + 2] = i;
                     if (i == (this.options.columns.length - 1))
                         td.addClass("is-last");
                 }
@@ -251,8 +251,8 @@ define(
                 // отступ
                 var td = $('<td class="grid-body-td-bh is-margin"></td>');
                 tr.append(td);
-                tr.cells[i+3] = td;
-                tr.colRef[i+3] = -1;
+                tr.cells[i + 3] = td;
+                tr.colRef[i + 3] = -1;
 
                 this._bodyTable.append(tr);
                 if (this._rowHeight == 0) this._rowHeight = tr[0].clientHeight;
@@ -268,23 +268,25 @@ define(
                     var datafield = undefined;
                     if (tr.colRef[i] >= 0)
                         datafield = this.options.columns[tr.colRef[i]].datafield;
-                    if(dataRow[datafield] !== undefined)
+                    if (dataRow[datafield] !== undefined)
                         td.children('.content-bhl').html(dataRow[datafield]);
-                };
+                }
+                ;
             },
 
-            updateRenderedRow: function(idx){
+            updateRenderedRow: function (idx) {
                 var cachedRow = this.rowsCache[idx];
                 if (!cachedRow) {
                     this.rowsCache[idx] = cachedRow = this.addEmptyRow();
-                };
+                }
+                ;
                 var d = this.options.source.localdata[this.firstDataRow + idx];
                 cachedRow.data('GridRows', d);
                 this.fillVirtualRow(idx);
                 cachedRow.show();
             },
 
-            updatePosition: function(y) {
+            updatePosition: function (y) {
                 this.firstDataRow = Math.floor(-y / this._rowHeight);
                 if (this.firstDataRow < 0)
                     this.firstDataRow = 0;
@@ -295,27 +297,30 @@ define(
             renderData: function (trigger) {
                 //this._bodyTable.append(this._fackeHeader);
                 if (!this._topDiv) {
-                    this._topDiv= $(this._fackeHeader[0].outerHTML);//$('<tr><td class="is-margin"/><td colspan="' + this._colCount + '"/><td class="is-margin"/></tr>');//
+                    this._topDiv = $(this._fackeHeader[0].outerHTML);//$('<tr><td class="is-margin"/><td colspan="' + this._colCount + '"/><td class="is-margin"/></tr>');//
                     this._bodyTable.append(this._topDiv);
-                };
-                if (this.options.columns.length==0)
-                {
+                }
+                ;
+                if (this.options.columns.length == 0) {
                     this._bodyTable.empty();
                     return;
-                };
+                }
+                ;
 
 
                 for (var j = 0; j < this.getVisibleRange(); j++) {
                     this.updateRenderedRow(j);
-                };
+                }
+                ;
 
-                for (j = j;  j < this.rowsCache.length; j++)
+                for (j = j; j < this.rowsCache.length; j++)
                     this.rowsCache[j].hide();
 
-                 if (!this._bottomDiv) {
-                    this._bottomDiv= $('<tr style="height:0px"></tr>');
+                if (!this._bottomDiv) {
+                    this._bottomDiv = $('<tr style="height:0px"></tr>');
                     this._bodyTable.append(this._bottomDiv);
-                };
+                }
+                ;
                 this._topDiv.height(this.firstDataRow * this._rowHeight);
                 // отладка
                 //$("#topDivH").html(this._topDiv.height());
@@ -330,28 +335,30 @@ define(
                         if (d == this.selectedrow.data) {
                             r.attr('tabindex', 1);
                             r.addClass('is-check');
-                            this.selectedrow = {data:d, el:r};
+                            this.selectedrow = {data: d, el: r};
                             if (trigger || trigger === undefined)
                                 this._trigger("selectrow", null, [d, r]);
                         } else {
-                            if (r.hasClass('is-check')){
+                            if (r.hasClass('is-check')) {
                                 r.removeClass('is-check');
                                 r.attr('tabindex', null);
                                 this._headTable.children('tr').attr('tabindex', null);
                             }
                         }
-                    };
-                };
+                    }
+                    ;
+                }
+                ;
 
             },
 
-            clear: function(){
+            clear: function () {
                 this._bodyTable.empty();
                 this._headTable.empty();
                 this.clearPageCache();
             },
 
-            selectrow: function(id){
+            selectrow: function (id) {
                 //if (this.selectedrow.data && id == this.selectedrow.data[this.options.source.id])
                 //    return;
                 var rows = this._bodyTable.find('tr');
@@ -369,7 +376,15 @@ define(
                         var item = this.options.source.localdata[i];
                         if (item[this.options.source.id] == id) {
                             this.selectedrow.data = item;
-                            this.renderData(false);
+                            var visCount = this.getVisiblePortion();
+                            var fRow = 0;
+                            if (i + visCount >= this.options.source.localdata.length) {
+                                fRow = this.options.source.localdata.length - visCount + 2;
+                                if (fRow < 0) fRow = 0;
+                            } else
+                                fRow = i;
+                            var newPos = this._rowHeight * fRow;
+                            this._trigger("updateScroll", null, [-newPos]);
                             break;
                         }
                     }
@@ -379,7 +394,7 @@ define(
             addrow: function (row, aftersel) {
                 var that = this;
                 var tr = $('<tr class="grid-tr-bh"></tr>');
-                tr.click(function(){
+                tr.click(function () {
                     that._selectrow($(this), true);
                 });
                 // чекбокс
@@ -392,17 +407,17 @@ define(
                     td = $('<td class="grid-body-td-bh"><div class="content-bhl"></div></td>');
                     var datafield = this.options.columns[i].datafield;
                     tr.data('GridRows', row);
-                    if(row[datafield] !== undefined)
+                    if (row[datafield] !== undefined)
                         td.children('.content-bhl').html(row[datafield]);
                     tr.append(td);
                 }
 
                 if (aftersel && ('el' in this.selectedrow)) {
                     var rows = this._bodyTable.find('tr');
-                    for(var i=0;i<rows.length;i++){
+                    for (var i = 0; i < rows.length; i++) {
                         var data = $(rows[i]).data('GridRows');
-                        if (this.selectedrow.data[this.options.source.id] == data[this.options.source.id]){
-                            this.options.source.localdata.splice(i+1, 0, row);
+                        if (this.selectedrow.data[this.options.source.id] == data[this.options.source.id]) {
+                            this.options.source.localdata.splice(i + 1, 0, row);
                             break;
                         }
                     }
@@ -413,10 +428,10 @@ define(
                 return tr;
             },
 
-            delrow: function(id){
-                for(var i=0;i<this.options.source.localdata.length;i++){
+            delrow: function (id) {
+                for (var i = 0; i < this.options.source.localdata.length; i++) {
                     // уберем элемент с заданным id из датасета, дальше рендер разберется
-                    if (id == data[this.options.source.id]){
+                    if (id == data[this.options.source.id]) {
                         this.options.source.localdata.splice(i, 1);
                         this.renderData();
                         break;
@@ -433,17 +448,17 @@ define(
                 // }
             },
 
-            refreshrow: function(row){
+            refreshrow: function (row) {
                 var rows = this._bodyTable.find('tr');
-                for(var i=0;i<rows.length;i++){
+                for (var i = 0; i < rows.length; i++) {
                     var tr = $(rows[i]);
                     var data = tr.data('GridRows');
-                    if (row[this.options.source.id] == data[this.options.source.id]){
+                    if (row[this.options.source.id] == data[this.options.source.id]) {
                         var tds = tr.find("td");
                         for (var j = 0; j < this.options.columns.length; j++) {
-                            var td = tds.eq(j+1);
+                            var td = tds.eq(j + 1);
                             var datafield = this.options.columns[j].datafield;
-                            if(row[datafield])
+                            if (row[datafield])
                                 td.children('.content-bhl').html(row[datafield]);
                         }
                         this.options.source.localdata[i] = row;
@@ -471,7 +486,7 @@ define(
                 var th = this._headTable.children('th');
                 $.each(th, function () {
                     var data = $(this).data('GridHeaders');
-                    if (data.type=='item' && data.data.datafield == datafield) {
+                    if (data.type == 'item' && data.data.datafield == datafield) {
                         column = this;
                         return false;
                     }
@@ -479,35 +494,35 @@ define(
                 return column;
             },
             // метод не изменился, но стал немного опаснее: валидность выделенного элемента верна только до следующего рендера, то есть - недолго
-            getselectedrow: function(){
+            getselectedrow: function () {
                 if ('el' in this.selectedrow) {
                     return this.selectedrow;
                 }
                 return null;
             },
 
-            getheadrow: function(){
+            getheadrow: function () {
                 return this._headTable.children('tr');
             },
 
-            _addeventsheaders: function(headers){
+            _addeventsheaders: function (headers) {
                 var that = this;
-                headers.click(function(event){
+                headers.click(function (event) {
                     var data = $(this).data('GridHeaders');
-                    if (data.type=='item') // если не чекбокс
+                    if (data.type == 'item') // если не чекбокс
                         that._sort($(this));
                 });
             },
 
-            _sort: function(obj){
+            _sort: function (obj) {
                 var data = obj.data('GridHeaders').data;
                 if (data.datafield == this.sort.datafield) // если тот же датафилд
-                    this._sortBy(obj, data.datafield, this.sort.dir=='asc'?'desc':'asc');
+                    this._sortBy(obj, data.datafield, this.sort.dir == 'asc' ? 'desc' : 'asc');
                 else
                     this._sortBy(obj, data.datafield, this.options.sortdir)
             },
 
-            _sortBy: function(obj, datafield, dir){
+            _sortBy: function (obj, datafield, dir) {
                 // убираем сортировку
                 if (this.sort.el)
                     this.sort.el.removeClass('is-checked is-arrow-down is-arrow-up');
@@ -519,16 +534,16 @@ define(
                     obj.addClass('is-checked is-arrow-down');
 
                 // сохраняем данные
-                this.sort = {el:obj, datafield:datafield, dir:dir};
+                this.sort = {el: obj, datafield: datafield, dir: dir};
 
                 // сообщаем сервису об необходимости сортировки
                 //this._trigger("sort", null, [datafield, dir]);
             },
 
-            _selectrow: function(obj, trigger){
+            _selectrow: function (obj, trigger) {
                 var data = obj.data('GridRows');
                 // просто устанавливаем новую выделенную строку, присваивая ее data в selectedrow
-                this.selectedrow = {data:data, el:obj};
+                this.selectedrow = {data: data, el: obj};
                 // полный рендер сам разберется, где убрать выделение, где поставить
                 this.renderData(trigger);
                 if (trigger || (trigger === undefined))
@@ -540,7 +555,7 @@ define(
                     return null;
 
                 var column = this.getcolumn(datafield);
-                if (column == null)
+                if (column == null)da
                     return false;
 
                 column[propertyname] = value;
@@ -554,26 +569,24 @@ define(
                 return true;
             },
 
-            setcolumnproperty: function (datafield, propertyname, value){
+            setcolumnproperty: function (datafield, propertyname, value) {
                 this._setcolumnproperty(datafield, propertyname, value);
             },
 
-            setPageable: function(value) {
+            setPageable: function (value) {
                 var paginator = this._grid.children('.grid-paginator-b');
                 this.options.pageable = value;
-                if (value)
-                {
+                if (value) {
                     this._grid.addClass('is-footer');
                     paginator.show();
                 }
-                else
-                {
+                else {
                     this._grid.removeClass('is-footer');
                     paginator.hide();
                 }
             },
 
-            setCheckedColumn: function(ok){
+            setCheckedColumn: function (ok) {
                 this.options.checkedColumn = ok;
                 if (ok)
                     this.element.find('.is-checkedcolumn').show();
@@ -581,27 +594,27 @@ define(
                     this.element.find('.is-checkedcolumn').hide();
             },
 
-            setLayout: function(layout){
+            setLayout: function (layout) {
                 this.options.layout = layout;
                 this._grid.removeClass(this.layouts.join(' ')).addClass(this.layouts[layout]);
             },
 
-            setLineHeight: function(value){
+            setLineHeight: function (value) {
                 this.options.lineHeight = value;
                 this._grid.removeClass(this.lineHeights.join(' ')).addClass(this.lineHeights[value]);
             },
 
-            setDataset: function(value){
+            setDataset: function (value) {
                 this.options.ds = value;
             },
 
-            setHint: function(value){
+            setHint: function (value) {
                 this._grid.attr('title', value);
             },
 
             // Этот метод вызывается для изменения настроек плагина
-            _setOption: function( key, value ) {
-                switch( key ) {
+            _setOption: function (key, value) {
+                switch (key) {
                     // предпринимаем действия по изменению свойства
                     //break;
                     case "pageable":
@@ -625,11 +638,11 @@ define(
                 }
 
                 // UI 1.9 для этого достаточно вызвать метод _super
-                this._super( "_setOption", key, value );
+                this._super("_setOption", key, value);
             },
 
             // деструктор - метод, который будет вызван при удалении плагина с элемента.
-            destroy: function() {
+            destroy: function () {
 
             }
         });

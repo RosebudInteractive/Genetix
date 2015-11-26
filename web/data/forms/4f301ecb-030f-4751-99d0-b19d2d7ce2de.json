@@ -443,7 +443,8 @@
                                 },
                                 "fields": {
                                   "Id": 2002,
-                                  "Name": "ToolbarSeparator0"
+                                  "Name": "ToolbarSeparator0",
+                                  "TabStop": false
                                 }
                               },
                               {
@@ -645,7 +646,8 @@
                                 },
                                 "fields": {
                                   "Id": 2002,
-                                  "Name": "ToolbarSeparator3"
+                                  "Name": "ToolbarSeparator3",
+                                  "TabStop": false
                                 }
                               },
                               {
@@ -1335,15 +1337,15 @@
                                         "Children": [
                                           {
                                             "$sys": {
-                                              "guid": "0bb27767-0449-42bf-8aac-ca8586005dec",
+                                              "guid": "08b06aa2-1a3a-42ad-a81e-ea47ba826dc7",
                                               "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
                                             },
                                             "fields": {
                                               "Id": 2002,
-                                              "Name": "ToolbarBtn3_3",
+                                              "Name": "ToolbarBtn3_1",
                                               "CaptionStyle": "Image",
-                                              "Caption": "Delete",
-                                              "Image": "Genetix.svg#trash"
+                                              "Caption": "Add",
+                                              "Image": "Genetix.svg#add"
                                             }
                                           },
                                           {
@@ -1360,18 +1362,19 @@
                                             }
                                           },
                                           {
-                                            "$sys": {
-                                              "guid": "08b06aa2-1a3a-42ad-a81e-ea47ba826dc7",
-                                              "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
-                                            },
-                                            "fields": {
-                                              "Id": 2002,
-                                              "Name": "ToolbarBtn3_1",
-                                              "CaptionStyle": "Image",
-                                              "Caption": "Add",
-                                              "Image": "Genetix.svg#add"
-                                            }
-                                          }                                        ]
+                                      "$sys": {
+                                        "guid": "0bb27767-0449-42bf-8aac-ca8586005dec",
+                                        "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
+                                      },
+                                      "fields": {
+                                        "Id": 2002,
+                                        "Name": "ToolbarBtn3_3",
+                                        "CaptionStyle": "Image",
+                                        "Caption": "Delete",
+                                        "Image": "Genetix.svg#trash"
+                                      }
+                                    }
+                                        ]
                                       }
                                     }
                                   ]

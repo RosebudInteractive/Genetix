@@ -19,6 +19,12 @@ define(
                         that.getControlMgr().userEventHandler(that, function(){
                             that.setFocused();
                         });
+                }).focus(function() {
+                    if (that.getRoot().currentControl() != that) {
+                        that.getControlMgr().userEventHandler(that, function () {
+                            that.setFocused();
+                        });
+                    }
                 });
             } else {
                 pItem = $("#mid_" + this.getLid());
@@ -45,7 +51,7 @@ define(
                 item.attr("tabIndex", "");
 
             var currentControl = this.getRoot().currentControl();
-            if (currentControl && currentControl==this)
+            if ($(':focus').attr('id') != this.getLid() && this.getRoot().isFldModified("CurrentControl") && this.getRoot().currentControl() == this)
                 item.focus();
 
             if (this.horizontalAlign() && this.horizontalAlign().toUpperCase() == "LEFT")

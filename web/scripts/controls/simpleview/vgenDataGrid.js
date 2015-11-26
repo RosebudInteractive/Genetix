@@ -57,6 +57,14 @@ define(
                     sizechanged: function() {
                         if (that._grid)
                             vDataGrid._refreshScroll(that);
+                    },
+                    updateScroll: function(event, data) {
+                        if (that._iscroll) {
+                            that._iscroll.scrollTo(0, data);
+                            if (that._grid)
+                                that._grid.grid("updatePosition", data);
+                        }
+                        //vDataGrid._refreshScroll(that, data);
                     }
                 };
 
@@ -68,6 +76,13 @@ define(
                     that.getControlMgr().userEventHandler(that, function(){
                         that.setFocused();
                     });
+                });
+                grid.focus(function() {
+                    if (that.getRoot().currentControl() != that) {
+                        that.getControlMgr().userEventHandler(that, function () {
+                            that.setFocused();
+                        });
+                    }
                 });
 
             } else {
@@ -131,13 +146,11 @@ define(
             //},0);
             //}
 
-            var currentControl = this.getRoot().currentControl();
-            if (currentControl && currentControl==this)
+            // выставляем фокус
+            if ($(':focus').attr('id') != this.getLid() && this.getRoot().isFldModified("CurrentControl") && this.getRoot().currentControl() == this)
                 pItem.find("tr[tabIndex=1]").focus();
             else
                 pItem.find("tr[tabIndex=1]").blur();
-
-            //grid.css({top: this.top() + 'px', left: this.left() + 'px', width: this.width() + 'px', height: this.height() + 'px'});
 
             vDataGrid._setVisible.call(this);
             vDataGrid._genEventsForParent.call(this);
@@ -281,7 +294,7 @@ define(
 
         }
 
-        vDataGrid._refreshScroll = function(o) {
+        vDataGrid._refreshScroll = function(o, y) {
             if (o._iscroll) {
                 //o._iscroll.refresh();
                 o._iscroll.destroy();
@@ -302,7 +315,8 @@ define(
                     keyBindings: false,
                     click: true,
                     probeType: 3,
-                    rightPadding: 0
+                    rightPadding: 0,
+                    startY: (y ? y : 0)
                 });
                 _iscroll.on('scroll', function () {
                     //gr.data("grid").updatePosition(this.y);
@@ -327,7 +341,7 @@ define(
         vDataGrid.renderCursor = function(id) {
             if (!id) return false;
             this._grid.grid('selectrow', id, true);
-            vDataGrid.setFocus.call(this);
+            //vDataGrid.setFocus.call(this);
         }
 
         /**

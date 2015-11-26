@@ -14,6 +14,7 @@ var form7Guid = "156b663e-8b6f-4464-b3d1-65cac6537108";
 var form8Guid = "4112f74d-42cd-4dff-b288-d03f26825715";
 var form9Guid = "95a99d2b-73a6-4091-841f-5115b95fb720";
 var form10Guid = "46e56f92-cfd9-45c0-9b94-9c7258e68839";
+var form11Guid = "cbbf37ac-2b69-4952-984f-5199ebe939b9";
 
 var uri = window.location.href;
 if (uri.charAt(uri.length - 1) == "/")
@@ -71,7 +72,9 @@ $(document).ready( function() {
                     {className:'Toolbar', viewset:true},
                     {className:'ToolbarButton', viewset:true},
                     {className:'ToolbarSeparator', viewset:true},
-                    {className:'LayersContainer', viewset:true}
+                    {className:'LayersContainer', viewset:true},
+                    {className:'TreeView', viewset:true},
+                    {className:'DbTreeView', viewset:true}
                 ],
                 controlsPath: 'controls/',
                 uccelloPath: 'lib/uccello/',
@@ -243,7 +246,7 @@ $(document).ready( function() {
                                 window.createContext([form2Guid])
                             });
                             $("#emk-menu-item").click(function() {
-                                window.createContext([form3Guid])
+                                window.createContext([form11Guid])
                             });
                             $("#edit-menu-item").click(function() {
                                 window.createContext([form10Guid])
@@ -562,10 +565,20 @@ $(document).ready( function() {
                             } else {
                                 control = focusControl.next(true);
                             }
+                            console.log('focus '+control.name() + "(lid=" + control.getLid() + ")", 'currentControl '+focusControl.name());
+                            $('#'+control.getLid()).focus();
+                            /*e.preventDefault();
+                            var cm=uccelloClt.getContextCM(), form = cm.getRoot(cm.getRootGuids("res")[0]).obj;
+                            var focusControl = form.currentControl()?form.currentControl():form;
+                            if (e.shiftKey) {
+                                control = focusControl.prev(true);
+                            } else {
+                                control = focusControl.next(true);
+                            }
                             console.log('focus '+control.name());
                             cm.userEventHandler(control, function(){
                                 control.setFocused();
-                            });
+                            });*/
                         } else if (keyCode == 88 && e.altKey) {
                             viewNavigator();
                         }
