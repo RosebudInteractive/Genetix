@@ -31,12 +31,30 @@ define(
 
                 var layoutPane = item.find(".layout");
                 layoutPane.css({width: "100%", "height": "100%"});
-                layoutPane.panel({
-                    border: false
-                });
+
                 $(window).on("genetix:resize", function () {
                     layoutPane.panel('resize');
                     tree.treegrid('resize');
+                });
+
+                webix.ui({
+                    view: "treetable",
+                    container:tree[0],
+                    autowidth:true,
+                    columns: [{id: "text", header: "Name"}],
+                    on: {
+                        onDataRequest: function (id) {
+                            webix.message("Getting children of " + id);
+                            this.parse(
+                                "bebe"
+                                /*webix.ajax().get("data/data_dyn_json.php?parent=" + id).then(function (data) {
+                                    return data = data.json();
+                                })*/
+                            );
+                            // cancelling default behaviour
+                            return false;
+                        }
+                    }
                 });
 
 

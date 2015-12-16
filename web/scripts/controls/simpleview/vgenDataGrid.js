@@ -36,7 +36,7 @@ define(
                 });
                 $(window).on("genetix:resize", function () {
                     layoutPane.panel('resize');
-                    grid.treegrid('resize');
+                    grid.datagrid('resize');
                 });
 
                 var gCols = vDataGrid._getColumns.call(that);
