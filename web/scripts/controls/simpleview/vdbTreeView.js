@@ -63,6 +63,7 @@ define(
                     lines: false,
                     idField: "id",
                     treeField: "text",
+                    fitColumns: true,
                     columns:[[
                         {title:'Name',field:'text',width:180}
                     ]],

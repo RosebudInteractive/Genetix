@@ -15,6 +15,7 @@ var form8Guid = "4112f74d-42cd-4dff-b288-d03f26825715";
 var form9Guid = "95a99d2b-73a6-4091-841f-5115b95fb720";
 var form10Guid = "46e56f92-cfd9-45c0-9b94-9c7258e68839";
 var form11Guid = "cbbf37ac-2b69-4952-984f-5199ebe939b9";
+var form12Guid = "5217efe1-4122-462f-98fa-1ee5d9497321";
 
 var uri = window.location.href;
 if (uri.charAt(uri.length - 1) == "/")
@@ -239,7 +240,7 @@ $(document).ready( function() {
                             // подпишемся на клики
                             var toolPos = { my: 'center top', at: 'center bottom', collision: 'none' };
                             $("#documents-menu-item").click(function() {
-                                window.createContext([form6Guid])
+                                window.createContext([form12Guid])
                             }).tooltip().tooltip('option', 'position', toolPos).
                                tooltip('option', 'tooltipClass', 'bottom');
                             $("#crm-menu-item").click(function() {

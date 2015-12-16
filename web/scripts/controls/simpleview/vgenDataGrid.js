@@ -15,7 +15,6 @@ define(
         vDataGrid.render = function(options) {
             var that = this;
             var grid = $('#' + this.getLid());
-            var dataset = null;
 
             var hasStroll = true;
             if (this.scroll() !== undefined)
@@ -24,59 +23,42 @@ define(
             // если не создан грид
             if (grid.length == 0) {
                 var pItem = $(vDataGrid._templates['grid']).attr('id', "mid_" + this.getLid());
-                grid = pItem.children(".grid-b").attr('id', this.getLid());
+                var layoutPane = pItem.find(".layout");
+                grid = layoutPane.children(".grid-b").attr('id', this.getLid());
 
                 var parent = (this.getParent()? '#ch_' + this.getLid(): options.rootContainer);
                 $(parent).append(pItem);
-                if (!this.scroll())
-                    grid.css("position", "initial");
 
-                var opt = {
-                    height: $(parent).height(),
-                    width: "100%",
-                    columns: [],
-                    source: this.source,
-                    scroll: hasStroll,
-                    selectrow: function (event, row, obj) {
-                        if (row && 'Id' in row) {
-                            event.stopPropagation();
-                            that.getControlMgr().userEventHandler(that, function(){
-                                var ds = that.dataset();
-                                if (ds.cursor() != row.Id) ds.cursor(row.Id);
-                                that.setFocused();
-                            });
 
-                            //setTimeout(function () {
-                            //    if (that._iscroll && obj) {
-                            //        that._iscroll.scrollToElementVisible(obj.get(0), 0);
-                            //    }
-                            //}, 0);
-
-                        }
-                    },
-                    sizechanged: function() {
-                        if (that._grid)
-                            vDataGrid._refreshScroll(that);
-                    },
-                    updateScroll: function(event, data) {
-                        if (that._iscroll) {
-                            that._iscroll.scrollTo(0, data);
-                            if (that._grid)
-                                that._grid.grid("updatePosition", data);
-                        }
-                        //vDataGrid._refreshScroll(that, data);
-                    }
-                };
-
-                this._grid = grid.grid(opt);
-                this._iscroll = null;
-
-                grid.on("click", function() {
-                    console.log("Data grid click!!!");
-                    that.getControlMgr().userEventHandler(that, function(){
-                        that.setFocused();
-                    });
+                layoutPane.css({width: "100%", "height": "100%"});
+                layoutPane.panel({
+                    border: false
                 });
+                $(window).on("genetix:resize", function () {
+                    layoutPane.panel('resize');
+                    grid.treegrid('resize');
+                });
+
+                var gCols = vDataGrid._getColumns.call(that);
+                this._grid = grid.datagrid({
+                    columns:[gCols],
+                    idField: "Id",
+                    fit: true,
+                    singleSelect: true,
+                    loader: function(param, success, error) {
+                        vDataGrid._getData.call(that, param, success, error);
+                    },
+                    onSelect: function (index,row) {
+                        if (that.dataset() && that.dataset().cursor() != row.Id) {
+                            that.getControlMgr().userEventHandler(that, function(){
+                                that.dataset().cursor(row.id);
+                            });
+                        }
+                    }
+                });
+
+                this._grid.datagrid("load");
+
                 grid.focus(function() {
                     if (that.getRoot().currentControl() != that) {
                         that.getControlMgr().userEventHandler(that, function () {
@@ -138,19 +120,11 @@ define(
             var cssPos = (hasStroll ? "absolute" : "relative");
             grid.children().css({"position": cssPos});
 
-            // отобразим данные
-            //if (!this._isInitialized) {
-            //set
-            //setTimeout(function() {
-            vDataGrid._reloading(that);
-            //},0);
-            //}
-
             // выставляем фокус
-            if ($(':focus').attr('id') != this.getLid() && this.getRoot().isFldModified("CurrentControl") && this.getRoot().currentControl() == this)
-                pItem.find("tr[tabIndex=1]").focus();
-            else
-                pItem.find("tr[tabIndex=1]").blur();
+            //if ($(':focus').attr('id') != this.getLid() && this.getRoot().isFldModified("CurrentControl") && this.getRoot().currentControl() == this)
+            //    pItem.find("tr[tabIndex=1]").focus();
+            //else
+            //    pItem.find("tr[tabIndex=1]").blur();
 
             vDataGrid._setVisible.call(this);
             vDataGrid._genEventsForParent.call(this);
@@ -191,148 +165,85 @@ define(
             }
         }
 
-        /**
-         * Рендер данных
-         * @param cm
-         */
-        vDataGrid._reloading = function(o) {
-            var gridColumns = [];
+        vDataGrid._getData = function(param, success, error) {
+            var dataset = null;
+            var rootElem = null;
             var datafields = [];
             var data = [];
 
-            if (o) {
-                o._reloaded = true;
-                var cm = o.getControlMgr();
-
-                var rootElem = null;
-                var dataset = null;
-
-                var columnsArr = [];
-
-                if (o.dataset()) {
-                    //dataset = cm.get(o.dataset());
-                    dataset = o.dataset();
-                    if (dataset) {
-                        rootElem = dataset.root();
-                        //rootElem = rootElem? cm.getObj(rootElem): null;
-                    }
+            if (this.dataset()) {
+                //dataset = cm.get(o.dataset());
+                dataset = this.dataset();
+                if (dataset) {
+                    rootElem = dataset.root();
+                }
+            }
+            if (rootElem) {
+                var idIndex = null;
+                var fieldsArr = {};
+                var fields = dataset.getCol('Fields');
+                for (var i = 0, len = fields.count(); i < len; i++) {
+                    var field = fields.get(i);
+                    fieldsArr[field.getGuid()] = field.get('Name');
+                    if (field.get('Name') == 'Id')
+                        idIndex = field.getGuid();
+                    datafields.push({name: field.get('Name')});
                 }
 
-                if (rootElem)
-                {
-                    // данные
-                    var col = rootElem.getCol('DataElements');
-                    // колонки грида
-                    var columns = o.getCol('Columns');
-                    // поля
-                    var fields = dataset.getCol('Fields');
-
-                    var idIndex = null, cursor = dataset.cursor(), rows = '', cursorIndex = -1;
-                    var fieldsArr = {};
-                    for (var i = 0, len = fields.count(); i < len; i++) {
-                        var field = fields.get(i);
-                        fieldsArr[field.getGuid()] = field.get('Name');
-                        if (field.get('Name') == 'Id')
-                            idIndex = field.getGuid();
-                        datafields.push({name: field.get('Name')});
-                        if (columns.count() == 0) {
-                            var column = columns.get(i);
-                            var gridCol = {};
-                            gridCol.datafield = field.get('Name');
-                            gridCol.text = field.get('Name');
-                            gridColumns.push(gridCol);
-                        }
+                var col = rootElem.getCol('DataElements');
+                for (var i = 0, len = col.count(); i < len; i++) {
+                    var obj = col.get(i);
+                    var id = null;
+                    var dataRow = {};
+                    // добавляем ячейка
+                    for (var j in fieldsArr) {
+                        var text = obj.get(fieldsArr[j]);
+                        dataRow[fieldsArr[j]] = text;
+                        if (idIndex == j)
+                            id = text;
                     }
-
-                    if (columns.count() != 0) {
-                        for (var i = 0, len = columns.count(); i < len; i++) {
-                            var column = columns.get(i);
-                            var gridCol = {};
-                            gridCol.datafield = fieldsArr[column.get('Field').getGuid()];
-                            gridCol.text = column.get('Label');
-                            if (column.get('Width'))
-                                gridCol.width = column.get('Width')+'%';
-                            gridColumns.push(gridCol);
-                            columnsArr.push({field:column.get('Field').getGuid(), width:column.get('Width')});
-                        }
-                    }
-
-                    // rows
-                    for (var i = 0, len = col.count(); i < len; i++) {
-                        var obj = col.get(i);
-                        var id = null;
-                        var dataRow = {};
-                        // добавляем ячейка
-                        for (var j in fieldsArr) {
-                            var text = obj.get(fieldsArr[j]);
-                            dataRow[fieldsArr[j]] = text;
-                            if (idIndex == j)
-                                id = text;
-                        }
-                        data.push(dataRow);
-
-                        // запоминаем текущий курсор
-                        if (cursor == id)
-                            cursorIndex = i;
-                    }
-
-
+                    data.push(dataRow);
                 }
 
             }
-
-
-            o._source.datafields = datafields;
-            o._source.localdata = data;
-
-            if (o._grid) {
-                o._grid.grid("reloading", gridColumns, o._source);
-                if (cursor) o._grid.grid("selectrow", cursor);
-                vDataGrid._refreshScroll(o);
-            }
-
-
+            success(data);
         }
 
-        vDataGrid._refreshScroll = function(o, y) {
-            if (o._iscroll) {
-                //o._iscroll.refresh();
-                o._iscroll.destroy();
+        vDataGrid._getColumns = function() {
+            var gridColumns = [];
+            var dataset = this.dataset();
+            var columns = this.getCol('Columns');
+            var fieldsArr = {};
+
+            if (dataset) {
+                var fields = dataset.getCol('Fields');
+                for (var i = 0, len = fields.count(); i < len; i++) {
+                    var field = fields.get(i);
+                    fieldsArr[field.getGuid()] = field.get('Name');
+                    if (columns.count() == 0) {
+                        var gridCol = {};
+                        gridCol.field = field.get('Name');
+                        gridCol.title = field.get('Name');
+                        gridColumns.push(gridCol);
+                    }
+                }
             }
 
-            {
-
-                var _iscroll = new IScroll(o._grid.find('.scrollable-bll').get(0), {
-                    snapStepY: 23,
-                    scrollX: true,
-                    bottomPadding: o.hasFooter() ? 28 : 0,
-                    topPadding: o.bigSize() ? 38 : 28,
-                    resize: true,
-                    scrollbars: true,
-                    mouseWheel: true,
-                    disableMouse: true,
-                    interactiveScrollbars: true,
-                    keyBindings: false,
-                    click: true,
-                    probeType: 3,
-                    rightPadding: 0,
-                    startY: (y ? y : 0)
-                });
-                _iscroll.on('scroll', function () {
-                    //gr.data("grid").updatePosition(this.y);
-                    if (o._grid)
-                        o._grid.grid("updatePosition", this.y);
-                });
-                _iscroll.on('scrollStart', function() {
-                    $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: 1});
-                });
-                _iscroll.on('scrollEnd', function() {
-                    $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: ""});
-                });
-                o._iscroll = _iscroll;
+            if (columns.count() > 0) {
+                for (var i = 0, len = columns.count(); i < len; i++) {
+                    var column = columns.get(i);
+                    var gridCol = {};
+                    gridCol.field = fieldsArr[column.get('Field').getGuid()];
+                    gridCol.title = column.get('Label');
+                    if (column.get('Width'))
+                        gridCol.width = column.get('Width')+'%';
+                    gridColumns.push(gridCol);
+                }
             }
 
-        }
+            return gridColumns;
+        },
+
 
         /**
          * Рендер курсора
@@ -341,19 +252,9 @@ define(
         vDataGrid.renderCursor = function(id) {
             if (!id || !(this._grid)) return false;
 
-            this._grid.grid('selectrow', id, true);
-            //vDataGrid.setFocus.call(this);
+            this._grid.datagrid('selectRecord', id);
         }
 
-        /**
-         * Рендер ячейки грида
-         * @param id
-         * @param index
-         * @param value
-         */
-        vDataGrid.renderCell = function(id, datafield, value) {
-            vDataGrid._reloading(this);
-        }
         return vDataGrid;
     }
 );
