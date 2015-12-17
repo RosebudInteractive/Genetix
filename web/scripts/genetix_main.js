@@ -106,7 +106,7 @@ $(document).ready( function() {
                             that.setContextUrl(params.vc, result);
                             that.setAutoSendDeltas(true);
                             that.getContexts();
-                            if (cb) cb(result);
+                            if (cb) cb(result && result.guids ? result.guids : null);
                         }, function(rootGuid) { return that.renderRoot(rootGuid) });
 
                     }
@@ -514,10 +514,19 @@ $(document).ready( function() {
                         }
                     }
 
-                    this.setContextUrl = function(context, formGuids) {
-                        window.isHashchange = false;
-                        document.location = that.getContextUrl(context, formGuids);
+                    this.setContextUrl = function(context, result, change) {
+                        if (!change)
+                            window.isHashchange = false;
+                        var formGuids = [];
+                        if (result.guids) {
+                            for (var i = 0; i < result.guids.length; i++)
+                                //if (result.types[i] === UCCELLO_CONFIG.classGuids.Form)
+                                    formGuids.push(result.guids[i]);
+                        }
+                        else
+                            formGuids = result;
 
+                        document.location = that.getContextUrl(context, formGuids);
                     }
 
 
