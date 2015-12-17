@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="" />
+    <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/webix/fonts/PTS-bold.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/webix/fonts/PTS-bold.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/webix/fonts/PTS-bold.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/webix/fonts/PTS-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/webix/fonts/PTS-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/webix/fonts/PTS-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/webix/fonts/fontawesome-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/webix/fonts/fontawesome-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/webix/fonts/fontawesome-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/DataAddress.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/DataCompany.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/DataContact.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/DataContract.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/DataIncomeplan.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/DataLead.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/DataLeadLog.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/DataOpportunity.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/DataTstCompany.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/DataTstContact.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/SysBuild.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/SysBuildRes.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/SysProduct.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/SysResType.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/SysResVer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/SysResource.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/SysVersion.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/SysVersionDep.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/webix/fonts/font-license.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/lib/webix/fonts/fontawesome-webfont.svg" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/meta/metaTables.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/templates/dbTreeView.html" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/templates/dbTreeView.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vdbTreeView.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vdbTreeView.js" />
+    </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/" />
@@ -35,29 +69,17 @@
       <file leaf-file-name="genetix.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/genetix.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+            <state vertical-scroll-proportion="-9.653846">
+              <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vdbTreeView.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vdbTreeView.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-              <folding>
-                <element signature="e#790#1303#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="memProtoObj.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="memProtoObj.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../Uccello/memDB/memProtoObj.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33665338">
+            <state vertical-scroll-proportion="0.0">
               <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
               <folding />
             </state>
@@ -79,8 +101,28 @@
       <file leaf-file-name="dbTreeView.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/dbTreeView.html">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.9615384">
+              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vdbTreeView.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vdbTreeView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.10159363">
+              <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vcContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vcContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="24" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="24" />
+              <caret line="1" column="32" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -95,6 +137,16 @@
                 <element signature="e#1034#13458#0" expanded="false" />
                 <element signature="e#14387#16728#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="genetixSrv.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/genetixSrv.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,16 +173,6 @@
                 <element signature="e#7996#13595#0" expanded="false" />
                 <element signature="e#13627#13730#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controls.styl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/controls.styl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="16" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -205,13 +247,13 @@
         <option value="$PROJECT_DIR$/scripts/widgets/wGrid.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/treeView.html" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vtreeView.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/dbTreeView.html" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/dataGrid.html" />
         <option value="$PROJECT_DIR$/data/forms/cbbf37ac-2b69-4952-984f-5199ebe939b9.json" />
         <option value="$PROJECT_DIR$/data/forms/5217efe1-4122-462f-98fa-1ee5d9497321.json" />
         <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
         <option value="$PROJECT_DIR$/views/genetix.html" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/dbTreeView.html" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vdbTreeView.js" />
       </list>
     </option>
@@ -288,8 +330,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -328,7 +368,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controls" />
+              <option name="myItemId" value="uses" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -339,20 +379,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -367,46 +393,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webix" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -447,37 +433,13 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="simpleview" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="simpleview" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -490,7 +452,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="restartRequiresConfirmation" value="true" />
     <property name="options.lastSelected" value="watcher.settings" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -508,19 +469,19 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\data" />
+      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview" />
+      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\lib\webix" />
+      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\data\forms" />
+      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\lib\webix" />
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\images" />
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\lib" />
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts" />
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\widjets" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\data\forms" />
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview\templates" />
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview" />
-      <recent name="C:\Projects\PMT\genetix\Sources\Uccello\controls" />
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\lib" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.Genetix NodeJS">
@@ -1212,6 +1173,7 @@
       <workItem from="1449147651539" duration="27000" />
       <workItem from="1450252140319" duration="4738000" />
       <workItem from="1450258462197" duration="211000" />
+      <workItem from="1450353920141" duration="936000" />
     </task>
     <task id="LOCAL-00021" summary="рефактор девайсов и сессии и верстка попапов">
       <created>1425332346890</created>
@@ -1511,7 +1473,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="573163000" />
+    <option name="totallyTimeSpent" value="574099000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1288" y="-132" width="1296" height="1040" extended-state="6" />
@@ -1602,7 +1564,7 @@
           <option name="timeStamp" value="72" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="83" />
+      <option name="time" value="85" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="NodeJSConfigurationType">
@@ -1616,20 +1578,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/dataEdit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/label.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1735,13 +1683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/genetixSrv.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12345679">
-          <caret line="96" column="98" selection-start-line="96" selection-start-column="7" selection-end-line="96" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controls/genButton.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4617284">
@@ -1774,7 +1715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1945,22 +1885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/genetix.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/dbTreeView.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/lib/webix/webix.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3327674">
@@ -1978,20 +1902,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vdbTreeView.js">
+    <entry file="file://$PROJECT_DIR$/../../Uccello/memDB/memProtoObj.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-          <folding>
-            <element signature="e#790#1303#0" expanded="false" />
-          </folding>
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/memDB/memProtoObj.js">
+    <entry file="file://$PROJECT_DIR$/views/genetix.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33665338">
-          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+        <state vertical-scroll-proportion="-9.653846">
+          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/uses/template.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/dbTreeView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genetixSrv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vcContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="32" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vdbTreeView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10159363">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
           <folding />
         </state>
       </provider>
