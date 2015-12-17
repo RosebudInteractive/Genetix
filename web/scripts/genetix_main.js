@@ -106,7 +106,7 @@ $(document).ready( function() {
                             that.setContextUrl(params.vc, result);
                             that.setAutoSendDeltas(true);
                             that.getContexts();
-                            if (cb) cb(result);
+                            if (cb) cb(result && result.guids ? result.guids : null);
                         }, function(rootGuid) { return that.renderRoot(rootGuid) });
 
                     }
@@ -242,7 +242,7 @@ $(document).ready( function() {
                             $("#documents-menu-item").click(function() {
                                 window.createContext([form12Guid])
                             }).tooltip().tooltip('option', 'position', toolPos).
-                               tooltip('option', 'tooltipClass', 'bottom');
+                            tooltip('option', 'tooltipClass', 'bottom');
                             $("#crm-menu-item").click(function() {
                                 window.createContext([form2Guid])
                             });
@@ -268,7 +268,7 @@ $(document).ready( function() {
                                 window.createContext([form9Guid])
                             });
                             $("#menu-navigator").click(function() {
-                               window.viewNavigator();
+                                window.viewNavigator();
                             });
 
 
@@ -389,13 +389,13 @@ $(document).ready( function() {
                      * Создать серверный контекст
                      * @param formGuids массив гуидов ресурсов, который загружается в контекст
                      */
-                   /* window.createContext = function(formGuids) {
-                        $("#root-form-container").empty();
+                    /* window.createContext = function(formGuids) {
+                     $("#root-form-container").empty();
 
-                        uccelloClt.createContext('server', formGuids, function(result){
-                            that.selectContext({vc:result.vc, side:result.side, formGuids:result.roots, urlFormGuids:result.roots[0]});
-                        });
-                    }*/
+                     uccelloClt.createContext('server', formGuids, function(result){
+                     that.selectContext({vc:result.vc, side:result.side, formGuids:result.roots, urlFormGuids:result.roots[0]});
+                     });
+                     }*/
 
                     /**
                      * Создать серверный контекст
@@ -514,10 +514,19 @@ $(document).ready( function() {
                         }
                     }
 
-                    this.setContextUrl = function(context, formGuids) {
-                        window.isHashchange = false;
-                        document.location = that.getContextUrl(context, formGuids);
+                    this.setContextUrl = function(context, result, change) {
+                        if (!change)
+                            window.isHashchange = false;
+                        var formGuids = [];
+                        if (result.guids) {
+                            for (var i = 0; i < result.guids.length; i++)
+                                //if (result.types[i] === UCCELLO_CONFIG.classGuids.Form)
+                                formGuids.push(result.guids[i]);
+                        }
+                        else
+                            formGuids = result;
 
+                        document.location = that.getContextUrl(context, formGuids);
                     }
 
 
@@ -569,17 +578,17 @@ $(document).ready( function() {
                             console.log('focus '+control.name() + "(lid=" + control.getLid() + ")", 'currentControl '+focusControl.name());
                             $('#'+control.getLid()).focus();
                             /*e.preventDefault();
-                            var cm=uccelloClt.getContextCM(), form = cm.getRoot(cm.getRootGuids("res")[0]).obj;
-                            var focusControl = form.currentControl()?form.currentControl():form;
-                            if (e.shiftKey) {
-                                control = focusControl.prev(true);
-                            } else {
-                                control = focusControl.next(true);
-                            }
-                            console.log('focus '+control.name());
-                            cm.userEventHandler(control, function(){
-                                control.setFocused();
-                            });*/
+                             var cm=uccelloClt.getContextCM(), form = cm.getRoot(cm.getRootGuids("res")[0]).obj;
+                             var focusControl = form.currentControl()?form.currentControl():form;
+                             if (e.shiftKey) {
+                             control = focusControl.prev(true);
+                             } else {
+                             control = focusControl.next(true);
+                             }
+                             console.log('focus '+control.name());
+                             cm.userEventHandler(control, function(){
+                             control.setFocused();
+                             });*/
                         } else if (keyCode == 88 && e.altKey) {
                             viewNavigator();
                         }
