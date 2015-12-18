@@ -24,7 +24,7 @@ define(
             if (grid.length == 0) {
                 var pItem = $(vDataGrid._templates['grid']).attr('id', "mid_" + this.getLid());
                 grid = pItem.children(".grid-b").attr('id', this.getLid());
-                grid.css({width: "100%", height: (!this.height() && this.height() == "auto" ? "auto" : "100%")});
+                grid.css({width: "100%", height: ((this.height() && this.height()) == "auto" ? "auto" : "100%")});
 
                 var parent = (this.getParent()? '#ch_' + this.getLid(): options.rootContainer);
                 $(parent).append(pItem);
@@ -32,7 +32,7 @@ define(
                 var gCols = vDataGrid._getColumns.call(that);
 
                 this._grid = webix.ui({
-                    container: grid[0],
+                        container: grid[0],
                     view: "datatable",
                     columns: gCols,
                     select: "row",
@@ -171,6 +171,7 @@ define(
                     var grdHeight = $("#" + that.getLid()).find(".webix_view.webix_dtable").css("height");
                     extCont.css("height", grdHeight);
                     that._grid.resize();
+                    $(window).trigger("genetix:resize");
                 }
             });
         }
