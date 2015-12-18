@@ -11,6 +11,7 @@ var uccelloPortWeb = process.argv[3]&&process.argv[3]!='-'?process.argv[3]:1326;
 // порт websocket
 var uccelloPortWsf = process.argv[4]&&process.argv[4]!='-'?process.argv[4]:8082;
 
+DEBUG = true;
 
 // Модули nodejs
 var http = require('http');
@@ -135,7 +136,7 @@ var config = {
                 min: 0,
                 idle: 10000
             },
-        },
+        },*/
         importData: {
             autoimport: false,
             dir: "../web/data/tables"
@@ -143,7 +144,7 @@ var config = {
         trace: {
             sqlCommands: true,
             importDir: true
-        }*/
+        }
     }
 };
 
@@ -152,7 +153,6 @@ var UccelloConfig = require('../../'+uccelloDir+'/config/config');
 UCCELLO_CONFIG = new UccelloConfig(config);
 if (uccelloPortWeb) UCCELLO_CONFIG.webServer.port = uccelloPortWeb;
 if (uccelloPortWsf) UCCELLO_CONFIG.webSocketServer.port = uccelloPortWsf;
-DEBUG = true;
 
 
 // логирование
