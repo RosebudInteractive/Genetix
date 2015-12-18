@@ -250,7 +250,7 @@ $(document).ready( function() {
                                 window.createContext([form11Guid])
                             });
                             $("#edit-menu-item").click(function() {
-                                window.createContext([form10Guid])
+                                window.createContext([form6Guid])
                             });
                             $("#more-menu-item").click(function() {
                                 window.createContext([form5Guid])

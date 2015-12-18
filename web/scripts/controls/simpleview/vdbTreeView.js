@@ -53,7 +53,6 @@ define(
                                 data: treeData,
                                 on: {
                                     onDataRequest: function (id) {
-                                        webix.message("Getting children of " + id);
                                         var cntx = this;
                                         that.getControlMgr().userEventHandler(that, function(){
                                             var col = that.getCol("Items");
@@ -110,6 +109,11 @@ define(
 
                     vDbTreeView._restoreNodeStates.call(that);
                     vDbTreeView._restoreCursor.call(that);
+
+                    $(window).on("genetix:resize", function () {
+                        that._treeTable.resize()
+                    });
+
                 }, 0);
 /*
                 tree = item.find('.tree').jstree({

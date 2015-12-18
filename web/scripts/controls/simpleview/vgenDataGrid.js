@@ -23,23 +23,41 @@ define(
             // если не создан грид
             if (grid.length == 0) {
                 var pItem = $(vDataGrid._templates['grid']).attr('id', "mid_" + this.getLid());
-                var layoutPane = pItem.find(".layout");
-                grid = layoutPane.children(".grid-b").attr('id', this.getLid());
+                grid = pItem.children(".grid-b").attr('id', this.getLid());
+                grid.css({width: "100%", height: (!this.height() && this.height() == "auto" ? "auto" : "100%")});
 
                 var parent = (this.getParent()? '#ch_' + this.getLid(): options.rootContainer);
                 $(parent).append(pItem);
 
-
-                layoutPane.css({width: "100%", "height": "100%"});
-                layoutPane.panel({
-                    border: false
-                });
-                $(window).on("genetix:resize", function () {
-                    layoutPane.panel('resize');
-                    grid.datagrid('resize');
-                });
-
                 var gCols = vDataGrid._getColumns.call(that);
+
+                this._grid = webix.ui({
+                    container: grid[0],
+                    view: "datatable",
+                    columns: gCols,
+                    select: "row",
+                    navigation: true,
+                    autoheight: (this.height() && this.height() == "auto"),
+                    on: {
+                        onDataRequest: function (start, count, callback) {
+                            var data = vDataGrid._getData.call(that, start, count);
+                            that._grid.clearAll();
+                            that._grid.parse(data, "json");
+                            if (callback) callback();
+                            return false;
+                        },
+                        onBeforeSelect: function(data) {
+                            if (that.dataset() && that.dataset().cursor() != data.id) {
+                                that.getControlMgr().userEventHandler(that, function () {
+                                    that.dataset().cursor(data.id);
+                                });
+                            }
+                            return true;
+                        }
+                    }
+                });
+
+/*
                 this._grid = grid.datagrid({
                     columns:[gCols],
                     idField: "Id",
@@ -57,7 +75,11 @@ define(
                     }
                 });
 
-                this._grid.datagrid("load");
+*/
+                $(window).on("genetix:resize", function () {
+                    that._grid.resize();
+                });
+
 
                 grid.focus(function() {
                     if (that.getRoot().currentControl() != that) {
@@ -70,6 +92,7 @@ define(
             } else {
                 pItem = $("#mid_" + this.getLid());
             }
+            vDataGrid._forceLoad.call(that);
 
             if (this.verticalAlign()) {
                 pItem.css("display", "table-cell");
@@ -126,8 +149,30 @@ define(
             //else
             //    pItem.find("tr[tabIndex=1]").blur();
 
-            vDataGrid._setVisible.call(this);
+            //vDataGrid._setVisible.call(this);
             vDataGrid._genEventsForParent.call(this);
+        }
+
+        vDataGrid._forceLoad = function() {
+            var that = this;
+            var dataset = this.dataset();
+            if (!dataset) return;
+            var rootElem = dataset.root();
+            var recCount = 1;
+            if (rootElem) {
+                var col = rootElem.getCol('DataElements');
+                recCount = col.count();
+            }
+            this._grid.loadNext(recCount, 0, function () {
+                if (dataset && dataset.cursor())
+                    vDataGrid.renderCursor.call(that, dataset.cursor());
+                if (that.height() && that.height() == "auto") {
+                    var extCont = $("#ext_" + that.getLid());
+                    var grdHeight = $("#" + that.getLid()).find(".webix_view.webix_dtable").css("height");
+                    extCont.css("height", grdHeight);
+                    that._grid.resize();
+                }
+            });
         }
 
         vDataGrid.setFocus = function() {
@@ -165,19 +210,18 @@ define(
             }
         }
 
-        vDataGrid._getData = function(param, success, error) {
+        vDataGrid._getData = function(start, count) {
             var dataset = null;
             var rootElem = null;
             var datafields = [];
             var data = [];
 
             if (this.dataset()) {
-                //dataset = cm.get(o.dataset());
                 dataset = this.dataset();
-                if (dataset) {
+                if (dataset)
                     rootElem = dataset.root();
-                }
             }
+
             if (rootElem) {
                 var idIndex = null;
                 var fieldsArr = {};
@@ -191,22 +235,25 @@ define(
                 }
 
                 var col = rootElem.getCol('DataElements');
-                for (var i = 0, len = col.count(); i < len; i++) {
+                var recCount = col.count();
+                if (start < 0) start = 0;
+                for (var i = start; i < recCount && i < start + count; i++) {
                     var obj = col.get(i);
                     var id = null;
                     var dataRow = {};
                     // добавляем ячейка
                     for (var j in fieldsArr) {
                         var text = obj.get(fieldsArr[j]);
-                        dataRow[fieldsArr[j]] = text;
-                        if (idIndex == j)
+                        if (idIndex == j) {
+                            dataRow["id"] = text;
                             id = text;
+                        } else
+                            dataRow[fieldsArr[j]] = text;
                     }
                     data.push(dataRow);
                 }
-
             }
-            success(data);
+            return data;
         }
 
         vDataGrid._getColumns = function() {
@@ -219,11 +266,11 @@ define(
                 var fields = dataset.getCol('Fields');
                 for (var i = 0, len = fields.count(); i < len; i++) {
                     var field = fields.get(i);
-                    fieldsArr[field.getGuid()] = field.get('Name');
+                    fieldsArr[field.getGuid()] = (field.get('Name') == "Id" ? "id" : field.get('Name'));
                     if (columns.count() == 0) {
                         var gridCol = {};
-                        gridCol.field = field.get('Name');
-                        gridCol.title = field.get('Name');
+                        gridCol.id = (field.get('Name') == "Id" ? "id" : field.get('Name'));
+                        gridCol.header = field.get('Name');
                         gridColumns.push(gridCol);
                     }
                 }
@@ -233,10 +280,10 @@ define(
                 for (var i = 0, len = columns.count(); i < len; i++) {
                     var column = columns.get(i);
                     var gridCol = {};
-                    gridCol.field = fieldsArr[column.get('Field').getGuid()];
-                    gridCol.title = column.get('Label');
+                    gridCol.id = fieldsArr[column.get('Field').getGuid()];
+                    gridCol.header = column.get('Label');
                     if (column.get('Width'))
-                        gridCol.width = column.get('Width')+'%';
+                        gridCol.fillspace = column.get('Width');
                     gridColumns.push(gridCol);
                 }
             }
@@ -251,8 +298,10 @@ define(
          */
         vDataGrid.renderCursor = function(id) {
             if (!id || !(this._grid)) return false;
-
-            this._grid.datagrid('selectRecord', id);
+            if (this._grid.exists(id)) {
+                this._grid.select(id);
+                this._grid.showItem(id);
+            }
         }
 
         return vDataGrid;
