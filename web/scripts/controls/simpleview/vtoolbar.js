@@ -234,7 +234,7 @@ define(
             var dots = cont.children(".c-toolbar-dots");
             var pos = dots.position();
             // Если не поместилось троеточие, скроем еще одну кнопку
-            if (height <= pos.top) {
+            if (pos && height <= pos.top) {
                 for (var i = children.count() - 1; i >= 0 ; i--) {
                     var child = this.getControlMgr().get(children.get(i).getGuid());
                     var chDiv = $('#ext_' + child.getLid());
@@ -261,7 +261,7 @@ define(
                 var child = this.getControlMgr().get(children.get(i).getGuid());
                 var chDiv = $('#ext_'+child.getLid());
                 var pos = chDiv.position();
-                if (height <= pos.top || chDiv.css("display") == "none")
+                if (!pos || height <= pos.top || chDiv.css("display") == "none")
                     hiddenChildren.push(child);
             }
 
