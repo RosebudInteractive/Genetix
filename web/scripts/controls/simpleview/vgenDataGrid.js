@@ -31,12 +31,20 @@ define(
 
                 var gCols = vDataGrid._getColumns.call(that);
 
+                var rowHeight = 24;
+                if (!that.bigSize())
+                    rowHeight = 30;
+
                 this._grid = webix.ui({
                         container: grid[0],
                     view: "datatable",
                     columns: gCols,
+                    fixedRowHeight: true,
+                    headerRowHeight: 24,
+                    rowHeight: rowHeight,
                     select: "row",
                     navigation: true,
+                    hover: "row-hover",
                     autoheight: (this.height() && this.height() == "auto"),
                     on: {
                         onDataRequest: function (start, count, callback) {
@@ -57,25 +65,6 @@ define(
                     }
                 });
 
-/*
-                this._grid = grid.datagrid({
-                    columns:[gCols],
-                    idField: "Id",
-                    fit: true,
-                    singleSelect: true,
-                    loader: function(param, success, error) {
-                        vDataGrid._getData.call(that, param, success, error);
-                    },
-                    onSelect: function (index,row) {
-                        if (that.dataset() && that.dataset().cursor() != row.Id) {
-                            that.getControlMgr().userEventHandler(that, function(){
-                                that.dataset().cursor(row.id);
-                            });
-                        }
-                    }
-                });
-
-*/
                 $(window).on("genetix:resize", function () {
                     that._grid.resize();
                 });
@@ -93,6 +82,13 @@ define(
                 pItem = $("#mid_" + this.getLid());
             }
             vDataGrid._forceLoad.call(that);
+
+            if (this.bigSize())
+                grid.removeClass("small-size standard-size").addClass("large-size");
+            else
+                grid.removeClass("large-size standard-size").addClass("small-size");
+
+
 
             if (this.verticalAlign()) {
                 pItem.css("display", "table-cell");
@@ -115,30 +111,13 @@ define(
             else
                 grid.removeClass("white-header");
 
-            if (this.horizontalLines())
-                grid.addClass("has-horizontal-lines");
-            else
-                grid.removeClass("has-horizontal-lines");
+            if (this.verticalLines()) grid.addClass("vertical-lines");
+            else grid.removeClass("vertical-lines");
+            if (this.horizontalLines()) grid.addClass("horizontal-lines");
+            else grid.removeClass("horizontal-lines");
+            if (this.alternate()) grid.addClass("alternate-lines");
+            else grid.removeClass("alternate-lines");
 
-            if (this.verticalLines())
-                grid.addClass("has-vertical-lines");
-            else
-                grid.removeClass("has-vertical-lines");
-
-            if (this.bigSize())
-                grid.addClass("is-big");
-            else
-                grid.removeClass("is-big");
-
-            if (!(this.alternate()))
-                grid.addClass("no-alter-rows");
-            else
-                grid.removeClass("no-alter-rows");
-
-            if (!(this.hasFooter()))
-                grid.addClass("has-no-paginator");
-            else
-                grid.removeClass("has-no-paginator");
 
             var cssPos = (hasStroll ? "absolute" : "relative");
             grid.children().css({"position": cssPos});

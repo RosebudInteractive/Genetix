@@ -34,6 +34,7 @@ define(
 
                 tree = item.find('.tree');
                 tree.css({width: "100%", height: "100%"});
+
                 setTimeout(function() {
                     that.getControlMgr().userEventHandler(that, function(){
                         that.getData(null, function(data) {
@@ -43,10 +44,23 @@ define(
 
                             //treeTable.define("width", 600);
                             //grid.resize();
+                            var rowHeight = 30;
+                            if (!that.size() || this.size().toLowerCase() == "standart") {
+                                rowHeight = 30;
+                            } else if ( this.size().toLowerCase() == "large") {
+                                rowHeight = 36;
+                            } else {
+                                rowHeight = 24;
+                            }
+
                             that._treeTable = webix.ui ({
                                 container:tree[0],
                                 view:"treetable",
+                                fixedRowHeight: true,
+                                headerRowHeight: 24,
+                                rowHeight: rowHeight,
                                 select: "row",
+                                animate:{type:"flip", subtype:"vertical"},
                                 columns:[
                                     { id:"text", header:"Name", template:"{common.treetable()} #text#", fillspace:true}
                                 ],
@@ -115,6 +129,7 @@ define(
                     });
 
                 }, 0);
+
 /*
                 tree = item.find('.tree').jstree({
                     'core' : {
@@ -194,6 +209,20 @@ define(
                 //if (this.isFldModified("CursorSyncMode"))
                 //    vDbTreeView._subscribeOnDatasets.call(this, curMode == "TWOWAYS");
             }
+
+            if (!this.size() || this.size().toLowerCase() == "standart")
+                tree.removeClass("small-size large-size").addClass("standard-size");
+            else if ( this.size().toLowerCase() == "large")
+                tree.removeClass("small-size standard-size").addClass("large-size");
+            else
+                tree.removeClass("large-size standard-size").addClass("small-size");
+
+            if (this.verticalLines()) tree.addClass("vertical-lines");
+            else tree.removeClass("vertical-lines");
+            if (this.horizontalLines()) tree.addClass("horizontal-lines");
+            else tree.removeClass("horizontal-lines");
+            if (this.alternateLines()) tree.addClass("alternate-lines");
+            else tree.removeClass("alternate-lines");
 /*
             var itemsCol = this.getCol("Items");
             for (var i = 0, len = itemsCol.count(); i < len; i++) {
@@ -230,169 +259,7 @@ define(
             if ($(':focus').attr('id') != this.getLid() && this.getRoot().isFldModified("CurrentControl") && this.getRoot().currentControl() == this)
                 $('#ch_'+this.getLid()).focus();
         }
-        /*
-        vDbTreeView._setDatasetCursor = function(node, cb) {
-            var item = $('#' + this.getLid()),
-                that=this,
-                tree = item.find('.tree');
-            if (node.data.objId && node.data.objId == node.data.ds.cursor()) {
-                if (cb) cb();
-                return;
-            }
-            var pars = [];
-            if (node.parents.length > 0) {
-                for (var i = node.parents.length - 1; i >= 0; i--) {
-                    var parentNode = tree.jstree("get_node", node.parents[i]);
-                    if (parentNode.data && parentNode.data.type == "item" && parentNode.data.ds.cursor() != parentNode.data.objId) {
-                        pars.push({
-                            ds: parentNode.data.ds,
-                            id: parentNode.data.objId
-                        });
-                    }
-                }
-            }
-            pars.push({
-                ds: node.data.ds,
-                id: node.data.objId ? node.data.objId : null
-            });
 
-            function bind(func, context, data) {
-                return function () {
-                    return func.call(context, data);
-                };
-            }
-
-            if (pars.length > 1) {
-                for (var i = 1; i < pars.length; i++) {
-                    var p = pars[i];
-                    var callback = bind(function(data){
-                        var dt = data;
-                        if (dt.id)
-                            dt.ds.cursor(dt.id);
-                        else
-                            dt.ds.first();
-                        dt.ds.event.off(dt.handler);
-                        if (node.data.ds == dt.ds && cb) cb();
-                    }, this, p);
-
-                    var handler = {
-                        type: 'moveCursor',
-                        subscriber: this,
-                        callback: callback
-                    };
-                    p.handler = handler;
-                    p.ds.event.on(handler);
-                }
-            }
-
-            //node.data.ds.cursor(node.data.obj.id());
-            if (pars[0].id)
-                pars[0].ds.cursor(pars[0].id);
-            else
-                pars[0].ds.first();
-            if (pars[0].ds == node.data.ds && cb) cb();
-        }
-
-
-        vDbTreeView.getDatasets = function(node) {
-            var parent = (!(node.data) ? null : node.data.ds);
-            var parentItem = ((node.data && node.data.treeItem) ? node.data.treeItem : null);
-            var items = this.getCol('Datasets'), childs = [];
-            var itemsCol = this.getCol("Items");
-            for (var i = 0, len = items.count(); i < len; i++){
-                var item = items.get(i), ds = item.dataset();
-                if (parent == item.parent()) {
-                    var idx = undefined;
-                    var newTreeViewItem;
-                    for (var j = 0; j < itemsCol.count(); j++) {
-                        var curItem = itemsCol.get(j);
-                        if (parentItem == curItem.parent() && curItem.dataset() == ds) {
-                            newTreeViewItem = itemsCol.get(j);
-                            idx = itemsCol.indexOf(newTreeViewItem);
-                            break;
-                        }
-                    }
-                    if (idx === undefined) {
-                        newTreeViewItem = vDbTreeView.addItem.call(this, node.id);
-                        newTreeViewItem.name(ds.name());
-                        newTreeViewItem.parent(parentItem);
-                        newTreeViewItem.dataset(ds);
-                    } else
-                        newTreeViewItem = itemsCol.get(idx);
-                    var newNode = {
-                        text: ds.name(),
-                        id: newTreeViewItem.getGuid(),
-                        children: true,
-                        data: {type: 'dataset', ds: ds, treeItem: newTreeViewItem, parentNodeId: node.id}
-                    };
-                    childs.push(newNode);
-                }
-            }
-            return childs;
-        }
-
-        vDbTreeView.getItems = function(node) {
-            var that = this;
-            var dataset = node.data.ds;
-            var parentItem = ((node.data && node.data.treeItem) ? node.data.treeItem : null);
-            var itemsTree=[],
-                names = {'DatasetContact':'firstname',
-                    'DatasetContract':'number',
-                    'DatasetCompany':'name',
-                    'DatasetAddress':'country'};
-            var col = dataset.root().getCol('DataElements'),
-                isChildren = vDbTreeView.isChildren.apply(this, [dataset]);
-            var itemsCol = this.getCol("Items");
-            if (vDbTreeView._isNodeDataLoaded.call(that, node)) {
-                for (var i = 0, len2 = itemsCol.count(); i < len2; i++) {
-                    var newTreeViewItem = itemsCol.get(i);
-                    if (newTreeViewItem.parent() == parentItem) {
-                        var newNode = {
-                            text : newTreeViewItem.name(),
-                            id : newTreeViewItem.getGuid(),
-                            children : isChildren,
-                            data:{type: 'item', ds:dataset, objId: newTreeViewItem.objectId(), treeItem: newTreeViewItem, parentNodeId: node.id},
-                            guid: newTreeViewItem.objectGuid()
-                        };
-                        itemsTree.push(newNode);
-                    }
-                }
-            } else {
-                for (var i = 0, len2 = col.count(); i < len2; i++) {
-                    var obj = col.get(i);
-                    var idx = itemsCol.indexOfGuid(obj.getGuid());
-                    var newTreeViewItem;
-                    if (idx === undefined) {
-                        newTreeViewItem = vDbTreeView.addItem.call(this, node.id);
-                        newTreeViewItem.name(obj[names[dataset.name()]]());
-                        newTreeViewItem.parent(parentItem);
-                        newTreeViewItem.objectId(obj.id())
-                        newTreeViewItem.objectGuid(obj.getGuid())
-                    } else
-                        newTreeViewItem = itemsCol.get(idx);
-                    var newNode = {
-                        text : obj[names[dataset.name()]](),
-                        id : newTreeViewItem.getGuid(),
-                        children : isChildren,
-                        data:{type: 'item', ds:dataset, objId:obj.id(), treeItem: newTreeViewItem, parentNodeId: node.id},
-                        guid: obj.getGuid()
-                    };
-                    itemsTree.push(newNode);
-                }
-            }
-
-            return itemsTree;
-        }
-        */
-        /*vDbTreeView.getChildren = function(ds) {
-            var items = this.getCol('Datasets'), children = [];
-            for (var i = 0, len = items.count(); i < len; i++){
-                var item = items.get(i);
-                if (ds == item.parent())
-                    children.push(item);
-            }
-            return children;
-        }*/
         vDbTreeView._restoreCursor = function() {
             if (this.cursor()) {
                 this._treeTable.select(this.cursor().getGuid());
