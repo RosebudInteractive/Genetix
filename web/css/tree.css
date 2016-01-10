@@ -23,10 +23,10 @@
 }
 .tree .webix_hcell {
   font-size: 0.75em !important;
-  font-family: OpenSansRegular;
+  font-family: OpenSans;
 }
 .tree .webix_cell {
-  font-family: OpenSansRegular;
+  font-family: OpenSans;
 }
 .tree .webix_first .webix_cell {
   padding-left: 18px;

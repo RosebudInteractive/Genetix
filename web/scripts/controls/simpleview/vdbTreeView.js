@@ -72,8 +72,10 @@ define(
                                             var col = that.getCol("Items");
                                             var idx = col.indexOfGuid(id);
                                             that.getData(col.get(idx), function(data) {
-                                                for (var i = 0; i < data.length; i++)
-                                                    data[i].webix_kids = data[i].children;
+                                                for (var i = 0; i < data.length; i++) {
+                                                    data[i].webix_kids = true;
+                                                    delete data[i].children;
+                                                }
                                                 cntx.parse({
                                                     parent: id,
                                                     data: data

@@ -367,7 +367,8 @@
                       "Id": 200001,
                       "Name": "DbTreeView",
                       "Height": "100%",
-                      "Width": "50%"
+                      "Width": "50%",
+                      "AlternateLines": true
                     },
                     "collections": {
                       "Datasets": [
@@ -474,7 +475,8 @@
                             "Name": "DataGridCompany",
                             "Width": "100%",
                             "Dataset": "061b1347-18a2-a829-fcce-ba59058b4bdf",
-                            "Height": "25%"
+                            "Height": "25%",
+                            "VerticalLines": true
                           },
                           "collections": {
                             "Columns": [
@@ -517,7 +519,8 @@
                             "Name": "DataGridContact",
                             "Width": "100%",
                             "Height": "25%",
-                            "Dataset": "eefbcccf-743a-66a4-c3a2-4751d2a334f5"
+                            "Dataset": "eefbcccf-743a-66a4-c3a2-4751d2a334f5",
+                            "VerticalLines": true
                           },
                           "collections": {
                           }
@@ -532,7 +535,8 @@
                             "Name": "DataGridAddress",
                             "Width": "100%",
                             "Height": "25%",
-                            "Dataset": "92720532-a58f-68bb-6e5a-02b28239e312"
+                            "Dataset": "92720532-a58f-68bb-6e5a-02b28239e312",
+                            "VerticalLines": true
                           },
                           "collections": {
                           }
@@ -547,7 +551,8 @@
                             "Name": "DataGridContract",
                             "Width": "100%",
                             "Height": "25%",
-                            "Dataset": "e559320d-d80d-48f7-ed4e-0ac63587e606"
+                            "Dataset": "e559320d-d80d-48f7-ed4e-0ac63587e606",
+                            "VerticalLines": true
                           },
                           "collections": {
                           }
