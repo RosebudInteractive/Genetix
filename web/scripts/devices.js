@@ -362,12 +362,9 @@ define(
                         if (name == "VisualContext") {
                             for (var k = 0, len3 = col.count(); k < len3; k++) {
                                 var item = col.get(k);
-                                var contGuid = item.get('ContextGuid');
+                                var contGuid = item.contextGuid();
 
                                 var formGuid = null;
-                                //if (contGuid == url("#context"))
-                                //    formGuid = this._CurrentRoot;
-                                //else
                                 if (item.getCol("Resources").count() != 0) {
                                     var resource = item.getCol("Resources").get(0);
                                     formGuid = resource.resGuid();//resource.get("ResGuid");
@@ -422,10 +419,10 @@ define(
                 $("#root-form-container").empty();
                 var that = this;
                 uccelloClt.setContext(params, function(result) {
-                    that._setContextUrl(params.vc, params.urlFormGuids?params.urlFormGuids:result);
+                    that._setContextUrl(params.vc, result);
                     that._setAutoSendDeltas(true);
                     //that.getContexts();
-                    if (cb) cb(result);
+                    if (cb) cb(result && result.guids ? result.guids : null);
                 }, function(rootGuid) { return that._renderRoot(rootGuid) });
             },
             _setAutoSendDeltas: function() {
