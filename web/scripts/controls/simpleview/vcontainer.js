@@ -13,7 +13,7 @@ define(
                 item = pItem.children(".control");
                 item.attr('id', this.getLid());
                 var cont = item.children(".c-content");
-                var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
+                var parent = this.getParentComp()? '#ch_' + this.getLid(): options.rootContainer;
 
                 var childs = this.getCol('Children');
                 for(var i=0; i<childs.count();i++) {

@@ -35,7 +35,7 @@ define(
                 editor.append(props);
                 editor.append(change);
                 editor.append(delbtn);
-                var parent = (this.getParent()? '#' + this.getParent().getLid(): options.rootContainer);
+                var parent = (this.getParentComp()? '#' + this.getParentComp().getLid(): options.rootContainer);
                 $(parent).append(editor);
                 editor.css({top: this.top() + 'px', left: this.left() + 'px'});
             } else {
@@ -103,7 +103,7 @@ define(
                 return;
             }
 
-            parents.find('select').val(comp.getParent()?comp.getParent().getGuid():'');
+            parents.find('select').val(comp.getParentComp()?comp.getParentComp().getGuid():'');
             var countProps = comp.countProps();
             for (var i = 0; i < countProps; i++) {
                 var propName = comp.getPropName(i);

@@ -16,7 +16,7 @@ define(
                 this.itemsIndex = {};
                 item = $(vDbTreeView._templates['dbTreeView']).attr('id', this.getLid());
                 item.focus(function(){
-                    if (that.getRoot().currentControl() != that) {
+                    if (that.getForm().currentControl() != that) {
                         that.getControlMgr().userEventHandler(that, function(){
                             /*var selectedNodes = tree.jstree("get_selected", false);
                             if (selectedNodes.length > 0) {
@@ -29,7 +29,7 @@ define(
                     }
                 });
 
-                var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
+                var parent = this.getParentComp()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(item);
 
                 tree = item.find('.tree');
@@ -124,7 +124,7 @@ define(
                     });
 
                     vDbTreeView._restoreNodeStates.call(that);
-                    vDbTreeView._restoreCursor.call(that);
+                    vDbTreeView._restoreCursor.call(that, true);
 
                     $(window).on("genetix:resize", function () {
                         that._treeTable.resize()
@@ -132,84 +132,9 @@ define(
 
                 }, 0);
 
-/*
-                tree = item.find('.tree').jstree({
-                    'core' : {
-                        'themes' : { 'dots' : false },
-                        'data' : function (node, cb) {
-                            var treeItem = null;
-                            if(node.id != "#")
-                                treeItem = node.data.treeItem;
-                            that.getControlMgr().userEventHandler(that, function(){
-                                that.getData(treeItem, cb);
-                            });
-                            //if(node.id === "#") {
-                            //    that.getControlMgr().userEventHandler(that, function(){
-                            //        cb(that.getDatasets(null));
-                            //    });
-                            //} else {
-                            //    that.getControlMgr().userEventHandler(that, function(){
-                            //        if (node.data.type == 'dataset') {
-                            //            if (vDbTreeView._isNodeDataLoaded.call(that, node))
-                            //                cb(vDbTreeView.getItems.apply(that, [node]));
-                            //            else
-                            //                vDbTreeView._setDatasetCursor.call(that, node, function() {
-                            //                    cb(vDbTreeView.getItems.apply(that, [node]));
-                            //                });
-                            //        } else
-                            //            cb(vDbTreeView.getDatasets.apply(that, [node]));
-                            //    });
-                            //}
-                        },
-                        'animation': 0
-                    }
-                });
-
-                tree.on('changed.jstree', function (e, data) {
-                    var val = data.selected && data.selected.length>0 ? data.selected[0] : null;
-                    var node = val ? data.instance.get_node(val) : null;
-                    if (data.action == 'select_node') {
-                        // если и то и другое не определено
-                        if ((!node || !node.data || !node.data.treeItem) && !that.cursor()) return;
-                        if (node && node.data && that.cursor() != node.data.treeItem)
-                            that.getControlMgr().userEventHandler(that, function(){
-                                if (node.data.type == 'item') {
-                                    that._setDatasetCursor(node.data.treeItem);
-                                }
-                                that.cursor(node ? node.data.treeItem : null);
-                            });
-                    }
-                }).on("before_open.jstree", function(e, data) {
-                    var node = data.node;
-                    if (!(node.data.treeItem.isOpen()))
-                        that.getControlMgr().userEventHandler(that, function(){
-                            node.data.treeItem.isOpen(true);
-                        });
-                }).on("close_node.jstree ", function(e, data) {
-                    var node = data.node;
-                    if (node.data.treeItem.isOpen())
-                        that.getControlMgr().userEventHandler(that, function(){
-                            node.data.treeItem.isOpen(false);
-                        });
-                }).bind("select_node.jstree", function (event, data) {
-                    var el = document.getElementById( data.node.id );
-                    //if (!elementInViewport(el))
-                    if (el) {
-                        var offset = el.offsetTop;
-                        var scrollPos = el.offsetParent.children[0].scrollTop;
-                        var height = el.offsetParent.children[0].offsetHeight;
-                        if (offset < scrollPos && offset > (scrollPos + height - el.offsetHeight))
-                            el.scrollIntoView();
-                    }
-                });
-*/
-                //if (curMode == "TWOWAYS")
-                //    vDbTreeView._subscribeOnDatasets.call(this, true);
             } else {
                 vDbTreeView._restoreNodeStates.call(that);
-                vDbTreeView._restoreCursor.call(that);
-                //if (this.isFldModified("CursorSyncMode"))
-                //    vDbTreeView._subscribeOnDatasets.call(this, curMode == "TWOWAYS");
+                vDbTreeView._restoreCursor.call(that, false);
             }
 
             if (!this.size() || this.size().toLowerCase() == "standart")
@@ -258,13 +183,14 @@ define(
             }
 */
             // выставляем фокус
-            if ($(':focus').attr('id') != this.getLid() && this.getRoot().isFldModified("CurrentControl") && this.getRoot().currentControl() == this)
+            if ($(':focus').attr('id') != this.getLid() && this.getForm().isFldModified("CurrentControl") && this.getForm().currentControl() == this)
                 $('#ch_'+this.getLid()).focus();
         }
 
-        vDbTreeView._restoreCursor = function() {
+        vDbTreeView._restoreCursor = function(isInit) {
             if (this.cursor()) {
                 this._treeTable.select(this.cursor().getGuid());
+                if (isInit || this.isFldModified("Cursor"))
                 this._treeTable.showItem(this.cursor().getGuid());
             }
         }

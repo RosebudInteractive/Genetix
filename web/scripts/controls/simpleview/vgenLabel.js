@@ -12,7 +12,7 @@ define(
             if (item.length == 0) {
                 var pItem = $(vLabel._templates['label']).attr('id', "mid_" + this.getLid());
                 item = pItem.children(".control").attr('id', this.getLid());
-                var parent = (this.getParent()? '#ch_' + this.getLid(): options.rootContainer);
+                var parent = (this.getParentComp()? '#ch_' + this.getLid(): options.rootContainer);
                 $(parent).append(pItem);
                 item.click(function(){
                     if (that.tabStop() === undefined || that.tabStop())
@@ -20,7 +20,7 @@ define(
                             that.setFocused();
                         });
                 }).focus(function() {
-                    if (that.getRoot().currentControl() != that) {
+                    if (that.getForm().currentControl() != that) {
                         that.getControlMgr().userEventHandler(that, function () {
                             that.setFocused();
                         });
@@ -50,8 +50,8 @@ define(
             else
                 item.attr("tabIndex", "");
 
-            var currentControl = this.getRoot().currentControl();
-            if ($(':focus').attr('id') != this.getLid() && this.getRoot().isFldModified("CurrentControl") && this.getRoot().currentControl() == this)
+            var currentControl = this.getForm().currentControl();
+            if ($(':focus').attr('id') != this.getLid() && this.getForm().isFldModified("CurrentControl") && this.getForm().currentControl() == this)
                 item.focus();
 
             if (this.horizontalAlign() && this.horizontalAlign().toUpperCase() == "LEFT")

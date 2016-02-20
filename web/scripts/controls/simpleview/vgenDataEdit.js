@@ -17,13 +17,13 @@ define(
                     pItem = $(vGenDataEdit._templates['edit']).attr('id', "mid_" + this.getLid());
                 item = pItem.children(".control").attr('id', this.getLid());
 
-                var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
+                var parent = this.getParentComp()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(pItem);
                 $(parent).css("position", "relative");
 
                 // сохранять при потере фокуса
                 item.find("input, textarea").blur(function () {
-                    if (that.dataset() && that.dataField()) {
+                    if (that.isChanged && that.dataset() && that.dataField()) {
                         that.getControlMgr().userEventHandler(that, function () {
                             var dataset = that.dataset();
                             dataset.setField(that.dataField(), item.find("input, textarea").val());
@@ -36,11 +36,15 @@ define(
                         that.setFocused();
                     });
                 }).focus(function() {
-                    if (that.getRoot().currentControl() != that) {
+                    if (that.getForm().currentControl() != that) {
                         that.getControlMgr().userEventHandler(that, function () {
                             that.setFocused();
                         });
                     }
+                });
+                // при изменении значения
+                item.keydown(function (e) {
+                    that.isChanged = true;
                 });
 
                 if (this.multiline()) {
@@ -63,7 +67,7 @@ define(
                 pItem = $("#mid_" + this.getLid());
             }
 
-            if (this.getRoot().isFldModified("CurrentControl") && (this.getRoot().currentControl() == this))
+            if (this.getForm().isFldModified("CurrentControl") && (this.getForm().currentControl() == this))
                 item.find("input, textarea").focus();
 
             if (this.verticalAlign()) {
@@ -92,10 +96,6 @@ define(
                 item.css("margin", "")
 
 
-            // при изменении значения
-            item.keydown(function () {
-                that.isChanged = true;
-            });
 
             if (!this.isChanged) {
                 // устанавливаем значение

@@ -21,7 +21,7 @@ define(
                 item = pItem.children(".control").attr('id', this.getLid());
 
                 // добавляем в парент
-                var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
+                var parent = this.getParentComp()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(pItem);
                 pItem.height($(parent).height());
                 $(window).on("genetix:resize", function () {
@@ -51,11 +51,11 @@ define(
 
             var cont = item.children(".c-content");
 
-            if ("isCentered" in this.getParent() && this.getParent().isCentered())
+            if ("isCentered" in this.getParentComp() && this.getParentComp().isCentered())
                 cont.css({"border-radius" : "0.25em"});
 
-            if (this.getParent() && !this.getParent().getParent()) {
-                if (this.getParent().isCentered() === undefined || !this.getParent().isCentered())
+            if (this.getParentComp() && !this.getParentComp().getParentComp()) {
+                if (this.getParentComp().isCentered() === undefined || !this.getParentComp().isCentered())
                     cont.css("padding", "0");
                 item.addClass("m-container")
             } else if (this.hasPadding && !this.hasPadding()) {
@@ -129,7 +129,7 @@ define(
         lContainer._handleResize = function() {
             var that = this;
             var pp = $("#mid_" + that.getLid());
-            var p = that.getParent()? '#ch_' + that.getLid(): options.rootContainer;
+            var p = that.getParentComp()? '#ch_' + that.getLid(): options.rootContainer;
             $(p).css("height", "auto");
             pp.css("height", "auto");
             var childs = that.getCol('Children');

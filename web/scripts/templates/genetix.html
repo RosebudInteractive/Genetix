@@ -172,6 +172,7 @@
                     </div>
                 </div>
                 <div class="system-toolbar-icon is-device-close-icon" onclick="
+                        $(window).trigger('genetix:initResize');
                         var d = $(this).find('div');
                         d.find('svg').width('22px').height('22px');
                         var h=d.html();

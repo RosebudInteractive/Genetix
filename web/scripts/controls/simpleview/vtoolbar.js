@@ -21,7 +21,7 @@ define(
                 item = pItem.children(".control").attr('id', this.getLid());
 
                 // добавляем в парент
-                var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
+                var parent = this.getParentComp()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(pItem);
                 pItem.height($(parent).height());
                 $(window).on("genetix:resize", function () {
@@ -142,6 +142,7 @@ define(
 
                         if (bKind == "RADIO" && btn.tabNumber() !== undefined && that.layersContainer()) {
                             var lc = that.layersContainer();
+                            console.log("Layers set tab number");
                             lc.tabNumber(btn.tabNumber());
                         }
 
@@ -216,10 +217,12 @@ define(
             var hiddenItems = vToolbar._getHiddenItems.call(this);
             var children = this.getCol('Children');
             if (contAlign != "LEFT") {
-                for (var i = hiddenItems.length - 1; i >= 0; i--) {
-                    var child = this.getControlMgr().get(children.get(i).getGuid());
+                var j = children.count() - 1;
+                for (var i = 0; i < hiddenItems.length; i++) {
+                    var child = this.getControlMgr().get(children.get(j).getGuid());
                     var chDiv = $('#ext_' + child.getLid());
                     chDiv.css("display", "none");
+                    j--;
                 }
             } else {
                 for (var i = 0 ; i < hiddenItems.length; i++) {

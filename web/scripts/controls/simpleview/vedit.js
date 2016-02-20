@@ -12,7 +12,7 @@ define(
                 var pItem = $(vEdit._templates['edit']).attr('id', "mid_" + this.getLid());
                 item = pItem.children(".control");
                 item.attr('id', this.getLid());
-                var parent = (this.getParent()? '#' + this.getParent().getLid(): options.rootContainer);
+                var parent = (this.getParentComp()? '#' + this.getParentComp().getLid(): options.rootContainer);
                 $(parent).append(pItem);
             }
             item.css({top: this.top() + 'px', left: this.left() + 'px'}).val(this.value());
