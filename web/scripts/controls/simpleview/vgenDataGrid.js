@@ -26,7 +26,7 @@ define(
                 grid = pItem.children(".grid-b").attr('id', this.getLid());
                 grid.css({width: "100%", height: ((this.height() && this.height()) == "auto" ? "auto" : "100%")});
 
-                var parent = (this.getParent()? '#ch_' + this.getLid(): options.rootContainer);
+                var parent = (this.getParentComp()? '#ch_' + this.getLid(): options.rootContainer);
                 $(parent).append(pItem);
 
                 var gCols = vDataGrid._getColumns.call(that);
@@ -68,10 +68,43 @@ define(
                 $(window).on("genetix:resize", function () {
                     that._grid.resize();
                 });
+                $(window).on("genetix:initResize", function () {
+                    var g = $("#" + that.getLid());
+                    g.children().css("width", "100%");
+                    var hv = g.find(".webix_ss_header").width();
+                    var scrollHeaderW = g.find(".webix_ss_vscroll_header").width();
+                    var w = hv ? (hv - scrollHeaderW)*100/hv : 0;
+                    g.find(".webix_hs_center").css("width", w + "%");
+                    g.find(".webix_hs_center").find("table").css("width", "100%");
+
+                    var allW = g.find(".webix_hs_center").width();
+                    var widths = [];
+                    g.find(".webix_hs_center").find("table").find("th").each(function() {
+                        var w = $(this).width();
+                        var perc = ((w/allW)*100);
+                        $(this).css("width", perc + "%");
+                        widths.push(perc);
+                    });
+
+                    g.find(".webix_ss_center").css("width", w + "%");
+                    g.find(".webix_ss_center").find(".webix_ss_center_scroll").css("width", "100%");
+                    g.find(".webix_ss_hscroll").css("width", "100%");
+                    g.find(".webix_ss_hscroll").find(".webix_vscroll_body").css("width", "100%");
+                    var bodyDiv = grid.find(".webix_ss_center").find(".webix_ss_center_scroll");
+                    var left = 0;
+                    var i = 0;
+                    bodyDiv.children(".webix_column").each(function () {
+                        var perc = widths[i++];
+                        $(this).css("width", perc + "%");
+                        $(this).css("left", left + "%");
+                        left += perc;
+                    });
+                });
+
 
 
                 grid.focus(function() {
-                    if (that.getRoot().currentControl() != that) {
+                    if (that.getForm().currentControl() != that) {
                         that.getControlMgr().userEventHandler(that, function () {
                             that.setFocused();
                         });
@@ -123,7 +156,7 @@ define(
             grid.children().css({"position": cssPos});
 
             // выставляем фокус
-            //if ($(':focus').attr('id') != this.getLid() && this.getRoot().isFldModified("CurrentControl") && this.getRoot().currentControl() == this)
+            //if ($(':focus').attr('id') != this.getLid() && this.getForm().isFldModified("CurrentControl") && this.getForm().currentControl() == this)
             //    pItem.find("tr[tabIndex=1]").focus();
             //else
             //    pItem.find("tr[tabIndex=1]").blur();
@@ -149,7 +182,6 @@ define(
                     var extCont = $("#ext_" + that.getLid());
                     var grdHeight = $("#" + that.getLid()).find(".webix_view.webix_dtable").css("height");
                     extCont.css("height", grdHeight);
-                    that._grid.resize();
                     $(window).trigger("genetix:resize");
                 }
             });

@@ -12,7 +12,7 @@ define(
             if (item.length == 0) {
                 var pItem = $(vButton._templates['button']).attr('id', "mid_" + this.getLid());
                 item = pItem.children(".control").attr('id', this.getLid());
-                var parent = '#' + (this.getParent()? "ch_"+this.getLid():options.rootContainer);
+                var parent = '#' + (this.getParentComp()? "ch_"+this.getLid():options.rootContainer);
                 $(parent).append(pItem);
                 $(parent).css("position", "relative");
                 item.click(function(){
@@ -20,7 +20,7 @@ define(
                         that.setFocused();
                     });
                 }).focus(function() {
-                    if (that.getRoot().currentControl() != that) {
+                    if (that.getForm().currentControl() != that) {
                         that.getControlMgr().userEventHandler(that, function () {
                             that.setFocused();
                         });
@@ -31,7 +31,7 @@ define(
             }
 
             // выставляем фокус
-            if ($(':focus').attr('id') != this.getLid() && this.getRoot().isFldModified("CurrentControl") && this.getRoot().currentControl() == this)
+            if ($(':focus').attr('id') != this.getLid() && this.getForm().isFldModified("CurrentControl") && this.getForm().currentControl() == this)
                 $('#ch_'+this.getLid()).find('input').focus();
 
             if (this.verticalAlign()) {

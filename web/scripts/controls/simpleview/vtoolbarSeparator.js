@@ -11,14 +11,14 @@ define(
             if (item.length == 0) {
                 var pItem = $(vSeparator._templates['separator']).attr('id', "mid_" + this.getLid());
                 item = pItem.children(".control").attr('id', this.getLid());
-                var parent = (this.getParent()? '#ch_' + this.getLid(): options.rootContainer);
+                var parent = (this.getParentComp()? '#ch_' + this.getLid(): options.rootContainer);
                 $(parent).append(pItem);
                 $(parent).css("position", "relative");
             } else {
                 pItem = $("#mid_" + this.getLid());
             }
 
-            var toolbar = this.getParent();
+            var toolbar = this.getParentComp();
             var space = "";
             if (toolbar.spacing()) {
                 space = toolbar.spacing();

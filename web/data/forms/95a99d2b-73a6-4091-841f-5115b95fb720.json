@@ -1,17 +1,31 @@
 {
-  "$sys":{
-    "guid":"95a99d2b-73a6-4091-841f-5115b95fb720",
-    "typeGuid":"29bc7a01-2065-4664-b1ad-7cc86f92c177"
+  "$sys": {
+    "guid": "95a99d2b-73a6-4091-841f-5115b95fb720",
+    "typeGuid": "10217b8e-b1f8-4221-a419-f20735219dd2"
   },
-  "fields":{
-    "Id":1456,
-    "Name":"EmptyForm",
-    "Title": "EmptyForm",
-    "dbgName": "EmptyForm",
-    "IsCentered": false
+  "fields": {
+    "Id": 1,
+    "ResName": "EmptyForm"
   },
   "collections": {
-    "Children": [
+    "Form": [
+      {
+        "$sys": {
+          "guid": "dbc83e20-ae37-f6b9-c96b-11da7f16a45d",
+          "typeGuid": "29bc7a01-2065-4664-b1ad-7cc86f92c177"
+        },
+        "fields": {
+          "Id": 1456,
+          "Name": "EmptyForm",
+          "Title": "EmptyForm",
+          "dbgName": "EmptyForm",
+          "IsCentered": false,
+          "ResElemName": "1"
+        },
+        "collections": {
+          "Children": []
+        }
+      }
     ]
   }
 }

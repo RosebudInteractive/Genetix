@@ -12,7 +12,7 @@ define(
             var table = $('#' + this.getLid());
             if (table.length == 0) {
                 table = $(vMatrixGrid._templates['matrixGrid']).attr('id', this.getLid());
-                var parent = (this.getParent()? '#' + this.getParent().getLid(): options.rootContainer);
+                var parent = (this.getParentComp()? '#' + this.getParentComp().getLid(): options.rootContainer);
                 $(parent).append(table);
             } else {
                 table.empty();

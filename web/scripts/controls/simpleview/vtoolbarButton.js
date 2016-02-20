@@ -18,11 +18,11 @@ define(
             if (item.length == 0) {
                 var pItem = $(vButton._templates['button']).attr('id', "mid_" + this.getLid());
                 item = pItem.children(".control").attr('id', this.getLid());
-                var parent = '#' + (this.getParent()? "ch_"+this.getLid():options.rootContainer);
+                var parent = '#' + (this.getParentComp()? "ch_"+this.getLid():options.rootContainer);
                 $(parent).append(pItem);
                 $(parent).css("position", "relative");
 
-                var toolbar = this.getParent();
+                var toolbar = this.getParentComp();
                 var tStyle = toolbar.toolbarSize() || "big";
                 tStyle = tStyle.toUpperCase();
                 var tColor = toolbar.toolbarColor() || "blue";
@@ -48,7 +48,7 @@ define(
                         item.focus();
                 });
                 item.focus(function() {
-                    if (that.getRoot().currentControl() != that) {
+                    if (that.getForm().currentControl() != that) {
                         that.getControlMgr().userEventHandler(that, function () {
                             that.setFocused();
                         });
@@ -77,7 +77,7 @@ define(
             else if ((this.image() && imgWrapper.children().length == 0) || this.isFldModified("Image")) {
                 imgWrapper.empty();
                 var imgTmpl = vButton._templates['svg'];
-                var toolbar = this.getParent();
+                var toolbar = this.getParentComp();
                 var tStyle = toolbar.toolbarSize() || "big";
                 tStyle = tStyle.toUpperCase();
                 var imgSize = "16";
@@ -100,8 +100,8 @@ define(
             if (enabled) item.removeClass("is-disabled");
             else item.addClass("is-disabled");
 
-            var currentControl = this.getRoot().currentControl();
-            if (this.getRoot().isFldModified("CurrentControl") && this.getRoot().currentControl() == this) {
+            var currentControl = this.getForm().currentControl();
+            if (this.getForm().isFldModified("CurrentControl") && this.getForm().currentControl() == this) {
                 item.addClass("has-focus");
                 item.focus();
             } else
@@ -113,6 +113,7 @@ define(
         }
 
         vButton._togglePressed = function() {
+            console.log("_togglePressed begin");
             var that = this;
             var bKind = that.buttonKind() || "normal";
             bKind = bKind.toUpperCase();
@@ -126,8 +127,10 @@ define(
                 //var curPressed = that.pressed() || false;
                 //if (curPressed) return;
                 this.getControlMgr().userEventHandler(this, function () {
+                    console.log("Begin user event handler and set button's pressed property");
                     that.pressed(true);
                     vButton._genPressedChanged.call(that);
+                    console.log("End user event handler");
                 });
             } else {
                 this.getControlMgr().userEventHandler(this, function(){

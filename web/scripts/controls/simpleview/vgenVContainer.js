@@ -13,7 +13,7 @@ define(
             if (item.length == 0) {
                 var pItem = $(vContainer._templates['container']).attr('id', "mid_" + this.getLid());
                 item = pItem.children(".control").attr('id', this.getLid());
-                var parent = this.getParent()? '#ch_' + this.getLid(): options.rootContainer;
+                var parent = this.getParentComp()? '#ch_' + this.getLid(): options.rootContainer;
                 $(parent).append(pItem);
                 var c = item.children(".c-content");
                 var scrollPos = null;
@@ -28,7 +28,7 @@ define(
                 vContainer._bindScrollingHeader.call(this);
 
                 $(window).on("genetix:resize", function () {
-                    var p = that.getParent()? '#ch_' + that.getLid(): options.rootContainer;
+                    var p = that.getParentComp()? '#ch_' + that.getLid(): options.rootContainer;
                     $(p).css("height", "");
                     $(p).css("height", $(p).parent().height());
                     var pp = $("#mid_" + that.getLid());
@@ -78,11 +78,11 @@ define(
             var cont = item.children(".c-content");
             cont.css({"background-color" : (this.background() ? this.background() : "") });
 
-            if ("isCentered" in this.getParent() && this.getParent().isCentered())
+            if ("isCentered" in this.getParentComp() && this.getParentComp().isCentered())
                 cont.css({"border-radius" : "0.25em"});
 
-            if (this.getParent() && !this.getParent().getParent()) {
-                if (this.getParent().isCentered() === undefined || !this.getParent().isCentered())
+            if (this.getParentComp() && !this.getParentComp().getParentComp()) {
+                if (this.getParentComp().isCentered() === undefined || !this.getParentComp().isCentered())
                     cont.css("padding", "0");
                 item.addClass("m-container")
             } else if (!this.hasPadding()) {
@@ -167,7 +167,9 @@ define(
                 });
 
             } else {
-                div.css({width: "100%"});
+                setTimeout(function() {
+                    div.css({width: "100%"});
+                }, 0);
                 var height = child.height() || "auto";
                 var flex = "none";
                 if (height != "auto") {

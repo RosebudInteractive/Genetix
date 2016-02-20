@@ -16,6 +16,7 @@ var form9Guid = "95a99d2b-73a6-4091-841f-5115b95fb720";
 var form10Guid = "46e56f92-cfd9-45c0-9b94-9c7258e68839";
 var form11Guid = "cbbf37ac-2b69-4952-984f-5199ebe939b9";
 var form12Guid = "5217efe1-4122-462f-98fa-1ee5d9497321";
+var $leadEdit = null;
 
 var uri = window.location.href;
 if (uri.charAt(uri.length - 1) == "/")
@@ -85,8 +86,8 @@ $(document).ready( function() {
             UCCELLO_CONFIG = new Config(config);
 
             require(
-                ['./lib/uccello/uccelloClt', "devices", './lib/uccello/connection/commClient'],
-                function(UccelloClt, Devices, CommunicationClient){
+                ['./lib/uccello/uccelloClt', "devices", './lib/uccello/connection/commClient', './leadEdit'],
+                function(UccelloClt, Devices, CommunicationClient, LeadEdit){
 
                     this.currRoot=null;
                     this.rootsGuids=[];
@@ -449,7 +450,7 @@ $(document).ready( function() {
 
                     // глобальная переменная для доступа к методом дебага
                     $u = uccelloClt.getDebugApi();
-
+                    $leadEdit = new LeadEdit(uccelloClt);
 
                     // --------------------------------------------------------------------------------------------------------
                     // --------------------- Глобальные методы для кнопок управления -----------------------------------------
