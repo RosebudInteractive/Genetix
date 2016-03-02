@@ -155,7 +155,7 @@ define(
         }
 
         vContainer._setChildCSS = function(child) {
-            var div = $("#ext_" + child.getLid())
+            var div = $("#ext_" + child.getLid());
             var chDiv = div.children();
             if ("position" in child && child.position() == "center") {
                 div.css({

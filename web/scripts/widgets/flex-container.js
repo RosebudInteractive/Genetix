@@ -110,6 +110,7 @@ define(
                 var item = $('#' + this.getLid());
                 item.children(".c-content").css("width", "100%");
                 var params = this._getGridParameters();
+                console.log(params);
 
                 this._curColCount = params.curColCount;
 

@@ -8,18 +8,18 @@
     "ResName": "Leads"
   },
   "collections": {
-    "Form": [
+    "Children": [
       {
         "$sys": {
           "guid": "7acd05a0-4c89-5a6a-ea9a-030b91454a7c",
           "typeGuid": "29bc7a01-2065-4664-b1ad-7cc86f92c177"
         },
         "fields": {
-          "Id": 2000,
+          "Id": "1",
           "Name": "MainForm",
           "Title": "Leads",
           "IsCentered": true,
-          "ResElemName": "1"
+          "ResElemName": "UnknownClass25"
         },
         "collections": {
           "Params": [
@@ -29,12 +29,12 @@
                 "typeGuid": "4943ce3e-a6cb-65f7-8805-ec339555a981"
               },
               "fields": {
-                "Id": 2001,
+                "Id": "2",
                 "Name": "FormParam1",
                 "Type": "param",
                 "Kind": "out",
                 "Value": "",
-                "ResElemName": "2"
+                "ResElemName": "FormParam2"
               },
               "collections": {}
             }
@@ -46,10 +46,10 @@
                 "typeGuid": "d7785c24-0b96-76ee-46a7-b0103cda4aa0"
               },
               "fields": {
-                "Id": 2006,
+                "Id": "3",
                 "Name": "Lead edit",
                 "FormGuid": "4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9",
-                "ResElemName": "3"
+                "ResElemName": "SubForm1"
               }
             }
           ],
@@ -60,11 +60,11 @@
                 "typeGuid": "b75474ef-26d0-4298-9dad-4133edaa8a9c"
               },
               "fields": {
-                "Id": 2002,
+                "Id": "4",
                 "Name": "MainContainer",
                 "Width": "100%",
                 "Height": "100%",
-                "ResElemName": "4"
+                "ResElemName": "UnknownClass26"
               },
               "collections": {
                 "Children": [
@@ -74,9 +74,9 @@
                       "typeGuid": "5e89f6c7-ccc2-a850-2f67-b5f5f20c3d47"
                     },
                     "fields": {
-                      "Id": 2003,
+                      "Id": "5",
                       "Name": "DataModel",
-                      "ResElemName": "5"
+                      "ResElemName": "ADataModel3"
                     },
                     "collections": {
                       "Datasets": [
@@ -86,12 +86,12 @@
                             "typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
                           },
                           "fields": {
-                            "Id": 2004,
+                            "Id": "6",
                             "Name": "DatasetLead",
                             "ObjType": "c170c217-e519-7c23-2811-ff75cd4bfe81",
                             "Active": true,
                             "OnMoveCursor": " { this.getControlMgr().getByName('FormParam1').value(newVal); } ",
-                            "ResElemName": "6"
+                            "ResElemName": "Dataset3"
                           },
                           "collections": {
                             "Fields": [
@@ -101,9 +101,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 7001,
+                                  "Id": "7",
                                   "Name": "Id",
-                                  "ResElemName": "7"
+                                  "ResElemName": "DataField20"
                                 }
                               },
                               {
@@ -112,9 +112,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 7002,
+                                  "Id": "8",
                                   "Name": "State",
-                                  "ResElemName": "8"
+                                  "ResElemName": "DataField21"
                                 }
                               },
                               {
@@ -123,9 +123,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 7003,
+                                  "Id": "9",
                                   "Name": "client",
-                                  "ResElemName": "9"
+                                  "ResElemName": "DataField22"
                                 }
                               },
                               {
@@ -134,9 +134,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 7004,
+                                  "Id": "10",
                                   "Name": "companyId",
-                                  "ResElemName": "10"
+                                  "ResElemName": "DataField23"
                                 }
                               },
                               {
@@ -145,9 +145,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 7005,
+                                  "Id": "11",
                                   "Name": "contact",
-                                  "ResElemName": "11"
+                                  "ResElemName": "DataField24"
                                 }
                               },
                               {
@@ -156,9 +156,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 7006,
+                                  "Id": "12",
                                   "Name": "phone",
-                                  "ResElemName": "12"
+                                  "ResElemName": "DataField25"
                                 }
                               },
                               {
@@ -167,9 +167,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 7007,
+                                  "Id": "13",
                                   "Name": "email",
-                                  "ResElemName": "13"
+                                  "ResElemName": "DataField26"
                                 }
                               },
                               {
@@ -178,9 +178,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 7008,
+                                  "Id": "14",
                                   "Name": "contactId",
-                                  "ResElemName": "14"
+                                  "ResElemName": "DataField27"
                                 }
                               },
                               {
@@ -189,9 +189,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 7009,
+                                  "Id": "15",
                                   "Name": "proba",
-                                  "ResElemName": "15"
+                                  "ResElemName": "DataField28"
                                 }
                               },
                               {
@@ -200,9 +200,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 7010,
+                                  "Id": "16",
                                   "Name": "amount",
-                                  "ResElemName": "16"
+                                  "ResElemName": "DataField29"
                                 }
                               },
                               {
@@ -211,9 +211,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 7011,
+                                  "Id": "17",
                                   "Name": "user",
-                                  "ResElemName": "17"
+                                  "ResElemName": "DataField30"
                                 }
                               }
                             ]
@@ -225,12 +225,12 @@
                             "typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
                           },
                           "fields": {
-                            "Id": 2005,
+                            "Id": "18",
                             "Name": "DatasetIncomeplan",
                             "ObjType": "8770f400-fd42-217c-90f5-507ca52943c2",
                             "Active": true,
                             "Master": "c2de9609-237a-c3b3-12ac-43bf5b35c169",
-                            "ResElemName": "18"
+                            "ResElemName": "Dataset4"
                           },
                           "collections": {
                             "Fields": [
@@ -240,9 +240,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 8001,
+                                  "Id": "19",
                                   "Name": "Id",
-                                  "ResElemName": "19"
+                                  "ResElemName": "DataField31"
                                 }
                               },
                               {
@@ -251,9 +251,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 8002,
+                                  "Id": "20",
                                   "Name": "leadId",
-                                  "ResElemName": "20"
+                                  "ResElemName": "DataField32"
                                 }
                               },
                               {
@@ -262,9 +262,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 8003,
+                                  "Id": "21",
                                   "Name": "date",
-                                  "ResElemName": "21"
+                                  "ResElemName": "DataField33"
                                 }
                               },
                               {
@@ -273,9 +273,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 8004,
+                                  "Id": "22",
                                   "Name": "amount",
-                                  "ResElemName": "22"
+                                  "ResElemName": "DataField34"
                                 }
                               },
                               {
@@ -284,9 +284,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 8005,
+                                  "Id": "23",
                                   "Name": "comment",
-                                  "ResElemName": "23"
+                                  "ResElemName": "DataField35"
                                 }
                               }
                             ]
@@ -301,7 +301,7 @@
                       "typeGuid": "902822d8-3079-f394-2eed-3ad9ac27b2f2"
                     },
                     "fields": {
-                      "Id": 4568,
+                      "Id": "24",
                       "Name": "FContainer",
                       "Top": 0,
                       "Left": 0,
@@ -313,7 +313,7 @@
                       "Padding": 3,
                       "Width": "100%",
                       "Height": "100%",
-                      "ResElemName": "24"
+                      "ResElemName": "FContainer10"
                     },
                     "collections": {
                       "Children": [
@@ -323,7 +323,7 @@
                             "typeGuid": "902822d8-3079-f394-2eed-3ad9ac27b2f2"
                           },
                           "fields": {
-                            "Id": 4568,
+                            "Id": "25",
                             "Name": "FContainer1",
                             "Width": 1,
                             "LayoutProp": "true,",
@@ -332,7 +332,7 @@
                             "MinColWidth": 60,
                             "MaxColWidth": 70,
                             "Title": "Обращение",
-                            "ResElemName": "25"
+                            "ResElemName": "FContainer11"
                           },
                           "collections": {
                             "Children": [
@@ -342,12 +342,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "26",
                                   "Name": "LabelStatus",
                                   "Label": "Статус",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "26"
+                                  "ResElemName": "UnknownClass27"
                                 }
                               },
                               {
@@ -356,13 +356,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "27",
                                   "Name": "status",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,",
-                                  "ResElemName": "27"
+                                  "ResElemName": "UnknownClass28"
                                 }
                               },
                               {
@@ -371,12 +371,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "28",
                                   "Name": "LabelCreated",
                                   "Label": "Создан",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "28"
+                                  "ResElemName": "LabelCreated"
                                 }
                               },
                               {
@@ -385,13 +385,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "29",
                                   "Name": "created",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,br",
-                                  "ResElemName": "29"
+                                  "ResElemName": "created"
                                 }
                               },
                               {
@@ -400,12 +400,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "30",
                                   "Name": "LabelContent",
                                   "Label": "Содержание",
                                   "Width": 8,
                                   "LayoutProp": "true,br",
-                                  "ResElemName": "30"
+                                  "ResElemName": "UnknownClass29"
                                 }
                               },
                               {
@@ -414,14 +414,14 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "31",
                                   "Name": "content",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 8,
                                   "LayoutProp": "true,br",
                                   "Multiline": true,
-                                  "ResElemName": "31"
+                                  "ResElemName": "UnknownClass30"
                                 }
                               },
                               {
@@ -430,12 +430,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "32",
                                   "Name": "LabelSource",
                                   "Label": "Источник",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "32"
+                                  "ResElemName": "UnknownClass31"
                                 }
                               },
                               {
@@ -444,13 +444,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "33",
                                   "Name": "source",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,",
-                                  "ResElemName": "33"
+                                  "ResElemName": "UnknownClass32"
                                 }
                               },
                               {
@@ -459,12 +459,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "34",
                                   "Name": "LabelClosed",
                                   "Label": "Закрыт",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "34"
+                                  "ResElemName": "UnknownClass33"
                                 }
                               },
                               {
@@ -473,13 +473,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "35",
                                   "Name": "closed",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,br",
-                                  "ResElemName": "35"
+                                  "ResElemName": "UnknownClass34"
                                 }
                               }
                             ]
@@ -491,7 +491,7 @@
                             "typeGuid": "902822d8-3079-f394-2eed-3ad9ac27b2f2"
                           },
                           "fields": {
-                            "Id": 4568,
+                            "Id": "36",
                             "Name": "FContainer2",
                             "Top": 0,
                             "Left": 0,
@@ -502,7 +502,7 @@
                             "MinColWidth": 60,
                             "MaxColWidth": 70,
                             "Title": "Контакт",
-                            "ResElemName": "36"
+                            "ResElemName": "FContainer12"
                           },
                           "collections": {
                             "Children": [
@@ -512,12 +512,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "37",
                                   "Name": "LabelFirstName",
                                   "Label": "Фамилия",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "37"
+                                  "ResElemName": "UnknownClass35"
                                 }
                               },
                               {
@@ -526,13 +526,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "38",
                                   "Name": "firstName",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,",
-                                  "ResElemName": "38"
+                                  "ResElemName": "UnknownClass36"
                                 }
                               },
                               {
@@ -541,12 +541,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "39",
                                   "Name": "LabelName",
                                   "Label": "Имя",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "39"
+                                  "ResElemName": "UnknownClass37"
                                 }
                               },
                               {
@@ -555,13 +555,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "40",
                                   "Name": "name",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,br",
-                                  "ResElemName": "40"
+                                  "ResElemName": "UnknownClass38"
                                 }
                               },
                               {
@@ -570,12 +570,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "41",
                                   "Name": "LabelWorkPhone",
                                   "Label": "Рабочий тел.",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "41"
+                                  "ResElemName": "UnknownClass39"
                                 }
                               },
                               {
@@ -584,13 +584,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "42",
                                   "Name": "workPhone",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,",
-                                  "ResElemName": "42"
+                                  "ResElemName": "UnknownClass40"
                                 }
                               },
                               {
@@ -599,12 +599,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "43",
                                   "Name": "LabelMobile",
                                   "Label": "Мобильный тел.",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "43"
+                                  "ResElemName": "UnknownClass41"
                                 }
                               },
                               {
@@ -613,13 +613,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "44",
                                   "Name": "mobile",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,br",
-                                  "ResElemName": "44"
+                                  "ResElemName": "UnknownClass42"
                                 }
                               },
                               {
@@ -628,12 +628,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "45",
                                   "Name": "LabelEmail",
                                   "Label": "Эл. адрес",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "45"
+                                  "ResElemName": "UnknownClass43"
                                 }
                               },
                               {
@@ -642,13 +642,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "46",
                                   "Name": "email",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,",
-                                  "ResElemName": "46"
+                                  "ResElemName": "UnknownClass44"
                                 }
                               },
                               {
@@ -657,12 +657,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "47",
                                   "Name": "LabelContSource",
                                   "Label": "Источник",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "47"
+                                  "ResElemName": "UnknownClass45"
                                 }
                               },
                               {
@@ -671,13 +671,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "48",
                                   "Name": "contSource",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,br",
-                                  "ResElemName": "48"
+                                  "ResElemName": "UnknownClass46"
                                 }
                               }
                             ]
@@ -689,7 +689,7 @@
                             "typeGuid": "902822d8-3079-f394-2eed-3ad9ac27b2f2"
                           },
                           "fields": {
-                            "Id": 4568,
+                            "Id": "49",
                             "Name": "FContainer3",
                             "Top": 0,
                             "Left": 0,
@@ -700,7 +700,7 @@
                             "MinColWidth": 60,
                             "MaxColWidth": 70,
                             "Title": "Компания",
-                            "ResElemName": "49"
+                            "ResElemName": "FContainer13"
                           },
                           "collections": {
                             "Children": [
@@ -710,12 +710,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "50",
                                   "Name": "LabelCompany",
                                   "Label": "Компания",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "50"
+                                  "ResElemName": "UnknownClass47"
                                 }
                               },
                               {
@@ -724,13 +724,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "51",
                                   "Name": "company",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,",
-                                  "ResElemName": "51"
+                                  "ResElemName": "UnknownClass48"
                                 }
                               },
                               {
@@ -739,12 +739,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "52",
                                   "Name": "LabelSector",
                                   "Label": "Отрасль",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "52"
+                                  "ResElemName": "UnknownClass49"
                                 }
                               },
                               {
@@ -753,13 +753,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "53",
                                   "Name": "sector",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,",
-                                  "ResElemName": "53"
+                                  "ResElemName": "UnknownClass50"
                                 }
                               },
                               {
@@ -768,12 +768,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "54",
                                   "Name": "LabelWorkersCount",
                                   "Label": "Кол. сотрудников",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "54"
+                                  "ResElemName": "UnknownClass51"
                                 }
                               },
                               {
@@ -782,13 +782,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "55",
                                   "Name": "workersCount",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,",
-                                  "ResElemName": "55"
+                                  "ResElemName": "UnknownClass52"
                                 }
                               },
                               {
@@ -797,12 +797,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "56",
                                   "Name": "LabelTown",
                                   "Label": "Город",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "56"
+                                  "ResElemName": "UnknownClass53"
                                 }
                               },
                               {
@@ -811,13 +811,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "57",
                                   "Name": "town",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,",
-                                  "ResElemName": "57"
+                                  "ResElemName": "UnknownClass54"
                                 }
                               },
                               {
@@ -826,12 +826,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "58",
                                   "Name": "LabelIndex",
                                   "Label": "Почтовый индекс",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "58"
+                                  "ResElemName": "UnknownClass55"
                                 }
                               },
                               {
@@ -840,13 +840,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "59",
                                   "Name": "index",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,",
-                                  "ResElemName": "59"
+                                  "ResElemName": "UnknownClass56"
                                 }
                               },
                               {
@@ -855,12 +855,12 @@
                                   "typeGuid": "151c0d05-4236-4732-b0bd-ddcf69a35e25"
                                 },
                                 "fields": {
-                                  "Id": 3007,
+                                  "Id": "60",
                                   "Name": "LabelAddress",
                                   "Label": "Адрес",
                                   "Width": 1,
                                   "LayoutProp": "false,nbr",
-                                  "ResElemName": "60"
+                                  "ResElemName": "UnknownClass57"
                                 }
                               },
                               {
@@ -869,13 +869,13 @@
                                   "typeGuid": "567cadd5-7f9d-4cd8-a24d-7993f065f5f9"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "61",
                                   "Name": "address",
                                   "Dataset": "cdb101b4-2bef-3b2a-f422-42e2cc46fc7a",
                                   "DataField": "contact",
                                   "Width": 3,
                                   "LayoutProp": "true,br",
-                                  "ResElemName": "61"
+                                  "ResElemName": "UnknownClass58"
                                 }
                               }
                             ]

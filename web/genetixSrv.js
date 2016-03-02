@@ -126,6 +126,10 @@ var config = {
             sqlCommands: true,
             importDir: true
         }
+    },
+    resman: {
+        useDb: false,
+        defaultProduct : "Genetix"
     }
 };
 

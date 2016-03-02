@@ -8,17 +8,17 @@
     "ResName": "Leads"
   },
   "collections": {
-    "Form": [
+    "Children": [
       {
         "$sys": {
           "guid": "3f7f3d94-ff10-09d0-5d8c-7cdba1d6304d",
           "typeGuid": "29bc7a01-2065-4664-b1ad-7cc86f92c177"
         },
         "fields": {
-          "Id": 2000,
+          "Id": "1",
           "Name": "MainForm",
           "Title": "Leads",
-          "ResElemName": "1"
+          "ResElemName": "UnknownClass132"
         },
         "collections": {
           "Params": [
@@ -28,12 +28,12 @@
                 "typeGuid": "4943ce3e-a6cb-65f7-8805-ec339555a981"
               },
               "fields": {
-                "Id": 2001,
+                "Id": "2",
                 "Name": "FormParam1",
                 "Type": "param",
                 "Kind": "out",
                 "Value": "",
-                "ResElemName": "2"
+                "ResElemName": "FormParam10"
               },
               "collections": {}
             }
@@ -46,11 +46,11 @@
                 "typeGuid": "b75474ef-26d0-4298-9dad-4133edaa8a9c"
               },
               "fields": {
-                "Id": 2002,
+                "Id": "3",
                 "Name": "MainContainer",
                 "Width": "100%",
                 "Height": "100%",
-                "ResElemName": "3"
+                "ResElemName": "UnknownClass133"
               },
               "collections": {
                 "Children": [
@@ -60,9 +60,9 @@
                       "typeGuid": "5e89f6c7-ccc2-a850-2f67-b5f5f20c3d47"
                     },
                     "fields": {
-                      "Id": 2003,
+                      "Id": "4",
                       "Name": "DataModel",
-                      "ResElemName": "4"
+                      "ResElemName": "ADataModel12"
                     },
                     "collections": {
                       "Datasets": [
@@ -72,12 +72,12 @@
                             "typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
                           },
                           "fields": {
-                            "Id": 2004,
+                            "Id": "5",
                             "Name": "DatasetLeadList",
                             "ObjType": "c170c217-e519-7c23-2811-ff75cd4bfe81",
                             "Active": true,
                             "OnMoveCursor": " { this.getControlMgr().getByName('FormParam1').value(newVal); } ",
-                            "ResElemName": "5"
+                            "ResElemName": "Dataset20"
                           },
                           "collections": {
                             "Fields": [
@@ -87,9 +87,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5002,
+                                  "Id": "6",
                                   "Name": "Id",
-                                  "ResElemName": "6"
+                                  "ResElemName": "DataField201"
                                 }
                               },
                               {
@@ -98,9 +98,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5001,
+                                  "Id": "7",
                                   "Name": "Source",
-                                  "ResElemName": "7"
+                                  "ResElemName": "DataField202"
                                 }
                               },
                               {
@@ -109,9 +109,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5003,
+                                  "Id": "8",
                                   "Name": "State",
-                                  "ResElemName": "8"
+                                  "ResElemName": "DataField203"
                                 }
                               },
                               {
@@ -120,9 +120,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5004,
+                                  "Id": "9",
                                   "Name": "Content",
-                                  "ResElemName": "9"
+                                  "ResElemName": "DataField204"
                                 }
                               },
                               {
@@ -131,9 +131,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5005,
+                                  "Id": "10",
                                   "Name": "Creation",
-                                  "ResElemName": "10"
+                                  "ResElemName": "DataField205"
                                 }
                               },
                               {
@@ -142,9 +142,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5006,
+                                  "Id": "11",
                                   "Name": "Closed",
-                                  "ResElemName": "11"
+                                  "ResElemName": "DataField206"
                                 }
                               },
                               {
@@ -153,9 +153,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5007,
+                                  "Id": "12",
                                   "Name": "OpportunityId",
-                                  "ResElemName": "12"
+                                  "ResElemName": "DataField207"
                                 }
                               },
                               {
@@ -164,9 +164,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5008,
+                                  "Id": "13",
                                   "Name": "ContactId",
-                                  "ResElemName": "13"
+                                  "ResElemName": "DataField208"
                                 }
                               },
                               {
@@ -175,9 +175,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5009,
+                                  "Id": "14",
                                   "Name": "FirstName",
-                                  "ResElemName": "14"
+                                  "ResElemName": "DataField209"
                                 }
                               },
                               {
@@ -186,9 +186,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5010,
+                                  "Id": "15",
                                   "Name": "LastName",
-                                  "ResElemName": "15"
+                                  "ResElemName": "DataField210"
                                 }
                               },
                               {
@@ -197,9 +197,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5011,
+                                  "Id": "16",
                                   "Name": "Title",
-                                  "ResElemName": "16"
+                                  "ResElemName": "DataField211"
                                 }
                               },
                               {
@@ -208,9 +208,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5012,
+                                  "Id": "17",
                                   "Name": "MobilePhone",
-                                  "ResElemName": "17"
+                                  "ResElemName": "DataField212"
                                 }
                               },
                               {
@@ -219,9 +219,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5013,
+                                  "Id": "18",
                                   "Name": "WorkPhone",
-                                  "ResElemName": "18"
+                                  "ResElemName": "DataField213"
                                 }
                               },
                               {
@@ -230,9 +230,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5014,
+                                  "Id": "19",
                                   "Name": "Email",
-                                  "ResElemName": "19"
+                                  "ResElemName": "DataField214"
                                 }
                               },
                               {
@@ -241,9 +241,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5015,
+                                  "Id": "20",
                                   "Name": "CompanyId",
-                                  "ResElemName": "20"
+                                  "ResElemName": "DataField215"
                                 }
                               },
                               {
@@ -252,9 +252,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5016,
+                                  "Id": "21",
                                   "Name": "Company",
-                                  "ResElemName": "21"
+                                  "ResElemName": "DataField216"
                                 }
                               },
                               {
@@ -263,9 +263,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5017,
+                                  "Id": "22",
                                   "Name": "Industry",
-                                  "ResElemName": "22"
+                                  "ResElemName": "DataField217"
                                 }
                               },
                               {
@@ -274,9 +274,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5018,
+                                  "Id": "23",
                                   "Name": "NbEmpl",
-                                  "ResElemName": "23"
+                                  "ResElemName": "DataField218"
                                 }
                               },
                               {
@@ -285,9 +285,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5019,
+                                  "Id": "24",
                                   "Name": "City",
-                                  "ResElemName": "24"
+                                  "ResElemName": "DataField219"
                                 }
                               },
                               {
@@ -296,9 +296,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5020,
+                                  "Id": "25",
                                   "Name": "Address",
-                                  "ResElemName": "25"
+                                  "ResElemName": "DataField220"
                                 }
                               },
                               {
@@ -307,9 +307,9 @@
                                   "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
                                 },
                                 "fields": {
-                                  "Id": 5021,
+                                  "Id": "26",
                                   "Name": "PostalCode",
-                                  "ResElemName": "26"
+                                  "ResElemName": "DataField221"
                                 }
                               }
                             ]
@@ -324,7 +324,7 @@
                       "typeGuid": "afc2da5a-ad87-4d0c-83dd-96df7ae1b3b6"
                     },
                     "fields": {
-                      "Id": 2002,
+                      "Id": "27",
                       "Name": "Toolbar0",
                       "Width": "100%",
                       "Height": "4.875em",
@@ -334,7 +334,7 @@
                       "ContentAlign": "left",
                       "Spacing": "1em",
                       "Caption": "Обращения",
-                      "ResElemName": "27"
+                      "ResElemName": "Toolbar8"
                     },
                     "collections": {
                       "Children": [
@@ -344,13 +344,13 @@
                             "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
                           },
                           "fields": {
-                            "Id": 2002,
+                            "Id": "28",
                             "Name": "ToolbarBtn0_1",
                             "CaptionStyle": "Image",
                             "Caption": "Добавить",
                             "Image": "Genetix.svg#add",
                             "OnClick": "{ var g = this.getControlMgr().getByName('DataGridLead'); g.visible(!g.visible()); return; }",
-                            "ResElemName": "28"
+                            "ResElemName": "ToolbarButton29"
                           }
                         },
                         {
@@ -359,13 +359,13 @@
                             "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
                           },
                           "fields": {
-                            "Id": 2002,
+                            "Id": "29",
                             "Name": "ToolbarBtn0_2",
                             "CaptionStyle": "Image",
                             "Caption": "Исправить",
                             "Image": "Genetix.svg#edit",
                             "OnClick": "{ var g = this.getControlMgr().getByName('DataGridLead2'); g.visible(!g.visible()); return; }",
-                            "ResElemName": "29"
+                            "ResElemName": "ToolbarButton30"
                           }
                         },
                         {
@@ -374,12 +374,12 @@
                             "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
                           },
                           "fields": {
-                            "Id": 2002,
+                            "Id": "30",
                             "Name": "ToolbarBtn0_3",
                             "CaptionStyle": "Image",
                             "Caption": "В архив",
                             "Image": "Genetix.svg#box",
-                            "ResElemName": "30"
+                            "ResElemName": "ToolbarButton31"
                           }
                         },
                         {
@@ -388,9 +388,9 @@
                             "typeGuid": "050fd0ed-873a-4637-916b-145cb71e425f"
                           },
                           "fields": {
-                            "Id": 2002,
+                            "Id": "31",
                             "Name": "ToolbarSeparator0",
-                            "ResElemName": "31"
+                            "ResElemName": "ToolbarSeparator6"
                           }
                         },
                         {
@@ -399,13 +399,13 @@
                             "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
                           },
                           "fields": {
-                            "Id": 2002,
+                            "Id": "32",
                             "Name": "ToolbarBtn0_t1",
                             "CaptionStyle": "Text",
                             "Caption": "История",
                             "ButtonKind": "Radio",
                             "Pressed": true,
-                            "ResElemName": "32"
+                            "ResElemName": "ToolbarButton32"
                           }
                         },
                         {
@@ -414,13 +414,13 @@
                             "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
                           },
                           "fields": {
-                            "Id": 2002,
+                            "Id": "33",
                             "Name": "ToolbarBtn0_t2",
                             "CaptionStyle": "Text",
                             "Caption": "Другие контакты",
                             "ButtonKind": "Radio",
                             "Pressed": false,
-                            "ResElemName": "33"
+                            "ResElemName": "ToolbarButton33"
                           }
                         },
                         {
@@ -429,14 +429,14 @@
                             "typeGuid": "6ddef43f-252a-46e3-bb68-2a5a52f0702e"
                           },
                           "fields": {
-                            "Id": 2002,
+                            "Id": "34",
                             "Name": "ToolbarBtn0_t3",
                             "CaptionStyle": "Both",
                             "Caption": "Задачи",
                             "ButtonKind": "Radio",
                             "Image": "Genetix.svg#box",
                             "Pressed": false,
-                            "ResElemName": "34"
+                            "ResElemName": "ToolbarButton34"
                           }
                         }
                       ]
@@ -448,7 +448,7 @@
                       "typeGuid": "55d59ec4-77ac-4296-85e1-def78aa93d55"
                     },
                     "fields": {
-                      "Id": 2005,
+                      "Id": "35",
                       "Name": "DataGridLead",
                       "Width": "100%",
                       "Height": "30%",
@@ -458,7 +458,7 @@
                       "HorizontalLines": true,
                       "HasFooter": false,
                       "Visible": true,
-                      "ResElemName": "35"
+                      "ResElemName": "UnknownClass134"
                     },
                     "collections": {
                       "Columns": [
@@ -468,11 +468,11 @@
                             "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
                           },
                           "fields": {
-                            "Id": 5001,
+                            "Id": "36",
                             "Label": "Date",
                             "Width": 10,
                             "Field": "a0e1e0e0-0c82-29ba-cd5d-b770aa9ffcc9",
-                            "ResElemName": "36"
+                            "ResElemName": "DataColumn23"
                           }
                         },
                         {
@@ -481,11 +481,11 @@
                             "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
                           },
                           "fields": {
-                            "Id": 5002,
+                            "Id": "37",
                             "Label": "State",
                             "Width": 7,
                             "Field": "7e81d9b8-ffdd-9adb-b27e-50bed6bf9648",
-                            "ResElemName": "37"
+                            "ResElemName": "DataColumn24"
                           }
                         },
                         {
@@ -494,11 +494,11 @@
                             "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
                           },
                           "fields": {
-                            "Id": 5003,
+                            "Id": "38",
                             "Label": "Name",
                             "Width": 56,
                             "Field": "bb76eac7-7f14-532f-bb28-72122339d7e0",
-                            "ResElemName": "38"
+                            "ResElemName": "DataColumn25"
                           }
                         }
                       ]
@@ -510,11 +510,11 @@
                       "typeGuid": "b75474ef-26d0-4298-9dad-4133edaa8a9c"
                     },
                     "fields": {
-                      "Id": 2002,
+                      "Id": "39",
                       "Name": "Grid2Container",
                       "Width": "100%",
                       "Height": "30%",
-                      "ResElemName": "39"
+                      "ResElemName": "Grid2Container"
                     },
                     "collections": {
                       "Children": [
@@ -524,7 +524,7 @@
                             "typeGuid": "55d59ec4-77ac-4296-85e1-def78aa93d55"
                           },
                           "fields": {
-                            "Id": 2005,
+                            "Id": "40",
                             "Name": "DataGridLead2",
                             "Width": "100%",
                             "Height": "100%",
@@ -534,7 +534,7 @@
                             "HorizontalLines": true,
                             "HasFooter": false,
                             "Visible": true,
-                            "ResElemName": "40"
+                            "ResElemName": "DataGridLead2"
                           },
                           "collections": {
                             "Columns": [
@@ -544,11 +544,11 @@
                                   "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
                                 },
                                 "fields": {
-                                  "Id": 5001,
+                                  "Id": "41",
                                   "Label": "Date",
                                   "Width": 10,
                                   "Field": "a0e1e0e0-0c82-29ba-cd5d-b770aa9ffcc9",
-                                  "ResElemName": "41"
+                                  "ResElemName": "DataColumn26"
                                 }
                               },
                               {
@@ -557,11 +557,11 @@
                                   "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
                                 },
                                 "fields": {
-                                  "Id": 5002,
+                                  "Id": "42",
                                   "Label": "State",
                                   "Width": 7,
                                   "Field": "7e81d9b8-ffdd-9adb-b27e-50bed6bf9648",
-                                  "ResElemName": "42"
+                                  "ResElemName": "DataColumn27"
                                 }
                               },
                               {
@@ -570,11 +570,11 @@
                                   "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
                                 },
                                 "fields": {
-                                  "Id": 5003,
+                                  "Id": "43",
                                   "Label": "Name",
                                   "Width": 56,
                                   "Field": "bb76eac7-7f14-532f-bb28-72122339d7e0",
-                                  "ResElemName": "43"
+                                  "ResElemName": "DataColumn28"
                                 }
                               }
                             ]
@@ -589,7 +589,7 @@
                       "typeGuid": "55d59ec4-77ac-4296-85e1-def78aa93d55"
                     },
                     "fields": {
-                      "Id": 2005,
+                      "Id": "44",
                       "Name": "DataGridLead3",
                       "Width": "100%",
                       "Height": "40%",
@@ -598,7 +598,7 @@
                       "Alternate": false,
                       "HorizontalLines": true,
                       "HasFooter": false,
-                      "ResElemName": "44"
+                      "ResElemName": "DataGridLead3"
                     },
                     "collections": {
                       "Columns": [
@@ -608,11 +608,11 @@
                             "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
                           },
                           "fields": {
-                            "Id": 5001,
+                            "Id": "45",
                             "Label": "Date",
                             "Width": 10,
                             "Field": "a0e1e0e0-0c82-29ba-cd5d-b770aa9ffcc9",
-                            "ResElemName": "45"
+                            "ResElemName": "DataColumn29"
                           }
                         },
                         {
@@ -621,11 +621,11 @@
                             "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
                           },
                           "fields": {
-                            "Id": 5002,
+                            "Id": "46",
                             "Label": "State",
                             "Width": 7,
                             "Field": "7e81d9b8-ffdd-9adb-b27e-50bed6bf9648",
-                            "ResElemName": "46"
+                            "ResElemName": "DataColumn30"
                           }
                         },
                         {
@@ -634,11 +634,11 @@
                             "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
                           },
                           "fields": {
-                            "Id": 5003,
+                            "Id": "47",
                             "Label": "Name",
                             "Width": 56,
                             "Field": "bb76eac7-7f14-532f-bb28-72122339d7e0",
-                            "ResElemName": "47"
+                            "ResElemName": "DataColumn31"
                           }
                         }
                       ]
