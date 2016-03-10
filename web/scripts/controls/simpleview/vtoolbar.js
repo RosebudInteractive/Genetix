@@ -144,6 +144,7 @@ define(
                             var lc = that.layersContainer();
                             console.log("Layers set tab number");
                             lc.tabNumber(btn.tabNumber());
+                            //lc._isRendered(false);
                         }
 
 

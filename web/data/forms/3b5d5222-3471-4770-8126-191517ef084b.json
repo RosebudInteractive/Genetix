@@ -1293,7 +1293,7 @@
                       "CaptionStyle": "None",
                       "ContentAlign": "left",
                       "Spacing": "1em",
-                      "LayersContainer": "6aa2f9c8-0a61-412e-ae22-56fb8d84864e",
+                      "LayersContainer": "393dc8b4-def6-4e4b-924a-cfc7476aacb5",
                       "ResElemName": "Toolbar6"
                     },
                     "collections": {
@@ -1415,6 +1415,56 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    "$sys": {
+                      "guid": "1fb25404-3a70-d33d-8249-2b7b74b2dc72",
+                      "typeGuid": "55d59ec4-77ac-4296-85e1-def78aa93d55"
+                    },
+                    "fields": {
+                      "Id": "103",
+                      "Name": "DataGridLeadLog",
+                      "Width": "100%",
+                      "Height": "auto",
+                      "BigSize": true,
+                      "Alternate": false,
+                      "HorizontalLines": true,
+                      "HasFooter": false,
+                      "Dataset": "504729ba-e002-d856-b694-271ca843a98c",
+                      "Scroll": false,
+                      "WhiteHeader": true,
+                      "ResElemName": "DataGridLeadLog"
+                    },
+                    "collections": {
+                      "Columns": [
+                        {
+                          "$sys": {
+                            "guid": "5c84ef40-0cb8-46b9-bae9-b668e78e029b",
+                            "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
+                          },
+                          "fields": {
+                            "Id": "104",
+                            "Label": "Дата",
+                            "Width": 20,
+                            "Field": "b707c450-6cba-c9ee-f62d-4ce35f449c5f",
+                            "ResElemName": "DataColumn13"
+                          }
+                        },
+                        {
+                          "$sys": {
+                            "guid": "40263777-70c8-3532-a683-6cec83378999",
+                            "typeGuid": "100f774a-bd84-8c46-c55d-ba5981c09db5"
+                          },
+                          "fields": {
+                            "Id": "105",
+                            "Label": "Описание",
+                            "Width": 80,
+                            "Field": "4507be07-a3ff-65d9-465c-7f8d6ff122a5",
+                            "ResElemName": "DataColumn14"
+                          }
+                        }
+                      ]
+                    }
                   }
                 ],
                 "Layouts": [
@@ -1429,7 +1479,8 @@
                       "Width": "100%",
                       "Height": "100%",
                       "ResElemName": "RootLayout",
-                      "Direction": "horizontal"
+                      "Direction": "horizontal",
+                      "MinTargetWidth": 701
                     },
                     "collections": {
                       "Layouts": [
@@ -1601,6 +1652,361 @@
                                               "ResElemName": "SmallRightToolbarLayout",
                                               "Direction": "vertical",
                                               "Control": "92fc310b-9771-4cad-b172-0c28325c6760"
+                                            },
+                                            "collections": {
+                                              "Layouts": [
+
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "$sys": {
+                                        "guid": "393dc8b4-def6-4e4b-924a-cfc7476aacb5",
+                                        "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                      },
+                                      "fields": {
+                                        "Id": "LayersLayout",
+                                        "Name": "LayersLayout",
+                                        "Width": "100%",
+                                        "Height": "auto",
+                                        "ResElemName": "LayersLayout",
+                                        "Direction": "layer"
+                                      },
+                                      "collections": {
+                                        "Layouts": [
+                                          {
+                                            "$sys": {
+                                              "guid": "ddcf98b3-c1c8-49b9-a87b-164759ccf28a",
+                                              "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                            },
+                                            "fields": {
+                                              "Id": "TabLayout0",
+                                              "Name": "TabLayout0",
+                                              "Width": "100%",
+                                              "Height": "auto",
+                                              "ResElemName": "TabLayout0",
+                                              "Direction": "vertical",
+                                              "Control": "1fb25404-3a70-d33d-8249-2b7b74b2dc72"
+                                            },
+                                            "collections": {
+                                              "Layouts": [
+
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "$sys": {
+                                              "guid": "cbca4f1c-83aa-497c-a89d-251a6457755f",
+                                              "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                            },
+                                            "fields": {
+                                              "Id": "TabLayout1",
+                                              "Name": "TabLayout1",
+                                              "Width": "100%",
+                                              "Height": "2.8125em",
+                                              "ResElemName": "TabLayout1",
+                                              "Direction": "vertical"
+                                            },
+                                            "collections": {
+                                              "Layouts": [
+
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "$sys": {
+                                              "guid": "b0601a81-d565-4517-9aca-c03df719423e",
+                                              "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                            },
+                                            "fields": {
+                                              "Id": "TabLayout2",
+                                              "Name": "TabLayout2",
+                                              "Width": "100%",
+                                              "Height": "2.8125em",
+                                              "ResElemName": "TabLayout2",
+                                              "Direction": "vertical"
+                                            },
+                                            "collections": {
+                                              "Layouts": [
+
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$sys": {
+                      "guid": "3108b2cd-de12-4ba4-9c1b-0e6f723557b0",
+                      "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                    },
+                    "fields": {
+                      "Id": "RootLayout2",
+                      "Name": "RootLayout2",
+                      "Width": "100%",
+                      "Height": "100%",
+                      "ResElemName": "RootLayout2",
+                      "Direction": "vertical",
+                      "MaxTargetWidth": 700
+                    },
+                    "collections": {
+                      "Layouts": [
+                        {
+                          "$sys": {
+                            "guid": "d60d04ae-fb3f-42e5-b728-8a422a8492b7",
+                            "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                          },
+                          "fields": {
+                            "Id": "LeftLayout2",
+                            "Name": "LeftLayout2",
+                            "Width": "100%",
+                            "Height": "400px",
+                            "ResElemName": "LeftLayout2",
+                            "Direction": "vertical"
+                          },
+                          "collections": {
+                            "Layouts": [
+                              {
+                                "$sys": {
+                                  "guid": "2c4149b4-9eb7-4cf5-beec-d14f92c1b7df",
+                                  "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                },
+                                "fields": {
+                                  "Id": "LeftTopLayout2",
+                                  "Name": "LeftTopLayout2",
+                                  "Width": "100%",
+                                  "Height": "4.875em",
+                                  "ResElemName": "LeftTopLayout2",
+                                  "Direction": "vertical",
+                                  "Control": "f0599d3d-8294-44b7-a44a-c4a7615d1c05"
+                                },
+                                "collections": {
+                                  "Layouts": []
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "ca0d540d-feb2-45fd-980f-f11ef52374ca",
+                                  "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                },
+                                "fields": {
+                                  "Id": "LeftBotLayout2",
+                                  "Name": "LeftBotLayout2",
+                                  "Width": "100%",
+                                  "Height": "100%",
+                                  "ResElemName": "LeftBotLayout2",
+                                  "Direction": "vertical",
+                                  "Control": "ea3555fb-d449-4505-408d-5d9378ec9726"
+                                },
+                                "collections": {
+                                  "Layouts": []
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "$sys": {
+                            "guid": "21500da6-9f90-4fbf-b0bc-51244377ac8b",
+                            "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                          },
+                          "fields": {
+                            "Id": "RightLayout2",
+                            "Name": "RightLayout2",
+                            "Width": "50%",
+                            "Height": "auto",
+                            "ResElemName": "RightLayout2",
+                            "Direction": "vertical"
+                          },
+                          "collections": {
+                            "Layouts": [
+                              {
+                                "$sys": {
+                                  "guid": "687c6f67-34c4-4584-8022-fcbbaee06d29",
+                                  "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                },
+                                "fields": {
+                                  "Id": "RightTopLayout2",
+                                  "Name": "RightTopLayout2",
+                                  "Width": "100%",
+                                  "Height": "4.875em",
+                                  "ResElemName": "RightTopLayout2",
+                                  "Direction": "vertical",
+                                  "Control": "98b7fc25-f8e4-450e-a480-b9e79344fbf3"
+                                },
+                                "collections": {
+                                  "Layouts": []
+                                }
+                              },
+                              {
+                                "$sys": {
+                                  "guid": "5f7f3d72-a1bc-47d2-844e-1c1dbeb7da16",
+                                  "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                },
+                                "fields": {
+                                  "Id": "RightBotLayout2",
+                                  "Name": "RightBotLayout2",
+                                  "Width": "100%",
+                                  "Height": "auto",
+                                  "ResElemName": "RightBotLayout2",
+                                  "Direction": "vertical"
+                                },
+                                "collections": {
+                                  "Layouts": [
+                                    {
+                                      "$sys": {
+                                        "guid": "4ec3c90a-555f-457b-9f2c-3d392e2beba0",
+                                        "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                      },
+                                      "fields": {
+                                        "Id": "EditLayout2",
+                                        "Name": "EditLayout2",
+                                        "Width": "100%",
+                                        "Height": "auto",
+                                        "ResElemName": "EditLayout2",
+                                        "Direction": "vertical",
+                                        "Control": "1215a0ae-a3bd-356a-1c98-e80244b95d52"
+                                      },
+                                      "collections": {
+                                        "Layouts": []
+                                      }
+                                    },
+                                    {
+                                      "$sys": {
+                                        "guid": "58e0503a-e999-484a-b946-13cc0554c767",
+                                        "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                      },
+                                      "fields": {
+                                        "Id": "SmallToolbarLayout2",
+                                        "Name": "SmallToolbarLayout2",
+                                        "Width": "100%",
+                                        "Height": "2.8125em",
+                                        "ResElemName": "SmallToolbarLayout2",
+                                        "Direction": "horizontal"
+                                      },
+                                      "collections": {
+                                        "Layouts": [
+                                          {
+                                            "$sys": {
+                                              "guid": "e6069650-5d89-4285-b924-f00e5a023c9b",
+                                              "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                            },
+                                            "fields": {
+                                              "Id": "123",
+                                              "Name": "SmallLeftToolbarLayout2",
+                                              "Width": "70%",
+                                              "Height": "100%",
+                                              "ResElemName": "SmallLeftToolbarLayout2",
+                                              "Direction": "vertical",
+                                              "Control": "da430f16-d52b-40c6-a209-a9769e69e72f"
+                                            },
+                                            "collections": {
+                                              "Layouts": [
+
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "$sys": {
+                                              "guid": "283c68ce-ad24-4634-8555-7cadd126b350",
+                                              "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                            },
+                                            "fields": {
+                                              "Id": "123",
+                                              "Name": "SmallRightToolbarLayout2",
+                                              "Width": "30%",
+                                              "Height": "100%",
+                                              "ResElemName": "SmallRightToolbarLayout2",
+                                              "Direction": "vertical",
+                                              "Control": "92fc310b-9771-4cad-b172-0c28325c6760"
+                                            },
+                                            "collections": {
+                                              "Layouts": [
+
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "$sys": {
+                                        "guid": "699d9f00-fc31-4435-b72c-f0cf90c83e7c",
+                                        "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                      },
+                                      "fields": {
+                                        "Id": "LayersLayout2",
+                                        "Name": "LayersLayout2",
+                                        "Width": "100%",
+                                        "Height": "auto",
+                                        "ResElemName": "LayersLayout2",
+                                        "Direction": "layer"
+                                      },
+                                      "collections": {
+                                        "Layouts": [
+                                          {
+                                            "$sys": {
+                                              "guid": "63a2e451-42d2-47bd-97d1-fe8fb689fd65",
+                                              "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                            },
+                                            "fields": {
+                                              "Id": "TabLayout0_2",
+                                              "Name": "TabLayout0_2",
+                                              "Width": "100%",
+                                              "Height": "auto",
+                                              "ResElemName": "TabLayout0_2",
+                                              "Direction": "vertical",
+                                              "Control": "1fb25404-3a70-d33d-8249-2b7b74b2dc72"
+                                            },
+                                            "collections": {
+                                              "Layouts": [
+
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "$sys": {
+                                              "guid": "2e0d0123-12c1-47b8-9afb-2f45cb2ec2db",
+                                              "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                            },
+                                            "fields": {
+                                              "Id": "TabLayout1_2",
+                                              "Name": "TabLayout1_2",
+                                              "Width": "100%",
+                                              "Height": "2.8125em",
+                                              "ResElemName": "TabLayout1_2",
+                                              "Direction": "vertical"
+                                            },
+                                            "collections": {
+                                              "Layouts": [
+
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "$sys": {
+                                              "guid": "e3e9087c-d3b9-4162-bf39-8f6038b570c2",
+                                              "typeGuid": "8475e73d-06aa-4454-b02f-cf26a9cbabb6"
+                                            },
+                                            "fields": {
+                                              "Id": "TabLayout2_2",
+                                              "Name": "TabLayout2_2",
+                                              "Width": "100%",
+                                              "Height": "2.8125em",
+                                              "ResElemName": "TabLayout2_2",
+                                              "Direction": "vertical"
                                             },
                                             "collections": {
                                               "Layouts": [

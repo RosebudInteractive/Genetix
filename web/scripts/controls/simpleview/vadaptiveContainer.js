@@ -55,14 +55,21 @@ define(
             }
 
             // создаем врапперы для разметок
-            var child = vAContainer._getCurrentLayout.call(this);
-            var div = $('#lay_'+child.getLid());
-            if (div.length == 0) {
-                div = $('<div class="control-wrapper"><div class="control-separator"/><div class="mid-wrapper"></div></div>').attr('id', 'lay_' + child.getLid());
-                div.children(".mid-wrapper").attr('id', 'ch_' + child.getLid());
-                cont.append(div);
+            var curLayout = vAContainer._getCurrentLayout.call(this);
+            this._currentLayout = curLayout;
+            var children = this.getCol('Layouts');
+            for (var i = 0; i < children.count(); i++) {
+                var child = children.get(i);
+                var div = $('#lay_'+child.getLid());
+                if (div.length == 0) {
+                    div = $('<div class="control-wrapper"><div class="control-separator"/><div class="mid-wrapper"></div></div>').attr('id', 'lay_' + child.getLid());
+                    div.children(".mid-wrapper").attr('id', 'ch_' + child.getLid());
+                    cont.append(div);
+                }
+                if (child == curLayout) div.show();
+                else div.hide();
+                vAContainer._renderLayout.call(this, child, child == curLayout, child);
             }
-            vAContainer._renderLayout.call(this, child);
 
             $(window).on("genetix:resize", function () {
                 var p = that.getParentComp()? '#ch_' + that.getLid(): options.rootContainer;
@@ -73,12 +80,36 @@ define(
                 pp.css("height", $(p).height());
 
                 var layout = vAContainer._getCurrentLayout.call(that);
+                if (that._currentLayout != layout) {
+                    $('#lay_' + that._currentLayout.getLid()).hide();
+                    $('#lay_' + layout.getLid()).show();
+                    that._currentLayout = layout;
+                    vAContainer._switchLayout.call(that, layout, layout);
+                }
                 vAContainer._handleResize.call(that, layout);
             });
             vAContainer._setVisible.call(this);
             vAContainer._genEventsForParent.call(this);
             var layout = vAContainer._getCurrentLayout.call(this);
             vAContainer._handleResize.call(this, layout);
+        }
+
+        vAContainer._switchLayout = function (layout, rootLayout) {
+            var child = layout.control();
+            if (child) {
+                //var targetLayout = vAContainer._getLayoutByControl(this, rootLayout, layout.control().getGuid());
+                var targetCont = $("#cont_" + rootLayout.getLid() + "_" + child.getLid());
+                var chDiv = $("#ext_" + child.getLid());
+                targetCont.append(chDiv);
+            } else {
+                var children = layout.getCol('Layouts');
+                for (var i = 0; i < children.count(); i++) {
+                    var child = children.get(i);
+                    vAContainer._switchLayout.call(this, child, rootLayout);
+                }
+            }
+
+            vAContainer._handleLayoutContentResized.call(this, layout);
         }
 
         vAContainer._handleResize = function(layout) {
@@ -97,15 +128,22 @@ define(
         }
 
         vAContainer._getCurrentLayout = function() {
+            var result = null;
+            var item = $('#' + this.getLid());
+            var currWidth = item.width();
             var children = this.getCol('Layouts');
             for(var i=0; i<children.count();i++) {
-                // Корневая разметка берется одна. Потом надо будет выбирать какая именно
-                return children.get(i);
+                var child = children.get(i);
+                if ((!(child.minTargetWidth()) || (child.minTargetWidth() <= currWidth))
+                    && (!(child.maxTargetWidth()) || child.maxTargetWidth() >= currWidth)) {
+                    result = child;
+                    break;
+                }
             }
-            return null;
+            return result;
         }
 
-        vAContainer._renderLayout = function(layout) {
+        vAContainer._renderLayout = function(layout, isCurrent, rootLayout) {
             var that = this;
             var item = $("#" + layout.getLid());
             var pItem = null;
@@ -124,8 +162,12 @@ define(
 
             var cont = item.children(".c-content");
             var children = layout.getCol('Layouts');
-            if (layout.control()) {
-                child = layout.control();
+            child = layout.control();
+            if (child) {
+                cont.attr("id", "cont_" + rootLayout.getLid() + "_" + child.getLid());
+            }
+
+            if (child && isCurrent) {
                 var div = $('#ext_'+child.getLid());
                 if (div.length == 0) {
                     div = $('<div class="control-wrapper"><div class="control-separator"/><div class="mid-wrapper"></div></div>').attr('id', 'ext_' + child.getLid());
@@ -137,7 +179,7 @@ define(
                         return false;
                     });
                 }
-            } else {
+            } else if (!child) {
                 for (var i = 0; i < children.count(); i++) {
                     var child = children.get(i);
                     var div = $('#lay_' + child.getLid());
@@ -145,11 +187,41 @@ define(
                         div = $('<div class="control-wrapper"><div class="control-separator"/><div class="mid-wrapper"></div></div>').attr('id', 'lay_' + child.getLid());
                         div.children(".mid-wrapper").attr('id', 'ch_' + child.getLid());
                         cont.append(div);
-                        vAContainer._renderLayout.call(this, child)
+                        if (layout.direction() == "layer") {
+                            div.css({"width": "100%", "height": "100%"});
+                        }
                     }
+                    vAContainer._renderLayout.call(this, child, isCurrent, rootLayout)
                 }
             }
+
+            if (layout.direction() == "layer") {
+                vAContainer._setVisibleTab.call(this, layout);
+                setTimeout(function() {
+                    var tabNum = layout.tabNumber() || 0;
+                    var children = layout.getCol('Layouts');
+                    vAContainer._handleLayoutContentResized.call(that, children.get(tabNum));
+                    $(window).trigger("genetix:resize");
+                }, 100);
+            }
         }
+
+        vAContainer._setVisibleTab = function(layout) {
+            if (layout.direction() != "layer") return;
+
+            var tabNum = layout.tabNumber() || 0;
+            var children = layout.getCol('Layouts');
+            for(var i=0; i<children.count();i++) {
+                var child = children.get(i);
+                if (!child.direction) continue;
+                var div = $('#lay_'+child.getLid());
+                if (i == tabNum)
+                    div.show();
+                else
+                    div.hide();
+            }
+        }
+
 
         vAContainer._handleLayoutContentResized = function(layout) {
             var height = layout.height() || "auto";
@@ -157,11 +229,18 @@ define(
                 $("#mid_" + layout.getLid()).css("height", "");
                 $("#ch_" + layout.getLid()).css("height", "");
                 var cont = $("#" + layout.getLid()).children();
+                cont.css("height", "auto");
                 var h = 0;
                 cont.children().each(function() {
-                    h += $(this).height();
+                    h += ($(this).css("display") == "none" ? 0 : $(this).height());
                 });
+                cont.css("height", "");
                 $("#lay_" + layout.getLid()).css({"height": h, "min-height": h});
+
+                var parent = layout.getParentComp();
+                if (parent.className == "Layout") {
+                    vAContainer._handleLayoutContentResized.call(this, parent);
+                }
             }
         }
 
@@ -172,6 +251,26 @@ define(
 
             if (!parent.direction || parent.direction() == "layer") {
                 div.css({width: "100%", height: "100%"});
+                if (parent.direction && parent.direction() == "layer") {
+                    var height = child.height() || "auto";
+                    if (height != "auto") {
+                        if ($.isNumeric(height))
+                            height += "px";
+                        div.css({
+                            "height": height,
+                        });
+                    } else {
+                        var chEDiv = $("#" + child.getLid());
+                        div.css({
+                            "min-height" : "",
+                            "height": ""
+                        });
+                        div.css({
+                            "min-height" : chEDiv.height(),
+                            "height": chEDiv.height()
+                        });
+                    }
+                }
             } else {
                 var dimName = parent.direction() == "horizontal" ? "width" :
                     (parent.direction() == "vertical" ? "height" : "");
