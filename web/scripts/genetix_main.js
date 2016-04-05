@@ -17,6 +17,7 @@ var form10Guid = "46e56f92-cfd9-45c0-9b94-9c7258e68839";
 var form11Guid = "cbbf37ac-2b69-4952-984f-5199ebe939b9";
 var form12Guid = "5217efe1-4122-462f-98fa-1ee5d9497321";
 var form13Guid = "3b5d5222-3471-4770-8126-191517ef084b";
+var form14Guid = "305d26ad-22d4-45ee-8da7-d69cfcced2a6";
 var $leadEdit = null;
 
 var uri = window.location.href;
@@ -79,7 +80,9 @@ $(document).ready( function() {
                     {className:'TreeView', viewset:true},
                     {className:'DbTreeView', viewset:true},
                     {className:'Layout', viewset:false},
-                    {className:'AdaptiveContainer', viewset:true}
+                    {className:'AdaptiveContainer', viewset:true},
+                    {className:'FormDesigner', viewset:true},
+                    {className:'DesignerControl', viewset:false}
                 ],
                 controlsPath: 'controls/',
                 uccelloPath: 'lib/uccello/',
@@ -260,7 +263,7 @@ $(document).ready( function() {
                                 window.createContext([form13Guid])
                             });
                             $("#more-menu-item2").click(function() {
-                                window.createContext([formGuid])
+                                window.createContext([form14Guid])
                             });
                             $("#more-menu-item3").click(function() {
                                 window.createContext([form7Guid])

@@ -1,0 +1,431 @@
+<!-- template: container -->
+<div class="control-ext">
+    <div class="control h-container container designer">
+        <div class="designer-toolbar">
+            <div class="button icon-vertical" role="vertical"></div>
+            <div class="button icon-horizontal" role="horizontal"></div>
+            <div class="button icon-layer" role="layer"></div>
+            <div class="control" role="controls">
+                <select>
+                    <option value="151c0d05-4236-4732-b0bd-ddcf69a35e25">Label</option>
+                    <option value="55d59ec4-77ac-4296-85e1-def78aa93d55">DataGrid</option>
+                    <option value="b75474ef-26d0-4298-9dad-4133edaa8a9c">VContainer</option>
+                    <option value="93ada11b-8c2a-4b06-b5ee-8622d607b0a4">GContainer</option>
+                    <option value="bf0b0b35-4025-48ff-962a-1761aa7b3a7b">Button</option>
+                    <option value="567cadd5-7f9d-4cd8-a24d-7993f065f5f9">DataEdit</option>
+                    <option value="29bc7a01-2065-4664-b1ad-7cc86f92c177">Form</option>
+                    <option value="1d95ab61-df00-aec8-eff5-0f90187891cf">CContainer</option>
+                    <option value="638c1e37-2105-9676-f3c9-dfc2746d1265">HContainer</option>
+                    <option value="902822d8-3079-f394-2eed-3ad9ac27b2f2">FContainer</option>
+                    <option value="26309035-7f47-422e-26c8-6c25a091c20e">GContainer</option>
+                    <option value="afc2da5a-ad87-4d0c-83dd-96df7ae1b3b6">Toolbar</option>
+                    <option value="35400d0c-5465-00e8-c770-a1b04b4b8180">TreeView</option>
+                    <option value="f91349d1-2254-cc67-07b3-792674725650">DbTreeView</option>
+                </select>
+            </div>
+            <div class="button icon-control" role="control"></div>
+            <div class="button icon-delete" role="delete"></div>
+            <div class="control" role="existingControls">
+                <select>
+                </select>
+            </div>
+            <div class="button icon-control" role="existingControl"></div>
+            <div class="button icon-layout" role="layout"></div>
+            <div class="control" role="changeLayout">
+                <select>
+                </select>
+            </div>
+        </div>
+        <div class="c-content">
+            <div class="designer-content">
+                <svg/>
+            </div>
+            <div class="prop-edit">
+                <div class="prop-edit-header"></div>
+                <div class="prop-edit-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Имя</th>
+                                <th>Значение</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- template: property -->
+<tr>
+    <td class="name"></td>
+    <td class="value"><input type="text"/></td>
+</tr>
+
+<!-- template: model -->
+{
+"$sys": {
+"guid": "f0ee9df0-314c-e22c-4c6e-64e76f65bb2d",
+"typeGuid": "5e89f6c7-ccc2-a850-2f67-b5f5f20c3d47"
+},
+"fields": {
+"Id": "5",
+"Name": "DataModel",
+"ResElemName": "ADataModel8"
+},
+"collections": {
+"Datasets": [
+{
+"$sys": {
+"guid": "061b1347-18a2-a829-fcce-ba59058b4bdf",
+"typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
+},
+"fields": {
+"Id": "6",
+"Name": "DatasetCompany",
+"ObjType": "ab573a02-b888-b3b4-36a7-38629a5fe6b7",
+"Active": true,
+"OnMoveCursor": " { this.getControlMgr().getByName('FormParam1').value(newVal); } ",
+"ResElemName": "Dataset8"
+},
+"collections": {
+"Fields": [
+{
+"$sys": {
+"guid": "3e9600e8-e4e8-cbef-39ab-c195fbe382cb",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "7",
+"Name": "Name",
+"ResElemName": "DataField118"
+}
+},
+{
+"$sys": {
+"guid": "fa866d8f-725e-f688-3de6-c0a782c95d5e",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "8",
+"Name": "Id",
+"ResElemName": "DataField119"
+}
+},
+{
+"$sys": {
+"guid": "f65ff081-e135-84f0-fd15-a19844f06b95",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "9",
+"Name": "country",
+"ResElemName": "DataField120"
+}
+},
+{
+"$sys": {
+"guid": "0afd044f-76f8-efbf-5ecc-c59df18abba9",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "10",
+"Name": "city",
+"ResElemName": "DataField121"
+}
+},
+{
+"$sys": {
+"guid": "1b117aef-3424-614a-1824-523cc46c0507",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "11",
+"Name": "address",
+"ResElemName": "DataField122"
+}
+}
+]
+}
+},
+{
+"$sys": {
+"guid": "eefbcccf-743a-66a4-c3a2-4751d2a334f5",
+"typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
+},
+"fields": {
+"Id": "12",
+"Name": "DatasetContact",
+"ObjType": "b49d39c9-b903-cccd-7d32-b84beb1b76dc",
+"Active": true,
+"Master": "061b1347-18a2-a829-fcce-ba59058b4bdf",
+"ResElemName": "Dataset9"
+},
+"collections": {
+"Fields": [
+{
+"$sys": {
+"guid": "439b8b9e-447d-c21f-f629-3105b1df754e",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "13",
+"Name": "Id",
+"ResElemName": "DataField123"
+}
+},
+{
+"$sys": {
+"guid": "80ab10ed-373c-2870-0f52-0c5c7bbf6978",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "14",
+"Name": "Name",
+"ResElemName": "DataField124"
+}
+},
+{
+"$sys": {
+"guid": "ec732baf-e03f-a116-7925-583712f681f9",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "15",
+"Name": "parent",
+"ResElemName": "DataField125"
+}
+},
+{
+"$sys": {
+"guid": "f4359087-4731-24d1-0b64-471965e019cf",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "16",
+"Name": "firstname",
+"ResElemName": "DataField126"
+}
+},
+{
+"$sys": {
+"guid": "ccf93017-2c46-374f-6a20-68f7c15426f8",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "17",
+"Name": "lastname",
+"ResElemName": "DataField127"
+}
+},
+{
+"$sys": {
+"guid": "c3c0a738-5fea-608d-24f9-138e4530e001",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "18",
+"Name": "birthdate",
+"ResElemName": "DataField128"
+}
+},
+{
+"$sys": {
+"guid": "99767254-4250-7dd4-1b56-659298414ddf",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "19",
+"Name": "country",
+"ResElemName": "DataField129"
+}
+},
+{
+"$sys": {
+"guid": "99b59f32-3dc5-9472-05fa-1643e46f87d1",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "20",
+"Name": "city",
+"ResElemName": "DataField130"
+}
+},
+{
+"$sys": {
+"guid": "c0a650b1-470e-7237-312e-d530c827e568",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "21",
+"Name": "address",
+"ResElemName": "DataField131"
+}
+}
+]
+}
+},
+{
+"$sys": {
+"guid": "e559320d-d80d-48f7-ed4e-0ac63587e606",
+"typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
+},
+"fields": {
+"Id": "22",
+"Name": "DatasetContract",
+"ObjType": "8583ee1d-6936-19da-5ef0-9025fb7d1d8d",
+"Active": true,
+"Master": "061b1347-18a2-a829-fcce-ba59058b4bdf",
+"ResElemName": "Dataset10"
+},
+"collections": {
+"Fields": [
+{
+"$sys": {
+"guid": "2e2949ac-bc9b-80de-4747-2df61750f105",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "23",
+"Name": "Id",
+"ResElemName": "DataField132"
+}
+},
+{
+"$sys": {
+"guid": "39c08f9d-b359-8dc0-99d7-0b619401e18f",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "24",
+"Name": "Name",
+"ResElemName": "DataField133"
+}
+},
+{
+"$sys": {
+"guid": "f48f71c0-a3c8-2f3b-9a69-1c1ce683e605",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "25",
+"Name": "parent",
+"ResElemName": "DataField134"
+}
+},
+{
+"$sys": {
+"guid": "73904728-a2fb-bd6d-5fac-58054a78e7c7",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "26",
+"Name": "number",
+"ResElemName": "DataField135"
+}
+},
+{
+"$sys": {
+"guid": "15fe26e8-2dbd-5fea-3f21-409175aca9ab",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "27",
+"Name": "total",
+"ResElemName": "DataField136"
+}
+}
+]
+}
+},
+{
+"$sys": {
+"guid": "92720532-a58f-68bb-6e5a-02b28239e312",
+"typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
+},
+"fields": {
+"Id": "28",
+"Name": "DatasetAddress",
+"ObjType": "edca46bc-3389-99a2-32c0-a59665fcb6a7",
+"Active": true,
+"Master": "eefbcccf-743a-66a4-c3a2-4751d2a334f5",
+"ResElemName": "Dataset11"
+},
+"collections": {
+"Fields": [
+{
+"$sys": {
+"guid": "182024da-784f-5615-dc1f-2700fe8f862c",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "29",
+"Name": "Id",
+"ResElemName": "DataField137"
+}
+},
+{
+"$sys": {
+"guid": "1146ab82-429c-7637-e7f5-c9cb770a19d0",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "30",
+"Name": "Name",
+"ResElemName": "DataField138"
+}
+},
+{
+"$sys": {
+"guid": "f4f00409-7541-290a-7e8e-404e1855c437",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "31",
+"Name": "parent",
+"ResElemName": "DataField139"
+}
+},
+{
+"$sys": {
+"guid": "60534ba5-b966-a2a3-a70b-f5787784b640",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "32",
+"Name": "country",
+"ResElemName": "DataField140"
+}
+},
+{
+"$sys": {
+"guid": "f06101d1-2ff0-39a0-8ff0-88fa5f0557d5",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "33",
+"Name": "city",
+"ResElemName": "DataField141"
+}
+},
+{
+"$sys": {
+"guid": "15aae336-6b29-8020-eb3b-5899287578a6",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
+},
+"fields": {
+"Id": "34",
+"Name": "address",
+"ResElemName": "DataField142"
+}
+}
+]
+}
+}
+]
+}
+}

@@ -662,6 +662,134 @@ td.container-title {
   width: 100%;
   height: 1px;
 }
+.designer svg {
+  width: 100%;
+  height: 100%;
+}
+.designer svg rect.border {
+  stroke: #f00;
+  fill: transparent;
+}
+.designer svg rect.invisible {
+  fill: transparent;
+}
+.designer g.cursor > rect.border {
+  stroke-width: 3px;
+}
+.designer .designer-toolbar {
+  height: 2.25em;
+  position: absolute;
+  width: 100%;
+  background-color: #f0f0f0;
+  z-index: 1;
+}
+.designer .designer-toolbar .button {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  background-repeat: no-repeat;
+  margin-top: 2px;
+  margin-left: 2px;
+  float: left;
+}
+.designer .designer-toolbar .button:hover {
+  background-color: #1c94c4;
+}
+.designer .designer-toolbar .button.active {
+  background-color: #1c94c4;
+}
+.designer .designer-toolbar .button.icon-vertical {
+  background-image: url("/images/split-vertical-32.png");
+}
+.designer .designer-toolbar .button.icon-horizontal {
+  background-image: url("/images/split-horizontal-32.png");
+}
+.designer .designer-toolbar .button.icon-layer {
+  background-image: url("/images/layers-32.png");
+}
+.designer .designer-toolbar .button.icon-control {
+  background-image: url("/images/add-control-32.png");
+}
+.designer .designer-toolbar .button.icon-delete {
+  background-image: url("/images/delete.png");
+}
+.designer .designer-toolbar .button.icon-layout {
+  background-image: url("/images/form-32-2.png");
+}
+.designer .designer-toolbar .control {
+  display: inline-block;
+  height: 2em;
+  width: auto;
+  margin-top: 2px;
+  margin-left: 2px;
+  float: left;
+}
+.designer .designer-toolbar .control select,
+.designer .designer-toolbar .control input {
+  margin-top: 6px;
+}
+.designer .designer-content {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+.container.designer > .c-content {
+  padding: 2.25em 0 0 0;
+  overflow: hidden;
+}
+.container.designer > .c-content .prop-edit {
+  width: 30em;
+  background-color: #ddd;
+}
+.container.designer > .c-content .prop-edit .prop-edit-header {
+  height: 2em;
+}
+.container.designer > .c-content .prop-edit .prop-edit-body {
+  flex: 100 0 auto;
+}
+.container.designer > .c-content .prop-edit .prop-edit-body table,
+.container.designer > .c-content .prop-edit .prop-edit-body th,
+.container.designer > .c-content .prop-edit .prop-edit-body td {
+  border: 1px solid #c8c8c8;
+}
+.container.designer > .c-content .prop-edit .prop-edit-body table {
+  width: 100%;
+  height: 100%;
+  font-size: 0.8125em;
+  border-collapse: collapse;
+}
+.container.designer > .c-content .prop-edit .prop-edit-body table thead th {
+  font-weight: 500;
+  text-align: left;
+  padding-left: 0.5em;
+}
+.container.designer > .c-content .prop-edit .prop-edit-body table tbody td {
+  padding-left: 0.5em;
+}
+.container.designer > .c-content .prop-edit .prop-edit-body table tbody .name {
+  font-weight: 500;
+}
+.container.designer > .c-content .prop-edit .prop-edit-body table tbody .value {
+  font-weight: 400;
+}
+.container.designer > .c-content .layer-header {
+  fill: #f00;
+  stroke: #900;
+}
+.container.designer > .c-content .layer-header.active {
+  fill: #900;
+}
+.container.designer > .c-content .layer-header-text {
+  fill: #fff;
+  text-anchor: start;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: default;
+}
+.container.designer > .c-content .layer-header-text.black {
+  fill: #4d4d4d;
+}
 .control {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
