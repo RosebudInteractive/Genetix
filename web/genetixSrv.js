@@ -5,6 +5,10 @@
  */
 // дирректория где лежит Uccello
 var uccelloDir = process.argv[2]&&process.argv[2]!='-'?process.argv[2]:'Uccello';
+var _dbPath = '../../Genetix/web/data/';
+
+
+
 console.log('Using folder: '+uccelloDir);
 // порт web
 var uccelloPortWeb = process.argv[3]&&process.argv[3]!='-'?process.argv[3]:1326;
@@ -104,7 +108,7 @@ var config = {
     dataPath: __dirname+'/data/',
     uccelloPath: __dirname+'/../../'+uccelloDir+'/',
     dataman: {
-        /*connection: {
+        connection: {
             host: "localhost",
             username: "root",
             password: "masterkey",
@@ -117,8 +121,8 @@ var config = {
                 min: 0,
                 idle: 10000
             },
-        },*/
-        connection: {
+        },
+        /*connection: {
             host: "localhost",
             username: "genetix",
             password: "genetix",
@@ -131,7 +135,7 @@ var config = {
                 min: 0,
                 idle: 10000
             },
-        },
+        },*/
         importData: {
             autoimport: true,
             dir: "../web/data/tables"
@@ -143,7 +147,20 @@ var config = {
     },
     resman: {
         useDb: false,
-        defaultProduct : "Genetix"
+        defaultProduct: "Genetix",
+        sourceDir: [
+            {path: _dbPath + 'forms/', type: 'FRM'}
+        ]
+    },
+    resourceBuilder: {
+        types: [
+            {Code: "FRM", Name: "User Form", ClassName: "ResForm", Description: "Пользовательская форма"},
+            {Code: "PR_DEF", Name: "Process Definition", ClassName: "ProcessDefinition", Description: "Определение процесса"}
+        ],
+        destDir : _dbPath + "tables/",
+        formResTypeId: 1,
+        productId: 2,
+        currBuildId: 2
     }
 };
 
