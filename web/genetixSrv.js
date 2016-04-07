@@ -137,7 +137,7 @@ var config = {
             },
         },
         importData: {
-            autoimport: true,
+            autoimport: false,
             dir: "../web/data/tables"
         },
         trace: {
