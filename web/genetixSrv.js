@@ -123,7 +123,7 @@ var config = {
             },
         },*/
         connection: {
-            host: "localhost",
+            host: "127.0.0.1",
             username: "genetix",
             password: "genetix",
             database: "genetix",
