@@ -108,7 +108,7 @@ var config = {
     dataPath: __dirname+'/data/',
     uccelloPath: __dirname+'/../../'+uccelloDir+'/',
     dataman: {
-        connection: {
+        /*connection: {
             host: "localhost",
             username: "root",
             password: "masterkey",
@@ -121,8 +121,8 @@ var config = {
                 min: 0,
                 idle: 10000
             },
-        },
-        /*connection: {
+        },*/
+        connection: {
             host: "localhost",
             username: "genetix",
             password: "genetix",
@@ -135,7 +135,7 @@ var config = {
                 min: 0,
                 idle: 10000
             },
-        },*/
+        },
         importData: {
             autoimport: true,
             dir: "../web/data/tables"
