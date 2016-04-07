@@ -50,7 +50,7 @@ define(
                 if (this.getParentComp().isCentered() === undefined || !this.getParentComp().isCentered())
                     cont.css("padding", "0");
                 item.addClass("m-container")
-            } else if (!this.hasPadding()) {
+            } else {
                 cont.css("padding", "0");
             }
 

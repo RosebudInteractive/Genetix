@@ -43,7 +43,8 @@ define(
                 vDesigner._setToolbarEvents.call(this);
 
                 var pComp = that.getParentComp();
-                if (pComp.getCol("Children").indexOfGuid("f0ee9df0-314c-e22c-4c6e-64e76f65bb2d") === undefined) {
+                var children = pComp.getCol("Children");
+                /*if (!that._getModel()) {
                     setTimeout(function() {
                         that.getControlMgr().userEventHandler(that, function () {
                             var db = that.getDB();
@@ -62,10 +63,11 @@ define(
                             var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
                             pComp.getLog().add(o);
                             pComp.logColModif("add", colName, resObj);
+                            that.getControlMgr().allDataInit(resObj);
                             pComp._isRendered(false);
                         });
                     }, 0);
-                }
+                }*/
 
             } else {
                 pItem = $("#mid_" + this.getLid());
@@ -125,6 +127,30 @@ define(
                     delete this._renderInfo[i];
                 }
             }
+
+            var cont2 = item.children(".c-content").children(".gen-form").children(".control.v-container.container").children(".c-content");
+            var childs = this.getCol('Children');
+            for(var i=0; i<childs.count();i++) {
+                var child = this.getControlMgr().get(childs.get(i).getGuid());
+                if (!child.left) continue;
+                var div = $('#ext_'+child.getLid());
+                if (div.length == 0) {
+                    div = $('<div class="control-wrapper"><div class="control-separator"/><div class="mid-wrapper"></div></div>').attr('id', 'ext_' + child.getLid());
+                    div.children(".mid-wrapper").attr('id', 'ch_' + child.getLid());
+                    cont2.append(div);
+                    div.on("genetix:childPropChanged", function(event, data) {
+                        vContainer.handleChildChanged.call(that, event, data);
+                        return false;
+                    });
+                }
+
+                div.css({width: "100%", height: "100%"});
+            }
+
+            // убираем удаленные объекты
+            var del = this.getLogCol('Children') && 'del' in this.getLogCol('Children')? this.getLogCol('Children').del: {};
+            for (var guid in del)
+                $('#ext_' + del[guid].getLid()).remove();
         };
 
         vDesigner._renderToolbar = function() {
@@ -234,6 +260,35 @@ define(
                         that._isRendered(false);
                     });
 
+                } else if ($(this).attr("role") == "refresh") {
+                    that.getControlMgr().userEventHandler(that, function () {
+                        that.generateFrom();
+                        that._isRendered(false);
+                    });
+                } else if ($(this).attr("role") == "load-model") {
+                    if (!that._getModel()) {
+                        var pComp = that.getParentComp();
+                        that.getControlMgr().userEventHandler(that, function () {
+                            var db = that.getDB();
+                            var sObj = JSON.parse(vDesigner._templates["model"]);
+                            var newObj = sObj;
+                            var colName = "Children";
+                            var p = {
+                                colName: colName,
+                                obj: pComp
+                            };
+
+                            var resObj = db.deserialize(sObj, p, db.pvt.defaultCompCallback);
+
+                            // Логгируем добавление поддерева
+                            var mg = pComp.getGuid();
+                            var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
+                            pComp.getLog().add(o);
+                            pComp.logColModif("add", colName, resObj);
+                            that.getControlMgr().allDataInit(resObj);
+                            pComp._isRendered(false);
+                        });
+                    }
                 } else if ($(this).attr("role") != "delete") {
                     var toolbar = $(this).parent();
                     var active = true;

@@ -104,11 +104,25 @@ var config = {
     dataPath: __dirname+'/data/',
     uccelloPath: __dirname+'/../../'+uccelloDir+'/',
     dataman: {
-        connection: {
+        /*connection: {
             host: "localhost",
             username: "root",
             password: "masterkey",
             database: "uccello",
+            provider: "mysql",
+            connection_options: {},
+            provider_options: {},
+            pool: {
+                max: 5,
+                min: 0,
+                idle: 10000
+            },
+        },*/
+        connection: {
+            host: "localhost",
+            username: "genetix",
+            password: "genetix",
+            database: "genetix",
             provider: "mysql",
             connection_options: {},
             provider_options: {},
