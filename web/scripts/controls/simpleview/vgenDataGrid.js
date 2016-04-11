@@ -46,6 +46,7 @@ define(
                     navigation: true,
                     hover: "row-hover",
                     autoheight: (this.height() && this.height() == "auto"),
+                    scrollX: true,
                     on: {
                         onDataRequest: function (start, count, callback) {
                             var data = vDataGrid._getData.call(that, start, count);
@@ -69,7 +70,7 @@ define(
                     that._grid.resize();
                 });
                 $(window).on("genetix:initResize", function () {
-                    var g = $("#" + that.getLid());
+                    /*var g = $("#" + that.getLid());
                     g.children().css("width", "100%");
                     var hv = g.find(".webix_ss_header").width();
                     var scrollHeaderW = g.find(".webix_ss_vscroll_header").width();
@@ -98,7 +99,7 @@ define(
                         $(this).css("width", perc + "%");
                         $(this).css("left", left + "%");
                         left += perc;
-                    });
+                    });*/
                 });
 
 
@@ -294,8 +295,14 @@ define(
                     var gridCol = {};
                     gridCol.id = fieldsArr[column.get('Field').getGuid()];
                     gridCol.header = column.get('Label');
-                    if (column.get('Width'))
-                        gridCol.fillspace = column.get('Width');
+                    if (column.get('Width')) {
+                        if ($.isNumeric(column.get('Width'))) {
+                            gridCol.fillspace = column.get('Width');
+                        } else if (column.get('Width').endsWith("px")) {
+                            gridCol.width = +(column.get('Width').replace("px", ""));
+                        } else
+                            gridCol.fillspace = column.get('Width');
+                    }
                     gridColumns.push(gridCol);
                 }
             }

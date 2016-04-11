@@ -102,7 +102,9 @@ var config = {
         "RootContact": "ad17cab2-f41a-36ef-37da-aac967bbe356",
         "DataContact": "73596fd8-6901-2f90-12d7-d1ba12bae8f4",
         "DataLead": "86c611ee-ed58-10be-66f0-dfbb60ab8907",
-        "RootLead": "31c99003-c0fc-fbe6-55eb-72479c255556"
+        "RootLead": "31c99003-c0fc-fbe6-55eb-72479c255556",
+        //////
+        "GenDataGrid": "55d59ec4-77ac-4296-85e1-def78aa93d55"
     },
     controlsPath: __dirname+'/scripts/controls/',
     dataPath: __dirname+'/data/',

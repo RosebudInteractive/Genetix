@@ -4,14 +4,14 @@
 
 define(
     ['/scripts/lib/uccello/uses/template.js', 'text!./templates/formDesigner.html'
-        , '/scripts/controls/simpleview/vbase.js'],
-    function(template, tpl, Base) {
+        , '/scripts/controls/simpleview/vbase.js', './propEditors/propEditorManager'],
+    function(template, tpl, Base, PropEditManager) {
         var KEYCODE_ESC = 27;
         var vDesigner = {};
         var ToolbarModes = { pointer: 0, vertical: 1, horizontal: 2, layer: 3, control: 4, existingControl: 5, layout: 6, changeLayout: 7};
         var MARGIN_TOP = 20;
-        var MARGIN_BUT = 7;
-        var MARGIN_SIDE = 7;
+        var MARGIN_BUT = 0;
+        var MARGIN_SIDE = 3;
         var autoHeight = 150;
         for (var i in Base)
             vDesigner[i] = Base[i];
@@ -44,34 +44,13 @@ define(
 
                 var pComp = that.getParentComp();
                 var children = pComp.getCol("Children");
-                /*if (!that._getModel()) {
-                    setTimeout(function() {
-                        that.getControlMgr().userEventHandler(that, function () {
-                            var db = that.getDB();
-                            var sObj = JSON.parse(vDesigner._templates["model"]);
-                            var newObj = sObj;
-                            var colName = "Children";
-                            var p = {
-                                colName: colName,
-                                obj: pComp
-                            };
-
-                            var resObj = db.deserialize(sObj, p, db.pvt.defaultCompCallback);
-
-                            // Логгируем добавление поддерева
-                            var mg = pComp.getGuid();
-                            var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
-                            pComp.getLog().add(o);
-                            pComp.logColModif("add", colName, resObj);
-                            that.getControlMgr().allDataInit(resObj);
-                            pComp._isRendered(false);
-                        });
-                    }, 0);
-                }*/
 
             } else {
                 pItem = $("#mid_" + this.getLid());
             }
+
+            var svg = item.find("svg");
+            svg.height(svg.parent().height())
 
             if (this.verticalAlign()) {
                 pItem.css("display", "table-cell");
@@ -111,6 +90,9 @@ define(
                 pp.css("height", "");
                 pp.css("height", $(p).height());
 
+                var svg = item.find("svg");
+                svg.height(svg.parent().height())
+
                 vDesigner._renderLayout.call(that, that.currentLayout());
             });
             vDesigner._setVisible.call(this);
@@ -119,6 +101,7 @@ define(
             vDesigner._handleResize.call(this, layout);
             vDesigner._renderPropEditor.call(this);
             vDesigner._renderToolbar.call(this);
+            vDesigner._renderModel.call(this);
 
             for (var i in this._renderInfo) {
                 var info = this._renderInfo[i];
@@ -128,7 +111,7 @@ define(
                 }
             }
 
-            var cont2 = item.children(".c-content").children(".gen-form").children(".control.v-container.container").children(".c-content");
+            var cont2 = item.children(".c-content").find(".gen-form").children(".control.v-container.container").children(".c-content");
             var childs = this.getCol('Children');
             for(var i=0; i<childs.count();i++) {
                 var child = this.getControlMgr().get(childs.get(i).getGuid());
@@ -138,10 +121,6 @@ define(
                     div = $('<div class="control-wrapper"><div class="control-separator"/><div class="mid-wrapper"></div></div>').attr('id', 'ext_' + child.getLid());
                     div.children(".mid-wrapper").attr('id', 'ch_' + child.getLid());
                     cont2.append(div);
-                    div.on("genetix:childPropChanged", function(event, data) {
-                        vContainer.handleChildChanged.call(that, event, data);
-                        return false;
-                    });
                 }
 
                 div.css({width: "100%", height: "100%"});
@@ -151,11 +130,27 @@ define(
             var del = this.getLogCol('Children') && 'del' in this.getLogCol('Children')? this.getLogCol('Children').del: {};
             for (var guid in del)
                 $('#ext_' + del[guid].getLid()).remove();
+
+        };
+
+        vDesigner._renderModel = function() {
+            var item = $("#" + this.getLid());
+            var model = this.getModel();
+            var div = item.find(".model-content");
+            div.empty();
+            if (model) {
+                div.append("<h2>" + model.resElemName() + "</h2>");
+                var ul = $("<ul/>");
+                var col = model.getCol("Datasets");
+                for (var i = 0; i < col.count(); i++)
+                    ul.append("<li>" + col.get(i).resElemName() + "</li>");
+                div.append(ul);
+            }
         };
 
         vDesigner._renderToolbar = function() {
             var item = $("#" + this.getLid());
-            var sel = item.children(".designer-toolbar").children("[role='existingControls']").find("select");
+            var sel = item.find(".designer-toolbar").children("[role='existingControls']").find("select");
             var curControlLid = sel.val();
             var found = false;
             sel.empty();
@@ -173,7 +168,7 @@ define(
 
             if (found) sel.val(curControlLid);
 
-            sel = item.children(".designer-toolbar").find("[role='changeLayout']").find("select");
+            sel = item.find(".designer-toolbar").find("[role='changeLayout']").find("select");
             sel.empty();
 
             var opt = $("<option value='-1'>(Нет)</option>");
@@ -221,7 +216,7 @@ define(
         vDesigner._setToolbarEvents = function() {
             var item = $("#" + this.getLid());
             var that = this;
-            item.children(".designer-toolbar").find(".button").click(function() {
+            item.find(".designer-toolbar").find(".button").click(function() {
                 if ($(this).attr("role") == "layout") {
                     var dir = "vertical";
                     var newGuid = Utils.guid();
@@ -257,6 +252,7 @@ define(
                         that.getLog().add(o);
                         that.logColModif("add", colName, resObj);
                         that.currentLayout(resObj);
+                        that.getControlMgr().allDataInit(resObj);
                         that._isRendered(false);
                     });
 
@@ -266,7 +262,7 @@ define(
                         that._isRendered(false);
                     });
                 } else if ($(this).attr("role") == "load-model") {
-                    if (!that._getModel()) {
+                    if (!that.getModel()) {
                         var pComp = that.getParentComp();
                         that.getControlMgr().userEventHandler(that, function () {
                             var db = that.getDB();
@@ -286,6 +282,7 @@ define(
                             pComp.getLog().add(o);
                             pComp.logColModif("add", colName, resObj);
                             that.getControlMgr().allDataInit(resObj);
+                            PropEditManager.setModel(resObj);
                             pComp._isRendered(false);
                         });
                     }
@@ -336,7 +333,7 @@ define(
                 }
             });
 
-            item.children(".designer-toolbar").find("[role='changeLayout']").find("select").change(function() {
+            item.find(".designer-toolbar").find("[role='changeLayout']").find("select").change(function() {
                 var val = $(this).val();
                 that.getControlMgr().userEventHandler(that, function () {
                     that.currentLayout(val == -1 ? null : val);
@@ -614,7 +611,7 @@ define(
                     if (that._toolbarMode == ToolbarModes.existingControl) {
                         that.getControlMgr().userEventHandler(that, function () {
                             var item = $("#" + that.getLid());
-                            var sel = item.children(".designer-toolbar").children("[role='existingControls']").find("select");
+                            var sel = item.find(".designer-toolbar").children("[role='existingControls']").find("select");
                             var guid = sel.val();
                             info.layout.control(guid);
                             that._isRendered(false);
@@ -707,6 +704,7 @@ define(
                                 info.layout.control(resObj);
                             }
 
+                            that.getControlMgr().allDataInit(resObj);
                             that._isRendered(false);
                         });
 
@@ -790,6 +788,7 @@ define(
                             var o = { adObj: newObj, obj: resObj, colName: "Layouts", guid: mg, type: "add" };
                             dropInfo.layout.getLog().add(o);
                             dropInfo.layout.logColModif("add", "Layouts", resObj);
+                            that.getControlMgr().allDataInit(resObj);
 
                             that._isRendered(false);
                         });
@@ -821,38 +820,25 @@ define(
 
         vDesigner._renderPropEditor = function() {
             var that = this;
-            var changeHandler = function(obj, funcName, inpt) {
-                return function (e) {
+            var changeHandler = function(obj) {
+                return function (e, fName, val) {
                     that.getControlMgr().userEventHandler(that, function () {
-                        var value = inpt.val();
-                        obj[funcName](value);
+                        var value = val;
+                        obj[fName](value);
                         e.preventDefault();
                         e.stopPropagation();
                         return false;
                     });
                 }
-            }
+            };
+
             var item = $("#" + this.getLid());
-            var tbl = item.find(".prop-edit-body").find("table");
-            var tb = tbl.find("tbody");
-            tb.empty();
-            if (this.cursor()) {
-                var curr = this.cursor();
-                var tmpl = vDesigner._templates["property"];
-                var propNames = curr.pvt.objType.pvt.fieldsArr;
-                for (var i = 0; i < propNames.length; i++) {
-                    var propName = propNames[i];
-                    var funcName = propName.charAt(0).toLowerCase() + propName.slice(1);
-                    var val = curr[funcName]();
-                    var tr = $(tmpl);
-                    tr.find(".name").text(propName);
-                    var inpt = tr.find(".value").find("input");
-                    inpt.val(val);
-                    tb.append(tr);
-                    $.data(inpt[0], "propName", propName);
-                    inpt.change(changeHandler(this.cursor(), funcName, inpt));
-                }
-            }
+            var propDiv = item.find(".prop-edit");
+
+            var mdl = this.getModel();
+            if (mdl)
+                PropEditManager.setModel(mdl);
+            PropEditManager.renderProperties(propDiv, this.cursor(), changeHandler(this.cursor()));
         }
 
         vDesigner._getLayoutDimensions = function(layout) {
@@ -863,7 +849,7 @@ define(
                 result.y = 0;
 
                 var item = $("#" + this.getLid());
-                var cont = item.children(".c-content").children(".designer-content");
+                var cont = item.children(".c-content").find(".designer-content");
 
                 result.w = cont[0].clientWidth;
                 result.h = cont[0].clientHeight;
@@ -919,10 +905,10 @@ define(
                         if (restSize <= 0) size = 0;
                         else size = (restSize / percSize) * lSize;
                         if (pDir == "vertical") {
-                            result.h = size - (MARGIN_TOP + MARGIN_BUT);
+                            result.h = size;
                             result.w = pDims.w - MARGIN_SIDE*2;
                         } else {
-                            result.w = size - MARGIN_SIDE*2;
+                            result.w = size;
                             result.h = pDims.h - (MARGIN_TOP + MARGIN_BUT);
                         }
                     }
@@ -930,7 +916,7 @@ define(
                         var sib = siblings.get(i);
                         var rSib = this._renderInfo[sib.getLid()];
                         if (sib == layout) break;
-                        takedSize += ((pDir == "vertical") ? (rSib.dim.h + MARGIN_TOP + MARGIN_BUT) : (rSib.dim.w + MARGIN_SIDE*2));
+                        takedSize += ((pDir == "vertical") ? (rSib.dim.h) : (rSib.dim.w + MARGIN_SIDE*2));
                         if (takedSize >= allSize) {
                             takedSize = 0;
                             break;
