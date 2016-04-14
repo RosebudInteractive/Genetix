@@ -3,7 +3,7 @@
  */
 
 define(
-    ["./defaultEditor", "./dataGridPRopEditor"],
+    ["./defaultEditor", "./dataGridPropEditor"],
     function(DefEditor, DBGridPropEditor) {
         var editors = null;
 
