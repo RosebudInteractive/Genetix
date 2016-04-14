@@ -104,7 +104,8 @@ var config = {
         "DataLead": "86c611ee-ed58-10be-66f0-dfbb60ab8907",
         "RootLead": "31c99003-c0fc-fbe6-55eb-72479c255556",
         //////
-        "GenDataGrid": "55d59ec4-77ac-4296-85e1-def78aa93d55"
+        "GenDataGrid": "55d59ec4-77ac-4296-85e1-def78aa93d55",
+        "GenForm": "29bc7a01-2065-4664-b1ad-7cc86f92c177"
     },
     controlsPath: __dirname+'/scripts/controls/',
     dataPath: __dirname+'/data/',

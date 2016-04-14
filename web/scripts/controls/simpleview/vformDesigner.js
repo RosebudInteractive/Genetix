@@ -40,8 +40,6 @@ define(
                     vDesigner._onKeyPress.call(that, e);
                 });
 
-                vDesigner._setToolbarEvents.call(this);
-
                 var pComp = that.getParentComp();
                 var children = pComp.getCol("Children");
 
@@ -100,8 +98,10 @@ define(
             var layout = this.currentLayout();
             vDesigner._handleResize.call(this, layout);
             vDesigner._renderPropEditor.call(this);
-            vDesigner._renderToolbar.call(this);
             vDesigner._renderModel.call(this);
+            vDesigner._renderToolbar.call(this);
+            vDesigner._setToolbarEvents.call(this);
+
 
             for (var i in this._renderInfo) {
                 var info = this._renderInfo[i];
@@ -149,38 +149,103 @@ define(
         };
 
         vDesigner._renderToolbar = function() {
+            var that = this;
             var item = $("#" + this.getLid());
-            var sel = item.find(".designer-toolbar").children("[role='existingControls']").find("select");
-            var curControlLid = sel.val();
-            var found = false;
-            sel.empty();
+            var ctrlsDiv = item.find(".designer-toolbar.controls")
+            var mainToolbar = item.find(".designer-toolbar.main");
+
+            ctrlsDiv.empty();
 
             var controls = this.getCol("Controls");
             for (var i = 0; i < controls.count(); i++) {
                 var control = controls.get(i);
-                if (!vDesigner._isInCurrentLayout.call(this, control)) {
-                    var opt = $("<option value='" + control.getGuid() + "'>" + control.resElemName() + "</option>");
-                    sel.append(opt);
-                    if (control.getLid() == curControlLid) found = true;
+                var opt = $('<div class="button" role="ext-layout" title="' + control.resElemName() + '" value="'+ control.getGuid() + '"></div>');
+                ctrlsDiv.append(opt);
+                if (vDesigner._isInCurrentLayout.call(this, control)) {
+                    opt.addClass("disabled");
                 }
 
+                var className = "icon-control";
+
+                switch (control.typeGuid()) {
+                    case UCCELLO_CONFIG.classGuids.GenDataGrid: className = "icon-grid"; break;
+                    case UCCELLO_CONFIG.classGuids.Toolbar: className = "icon-toolbar"; break;
+                    case UCCELLO_CONFIG.classGuids.GenForm: className = "icon-form"; break;
+                    case UCCELLO_CONFIG.classGuids.DbTreeView: className = "icon-tree"; break;
+                }
+
+                opt.addClass(className);
             }
+            var lPanel = mainToolbar.find("[role='changeLayout']");
+            lPanel.empty();
 
-            if (found) sel.val(curControlLid);
-
-            sel = item.find(".designer-toolbar").find("[role='changeLayout']").find("select");
-            sel.empty();
-
-            var opt = $("<option value='-1'>(Нет)</option>");
-            sel.append(opt);
             var layouts = this.getCol("Layouts");
             for (var i = 0; i < layouts.count(); i++) {
                 var layout = layouts.get(i);
-                opt = $("<option value='" + layout.getGuid() + "'>" + layout.resElemName() + "</option>");
-                sel.append(opt);
+                var opt = $('<div class="button icon-layout" role="ext-layout" title="' + layout.resElemName() + '" value="'+ layout.getGuid() + '"></div>');
+                lPanel.append(opt);
+                if (this.currentLayout() == layout)
+                    opt.addClass("active");
             }
 
-            sel.val(this.currentLayout() ? this.currentLayout().getGuid() : "-1");
+            var propsPanel = mainToolbar.children(".panel[role='layout-props']");
+            var curr = this.cursor();
+            var info = curr ? this._renderInfo[curr.getLid()] : null;
+
+            if (info && !info.control) {
+                var dimName = "width";
+                var p = info.layout.getParentComp();
+                if (p == that || p.direction() == "vertical") dimName = "height";
+                propsPanel.children().find("input[role='size']").val(info.layout[dimName]());
+
+                propsPanel.find("select[role='transform']").val(info.layout.direction());
+            }
+
+            vDesigner._enableToolbarButtons.call(this);
+
+        }
+
+        vDesigner._enableToolbarButtons = function() {
+            var item = $("#" + this.getLid());
+            var mainToolbar = item.find(".designer-toolbar.main");
+            var curr = this.cursor();
+            var info = curr ? this._renderInfo[curr.getLid()] : null;
+            mainToolbar.children(".button").each(function() {
+                var role = $(this).attr("role");
+
+                var enabled = info;
+                var lCount = info ? info.layout.getCol("Layouts").count() : 0;
+                switch (role) {
+                    case "vertical":
+                        enabled = curr && !(info.layout.control()) && (lCount == 0 || curr.direction() == "vertical");
+                        break;
+                    case "horizontal":
+                        enabled = curr && !(info.layout.control()) && (lCount == 0 || curr.direction() == "horizontal");
+                        break;
+                    case "layer":
+                        enabled = curr && !(info.layout.control()) && (lCount == 0 || curr.direction() == "layer");
+                        break;
+                    case "control-grid":
+                    case "control-toolbar":
+                    case "control-form":
+                    case "control-tree":
+                        enabled = curr && !(info.layout.control()) && lCount == 0;
+                        break;
+                    case "delete": enabled = curr; break;
+                    case "layout": enabled = true; break;
+                }
+
+                if (enabled) $(this).removeClass("disabled");
+                else $(this).addClass("disabled");
+
+            });
+
+            var propsPanel = mainToolbar.children(".panel[role='layout-props']");
+            if (!info || info.control) propsPanel.hide();
+            else propsPanel.show();
+
+            if (info && info.layout.getParentComp() == this) propsPanel.find("input[role='size']").attr("disabled", "true");
+            else propsPanel.find("input[role='size']").attr("disabled", null);
         }
 
         vDesigner._isInCurrentLayout = function(control) {
@@ -216,8 +281,10 @@ define(
         vDesigner._setToolbarEvents = function() {
             var item = $("#" + this.getLid());
             var that = this;
-            item.find(".designer-toolbar").find(".button").click(function() {
-                if ($(this).attr("role") == "layout") {
+            item.find(".designer-toolbar.main").find(".button").off("click").click(function() {
+                if ($(this).hasClass("disabled")) return;
+                var role = $(this).attr("role");
+                if (role == "layout") {
                     var dir = "vertical";
                     var newGuid = Utils.guid();
                     var sObj = {
@@ -253,15 +320,16 @@ define(
                         that.logColModif("add", colName, resObj);
                         that.currentLayout(resObj);
                         that.getControlMgr().allDataInit(resObj);
+                        that.cursor(resObj);
                         that._isRendered(false);
                     });
 
-                } else if ($(this).attr("role") == "refresh") {
+                } else if (role == "refresh") {
                     that.getControlMgr().userEventHandler(that, function () {
                         that.generateFrom();
                         that._isRendered(false);
                     });
-                } else if ($(this).attr("role") == "load-model") {
+                } else if (role == "load-model") {
                     if (!that.getModel()) {
                         var pComp = that.getParentComp();
                         that.getControlMgr().userEventHandler(that, function () {
@@ -283,9 +351,19 @@ define(
                             pComp.logColModif("add", colName, resObj);
                             that.getControlMgr().allDataInit(resObj);
                             PropEditManager.setModel(resObj);
-                            pComp._isRendered(false);
+                            that._isRendered(false);
                         });
                     }
+                } else if (role == "vertical" || role == "horizontal" || role == "layer") {
+                    var cur = that.cursor();
+                    if (!cur) return;
+                    var info = that._renderInfo[cur.getLid()];
+                    if (info.layout.control()) return;
+                    vDesigner._onAddLayoutClicked.call(that, cur, role);
+                } else if (role == "control-grid" || role == "control-toolbar" || role == "control-form" || role == "control-tree") {
+                    var cur = that.cursor();
+                    if (!cur) return;
+                    vDesigner._onAddControlClicked.call(that, cur, role);
                 } else if ($(this).attr("role") != "delete") {
                     var toolbar = $(this).parent();
                     var active = true;
@@ -333,15 +411,216 @@ define(
                 }
             });
 
-            item.find(".designer-toolbar").find("[role='changeLayout']").find("select").change(function() {
-                var val = $(this).val();
+            var ctrlsDiv = item.find(".designer-toolbar.controls")
+            ctrlsDiv.children().click(function() {
+                if ($(this).hasClass("disabled")) return;
+                var guid = $(this).attr("value");
+                var cur = that.cursor();
+                if (cur) {
+                    var info = that._renderInfo[cur.getLid()];
+                    if (info.layout.getCol("Layouts").count() == 0 && !info.layout.control()) {
+                        that.getControlMgr().userEventHandler(that, function () {
+                            var item = $("#" + that.getLid());
+                            info.layout.control(guid);
+                            that._isRendered(false);
+                        });
+                    }
+                }
+            });
+
+            var lPanel = item.find(".designer-toolbar.main").find("[role='changeLayout']");
+            lPanel.children().click(function() {
+                var val = $(this).attr("value");
                 that.getControlMgr().userEventHandler(that, function () {
                     that.currentLayout(val == -1 ? null : val);
                     that.cursor(null);
                     that._isRendered(false);
                 });
             });
+
+
+
+            var propsPanel = item.find(".designer-toolbar.main").children(".panel[role='layout-props']");
+            propsPanel.children(".control").children("select").off("change").change(function() {
+                var cur = that.cursor();
+                if (!cur) return;
+                var info = that._renderInfo[cur.getLid()];
+                if (info.layout.control()) return;
+                var role = $(this).attr("role");
+                var newDir = "vertical";
+                switch (role) {
+                    case "transform":
+                        newDir = $(this).val();
+                        that.getControlMgr().userEventHandler(that, function () {
+                            info.layout.direction(newDir);
+                            var col = info.layout.getCol("Layouts");
+                            for (var i = 0; i < col.count(); i++) {
+                                var l = col.get(i);
+                                if (newDir == "horizontal") l.height("100%");
+                                else if (newDir == "vertical") {
+                                    if (info.layout.height() == "auto") l.height("auto");
+                                    else l.height("100%");
+                                } else {
+                                    if (info.layout.height() == "auto") l.height("auto");
+                                    else l.height("100%");
+                                    l.width("100%");
+                                }
+                            }
+                            that._isRendered(false);
+                        });
+                        break;
+                }
+            });
+
+            propsPanel.children().find("input").change(function() {
+                var cur = that.cursor();
+                if (!cur) return;
+                var info = that._renderInfo[cur.getLid()];
+                if (info.layout.control()) return;
+                var role = $(this).attr("role");
+                var val = $(this).val();
+                var p = info.layout.getParentComp();
+                if (p == that) return;
+                if (role == "size") {
+                    var dimName = "width";
+                    if (p.direction() == "vertical") dimName = "height";
+                    that.getControlMgr().userEventHandler(that, function () {
+                        info.layout[dimName](val);
+                        that._isRendered(false);
+                    });
+                }
+            });
+
         };
+
+        vDesigner._onAddControlClicked = function(cur, role) {
+            var that = this;
+            var info = that._renderInfo[cur.getLid()];
+            if (info.layout.getCol("Layouts").count() != 0 || info.layout.control()) return;
+            var ctrlGuid;
+            switch (role) {
+                case "control-grid": ctrlGuid = UCCELLO_CONFIG.classGuids.GenDataGrid; break;
+                case "control-toolbar": ctrlGuid = UCCELLO_CONFIG.classGuids.Toolbar; break;
+                case "control-form": ctrlGuid = UCCELLO_CONFIG.classGuids.GenForm; break;
+                case "control-tree": ctrlGuid = UCCELLO_CONFIG.classGuids.DbTreeView; break;
+                default:
+                    ctrlGuid = UCCELLO_CONFIG.classGuids.GenDataGrid;
+            }
+
+
+            var newGuid = Utils.guid();
+            var sObj = {
+                "$sys": {
+                    "guid": newGuid,
+                    "typeGuid": UCCELLO_CONFIG.classGuids.DesignerControl
+                },
+                "fields": {
+                    "Id": newGuid,
+                    "Name": newGuid,
+                    "ResElemName": newGuid,
+                    "TypeGuid": ctrlGuid
+                }
+            };
+
+            var colName = "Controls";
+            var parent = {
+                colName: colName,
+                obj: that
+            };
+            var mg = that.getGuid();
+
+            that.getControlMgr().userEventHandler(that, function () {
+                var db = info.layout.getDB();
+                var resObj = db.deserialize(sObj, parent, db.pvt.defaultCompCallback);
+
+                // Логгируем добавление поддерева
+                var newObj = sObj;
+                var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
+                info.layout.getLog().add(o);
+                info.layout.logColModif("add", colName, resObj);
+
+                info.layout.control(resObj);
+
+                that.getControlMgr().allDataInit(resObj);
+                that.cursor(resObj);
+                that._isRendered(false);
+            });
+        }
+
+        vDesigner._onAddLayoutClicked = function(cur, role) {
+            var that = this;
+            var info = that._renderInfo[cur.getLid()];
+            if (info.layout.control()) return;
+            var col = info.layout.getCol("Layouts");
+            var chCount = col.count();
+            var newGuid = Utils.guid();
+            var dir = role;
+
+            var sObj = {
+                "$sys": {
+                    "guid": newGuid,
+                    "typeGuid": UCCELLO_CONFIG.classGuids.Layout
+                },
+                "fields": {
+                    "Id": newGuid,
+                    "Name": newGuid,
+                    "Width": "100%",
+                    "Height": "100%",
+                    "ResElemName": newGuid,
+                    "Direction": dir
+                }
+            };
+
+            var colName = "Layouts";
+            var parent = {
+                colName: colName,
+                obj: info.layout
+            };
+            var mg = info.layout.getGuid();
+
+
+            that.getControlMgr().userEventHandler(that, function () {
+                var db = info.layout.getDB();
+                var resObj = db.deserialize(sObj, parent, db.pvt.defaultCompCallback);
+
+                // Логгируем добавление поддерева
+                var newObj = sObj;
+                var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
+                info.layout.getLog().add(o);
+                info.layout.logColModif("add", colName, resObj);
+
+                that.getControlMgr().allDataInit(resObj);
+
+                if (chCount == 0) {
+                    info.layout.direction(dir);
+                    newGuid = Utils.guid();
+                    sObj = {
+                        "$sys": {
+                            "guid": newGuid,
+                            "typeGuid": UCCELLO_CONFIG.classGuids.Layout
+                        },
+                        "fields": {
+                            "Id": newGuid,
+                            "Name": newGuid,
+                            "Width": "100%",
+                            "Height": "100%",
+                            "ResElemName": newGuid,
+                            "Direction": dir
+                        }
+                    };
+
+                    var resObj = db.deserialize(sObj, parent, db.pvt.defaultCompCallback);
+                    newObj = sObj;
+
+                    var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
+                    info.layout.getLog().add(o);
+                    info.layout.logColModif("add", colName, resObj);
+                }
+
+                that._isRendered(false);
+            });
+
+        }
 
         vDesigner._onKeyPress = function(e) {
             if (e.which == KEYCODE_ESC) {
@@ -380,7 +659,13 @@ define(
                 vDesigner._setEvents.call(this, info);
             }
 
-            info.label.attr({text: layout.resElemName()});
+            var headText = "O: " + (layout.direction() ? layout.direction() : "V")[0].toUpperCase();
+            if (pComp != this) {
+                headText += pComp.direction() == "horizontal" ? ", W: " + layout.width() : "";
+                headText += pComp.direction() == "vertical" ? ", H: " + layout.height() : "";
+
+            }
+            info.label.attr({text: headText});
             var dims = vDesigner._getLayoutDimensions.call(this, layout);
             info.dim = dims;
 
@@ -402,6 +687,8 @@ define(
                 } else {
                     info.group.attr({display: "none"});
                 }
+            } else { // вдруг она была невидимой
+                info.group.attr({display: null});
             }
 
 
@@ -456,7 +743,9 @@ define(
                 }
 
                 var bb = info.tabs.group.getBBox();
+                info.tabs.group.attr({display: "none"});
                 var bbP = info.group.getBBox();
+                info.tabs.group.attr({display: null});
 
                 info.tabs.group.attr({
                     transform: "translate(" + (bbP.width - bb.width) + ", 0)"
@@ -493,7 +782,15 @@ define(
                 info.invisible.addClass("invisible");
                 info.border = this._snap.rect();
                 info.border.addClass("border");
-                info.icon = this._snap.image("/images/form-32.png", 0, 0, 32, 32, null);
+                var imgUrl = "/images/form-32.png";
+                switch (control.typeGuid()) {
+                    case UCCELLO_CONFIG.classGuids.GenDataGrid: imgUrl = "/images/grid-32.png"; break;
+                    case UCCELLO_CONFIG.classGuids.Toolbar: imgUrl = "/images/toolbar-32.png"; break;
+                    case UCCELLO_CONFIG.classGuids.GenForm: imgUrl = "/images/form-32.png"; break;
+                    case UCCELLO_CONFIG.classGuids.DbTreeView: imgUrl = "/images/tree-32.png"; break;
+
+                }
+                info.icon = this._snap.image(imgUrl, 0, 0, 32, 32, null);
                 info.group.add(info.border, info.icon, info.invisible);
                 info.layout = layout;
                 info.control = control;
@@ -502,8 +799,9 @@ define(
 
                 this._renderInfo[control.getLid()] = info;
                 vDesigner._setControlEvents.call(this, info)
-            } else if (info.layout.control() != layout.control()) {
+            } else {
                 var lInfo = this._renderInfo[layout.getLid()];
+                info.group.remove();
                 lInfo.group.add(info.group);
                 info.layout = layout;
             }
@@ -606,109 +904,8 @@ define(
                     vDesigner._moveCursor.call(that, info);
                 } else {
                     var item = $("#" + that.getLid());
-                    var toolbar = item.find(".designer-toolbar");
+                    var toolbar = item.find(".designer-toolbar.main");
 
-                    if (that._toolbarMode == ToolbarModes.existingControl) {
-                        that.getControlMgr().userEventHandler(that, function () {
-                            var item = $("#" + that.getLid());
-                            var sel = item.find(".designer-toolbar").children("[role='existingControls']").find("select");
-                            var guid = sel.val();
-                            info.layout.control(guid);
-                            that._isRendered(false);
-                        });
-                    } else {
-
-                        var cm = that.getControlMgr();
-                        var newGuid = Utils.guid();
-                        var sObj, parent, colName, mg;
-                        if (that._toolbarMode == ToolbarModes.control) {
-                            var sel = toolbar.find("[role='controls']").find("select");
-                            var ctrlGuid = sel.val();
-                            sObj = {
-                                "$sys": {
-                                    "guid": newGuid,
-                                    "typeGuid": UCCELLO_CONFIG.classGuids.DesignerControl
-                                },
-                                "fields": {
-                                    "Id": newGuid,
-                                    "Name": newGuid,
-                                    "ResElemName": newGuid,
-                                    "TypeGuid": ctrlGuid
-                                }
-                            };
-
-                            colName = "Controls";
-                            parent = {
-                                colName: colName,
-                                obj: that
-                            };
-                            mg = that.getGuid();
-                        } else {
-                            var dir;
-                            switch (that._toolbarMode) {
-                                case ToolbarModes.horizontal:
-                                    dir = "horizontal";
-                                    break;
-                                case ToolbarModes.vertical:
-                                    dir = "vertical";
-                                    break;
-                                case ToolbarModes.layer:
-                                    dir = "layer";
-                                    break;
-                                default:
-                                    dir = "vertical";
-                            }
-
-                            sObj = {
-                                "$sys": {
-                                    "guid": newGuid,
-                                    "typeGuid": UCCELLO_CONFIG.classGuids.Layout
-                                },
-                                "fields": {
-                                    "Id": newGuid,
-                                    "Name": newGuid,
-                                    "Width": "100%",
-                                    "Height": "100%",
-                                    "ResElemName": newGuid,
-                                    "Direction": dir
-                                }
-                            };
-
-                            colName = "Layouts";
-                            if (e.ctrlKey && info.layout.getParentComp() != that) {
-                                parent = {
-                                    colName: colName,
-                                    obj: info.layout.getParentComp()
-                                };
-                                mg = info.layout.getParentComp().getGuid();
-                            } else {
-                                parent = {
-                                    colName: colName,
-                                    obj: info.layout
-                                };
-                                mg = info.layout.getGuid();
-                            }
-                        }
-
-                        that.getControlMgr().userEventHandler(that, function () {
-                            var db = info.layout.getDB();
-                            var resObj = db.deserialize(sObj, parent, db.pvt.defaultCompCallback);
-
-                            // Логгируем добавление поддерева
-                            var newObj = sObj;
-                            var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
-                            info.layout.getLog().add(o);
-                            info.layout.logColModif("add", colName, resObj);
-
-                            if (that._toolbarMode == ToolbarModes.control) {
-                                info.layout.control(resObj);
-                            }
-
-                            that.getControlMgr().allDataInit(resObj);
-                            that._isRendered(false);
-                        });
-
-                    }
                     toolbar.children().each(function() {
                         $(this).removeClass("active");
                     });
@@ -815,6 +1012,8 @@ define(
 
                 that.cursor(info.control ? info.control : info.layout);
                 info.group.addClass("cursor");
+
+                vDesigner._enableToolbarButtons.call(that);
             });
         }
 

@@ -10,6 +10,8 @@
   g.cursor
     > rect.border
       stroke-width 3px
+  .designer-toolbar.controls
+    top 2.25em
   .designer-toolbar
     height 2.25em
     position absolute
@@ -25,9 +27,13 @@
       margin-left 2px
       float left
       &:hover
-        background-color #1c94c4
+        background-color #1b6a92
     .button.active
       background-color #1c94c4
+    .button.disabled
+      opacity 0.5
+      &:hover
+        background-color transparent
     .button.icon-vertical
       background-image url("/images/split-vertical-32.png")
     .button.icon-horizontal
@@ -40,6 +46,22 @@
       background-image url("/images/delete.png")
     .button.icon-layout
       background-image url("/images/form-32-2.png")
+    .button.icon-add-layout
+      background-image url("/images/form-add-32.png")
+    .button.icon-grid
+      background-image url("/images/grid-32.png")
+    .button.icon-toolbar
+      background-image url("/images/toolbar-32.png")
+    .button.icon-form
+      background-image url("/images/form-32.png")
+    .button.icon-tree
+      background-image url("/images/tree-32.png")
+    .button.icon-refresh
+      background-image url("/images/refresh-32.png")
+    .button.icon-model
+      background-image url("/images/model-32.png")
+    .button.icon-transform
+      background-image url("/images/transform-32.png")
     .control
       display inline-block
       height 2em
@@ -49,15 +71,30 @@
       float left
       select, input
         margin-top 6px
+      input
+        width 4em
+    .panel
+      display inline-block
+      height 2em
+      width auto
+      margin-left 2px
+      float left
+    .panel.label
+      font-size 0.75em
+      text-align center
+      vertical-align middle
+      margin-left 0.5em
+      margin-right 0.25em
+      margin-top 0.75em
   .designer-content
     padding 0
     width 100%
-    flex 50 0 1px
+    flex 70 0 1px
     min-height 0
   .model-content
     padding 0
     width 100%
-    flex 50 0 1px
+    flex 30 0 1px
     min-height 0
     background-color #ddd
   .gen-form
@@ -74,7 +111,7 @@
   .v-container > .c-content.designer-content-wrp
     padding 0
   > .control.h-container
-    padding 2.25em 0 0 0
+    padding 4.5em 0 0 0
   .prop-edit
     width 100%
     min-height 10em

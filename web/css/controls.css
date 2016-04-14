@@ -676,6 +676,9 @@ td.container-title {
 .designer g.cursor > rect.border {
   stroke-width: 3px;
 }
+.designer .designer-toolbar.controls {
+  top: 2.25em;
+}
 .designer .designer-toolbar {
   height: 2.25em;
   position: absolute;
@@ -693,10 +696,16 @@ td.container-title {
   float: left;
 }
 .designer .designer-toolbar .button:hover {
-  background-color: #1c94c4;
+  background-color: #1b6a92;
 }
 .designer .designer-toolbar .button.active {
   background-color: #1c94c4;
+}
+.designer .designer-toolbar .button.disabled {
+  opacity: 0.5;
+}
+.designer .designer-toolbar .button.disabled:hover {
+  background-color: transparent;
 }
 .designer .designer-toolbar .button.icon-vertical {
   background-image: url("/images/split-vertical-32.png");
@@ -716,6 +725,30 @@ td.container-title {
 .designer .designer-toolbar .button.icon-layout {
   background-image: url("/images/form-32-2.png");
 }
+.designer .designer-toolbar .button.icon-add-layout {
+  background-image: url("/images/form-add-32.png");
+}
+.designer .designer-toolbar .button.icon-grid {
+  background-image: url("/images/grid-32.png");
+}
+.designer .designer-toolbar .button.icon-toolbar {
+  background-image: url("/images/toolbar-32.png");
+}
+.designer .designer-toolbar .button.icon-form {
+  background-image: url("/images/form-32.png");
+}
+.designer .designer-toolbar .button.icon-tree {
+  background-image: url("/images/tree-32.png");
+}
+.designer .designer-toolbar .button.icon-refresh {
+  background-image: url("/images/refresh-32.png");
+}
+.designer .designer-toolbar .button.icon-model {
+  background-image: url("/images/model-32.png");
+}
+.designer .designer-toolbar .button.icon-transform {
+  background-image: url("/images/transform-32.png");
+}
 .designer .designer-toolbar .control {
   display: inline-block;
   height: 2em;
@@ -728,16 +761,34 @@ td.container-title {
 .designer .designer-toolbar .control input {
   margin-top: 6px;
 }
+.designer .designer-toolbar .control input {
+  width: 4em;
+}
+.designer .designer-toolbar .panel {
+  display: inline-block;
+  height: 2em;
+  width: auto;
+  margin-left: 2px;
+  float: left;
+}
+.designer .designer-toolbar .panel.label {
+  font-size: 0.75em;
+  text-align: center;
+  vertical-align: middle;
+  margin-left: 0.5em;
+  margin-right: 0.25em;
+  margin-top: 0.75em;
+}
 .designer .designer-content {
   padding: 0;
   width: 100%;
-  flex: 50 0 1px;
+  flex: 70 0 1px;
   min-height: 0;
 }
 .designer .model-content {
   padding: 0;
   width: 100%;
-  flex: 50 0 1px;
+  flex: 30 0 1px;
   min-height: 0;
   background-color: #ddd;
 }
@@ -758,7 +809,7 @@ td.container-title {
   padding: 0;
 }
 .container.designer > .c-content > .control.h-container {
-  padding: 2.25em 0 0 0;
+  padding: 4.5em 0 0 0;
 }
 .container.designer > .c-content .prop-edit {
   width: 100%;

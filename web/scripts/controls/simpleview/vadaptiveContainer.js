@@ -200,7 +200,8 @@ define(
                 setTimeout(function() {
                     var tabNum = layout.tabNumber() || 0;
                     var children = layout.getCol('Layouts');
-                    vAContainer._handleLayoutContentResized.call(that, children.get(tabNum));
+                    if (children.get(tabNum))
+                        vAContainer._handleLayoutContentResized.call(that, children.get(tabNum));
                     $(window).trigger("genetix:resize");
                 }, 100);
             }
