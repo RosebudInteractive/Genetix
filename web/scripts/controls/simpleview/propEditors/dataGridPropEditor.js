@@ -23,7 +23,7 @@ define(
                 var changeHandler = function(obj, funcName, inpt, callback) {
                     return function (e) {
                         var opts = {
-                            Dataset: inpt.val()
+                            Dataset: inpt.val() == "null" ? null : inpt.val()
                         };
                         callback(e, funcName, JSON.stringify(opts));
                     }
@@ -53,6 +53,8 @@ define(
                     $.data(inpt[0], "propName", propName);
 
                     if (this._model) {
+                        var opt = $("<option value='null'>(None)</option>");
+                        inpt.append(opt);
                         var col = this._model.getCol("Datasets");
                         for (var i = 0; i < col.count(); i++) {
                             var ds = col.get(i);
@@ -62,8 +64,8 @@ define(
                     }
                     tb.append(tr);
 
-                    if (props.Dataset)
-                        inpt.val(props.Dataset);
+
+                    inpt.val(props.Dataset ? props.Dataset : "null");
                     inpt.change(changeHandler(control, funcName, inpt, callback));
                 }
 

@@ -28,13 +28,6 @@
                     <div class="control">
                         <input role="size"/>
                     </div>
-                    <div class="control">
-                        <select role="units">
-                            <option value="parts">Parts</option>
-                            <option value="units">Units</option>
-                            <option value="auto">Auto</option>
-                        </select>
-                    </div>
                 </div>
             </div>
             <div class="designer-toolbar controls"></div>
@@ -45,9 +38,7 @@
                             <div class="model-content">
                             </div>
                             <div class="designer-content">
-                                <div class="designer-scroll">
-                                    <svg/>
-                                </div>
+                                <svg/>
                             </div>
                             <div class="prop-edit"></div>
                         </div>
@@ -66,274 +57,260 @@
 <!-- template: model -->
 {
 "$sys": {
-"guid": "f0ee9df0-314c-e22c-4c6e-64e76f65bb2d",
+"guid": "cb63b2d6-93e8-2ee3-603b-884025f98c7a",
 "typeGuid": "5e89f6c7-ccc2-a850-2f67-b5f5f20c3d47"
 },
 "fields": {
 "Id": "5",
 "Name": "DataModel",
-"ResElemName": "ADataModel8"
+"ResElemName": "ADataModel6"
 },
 "collections": {
 "Datasets": [
 {
 "$sys": {
-"guid": "061b1347-18a2-a829-fcce-ba59058b4bdf",
+"guid": "c2de9609-237a-c3b3-12ac-43bf5b35c169",
 "typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
 },
 "fields": {
 "Id": "6",
-"Name": "DatasetCompany",
-"ObjType": "5f9e649d-43c4-d1e6-2778-ff4f58cd7c53",
+"Name": "DatasetLeadList",
+"ObjType": "c170c217-e519-7c23-2811-ff75cd4bfe81",
 "Active": true,
 "OnMoveCursor": " { this.getControlMgr().getByName('FormParam1').value(newVal); } ",
-"ResElemName": "Dataset8"
+"ResElemName": "Dataset6"
 },
 "collections": {
 "Fields": [
 {
 "$sys": {
-"guid": "3e9600e8-e4e8-cbef-39ab-c195fbe382cb",
+"guid": "eb6fa823-11cf-6f34-053e-533c2d391b64",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "7",
-"Name": "Name",
-"ResElemName": "DataField118"
+"Name": "Id",
+"ResElemName": "DataField80"
 }
 },
 {
 "$sys": {
-"guid": "fa866d8f-725e-f688-3de6-c0a782c95d5e",
+"guid": "296988a7-6d26-6fec-bd6f-de7cb565cc9b",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "8",
-"Name": "Id",
-"ResElemName": "DataField119"
+"Name": "Source",
+"ResElemName": "DataField81"
 }
 },
 {
 "$sys": {
-"guid": "f65ff081-e135-84f0-fd15-a19844f06b95",
+"guid": "7e81d9b8-ffdd-9adb-b27e-50bed6bf9648",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "9",
-"Name": "country",
-"ResElemName": "DataField120"
+"Name": "State",
+"ResElemName": "DataField82"
 }
 },
 {
 "$sys": {
-"guid": "0afd044f-76f8-efbf-5ecc-c59df18abba9",
+"guid": "23e1320b-8c99-4d82-008a-0c9fe678db08",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "10",
-"Name": "city",
-"ResElemName": "DataField121"
+"Name": "Content",
+"ResElemName": "DataField83"
 }
 },
 {
 "$sys": {
-"guid": "1b117aef-3424-614a-1824-523cc46c0507",
+"guid": "a0e1e0e0-0c82-29ba-cd5d-b770aa9ffcc9",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "11",
-"Name": "address",
-"ResElemName": "DataField122"
-}
-}
-]
+"Name": "Creation",
+"ResElemName": "DataField84"
 }
 },
 {
 "$sys": {
-"guid": "eefbcccf-743a-66a4-c3a2-4751d2a334f5",
-"typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
+"guid": "c34e850f-7c2d-cdf1-85b7-b74a2295cc73",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "12",
-"Name": "DatasetContact",
-"ObjType": "3618f084-7f99-ebe9-3738-4af7cf53dc49",
-"Active": true,
-"Master": "061b1347-18a2-a829-fcce-ba59058b4bdf",
-"ResElemName": "Dataset9"
+"Name": "Closed",
+"ResElemName": "DataField85"
+}
 },
-"collections": {
-"Fields": [
 {
 "$sys": {
-"guid": "439b8b9e-447d-c21f-f629-3105b1df754e",
+"guid": "54ed8415-9663-d4e0-e19f-a6e2bf2ee7ad",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "13",
-"Name": "Id",
-"ResElemName": "DataField123"
+"Name": "OpportunityId",
+"ResElemName": "DataField86"
 }
 },
 {
 "$sys": {
-"guid": "80ab10ed-373c-2870-0f52-0c5c7bbf6978",
+"guid": "4c5fedcb-c43c-fb33-17e6-6df0e3b3e728",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "14",
-"Name": "Name",
-"ResElemName": "DataField124"
+"Name": "ContactId",
+"ResElemName": "DataField87"
 }
 },
 {
 "$sys": {
-"guid": "ec732baf-e03f-a116-7925-583712f681f9",
+"guid": "81d400b0-8f58-a800-576f-19ea369a994d",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "15",
-"Name": "parent",
-"ResElemName": "DataField125"
+"Name": "FirstName",
+"ResElemName": "DataField88"
 }
 },
 {
 "$sys": {
-"guid": "f4359087-4731-24d1-0b64-471965e019cf",
+"guid": "fc1bdfc6-906f-a742-1218-8454d9125623",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "16",
-"Name": "firstname",
-"ResElemName": "DataField126"
+"Name": "LastName",
+"ResElemName": "DataField89"
 }
 },
 {
 "$sys": {
-"guid": "ccf93017-2c46-374f-6a20-68f7c15426f8",
+"guid": "d0c2d70e-7572-de26-f8a3-a527e529db0d",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "17",
-"Name": "lastname",
-"ResElemName": "DataField127"
+"Name": "Title",
+"ResElemName": "DataField90"
 }
 },
 {
 "$sys": {
-"guid": "c3c0a738-5fea-608d-24f9-138e4530e001",
+"guid": "eca1ef71-09a7-11a2-e244-d611df8dd77a",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "18",
-"Name": "birthdate",
-"ResElemName": "DataField128"
+"Name": "MobilePhone",
+"ResElemName": "DataField91"
 }
 },
 {
 "$sys": {
-"guid": "99767254-4250-7dd4-1b56-659298414ddf",
+"guid": "2fec5ab0-24cf-83e5-5486-19dda237c4bf",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "19",
-"Name": "country",
-"ResElemName": "DataField129"
+"Name": "WorkPhone",
+"ResElemName": "DataField92"
 }
 },
 {
 "$sys": {
-"guid": "99b59f32-3dc5-9472-05fa-1643e46f87d1",
+"guid": "f0b24e9c-b140-bf20-1083-1edf425dfa74",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "20",
-"Name": "city",
-"ResElemName": "DataField130"
+"Name": "Email",
+"ResElemName": "DataField93"
 }
 },
 {
 "$sys": {
-"guid": "c0a650b1-470e-7237-312e-d530c827e568",
+"guid": "6819d5a5-0789-eda5-3cf8-43f128545ec9",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "21",
-"Name": "address",
-"ResElemName": "DataField131"
-}
-}
-]
+"Name": "CompanyId",
+"ResElemName": "DataField94"
 }
 },
 {
 "$sys": {
-"guid": "e559320d-d80d-48f7-ed4e-0ac63587e606",
-"typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
+"guid": "bb76eac7-7f14-532f-bb28-72122339d7e0",
+"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "22",
-"Name": "DatasetContract",
-"ObjType": "8583ee1d-6936-19da-5ef0-9025fb7d1d8d",
-"Active": true,
-"Master": "061b1347-18a2-a829-fcce-ba59058b4bdf",
-"ResElemName": "Dataset10"
+"Name": "Company",
+"ResElemName": "DataField95"
+}
 },
-"collections": {
-"Fields": [
 {
 "$sys": {
-"guid": "2e2949ac-bc9b-80de-4747-2df61750f105",
+"guid": "0bf0fc84-9c00-4d78-447b-242a18e3cd7d",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "23",
-"Name": "Id",
-"ResElemName": "DataField132"
+"Name": "Industry",
+"ResElemName": "DataField96"
 }
 },
 {
 "$sys": {
-"guid": "39c08f9d-b359-8dc0-99d7-0b619401e18f",
+"guid": "808e498c-0586-17d0-1ce5-0ef3e65d6e12",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "24",
-"Name": "Name",
-"ResElemName": "DataField133"
+"Name": "NbEmpl",
+"ResElemName": "DataField97"
 }
 },
 {
 "$sys": {
-"guid": "f48f71c0-a3c8-2f3b-9a69-1c1ce683e605",
+"guid": "771cf450-fb24-04ae-dbdc-a1d1ea4a1450",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "25",
-"Name": "parent",
-"ResElemName": "DataField134"
+"Name": "City",
+"ResElemName": "DataField98"
 }
 },
 {
 "$sys": {
-"guid": "73904728-a2fb-bd6d-5fac-58054a78e7c7",
+"guid": "dad54b1c-2a3c-a272-049a-42dd2a3a1351",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "26",
-"Name": "number",
-"ResElemName": "DataField135"
+"Name": "Address",
+"ResElemName": "DataField99"
 }
 },
 {
 "$sys": {
-"guid": "15fe26e8-2dbd-5fea-3f21-409175aca9ab",
+"guid": "7e6cdfb8-93d7-8dee-38f0-3e2cce92bfd6",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "27",
-"Name": "total",
-"ResElemName": "DataField136"
+"Name": "PostalCode",
+"ResElemName": "DataField100"
 }
 }
 ]
@@ -341,83 +318,62 @@
 },
 {
 "$sys": {
-"guid": "92720532-a58f-68bb-6e5a-02b28239e312",
+"guid": "504729ba-e002-d856-b694-271ca843a98c",
 "typeGuid": "3f3341c7-2f06-8d9d-4099-1075c158aeee"
 },
 "fields": {
 "Id": "28",
-"Name": "DatasetAddress",
-"ObjType": "edca46bc-3389-99a2-32c0-a59665fcb6a7",
+"Name": "DatasetLeadLog",
+"ObjType": "bb48579c-808e-291e-0242-0facc4876051",
 "Active": true,
-"Master": "eefbcccf-743a-66a4-c3a2-4751d2a334f5",
-"ResElemName": "Dataset11"
+"OnMoveCursor": " { this.getControlMgr().getByName('FormParam1').value(newVal); } ",
+"Master": "c2de9609-237a-c3b3-12ac-43bf5b35c169",
+"ResElemName": "Dataset7"
 },
 "collections": {
 "Fields": [
 {
 "$sys": {
-"guid": "182024da-784f-5615-dc1f-2700fe8f862c",
+"guid": "cdec4144-dbdf-85c6-db91-231bb402ee84",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "29",
 "Name": "Id",
-"ResElemName": "DataField137"
+"ResElemName": "DataField101"
 }
 },
 {
 "$sys": {
-"guid": "1146ab82-429c-7637-e7f5-c9cb770a19d0",
+"guid": "c63d1dd4-ffa2-2bd0-f9b4-8f658018c1c3",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "30",
-"Name": "Name",
-"ResElemName": "DataField138"
+"Name": "LeadId",
+"ResElemName": "DataField102"
 }
 },
 {
 "$sys": {
-"guid": "f4f00409-7541-290a-7e8e-404e1855c437",
+"guid": "b707c450-6cba-c9ee-f62d-4ce35f449c5f",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "31",
-"Name": "parent",
-"ResElemName": "DataField139"
+"Name": "Date",
+"ResElemName": "DataField103"
 }
 },
 {
 "$sys": {
-"guid": "60534ba5-b966-a2a3-a70b-f5787784b640",
+"guid": "4507be07-a3ff-65d9-465c-7f8d6ff122a5",
 "typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
 },
 "fields": {
 "Id": "32",
-"Name": "country",
-"ResElemName": "DataField140"
-}
-},
-{
-"$sys": {
-"guid": "f06101d1-2ff0-39a0-8ff0-88fa5f0557d5",
-"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
-},
-"fields": {
-"Id": "33",
-"Name": "city",
-"ResElemName": "DataField141"
-}
-},
-{
-"$sys": {
-"guid": "15aae336-6b29-8020-eb3b-5899287578a6",
-"typeGuid": "4bade3a6-4a25-3887-4868-9c3de4213729"
-},
-"fields": {
-"Id": "34",
-"Name": "address",
-"ResElemName": "DataField142"
+"Name": "Content",
+"ResElemName": "DataField104"
 }
 }
 ]

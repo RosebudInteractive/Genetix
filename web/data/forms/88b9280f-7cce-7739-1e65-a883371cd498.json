@@ -85,7 +85,7 @@
                           "fields": {
                             "Id": "6",
                             "Name": "DatasetCompany",
-                            "ObjType": "ab573a02-b888-b3b4-36a7-38629a5fe6b7",
+                            "ObjType": "5f9e649d-43c4-d1e6-2778-ff4f58cd7c53",
                             "Active": true,
                             "OnMoveCursor": " { this.getControlMgr().getByName('FormParam1').value(newVal); } ",
                             "ResElemName": "Dataset8"
@@ -158,7 +158,7 @@
                           "fields": {
                             "Id": "12",
                             "Name": "DatasetContact",
-                            "ObjType": "b49d39c9-b903-cccd-7d32-b84beb1b76dc",
+                            "ObjType": "3618f084-7f99-ebe9-3738-4af7cf53dc49",
                             "Active": true,
                             "Master": "061b1347-18a2-a829-fcce-ba59058b4bdf",
                             "ResElemName": "Dataset9"

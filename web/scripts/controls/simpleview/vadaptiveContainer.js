@@ -81,8 +81,10 @@ define(
 
                 var layout = vAContainer._getCurrentLayout.call(that);
                 if (that._currentLayout != layout) {
-                    $('#lay_' + that._currentLayout.getLid()).hide();
-                    $('#lay_' + layout.getLid()).show();
+                    if (that._currentLayout)
+                        $('#lay_' + that._currentLayout.getLid()).hide();
+                    if (layout)
+                        $('#lay_' + layout.getLid()).show();
                     that._currentLayout = layout;
                     vAContainer._switchLayout.call(that, layout, layout);
                 }
@@ -95,6 +97,7 @@ define(
         }
 
         vAContainer._switchLayout = function (layout, rootLayout) {
+            if (!layout || !rootLayout) return;
             var child = layout.control();
             if (child) {
                 //var targetLayout = vAContainer._getLayoutByControl(this, rootLayout, layout.control().getGuid());
@@ -113,6 +116,7 @@ define(
         }
 
         vAContainer._handleResize = function(layout) {
+            if (!layout) return;
             var p = '#ch_' + layout.getLid();
             $(p).css("height", "");
             $(p).css("height", $(p).parent().height());
@@ -134,8 +138,8 @@ define(
             var children = this.getCol('Layouts');
             for(var i=0; i<children.count();i++) {
                 var child = children.get(i);
-                if ((!(child.minTargetWidth()) || (child.minTargetWidth() <= currWidth))
-                    && (!(child.maxTargetWidth()) || child.maxTargetWidth() >= currWidth)) {
+                if ((!(child.minTargetWidth()) || (+child.minTargetWidth() <= currWidth))
+                    && (!(child.maxTargetWidth()) || +child.maxTargetWidth() >= currWidth)) {
                     result = child;
                     break;
                 }
