@@ -132,19 +132,40 @@ define(
         }
 
         vAContainer._getCurrentLayout = function() {
+            var minSizes = vAContainer._getRootsByMinSize.call(this);
             var result = null;
             var item = $('#' + this.getLid());
             var currWidth = item.width();
             var children = this.getCol('Layouts');
-            for(var i=0; i<children.count();i++) {
-                var child = children.get(i);
-                if ((!(child.minTargetWidth()) || (+child.minTargetWidth() <= currWidth))
-                    && (!(child.maxTargetWidth()) || +child.maxTargetWidth() >= currWidth)) {
+            for(var i=0; i<minSizes.length;i++) {
+                if (!minSizes[i]) continue;
+                var child = minSizes[i];
+                if (currWidth < +child.maxTargetWidth() || !child.maxTargetWidth()) {
                     result = child;
                     break;
                 }
             }
             return result;
+        }
+
+        vAContainer._getRootsByMinSize = function() {
+            var col = this.getCol("Layouts");
+            var lCount = col.count();
+            var minSizes = [];
+            var undefL = null;
+            for(var i = 0; i < lCount; i++) {
+                var l = col.get(i);
+                if (l.maxTargetWidth() == null || l.maxTargetWidth() === undefined)
+                    undefL = l;
+                else
+                    minSizes[l.maxTargetWidth()] = l;
+            }
+            if (undefL) {
+                minSizes[minSizes.length + 1000] = undefL;
+            }
+
+            return minSizes;
+
         }
 
         vAContainer._renderLayout = function(layout, isCurrent, rootLayout) {

@@ -5,6 +5,14 @@
     <file url="file://$PROJECT_DIR$/data" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/images/1px_border.png" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/images/delete.png" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/images/form.svg" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/images/form_22.svg" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/images/grid.svg" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/images/grid_22.svg" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/images/toolbar.svg" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/images/toolbar_26.svg" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/images/tree.svg" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/images/tree_22.svg" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/scripts/lib/jquery.visible.js" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/scripts/lib/webix/webix.css" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/scripts/lib/webix/webix.js" charset="windows-1251" />

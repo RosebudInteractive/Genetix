@@ -107,6 +107,7 @@ define(
                     itemEl.data("itemData", data);
 
                     itemEl.children(".dropdown-menu-item-wrapper").off("click").click(data, function (event) {
+                        event.data.custom.buttonControl = that.options.buttonControl;
                         that._trigger("click", null, event.data);
                         that.hide();
                     });

@@ -140,7 +140,7 @@ var config = {
             },
         },
         importData: {
-            autoimport: false,
+            autoimport: true,
             dir: "../web/data/tables"
         },
         trace: {

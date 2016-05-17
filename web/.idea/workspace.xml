@@ -1,15 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="">
+    <list default="true" id="5c8b59c9-505b-42eb-9605-6a0a551ec8ac" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/Message.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/Process.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/ProcessDef.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/Request.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/Task.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/TaskDef.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/TaskDefStage.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/TaskStage.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/TaskStageLog.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/VirtualAddress.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/meta/VirtualTaskList.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/processDefinitions/8349600e-3d0e-4d4e-90c8-93d42c443ab3.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/processDefinitions/cbf35df0-8317-4f2f-8728-88736251ff0b.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/arrowHorizontal.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/form.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/form_22.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/grid.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/grid_22.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/toolbar.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/toolbar_26.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/tree.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/tree_22.svg" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/meta/MessageData.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/meta/ProcessData.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/meta/RequestData.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/controls.css" afterPath="$PROJECT_DIR$/css/controls.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/designer.styl" afterPath="$PROJECT_DIR$/css/designer.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/general.css" afterPath="$PROJECT_DIR$/css/general.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/system-toolbar.styl" afterPath="$PROJECT_DIR$/css/system-toolbar.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/forms/305d26ad-22d4-45ee-8da7-d69cfcced2a6.json" afterPath="$PROJECT_DIR$/data/forms/305d26ad-22d4-45ee-8da7-d69cfcced2a6.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataAddress.json" afterPath="$PROJECT_DIR$/data/meta/DataAddress.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataAutoCompany.json" afterPath="$PROJECT_DIR$/data/meta/DataAutoCompany.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataCompany.json" afterPath="$PROJECT_DIR$/data/meta/DataCompany.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataContact.json" afterPath="$PROJECT_DIR$/data/meta/DataContact.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataContract.json" afterPath="$PROJECT_DIR$/data/meta/DataContract.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataCorpSaleContact.json" afterPath="$PROJECT_DIR$/data/meta/DataCorpSaleContact.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataExpertContact.json" afterPath="$PROJECT_DIR$/data/meta/DataExpertContact.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataFoodCompany.json" afterPath="$PROJECT_DIR$/data/meta/DataFoodCompany.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataIncomeplan.json" afterPath="$PROJECT_DIR$/data/meta/DataIncomeplan.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataLead.json" afterPath="$PROJECT_DIR$/data/meta/DataLead.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataLeadLog.json" afterPath="$PROJECT_DIR$/data/meta/DataLeadLog.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataOpportunity.json" afterPath="$PROJECT_DIR$/data/meta/DataOpportunity.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataProdCompany.json" afterPath="$PROJECT_DIR$/data/meta/DataProdCompany.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataRegionalCompany.json" afterPath="$PROJECT_DIR$/data/meta/DataRegionalCompany.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataRetailSaleContact.json" afterPath="$PROJECT_DIR$/data/meta/DataRetailSaleContact.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataSaleContact.json" afterPath="$PROJECT_DIR$/data/meta/DataSaleContact.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataTstCompany.json" afterPath="$PROJECT_DIR$/data/meta/DataTstCompany.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/DataTstContact.json" afterPath="$PROJECT_DIR$/data/meta/DataTstContact.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/SysBuild.json" afterPath="$PROJECT_DIR$/data/meta/SysBuild.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/SysBuildRes.json" afterPath="$PROJECT_DIR$/data/meta/SysBuildRes.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/SysDataObjTypes.json" afterPath="$PROJECT_DIR$/data/meta/SysDataObjTypes.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/SysProduct.json" afterPath="$PROJECT_DIR$/data/meta/SysProduct.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/SysResType.json" afterPath="$PROJECT_DIR$/data/meta/SysResType.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/SysResVer.json" afterPath="$PROJECT_DIR$/data/meta/SysResVer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/SysResource.json" afterPath="$PROJECT_DIR$/data/meta/SysResource.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/SysVersion.json" afterPath="$PROJECT_DIR$/data/meta/SysVersion.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/meta/SysVersionDep.json" afterPath="$PROJECT_DIR$/data/meta/SysVersionDep.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/DATA_SysDataObjTypes.json" afterPath="$PROJECT_DIR$/data/tables/DATA_SysDataObjTypes.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/SysBuildRes.json" afterPath="$PROJECT_DIR$/data/tables/SysBuildRes.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/SysResType.json" afterPath="$PROJECT_DIR$/data/tables/SysResType.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/SysResVer.json" afterPath="$PROJECT_DIR$/data/tables/SysResVer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/tables/SysResource.json" afterPath="$PROJECT_DIR$/data/tables/SysResource.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/genetixSrv.js" afterPath="$PROJECT_DIR$/genetixSrv.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/Genetix.svg" afterPath="$PROJECT_DIR$/images/Genetix.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/genDataEdit.js" afterPath="$PROJECT_DIR$/scripts/controls/genDataEdit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/templates/formDesigner.html" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/templates/formDesigner.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vadaptiveContainer.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vadaptiveContainer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controls/simpleview/vformDesigner.js" afterPath="$PROJECT_DIR$/scripts/controls/simpleview/vformDesigner.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/genetix_main.js" afterPath="$PROJECT_DIR$/scripts/genetix_main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/widgets/popup.js" afterPath="$PROJECT_DIR$/scripts/widgets/popup.js" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
-    <ignored path=".idea/" />
-    <ignored path="PaulGrid/" />
-    <ignored path="web.iml" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,107 +90,30 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DatabaseView">
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_TABLE_DETAILS" value="true" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="web" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="formDesigner.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/formDesigner.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.9615383">
-              <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
-              <folding>
-                <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="designer.styl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/designer.styl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693">
-              <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="genetix_main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="256" column="64" selection-start-line="256" selection-start-column="54" selection-end-line="256" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="vformDesigner.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vformDesigner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="83" column="36" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="36" />
+            <state vertical-scroll-proportion="-10.103448">
+              <caret line="1210" column="0" selection-start-line="1210" selection-start-column="0" selection-end-line="1210" selection-end-column="0" />
               <folding>
-                <element signature="e#6203#6736#0" expanded="false" />
-                <element signature="e#6785#10231#0" expanded="false" />
-                <element signature="e#13066#13717#0" expanded="false" />
-                <element signature="e#13781#14226#0" expanded="false" />
-                <element signature="e#14277#23873#0" expanded="false" />
-                <element signature="e#16767#17816#0" expanded="false" />
-                <element signature="e#23919#25173#0" expanded="false" />
-                <element signature="e#25236#27308#0" expanded="false" />
-                <element signature="e#27370#30058#0" expanded="false" />
-                <element signature="e#30104#30544#0" expanded="false" />
-                <element signature="e#30598#36706#0" expanded="false" />
-                <element signature="e#34753#35857#0" expanded="false" />
-                <element signature="e#36771#37233#0" expanded="false" />
-                <element signature="e#37287#39604#0" expanded="false" />
-                <element signature="e#39660#42242#0" expanded="false" />
-                <element signature="e#42309#42708#0" expanded="false" />
-                <element signature="e#42769#43568#0" expanded="false" />
-                <element signature="e#48690#49222#0" expanded="false" />
-                <element signature="e#49273#50064#0" expanded="false" />
-                <element signature="e#50130#52395#0" expanded="false" />
-                <element signature="e#52455#57982#0" expanded="false" />
-                <element signature="e#58133#59751#0" expanded="false" />
-                <element signature="e#59804#60345#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="88b9280f-7cce-7739-1e65-a883371cd498.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/forms/88b9280f-7cce-7739-1e65-a883371cd498.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="428" column="19" selection-start-line="67" selection-start-column="18" selection-end-line="428" selection-end-column="19" />
-              <folding>
-                <element signature="e#1979#19554#0" expanded="false" />
-                <element signature="e#6055#11801#0" expanded="false" />
-                <element signature="e#11827#15370#0" expanded="false" />
-                <element signature="e#15396#19488#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Uccello/controls/layout.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="87" column="13" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#29076#30545#0" expanded="false" />
+                <element signature="e#30643#33827#0" expanded="false" />
+                <element signature="e#33909#35689#0" expanded="false" />
+                <element signature="e#35727#39975#0" expanded="false" />
+                <element signature="e#41687#42134#0" expanded="false" />
+                <element signature="e#42199#45078#0" expanded="false" />
+                <element signature="e#45137#45788#0" expanded="false" />
+                <element signature="e#45852#46297#0" expanded="false" />
+                <element signature="e#46363#46835#0" expanded="false" />
+                <element signature="e#47058#51748#0" expanded="false" />
+                <element signature="e#57662#57857#0" expanded="false" />
+                <element signature="e#58273#59503#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -132,37 +122,120 @@
       <file leaf-file-name="genetixSrv.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/genetixSrv.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6646091">
+            <state vertical-scroll-proportion="0.86545455">
               <caret line="140" column="10" selection-start-line="140" selection-start-column="10" selection-end-line="140" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="popup.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/widgets/popup.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-30.586206">
+              <caret line="56" column="59" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Uccello/controls/layout.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="68" column="14" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adaptiveContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Uccello/controls/adaptiveContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vadaptiveContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vadaptiveContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="144" column="26" selection-start-line="144" selection-start-column="26" selection-end-line="144" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Genetix.svg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/images/Genetix.svg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="40" column="115" selection-start-line="40" selection-start-column="115" selection-end-line="40" selection-end-column="115" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="formDesigner.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/formDesigner.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.7272725">
+              <caret line="275" column="14" selection-start-line="275" selection-start-column="14" selection-end-line="275" selection-end-column="14" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#div#1;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="formDesigner.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Uccello/controls/formDesigner.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="187" column="37" selection-start-line="187" selection-start-column="37" selection-end-line="187" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="designer.styl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/designer.styl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.423077">
+              <caret line="230" column="18" selection-start-line="230" selection-start-column="18" selection-end-line="230" selection-end-column="18" />
+              <folding>
+                <element signature="e#707#978#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Html5" />
-        <option value="JavaScript File" />
-        <option value="HTML File" />
-      </list>
-    </option>
-  </component>
-  <component name="FindManager">
-    <FindUsagesManager>
-      <setting name="OPEN_NEW_TAB" value="true" />
-    </FindUsagesManager>
-  </component>
   <component name="Git.Settings">
-    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$/.." value="master" />
-      </map>
-    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -172,53 +245,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/data/forms/5217efe1-4122-462f-98fa-1ee5d9497321.json" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/dataGrid.html" />
-        <option value="$PROJECT_DIR$/../../Uccello/controls/dbTreeView.js" />
-        <option value="$PROJECT_DIR$/../../Uccello/controls/treeView.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/dbTreeView.html" />
-        <option value="$PROJECT_DIR$/css/tree.styl" />
-        <option value="$PROJECT_DIR$/data/forms/cbbf37ac-2b69-4952-984f-5199ebe939b9.json" />
-        <option value="$PROJECT_DIR$/css/grid-new.styl" />
-        <option value="$PROJECT_DIR$/scripts/devices.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbarButton.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataEdit.js" />
-        <option value="$PROJECT_DIR$/scripts/leadEdit.js" />
-        <option value="$PROJECT_DIR$/scripts/templates/genetix.html" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/default.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vdbTreeView.js" />
-        <option value="$PROJECT_DIR$/scripts/widgets/flex-container.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/hContainer.html" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/adaptiveContainer.html" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js" />
-        <option value="$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json" />
-        <option value="$PROJECT_DIR$/../../Uccello/controls/dataset.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vtoolbar.js" />
-        <option value="$PROJECT_DIR$/../../Uccello/controls/formDesigner/formDesigner.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/vContainer.html" />
-        <option value="$PROJECT_DIR$/views/genetix.html" />
-        <option value="$PROJECT_DIR$/css/controls.styl" />
-        <option value="$PROJECT_DIR$/data/forms/3b5d5222-3471-4770-8126-191517ef084b.json" />
-        <option value="$PROJECT_DIR$/scripts/lib/snap/snap.svg.js" />
-        <option value="$PROJECT_DIR$/../../Uccello/controls/adaptiveContainer.js" />
-        <option value="$PROJECT_DIR$/css/containers.styl" />
-        <option value="$PROJECT_DIR$/../../Uccello/controls/aComponent.js" />
-        <option value="$PROJECT_DIR$/data/model/MainModel.json" />
-        <option value="$PROJECT_DIR$/../../Uccello/controls/adaptiveControl.js" />
-        <option value="$PROJECT_DIR$/../../Uccello/config/config.js" />
-        <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
-        <option value="$PROJECT_DIR$/../../Uccello/system/utils.js" />
-        <option value="$PROJECT_DIR$/../../Uccello/controls/designerControl.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/designerPropEditor.html" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/propEditors/defaultEditor.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/propEditors/propEditorManager.js" />
-        <option value="$PROJECT_DIR$/../../Uccello/controls/formDesigner.js" />
-        <option value="$PROJECT_DIR$/../../Uccello/controls/layout.js" />
-        <option value="$PROJECT_DIR$/data/forms/88b9280f-7cce-7739-1e65-a883371cd498.json" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/propEditors/dataGridPropEditor.js" />
-        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vadaptiveContainer.js" />
         <option value="$PROJECT_DIR$/data/forms/305d26ad-22d4-45ee-8da7-d69cfcced2a6.json" />
+        <option value="$PROJECT_DIR$/scripts/genetix_main.js" />
+        <option value="$PROJECT_DIR$/scripts/templates/genetix.html" />
+        <option value="$PROJECT_DIR$/scripts/widgets/popup.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/genDataEdit.js" />
+        <option value="$PROJECT_DIR$/../../Uccello/controls/layout.js" />
+        <option value="$PROJECT_DIR$/../../Uccello/controls/formDesigner.js" />
+        <option value="$PROJECT_DIR$/scripts/controls/simpleview/vadaptiveContainer.js" />
+        <option value="$PROJECT_DIR$/images/Genetix.svg" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/templates/formDesigner.html" />
         <option value="$PROJECT_DIR$/css/designer.styl" />
         <option value="$PROJECT_DIR$/scripts/controls/simpleview/vformDesigner.js" />
@@ -231,56 +266,25 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Bundled (Maven 3)" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState />
-  </component>
   <component name="PhpServers">
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
-    <option name="y" value="2" />
-    <option name="width" value="1598" />
-    <option name="height" value="858" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1612" />
+    <option name="height" value="912" />
   </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>Abstraction issues</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <OptionsSetting value="true" id="Undo Check Out" />
-    <OptionsSetting value="true" id="Get Latest Version" />
-    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
-  </component>
-  <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -297,6 +301,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -345,19 +352,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Uccello" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Uccello" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -370,68 +365,81 @@
               <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wfeUserScripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="processDefinitions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="objTrees" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Uccello/system/utilities/formConverter/convertFormToResource.js" />
-    <property name="options.lastSelected" value="watcher.settings" />
-    <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="LayoutCode.rearrangeEntriesStylus" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Projects/PMT/genetix/Sources/Genetix/web/containers-layout/sandbox.js" />
-    <property name="settings.editor.selected.configurable" value="diff.external" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/genetixSrv.js" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\controls\simpleview\templates" />
       <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\images" />
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\data\forms" />
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\data" />
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\data\meta" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Projects\PMT\genetix\Sources\Uccello\controls" />
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\lib\webix" />
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\images" />
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts\lib" />
-      <recent name="C:\Projects\PMT\genetix\Sources\Genetix\web\scripts" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.Genetix NodeJS">
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
-      <deployment />
-      <server-settings />
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Node.js.Unnamed">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -498,12 +506,11 @@
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
-      <module />
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <module />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -685,11 +692,11 @@
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
+        <value defaultName="singleModule" />
       </option>
       <envs />
       <patterns />
@@ -777,13 +784,13 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="OUTPUT_DIRECTORY" />
       <option name="ANNOTATION_TYPE" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
+        <value defaultName="singleModule" />
       </option>
       <option name="USE_DEFAULT_REPORTERS" value="false" />
       <option name="PROPERTIES_FILE" />
@@ -825,7 +832,6 @@
       <gulpfile />
       <tasks />
       <arguments />
-      <pass-parent-envs>true</pass-parent-envs>
       <envs />
       <method />
     </configuration>
@@ -853,106 +859,12 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <configuration default="false" name="Genetix NodeJS" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="genetixSrv.js" working-dir="$PROJECT_DIR$">
-      <browser start="true" url="http://localhost:1236/genetix" />
-      <RunnerSettings RunnerId="NodeJS.debug" />
-      <RunnerSettings RunnerId="NodeJS.run" />
-      <RunnerSettings RunnerId="debuggableProgram" />
-      <ConfigurationWrapper RunnerId="NodeJS.debug" />
-      <ConfigurationWrapper RunnerId="NodeJS.run" />
-      <ConfigurationWrapper RunnerId="debuggableProgram" />
+    <configuration default="false" name="Unnamed" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="genetixSrv.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
-    <configuration default="false" name="Unnamed" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="convertFormToResource.js" application-parameters="c:\Projects\PMT\genetix\Sources\Genetix\web\data\forms\" working-dir="$PROJECT_DIR$/../../Uccello/system/utilities/formConverter">
-      <method />
-    </configuration>
-    <configuration default="false" name="genetix-impose" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8082/ui-impose/genetix.html" />
-      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
-      <deployment>
-        <file path="$PROJECT_DIR$">
-          <settings>
-            <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </file>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_web_2" />
-        <option name="HTTP_PORT" value="8082" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <RunnerSettings RunnerId="Cover" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="58977" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method />
-    </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Node.js.Genetix NodeJS" />
-      <item index="1" class="java.lang.String" itemvalue="Node.js.Unnamed" />
-      <item index="2" class="java.lang.String" itemvalue="Tomcat Server.genetix-impose" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Node.js.Unnamed" />
     </list>
-    <configuration default="true" type="NodeWebKit" factoryName="Node-webkit">
-      <option name="name" value="" />
-      <method />
-    </configuration>
-    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
-      <Host>localhost</Host>
-      <Port>5050</Port>
-    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -960,542 +872,85 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cdf4553b-9ee0-4b07-b89e-ef1685cd4670" name="Default" comment="" />
-      <created>1423481261713</created>
+      <changelist id="5c8b59c9-505b-42eb-9605-6a0a551ec8ac" name="Default" comment="" />
+      <created>1461241955888</created>
       <option name="number" value="Default" />
-      <updated>1423481261713</updated>
-      <workItem from="1423481264181" duration="2719000" />
-      <workItem from="1423487572257" duration="2311000" />
-      <workItem from="1423493653458" duration="3472000" />
-      <workItem from="1424027822833" duration="26555000" />
-      <workItem from="1424176655496" duration="40023000" />
-      <workItem from="1424340193401" duration="18580000" />
-      <workItem from="1424415285429" duration="19697000" />
-      <workItem from="1424444186889" duration="252000" />
-      <workItem from="1424444455037" duration="4022000" />
-      <workItem from="1424678170660" duration="9043000" />
-      <workItem from="1424691220388" duration="83432000" />
-      <workItem from="1424895877837" duration="18000" />
-      <workItem from="1424930934248" duration="55004000" />
-      <workItem from="1425142703467" duration="5358000" />
-      <workItem from="1425203480589" duration="12936000" />
-      <workItem from="1425281428453" duration="10664000" />
-      <workItem from="1425299103774" duration="40237000" />
-      <workItem from="1425407943617" duration="50000" />
-      <workItem from="1425457660300" duration="35713000" />
-      <workItem from="1425570904906" duration="2489000" />
-      <workItem from="1425581298063" duration="64208000" />
-      <workItem from="1425682478618" duration="27586000" />
-      <workItem from="1425825499735" duration="18310000" />
-      <workItem from="1425972046527" duration="20690000" />
-      <workItem from="1426062657651" duration="29254000" />
-      <workItem from="1426488169671" duration="36424000" />
-      <workItem from="1426753366245" duration="14086000" />
-      <workItem from="1426870134958" duration="1818000" />
-      <workItem from="1427090946782" duration="3061000" />
-      <workItem from="1427113622393" duration="6828000" />
-      <workItem from="1427184980765" duration="1311000" />
-      <workItem from="1427189110120" duration="3386000" />
-      <workItem from="1427192771877" duration="503000" />
-      <workItem from="1427193535014" duration="12499000" />
-      <workItem from="1427212668706" duration="2354000" />
-      <workItem from="1427216984202" duration="62000" />
-      <workItem from="1427279313877" duration="23232000" />
-      <workItem from="1427383843904" duration="1720000" />
-      <workItem from="1427445925087" duration="14297000" />
-      <workItem from="1427615780740" duration="4510000" />
-      <workItem from="1427698644369" duration="4371000" />
-      <workItem from="1427713169579" duration="5801000" />
-      <workItem from="1427746015412" duration="38600000" />
-      <workItem from="1427886163878" duration="18602000" />
-      <workItem from="1428064379193" duration="6481000" />
-      <workItem from="1428301112396" duration="7782000" />
-      <workItem from="1428319715724" duration="26677000" />
-      <workItem from="1428483240203" duration="28012000" />
-      <workItem from="1428935308530" duration="22223000" />
-      <workItem from="1429085543450" duration="35360000" />
-      <workItem from="1429622072765" duration="3974000" />
-      <workItem from="1429687270306" duration="9097000" />
-      <workItem from="1429786192349" duration="13445000" />
-      <workItem from="1429809280982" duration="611000" />
-      <workItem from="1429858840244" duration="22126000" />
-      <workItem from="1430113626674" duration="1162000" />
-      <workItem from="1430114819890" duration="22801000" />
-      <workItem from="1430143988503" duration="253000" />
-      <workItem from="1430144283624" duration="125000" />
-      <workItem from="1430144424447" duration="923000" />
-      <workItem from="1430236747228" duration="10516000" />
-      <workItem from="1430305408566" duration="31000" />
-      <workItem from="1430305455227" duration="6102000" />
-      <workItem from="1430390539770" duration="3819000" />
-      <workItem from="1430395948035" duration="50550000" />
-      <workItem from="1430895526547" duration="3735000" />
-      <workItem from="1430911153915" duration="75000" />
-      <workItem from="1430911261402" duration="22638000" />
-      <workItem from="1431326591996" duration="34820000" />
-      <workItem from="1431420654643" duration="28897000" />
-      <workItem from="1431544902275" duration="21308000" />
-      <workItem from="1431930233738" duration="47126000" />
-      <workItem from="1432491479752" duration="27432000" />
-      <workItem from="1432634185606" duration="21018000" />
-      <workItem from="1432800102974" duration="41000" />
-      <workItem from="1432824449310" duration="3798000" />
-      <workItem from="1432880670539" duration="14108000" />
-      <workItem from="1433162649139" duration="28270000" />
-      <workItem from="1433399442223" duration="9401000" />
-      <workItem from="1433442502074" duration="19574000" />
-      <workItem from="1438164890857" duration="3323000" />
-      <workItem from="1438179312173" duration="94000" />
-      <workItem from="1438179644054" duration="35339000" />
-      <workItem from="1438362783150" duration="4125000" />
-      <workItem from="1439195142686" duration="9685000" />
-      <workItem from="1439277774269" duration="6250000" />
-      <workItem from="1439365991196" duration="11200000" />
-      <workItem from="1439440990861" duration="29731000" />
-      <workItem from="1439717586808" duration="4737000" />
-      <workItem from="1439726482901" duration="13448000" />
-      <workItem from="1439877887131" duration="4667000" />
-      <workItem from="1439890431429" duration="8361000" />
-      <workItem from="1439964497597" duration="4229000" />
-      <workItem from="1440063294432" duration="10669000" />
-      <workItem from="1440140942072" duration="17051000" />
-      <workItem from="1440323847022" duration="7528000" />
-      <workItem from="1440417633346" duration="13545000" />
-      <workItem from="1440664975384" duration="33491000" />
-      <workItem from="1441009348830" duration="32127000" />
-      <workItem from="1441184687025" duration="9696000" />
-      <workItem from="1441226953973" duration="12621000" />
-      <workItem from="1441369231093" duration="609000" />
-      <workItem from="1441374215211" duration="609000" />
-      <workItem from="1441619329309" duration="5734000" />
-      <workItem from="1441695249583" duration="12366000" />
-      <workItem from="1441779471009" duration="3459000" />
-      <workItem from="1441790521138" duration="950000" />
-      <workItem from="1441801733339" duration="5953000" />
-      <workItem from="1441883635792" duration="4546000" />
-      <workItem from="1441912751276" duration="604000" />
-      <workItem from="1441952875200" duration="13893000" />
-      <workItem from="1443423988465" duration="13275000" />
-      <workItem from="1443681954379" duration="28951000" />
-      <workItem from="1443789087162" duration="12679000" />
-      <workItem from="1444039770451" duration="54590000" />
-      <workItem from="1444720903291" duration="10487000" />
-      <workItem from="1444755129011" duration="13740000" />
-      <workItem from="1444894724526" duration="2796000" />
-      <workItem from="1444909717849" duration="12235000" />
-      <workItem from="1445590324698" duration="859000" />
-      <workItem from="1446471356595" duration="4982000" />
-      <workItem from="1447006955900" duration="25000" />
-      <workItem from="1447049705049" duration="4372000" />
-      <workItem from="1447137773465" duration="1332000" />
-      <workItem from="1447677192624" duration="813000" />
-      <workItem from="1447746869134" duration="735000" />
-      <workItem from="1447754727478" duration="628000" />
-      <workItem from="1448004076267" duration="17876000" />
-      <workItem from="1448354571939" duration="2530000" />
-      <workItem from="1448434302247" duration="44695000" />
-      <workItem from="1448877278508" duration="1662000" />
-      <workItem from="1448880711451" duration="2070000" />
-      <workItem from="1448962306709" duration="16215000" />
-      <workItem from="1449147651539" duration="27000" />
-      <workItem from="1450252140319" duration="4738000" />
-      <workItem from="1450258462197" duration="211000" />
-      <workItem from="1450353920141" duration="936000" />
-      <workItem from="1450355433086" duration="4245000" />
-      <workItem from="1450366848996" duration="943000" />
-      <workItem from="1450420323749" duration="16418000" />
-      <workItem from="1450445209008" duration="2577000" />
-      <workItem from="1450450160052" duration="2074000" />
-      <workItem from="1451032883594" duration="8869000" />
-      <workItem from="1451287652123" duration="603000" />
-      <workItem from="1451289472220" duration="6000" />
-      <workItem from="1451291585196" duration="12543000" />
-      <workItem from="1451374019777" duration="10107000" />
-      <workItem from="1452157047558" duration="5416000" />
-      <workItem from="1452411083762" duration="3001000" />
-      <workItem from="1452499193279" duration="1198000" />
-      <workItem from="1452762600257" duration="5821000" />
-      <workItem from="1452786370921" duration="1167000" />
-      <workItem from="1452797429638" duration="15000" />
-      <workItem from="1452843361356" duration="4208000" />
-      <workItem from="1452860214763" duration="8990000" />
-      <workItem from="1453118776486" duration="22000" />
-      <workItem from="1453797837440" duration="1871000" />
-      <workItem from="1454499309062" duration="7297000" />
-      <workItem from="1454912719815" duration="11119000" />
-      <workItem from="1455017325951" duration="3049000" />
-      <workItem from="1455091576505" duration="644000" />
-      <workItem from="1455627694573" duration="660000" />
-      <workItem from="1455647371587" duration="1536000" />
-      <workItem from="1455968875416" duration="13471000" />
-      <workItem from="1456220293231" duration="1529000" />
-      <workItem from="1456307017964" duration="3921000" />
-      <workItem from="1456397132976" duration="148000" />
-      <workItem from="1456398093378" duration="4243000" />
-      <workItem from="1456472737028" duration="3944000" />
-      <workItem from="1456493529082" duration="15623000" />
-      <workItem from="1456732161980" duration="28462000" />
-      <workItem from="1457090829722" duration="615000" />
-      <workItem from="1457338405433" duration="5965000" />
-      <workItem from="1457359891001" duration="1367000" />
-      <workItem from="1457505284751" duration="25294000" />
-      <workItem from="1458023895342" duration="17412000" />
-      <workItem from="1458052676012" duration="19000" />
-      <workItem from="1458053852403" duration="24947000" />
-      <workItem from="1458222571720" duration="25000" />
-      <workItem from="1458223735977" duration="4712000" />
-      <workItem from="1458292832233" duration="7332000" />
-      <workItem from="1458397113798" duration="53000" />
-      <workItem from="1458465286429" duration="173000" />
-      <workItem from="1458541013561" duration="604000" />
-      <workItem from="1458552540079" duration="80611000" />
-      <workItem from="1459244191761" duration="54665000" />
-      <workItem from="1459684811998" duration="1099000" />
-      <workItem from="1459749195557" duration="12609000" />
-      <workItem from="1459837194917" duration="27608000" />
-      <workItem from="1460015183707" duration="14611000" />
-      <workItem from="1460096795344" duration="4233000" />
-      <workItem from="1460115271853" duration="13464000" />
-      <workItem from="1460278313023" duration="265000" />
-      <workItem from="1460356008233" duration="15026000" />
-      <workItem from="1460461862875" duration="1733000" />
-      <workItem from="1460466643315" duration="22643000" />
-      <workItem from="1460579704600" duration="40849000" />
-      <workItem from="1460875864042" duration="645000" />
-      <workItem from="1460962804438" duration="13488000" />
+      <updated>1461241955888</updated>
+      <workItem from="1461241958555" duration="3700000" />
+      <workItem from="1461248066530" duration="23492000" />
+      <workItem from="1461564203792" duration="16809000" />
+      <workItem from="1461648276167" duration="13472000" />
+      <workItem from="1461709973077" duration="1406000" />
+      <workItem from="1461754466868" duration="14624000" />
+      <workItem from="1461831200256" duration="12149000" />
+      <workItem from="1461872251962" duration="2986000" />
+      <workItem from="1461914330758" duration="16000" />
+      <workItem from="1461914384642" duration="18371000" />
+      <workItem from="1462091813775" duration="161000" />
+      <workItem from="1462220601516" duration="4301000" />
+      <workItem from="1462347227645" duration="5787000" />
+      <workItem from="1462527455952" duration="20611000" />
+      <workItem from="1462683767846" duration="10607000" />
+      <workItem from="1462956818610" duration="7594000" />
+      <workItem from="1463037080643" duration="654000" />
+      <workItem from="1463383357194" duration="41983000" />
     </task>
-    <task id="LOCAL-00037" summary="кнопка логина">
-      <created>1425630326034</created>
-      <option name="number" value="00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1425630326034</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Детеилы и открытие формы">
-      <created>1425682663428</created>
-      <option name="number" value="00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1425682663428</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Детеилы и открытие формы">
-      <created>1425748822275</created>
-      <option name="number" value="00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1425748822275</updated>
-    </task>
-    <task id="LOCAL-00040" summary="мелкие исправления">
-      <created>1425837058966</created>
-      <option name="number" value="00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1425837058966</updated>
-    </task>
-    <task id="LOCAL-00041" summary="мелкие исправления">
-      <created>1425837279446</created>
-      <option name="number" value="00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1425837279446</updated>
-    </task>
-    <task id="LOCAL-00042" summary="мелкие исправления">
-      <created>1425840738030</created>
-      <option name="number" value="00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1425840738030</updated>
-    </task>
-    <task id="LOCAL-00043" summary="синхронизация зависимой формы">
-      <created>1425843408072</created>
-      <option name="number" value="00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1425843408072</updated>
-    </task>
-    <task id="LOCAL-00044" summary="открытый треугольник">
-      <created>1425848952098</created>
-      <option name="number" value="00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1425848952098</updated>
-    </task>
-    <task id="LOCAL-00045" summary="обновление грида при редактировании">
-      <created>1425849917563</created>
-      <option name="number" value="00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1425849917563</updated>
-    </task>
-    <task id="LOCAL-00046" summary="открытие на закладке не текущего контекса">
-      <created>1425851363547</created>
-      <option name="number" value="00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1425851363547</updated>
-    </task>
-    <task id="LOCAL-00047" summary="открытие субформы на тойже закладке">
-      <created>1425852870947</created>
-      <option name="number" value="00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1425852870947</updated>
-    </task>
-    <task id="LOCAL-00048" summary="открытие субформы на тойже закладке">
-      <created>1425853169304</created>
-      <option name="number" value="00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1425853169304</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Меню пользователя">
-      <created>1425994183163</created>
-      <option name="number" value="00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1425994183163</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Меню пользователя">
-      <created>1426062711357</created>
-      <option name="number" value="00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1426062711357</updated>
-    </task>
-    <task id="LOCAL-00051" summary="ишибки верстки">
-      <created>1426150675149</created>
-      <option name="number" value="00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1426150675149</updated>
-    </task>
-    <task id="LOCAL-00052" summary="анимация девайсов">
-      <created>1426158692309</created>
-      <option name="number" value="00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1426158692309</updated>
-    </task>
-    <task id="LOCAL-00053" summary="треугольничек">
-      <created>1426165455335</created>
-      <option name="number" value="00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1426165455335</updated>
-    </task>
-    <task id="LOCAL-00054" summary="треугольничек">
-      <created>1426166786289</created>
-      <option name="number" value="00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1426166786289</updated>
-    </task>
-    <task id="LOCAL-00055" summary="курсор грида">
-      <created>1426499486347</created>
-      <option name="number" value="00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1426499486347</updated>
-    </task>
-    <task id="LOCAL-00056" summary="рефактор контролов">
-      <created>1426578776303</created>
-      <option name="number" value="00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1426578776303</updated>
-    </task>
-    <task id="LOCAL-00057" summary="рефактор контролов">
-      <created>1426583247249</created>
-      <option name="number" value="00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1426583247250</updated>
-    </task>
-    <task id="LOCAL-00058" summary="рефактор контролов и верстка">
-      <created>1426637229025</created>
-      <option name="number" value="00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1426637229029</updated>
-    </task>
-    <task id="LOCAL-00059" summary="тултипы">
-      <created>1426764134605</created>
-      <option name="number" value="00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1426764134605</updated>
-    </task>
-    <task id="LOCAL-00060" summary="тултипы">
-      <created>1426764363215</created>
-      <option name="number" value="00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1426764363215</updated>
-    </task>
-    <task id="LOCAL-00061" summary="тултипы">
-      <created>1426764407985</created>
-      <option name="number" value="00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1426764407985</updated>
-    </task>
-    <task id="LOCAL-00062" summary="тултипы">
-      <created>1426764760004</created>
-      <option name="number" value="00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1426764760004</updated>
-    </task>
-    <task id="LOCAL-00063" summary="тултипы">
-      <created>1426764840609</created>
-      <option name="number" value="00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1426764840609</updated>
-    </task>
-    <task id="LOCAL-00064" summary="тултипы">
-      <created>1426765848023</created>
-      <option name="number" value="00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1426765848023</updated>
-    </task>
-    <task id="LOCAL-00065" summary="тултипы">
-      <created>1426765919527</created>
-      <option name="number" value="00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1426765919527</updated>
-    </task>
-    <task id="LOCAL-00066" summary="рефактор кнопок">
-      <created>1427367419490</created>
-      <option name="number" value="00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1427367419490</updated>
-    </task>
-    <task id="LOCAL-00067" summary="рефактор кнопок">
-      <created>1427367838973</created>
-      <option name="number" value="00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1427367838973</updated>
-    </task>
-    <task id="LOCAL-00068" summary="рефактор кнопок">
-      <created>1427368152300</created>
-      <option name="number" value="00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1427368152301</updated>
-    </task>
-    <task id="LOCAL-00069" summary="рефактор кнопок">
-      <created>1427374114286</created>
-      <option name="number" value="00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1427374114286</updated>
-    </task>
-    <task id="LOCAL-00070" summary="4">
-      <created>1450356241062</created>
-      <option name="number" value="00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1450356241063</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Resource refactor">
-      <created>1455977304737</created>
-      <option name="number" value="00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1455977304739</updated>
-    </task>
-    <task id="LOCAL-00072" summary="Resource refactor">
-      <created>1455977396801</created>
-      <option name="number" value="00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1455977396801</updated>
-    </task>
-    <task id="LOCAL-00073" summary="Adaptive container first stage">
-      <created>1456924725360</created>
-      <option name="number" value="00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1456924725363</updated>
-    </task>
-    <task id="LOCAL-00074" summary="Adaptive container first stage">
-      <created>1456924764199</created>
-      <option name="number" value="00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1456924764199</updated>
-    </task>
-    <task id="LOCAL-00075" summary="Adaptive container final &amp; form designer">
-      <created>1459853201942</created>
-      <option name="number" value="00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1459853201943</updated>
-    </task>
-    <task id="LOCAL-00076" summary="form designer 2">
-      <created>1460015399675</created>
-      <option name="number" value="00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1460015399675</updated>
-    </task>
-    <task id="LOCAL-00077" summary="config for server">
-      <created>1460019006878</created>
-      <option name="number" value="00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1460019006878</updated>
-    </task>
-    <task id="LOCAL-00078" summary="uccello updates">
-      <created>1460025495055</created>
-      <option name="number" value="00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1460025495055</updated>
-    </task>
-    <task id="LOCAL-00079" summary="uccello updates">
-      <created>1460025541531</created>
-      <option name="number" value="00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1460025541531</updated>
-    </task>
-    <task id="LOCAL-00080" summary="server config">
-      <created>1460032194645</created>
-      <option name="number" value="00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1460032194645</updated>
-    </task>
-    <task id="LOCAL-00081" summary="server config">
-      <created>1460034758544</created>
-      <option name="number" value="00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1460034758544</updated>
-    </task>
-    <task id="LOCAL-00082" summary="form designer updates">
-      <created>1460368561472</created>
-      <option name="number" value="00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1460368561472</updated>
-    </task>
-    <task id="LOCAL-00083" summary="form designer updates 2">
-      <created>1460626839095</created>
-      <option name="number" value="00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1460626839097</updated>
-    </task>
-    <task id="LOCAL-00084" summary="form designer updates 2">
-      <created>1460627758787</created>
-      <option name="number" value="00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1460627758787</updated>
-    </task>
-    <task id="LOCAL-00085" summary="form designer updates 3">
-      <created>1460991489906</created>
-      <option name="number" value="00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1460991489907</updated>
-    </task>
-    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1151906000" />
+    <option name="totallyTimeSpent" value="198723000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="2" width="1598" height="858" extended-state="0" />
+    <frame x="-8" y="-8" width="1612" height="912" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938075" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20145631" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33808845" sideWeight="0.4974293" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28830084" sideWeight="0.5025707" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2657143" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2823366" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30901858" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37748346" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1957638" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25682706" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19543509" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51877606" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19201031" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23342176" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3501326" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275463" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32823366" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4131054" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24935567" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26495728" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1508,337 +963,139 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="синхронизация зависимой формы" />
-    <MESSAGE value="открытый треугольник" />
-    <MESSAGE value="обновление грида при редактировании" />
-    <MESSAGE value="открытие на закладке не текущего контекса" />
-    <MESSAGE value="открытие субформы на тойже закладке" />
-    <MESSAGE value="Меню пользователя" />
-    <MESSAGE value="ишибки верстки" />
-    <MESSAGE value="анимация девайсов" />
-    <MESSAGE value="треугольничек" />
-    <MESSAGE value="курсор грида" />
-    <MESSAGE value="рефактор контролов" />
-    <MESSAGE value="рефактор контролов и верстка" />
-    <MESSAGE value="тултипы" />
-    <MESSAGE value="рефактор кнопок" />
-    <MESSAGE value="4" />
-    <MESSAGE value="Resource refactor" />
-    <MESSAGE value="Adaptive container first stage" />
-    <MESSAGE value="Adaptive container final &amp; form designer" />
-    <MESSAGE value="form designer 2" />
-    <MESSAGE value="config for server" />
-    <MESSAGE value="uccello updates" />
-    <MESSAGE value="server config" />
-    <MESSAGE value="form designer updates" />
-    <MESSAGE value="form designer updates 2" />
-    <MESSAGE value="form designer updates 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="form designer updates 3" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <condition expression="!ot" />
-          <url>file://$PROJECT_DIR$/../../Uccello/memDB/memObj.js</url>
-          <line>66</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/../../Uccello/dataman/dataObjectBase.js</url>
-          <line>288</line>
-          <option name="timeStamp" value="104" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/../../Uccello/resman/unit-tests/main.js</url>
-          <line>5</line>
-          <option name="timeStamp" value="142" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="148" />
+      <option name="time" value="2" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="NodeJSConfigurationType">
-        <watch expression="path" />
-        <watch expression="path.format" />
-      </configuration>
-    </watches-manager>
-  </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/container.js">
+    <entry file="file://$PROJECT_DIR$/data/forms/305d26ad-22d4-45ee-8da7-d69cfcced2a6.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <caret line="363" column="48" selection-start-line="363" selection-start-column="48" selection-end-line="363" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genVContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.04">
-          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/adaptiveContainer.js">
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vadaptiveContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="190" column="45" selection-start-line="190" selection-start-column="45" selection-end-line="190" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/aDataModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52">
-          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/controlMgr.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7626263">
-          <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/aDataControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/resman/unit-tests/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/resman/resman.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="188" column="29" selection-start-line="188" selection-start-column="29" selection-end-line="188" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/dataman/providers/mysql/connectionMgr.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/system/tracer/source.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19373219">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/system/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/propEditor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5368421">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/dataGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vaDataModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/designerPropEditor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/dataset.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.049723756">
-          <caret line="333" column="12" selection-start-line="333" selection-start-column="12" selection-end-line="333" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vdbTreeView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="27" selection-start-line="78" selection-start-column="27" selection-end-line="78" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/propEditors/defaultEditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenDataGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="101" column="25" selection-start-line="101" selection-start-column="25" selection-end-line="101" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/1bf3b1a3-edba-32ca-5033-75e3cf9a709a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.6538463">
-          <caret line="52" column="37" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/4a4abdb4-3e3b-85a7-09b9-5f15b4b187f9.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.576923">
-          <caret line="65" column="37" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.423077">
-          <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/d5779b46-5c7e-4537-b25e-a8e5e27fb86f.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="24" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/46e56f92-cfd9-45c0-9b94-9c7258e68839.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/4f301ecb-030f-4751-99d0-b19d2d7ce2de.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/aComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41823444">
-          <caret line="17" column="60" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/form-32.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/form-32-2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/form-add-32.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/3b5d5222-3471-4770-8126-191517ef084b.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.028911564">
-          <caret line="84" column="24" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/genDataGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/propEditors/propEditorManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37527594">
-          <caret line="17" column="49" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="49" />
+          <caret line="140" column="89" selection-start-line="140" selection-start-column="89" selection-end-line="140" selection-end-column="89" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../Uccello/controls/formDesigner.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="133" column="56" selection-start-line="133" selection-start-column="56" selection-end-line="133" selection-end-column="56" />
+          <caret line="44" column="12" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/memDB/memProtoObj.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37086093">
-          <caret line="144" column="35" selection-start-line="144" selection-start-column="32" selection-end-line="144" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/designerControl.js">
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/formDesigner.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/layout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="87" column="13" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
+          <caret line="141" column="79" selection-start-line="141" selection-start-column="79" selection-end-line="141" selection-end-column="79" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Genetix.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="295" column="9" selection-start-line="295" selection-start-column="9" selection-end-line="295" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genetixSrv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="108" column="6" selection-start-line="108" selection-start-column="6" selection-end-line="108" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="383" column="38" selection-start-line="383" selection-start-column="38" selection-end-line="383" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/designer.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="40" />
+          <folding>
+            <element signature="e#707#978#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vformDesigner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#29076#30545#0" expanded="false" />
+            <element signature="e#30643#33827#0" expanded="false" />
+            <element signature="e#33909#35689#0" expanded="false" />
+            <element signature="e#35727#39975#0" expanded="false" />
+            <element signature="e#41687#42134#0" expanded="false" />
+            <element signature="e#42199#45078#0" expanded="false" />
+            <element signature="e#45137#45788#0" expanded="false" />
+            <element signature="e#45852#46297#0" expanded="false" />
+            <element signature="e#46363#46835#0" expanded="false" />
+            <element signature="e#47058#51748#0" expanded="false" />
+            <element signature="e#57662#57857#0" expanded="false" />
+            <element signature="e#58273#59503#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/formDesigner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/formDesigner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="84" column="65" selection-start-line="84" selection-start-column="60" selection-end-line="84" selection-end-column="65" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#1;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1846,214 +1103,353 @@
     <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="256" column="64" selection-start-line="256" selection-start-column="54" selection-end-line="256" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/propEditors/dataGridPropEditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29856852">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/305d26ad-22d4-45ee-8da7-d69cfcced2a6.save.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.692307">
-          <caret line="102" column="37" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/88b9280f-7cce-7739-1e65-a883371cd498.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="428" column="19" selection-start-line="67" selection-start-column="18" selection-end-line="428" selection-end-column="19" />
-          <folding>
-            <element signature="e#1979#19554#0" expanded="false" />
-            <element signature="e#6055#11801#0" expanded="false" />
-            <element signature="e#11827#15370#0" expanded="false" />
-            <element signature="e#15396#19488#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/5217efe1-4122-462f-98fa-1ee5d9497321.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385">
-          <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/forms/305d26ad-22d4-45ee-8da7-d69cfcced2a6.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07579462">
-          <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vadaptiveContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="270" column="40" selection-start-line="270" selection-start-column="40" selection-end-line="270" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/formDesigner.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.9615383">
-          <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
+          <caret line="383" column="38" selection-start-line="383" selection-start-column="38" selection-end-line="383" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/designer.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Uccello/config/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2942387">
-          <caret line="201" column="22" selection-start-line="201" selection-start-column="22" selection-end-line="201" selection-end-column="22" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="112" column="22" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
+          <folding>
+            <element signature="e#707#978#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vformDesigner.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="36" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="36" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#6203#6736#0" expanded="false" />
-            <element signature="e#6785#10231#0" expanded="false" />
-            <element signature="e#13066#13717#0" expanded="false" />
-            <element signature="e#13781#14226#0" expanded="false" />
-            <element signature="e#14277#23873#0" expanded="false" />
-            <element signature="e#16767#17816#0" expanded="false" />
-            <element signature="e#23919#25173#0" expanded="false" />
-            <element signature="e#25236#27308#0" expanded="false" />
-            <element signature="e#27370#30058#0" expanded="false" />
-            <element signature="e#30104#30544#0" expanded="false" />
-            <element signature="e#30598#36706#0" expanded="false" />
-            <element signature="e#34753#35857#0" expanded="false" />
-            <element signature="e#36771#37233#0" expanded="false" />
-            <element signature="e#37287#39604#0" expanded="false" />
-            <element signature="e#39660#42242#0" expanded="false" />
-            <element signature="e#42309#42708#0" expanded="false" />
-            <element signature="e#42769#43568#0" expanded="false" />
-            <element signature="e#48690#49222#0" expanded="false" />
-            <element signature="e#49273#50064#0" expanded="false" />
-            <element signature="e#50130#52395#0" expanded="false" />
-            <element signature="e#52455#57982#0" expanded="false" />
-            <element signature="e#58133#59751#0" expanded="false" />
-            <element signature="e#59804#60345#0" expanded="false" />
+            <element signature="e#29076#30545#0" expanded="false" />
+            <element signature="e#30643#33827#0" expanded="false" />
+            <element signature="e#33909#35689#0" expanded="false" />
+            <element signature="e#35727#39975#0" expanded="false" />
+            <element signature="e#41687#42134#0" expanded="false" />
+            <element signature="e#42199#45078#0" expanded="false" />
+            <element signature="e#45137#45788#0" expanded="false" />
+            <element signature="e#45852#46297#0" expanded="false" />
+            <element signature="e#46363#46835#0" expanded="false" />
+            <element signature="e#47058#51748#0" expanded="false" />
+            <element signature="e#57662#57857#0" expanded="false" />
+            <element signature="e#58273#59503#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="288" column="68" selection-start-line="288" selection-start-column="32" selection-end-line="288" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/designer.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+          <folding>
+            <element signature="e#707#978#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/forms/305d26ad-22d4-45ee-8da7-d69cfcced2a6.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="363" column="48" selection-start-line="363" selection-start-column="48" selection-end-line="363" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/containers-layout/sandbox-inner.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4676409">
+          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/system-toolbar.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.038462">
+          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/toolbar.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39039665">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/forms/89f42efa-b160-842c-03b4-f3b536ca09d8.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="45" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vcContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/templates/genetix.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6379691">
+          <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/leadEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/genetix_main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="172" column="21" selection-start-line="172" selection-start-column="21" selection-end-line="172" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/devices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="260" column="12" selection-start-line="260" selection-start-column="12" selection-end-line="260" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/resman/resTypes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/meta/Message.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="162" selection-start-line="0" selection-start-column="162" selection-end-line="0" selection-end-column="162" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/containers.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="171" column="1" selection-start-line="171" selection-start-column="1" selection-end-line="171" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vgenVContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="297" column="22" selection-start-line="297" selection-start-column="22" selection-end-line="297" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/widgets/flex-container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="515" column="37" selection-start-line="515" selection-start-column="37" selection-end-line="515" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33273056">
+          <caret line="1549" column="0" selection-start-line="1549" selection-start-column="0" selection-end-line="1549" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/lib/iscroll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="235" column="63" selection-start-line="235" selection-start-column="63" selection-end-line="235" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/memDB/memCol.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="195" column="32" selection-start-line="195" selection-start-column="32" selection-end-line="195" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/dataset.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="165" column="14" selection-start-line="165" selection-start-column="14" selection-end-line="165" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/aDataModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/button.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/genDataEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="78" selection-start-line="7" selection-start-column="78" selection-end-line="7" selection-end-column="78" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/layout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="14" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/adaptiveContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/lib/snap/snap.svg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33274022">
+          <caret line="7335" column="28" selection-start-line="7335" selection-start-column="28" selection-end-line="7335" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/lib/jquery-1.11.2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33186814">
+          <caret line="8467" column="23" selection-start-line="8467" selection-start-column="23" selection-end-line="8467" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Uccello/controls/formDesigner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="187" column="37" selection-start-line="187" selection-start-column="37" selection-end-line="187" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vadaptiveContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="144" column="26" selection-start-line="144" selection-start-column="26" selection-end-line="144" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/forms/88b9280f-7cce-7739-1e65-a883371cd498.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="78" column="30" selection-start-line="78" selection-start-column="27" selection-end-line="78" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Genetix.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="115" selection-start-line="40" selection-start-column="115" selection-end-line="40" selection-end-column="115" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/designer.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.423077">
+          <caret line="230" column="18" selection-start-line="230" selection-start-column="18" selection-end-line="230" selection-end-column="18" />
+          <folding>
+            <element signature="e#707#978#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/templates/formDesigner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.7272725">
+          <caret line="275" column="14" selection-start-line="275" selection-start-column="14" selection-end-line="275" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/widgets/popup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.586206">
+          <caret line="56" column="59" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controls/simpleview/vformDesigner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.103448">
+          <caret line="1210" column="0" selection-start-line="1210" selection-start-column="0" selection-end-line="1210" selection-end-column="0" />
+          <folding>
+            <element signature="e#29076#30545#0" expanded="false" />
+            <element signature="e#30643#33827#0" expanded="false" />
+            <element signature="e#33909#35689#0" expanded="false" />
+            <element signature="e#35727#39975#0" expanded="false" />
+            <element signature="e#41687#42134#0" expanded="false" />
+            <element signature="e#42199#45078#0" expanded="false" />
+            <element signature="e#45137#45788#0" expanded="false" />
+            <element signature="e#45852#46297#0" expanded="false" />
+            <element signature="e#46363#46835#0" expanded="false" />
+            <element signature="e#47058#51748#0" expanded="false" />
+            <element signature="e#57662#57857#0" expanded="false" />
+            <element signature="e#58273#59503#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/genetixSrv.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6646091">
+        <state vertical-scroll-proportion="0.86545455">
           <caret line="140" column="10" selection-start-line="140" selection-start-column="10" selection-end-line="140" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Node.js v0.10.32 Core Modules</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.7</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>web</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.7</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Uccello</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

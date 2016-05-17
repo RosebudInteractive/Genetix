@@ -251,7 +251,7 @@ $(document).ready( function() {
                             }).tooltip().tooltip('option', 'position', toolPos).
                             tooltip('option', 'tooltipClass', 'bottom');
                             $("#crm-menu-item").click(function() {
-                                window.createContext([form2Guid])
+                                window.createContext([formGuid])
                             });
                             $("#emk-menu-item").click(function() {
                                 window.createContext([form11Guid])

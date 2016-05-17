@@ -9,15 +9,24 @@ define(
         var KEYCODE_ESC = 27;
         var vDesigner = {};
         var ToolbarModes = { pointer: 0, vertical: 1, horizontal: 2, layer: 3, control: 4, existingControl: 5, layout: 6, changeLayout: 7};
-        var MARGIN_TOP = 20;
-        var MARGIN_BUT = 0;
-        var MARGIN_LEFT = 3;
-        var MARGIN_RIGHT = 3;
-        var MIN_CTRL_H = 34;
+        var DesignerModes = {both: 0, designer: 1, form: 2};
+        var MARGIN_TOP = 18;
+        var MARGIN_BUT = 6;
+        var MARGIN_LEFT = 9;
+        var MARGIN_RIGHT = 0;
+        var MIN_CTRL_H = 10;
         var MIN_CTRL_W = 0;
         var MIN_LAYOUT_HEIGHT = 54;
         var MIN_LAYOUT_W = 0;
         var FIXED_SCALE = 3;
+        var START_COLOR1 = 0x36;
+        var START_COLOR2 = 0x42;
+        var START_COLOR3 = 0x57;
+        var COLOR_INC1 = 5;
+        var COLOR_INC2 = 9;
+        var COLOR_INC3 = 23;
+        var CELL_SPACING = 6;
+
         var autoHeight = 150;
         for (var i in Base)
             vDesigner[i] = Base[i];
@@ -30,6 +39,8 @@ define(
             if (item.length == 0) {
                 that._toolbarMode = ToolbarModes.pointer;
                 this._renderInfo = {};
+                this._mode = DesignerModes.both;
+                this._controlToolbarVisible = true;
                 // обйъект контенера
                 var pItem = $(vDesigner._templates['container']).attr('id', "mid_" + this.getLid());
                 item = pItem.children(".control").attr('id', this.getLid());
@@ -40,7 +51,7 @@ define(
                 cont.attr("tabIndex", "1");
 
                 pItem.height($(parent).height());
-                this._snap = Snap(cont.find("svg")[0]);
+                this._snap = Snap(cont.find(".designer-content").find("svg")[0]);
                 this._global = this._snap.group();
                 cont.bind("keydown", function(e) {
                     vDesigner._onKeyPress.call(that, e);
@@ -49,8 +60,50 @@ define(
                 var pComp = that.getParentComp();
                 var children = pComp.getCol("Children");
 
-                var svg = item.find("svg");
+                item.find(".designer-left").children(".v-container").height(item.find(".designer-left").height());
+                var svg = item.find(".designer-content").find("svg");
                 svg.height(svg.parent().parent().height() - 5);
+
+                $(window).on("genetix:resize", function () {
+                    var cont = item.find(".gen-form").children(".v-container").children(".c-content");
+                    var fContent =  cont.children(".control-wrapper");
+                    fContent.width(0);
+                    cont.width(0);
+                    cont.width(item.find(".designer-right").width());
+                    fContent.width(that._widthPointer + "px");
+
+                    var p = that.getParentComp()? '#ch_' + that.getLid(): options.rootContainer;
+                    $(p).css("height", "");
+                    $(p).css("height", $(p).parent().height());
+                    var pp = $("#mid_" + that.getLid());
+                    pp.css("height", "");
+                    pp.css("height", $(p).height());
+
+                    item.find(".designer-left").children(".v-container").height(item.find(".designer-left").height());
+                    item.find(".designer-right").children(".v-container").height(item.find(".designer-right").height());
+                    item.find(".gen-form").children(".v-container").css("height", "");
+                    setTimeout(function() {
+                        item.find(".gen-form").children(".v-container").height(item.find(".gen-form").height());
+                    }, 0);
+
+                    var left = item.find(".designer-left");
+                    var hide = left.width() != 0;
+                    if (hide) {
+                        var curLayout = that.currentLayout();
+                        vDesigner._recalcLayoutMinDimensions.call(that, curLayout);
+                        vDesigner._renderLayout.call(that, that.currentLayout());
+                    }
+                    var bb = that._global.getBBox();
+                    var svg = item.find(".designer-content").find("svg");
+                    svg.height(bb.height);
+
+                    vDesigner._refreshScroll.call(that);
+
+                    vDesigner._renderTabsToolbar.call(that);
+                    vDesigner._renderToolbar.call(that);
+
+                });
+
             } else {
                 pItem = $("#mid_" + this.getLid());
             }
@@ -81,30 +134,29 @@ define(
                 item.addClass("m-container")
             }
 
-            // создаем врапперы для разметок
-            var curLayout = this.currentLayout();
-            vDesigner._recalcLayoutMinDimensions.call(this, curLayout);
-            vDesigner._renderLayout.call(this, curLayout);
+            item.find(".designer-left").children(".v-container").height(item.find(".designer-left").height());
+            item.find(".designer-right").children(".v-container").height(item.find(".designer-right").height());
+            item.find(".gen-form").children(".v-container").css("height", null);
+            setTimeout(function() {
+                item.find(".gen-form").children(".v-container").height(item.find(".gen-form").height());
+            }, 0);
 
+            var ctrlsDiv = item.find(".designer-toolbar.controls");
+            if (this.getCol("Layouts").count() <= 1) ctrlsDiv.hide();
+            else ctrlsDiv.show();
+
+            // создаем врапперы для разметок
+            var left = item.find(".designer-left");
+            var hide = left.width() != 0;
+            if (hide) {
+                var curLayout = this.currentLayout();
+                vDesigner._recalcLayoutMinDimensions.call(this, curLayout);
+                vDesigner._renderLayout.call(this, curLayout);
+            }
             var bb = that._global.getBBox();
-            var svg = item.find("svg");
+            var svg = item.find(".designer-content").find("svg");
             svg.height(bb.height);
 
-            $(window).on("genetix:resize", function () {
-                var p = that.getParentComp()? '#ch_' + that.getLid(): options.rootContainer;
-                $(p).css("height", "");
-                $(p).css("height", $(p).parent().height());
-                var pp = $("#mid_" + that.getLid());
-                pp.css("height", "");
-                pp.css("height", $(p).height());
-
-                vDesigner._recalcLayoutMinDimensions.call(that, curLayout);
-                vDesigner._renderLayout.call(that, that.currentLayout());
-
-                var bb = that._global.getBBox();
-                var svg = item.find("svg");
-                svg.height(bb.height);
-            });
             vDesigner._setVisible.call(this);
             vDesigner._genEventsForParent.call(this);
             var layout = this.currentLayout();
@@ -113,6 +165,7 @@ define(
             vDesigner._renderModel.call(this);
             vDesigner._renderToolbar.call(this);
             vDesigner._setToolbarEvents.call(this);
+            vDesigner._renderTabsToolbar.call(this);
 
 
             for (var i in this._renderInfo) {
@@ -124,6 +177,7 @@ define(
             }
 
             var cont2 = item.children(".c-content").find(".gen-form").children(".control.v-container.container").children(".c-content");
+            cont2.width(cont2.parent().width());
             var childs = this.getCol('Children');
             for(var i=0; i<childs.count();i++) {
                 var child = this.getControlMgr().get(childs.get(i).getGuid());
@@ -135,21 +189,25 @@ define(
                     cont2.append(div);
                 }
 
-                div.css({width: "100%", height: "100%"});
+                div.css({width: this._widthPointer ? this._widthPointer : "100%", height: "100%"});
             }
+
+            if (this.hasChanges()) item.find(".refresh-button").show();
+            else item.find(".refresh-button").hide();
 
             // убираем удаленные объекты
             var del = this.getLogCol('Children') && 'del' in this.getLogCol('Children')? this.getLogCol('Children').del: {};
             for (var guid in del)
                 $('#ext_' + del[guid].getLid()).remove();
 
+            vDesigner._refreshScroll.call(this);
         };
 
         vDesigner._renderModel = function() {
             var item = $("#" + this.getLid());
             var model = this.getModel();
             var div = item.find(".model-content");
-            div.empty();
+            /*div.empty();
             if (model) {
                 div.append("<h2>" + model.resElemName() + "</h2>");
                 var ul = $("<ul/>");
@@ -157,37 +215,432 @@ define(
                 for (var i = 0; i < col.count(); i++)
                     ul.append("<li>" + col.get(i).resElemName() + "</li>");
                 div.append(ul);
-            }
+            }*/
         };
+
+        vDesigner._renderTabsToolbar = function() {
+            var that = this;
+            var item = $("#" + this.getLid());
+            var ctrlsDiv = item.find(".designer-toolbar.controls").children();
+            var mainToolbar = item.find(".designer-toolbar.tabs");
+            var toolContent = mainToolbar.children(".system-panel-section-left.layouts");
+            var btnContent = mainToolbar.children(".system-panel-section-left.buttons");
+            var allSize = mainToolbar.width();// - btnContent.width();
+            if (Math.floor(allSize) == allSize) allSize--;
+            var col = this.getCol("Layouts");
+            var lCount = col.count();
+            var oneSize = Math.floor(allSize/lCount);
+
+            var minSizes = vDesigner._getRootsByMinSize.call(that);
+
+            var infin = String.fromCharCode(0x221E);
+            var prevT = null;
+            for (var i in minSizes) {
+                var l = minSizes[i];
+                var t = $("#tab_" + l.getLid());
+                if (t.length == 0) {
+                    var str = vDesigner._templates["tab"];
+                    var t = $(str);
+                    t.attr("id", "tab_" + l.getLid());
+                    t.attr("guid", l.getGuid());
+                    if (!prevT)
+                        toolContent.append(t);
+                    else
+                        prevT.after(t);
+
+                    t.click(function () {
+                        var g = $(this).attr("guid");
+                        var c = that.getCol("Layouts");
+                        var toSetL = c.get(c.indexOfGuid(g));
+                        that.getControlMgr().userEventHandler(that, function () {
+                            that.currentLayout(toSetL);
+                        });
+                    });
+
+                    t.find("div[role='delete']").click(function() {
+                        var p = $(this).parent().parent().parent();
+                        var guid = p.attr("guid");
+                        vDesigner._deleteRootLayout.call(that, guid);
+                    });
+
+                    var toVal = t.find("div.to-value");
+                    toVal.find("input").change(function (e) {
+                        var p = $(this).parent().parent().parent();
+                        var guid = p.attr("guid");
+                        var val = $(this).val();
+                        var role = $(this).attr("role");
+                        var res = vDesigner._setDimension.call(that, guid, val, role);
+                        var tv = $(this).parent().parent();
+                        tv.removeClass("edit-mode");
+                        tv.find(".value-l").text($(this).val() + "px");
+                        if (!res) e.preventDefault = true;
+                    }).keydown(function (e) {
+                        if(e.which == 13)
+                            $(this).change();
+                    });
+
+                    toVal.find(".value-l").on("mousedown", function(e) {
+                        var p = $(e.target).parent().parent();
+                        var next = p.next();
+                        that._draggable = { target: $(e.target), w: p.width(), nw: next.width(),  ex: e.screenX, ey: e.screenY, delta: 0 };
+                    }).on("mousemove", function(e) {
+                        if (that._draggable) {
+                            var p = that._draggable.target.parent().parent();
+                            var next = p.next();
+                            var offX = e.screenX - that._draggable.ex;
+                            if ((offX > 0 && next.width() - 35 > offX) ||
+                                (offX < 0 && p.width() - 35 > offX)) {
+                                next.width(that._draggable.nw - offX);
+                                p.width(that._draggable.w + offX);
+                            }
+                            if (Math.abs(offX) > 2) {
+                                that._dragEnd = true;
+                                that._draggable.delta = offX;
+
+                                var guid = p.attr("guid");
+                                var col = that.getCol("Layouts");
+                                var tab = col.get(col.indexOfGuid(guid));
+                                that._draggable.target.text((+tab.maxTargetWidth() + that._draggable.delta) + "px");
+                            }
+                        }
+                    }).on("mouseup", function(e) {
+                        if (that._draggable && that._dragEnd) {
+                            var p = that._draggable.target.parent().parent();
+                            var guid = p.attr("guid");
+                            var col = that.getCol("Layouts");
+                            var tab = col.get(col.indexOfGuid(guid));
+
+                            that.getControlMgr().userEventHandler(that, function () {
+                                tab.maxTargetWidth(+tab.maxTargetWidth() + that._draggable.delta);
+                                that._draggable = null;
+                                that._isRendered(false);
+                                that.hasChanges(true);
+                            });
+
+                        }
+                    }).click(function () {
+                        if (!that._dragEnd) {
+                            $(this).parent().addClass("edit-mode");
+                        } else
+                            that._dragEnd = false;
+                    });
+
+                    t.find(".arrows.left").click(function(e) {
+                        vDesigner._addRootLayout.call(that, $(this).parent().attr("guid"));
+                        e.preventDefault();
+                        e.stopPropagation();
+                        return false;
+                    });
+                }
+
+                prevT = t;
+
+                if (lCount == 1) t.find("div[role='delete']").hide();
+                else t.find("div[role='delete']").show();
+
+                var toVal = t.find("div.to-value");
+                var s = l.maxTargetWidth();
+                t.find(".controls").find(".icon").hide();
+                if (s === undefined || s == null)
+                    t.find(".controls").find(".icon.pc").show();
+                else if (+s < 320)
+                    t.find(".controls").find(".icon.phone").show();
+                else if (+s < 768)
+                    t.find(".controls").find(".icon.tablet-v").show();
+                else if (+s < 1024)
+                    t.find(".controls").find(".icon.tablet-h").show();
+                else
+                    t.find(".controls").find(".icon.pc").show();
+                var txt = s + "px";
+                if (s === undefined || s == null) txt = "";
+                toVal.find(".value-l").text(txt);
+                toVal.find("input").val(txt.replace("px", ""));
+
+                /*var fromInpt = t.find("input[role='from-val']");
+                var toInpt = t.find("input[role='to-val']");
+                fromInpt.val(l.minTargetWidth() + "px");
+                if (!l.maxTargetWidth()) toInpt.val(infin);
+                else toInpt.val(l.maxTargetWidth() + "px");*/
+                if (l == this.currentLayout()) t.addClass("active");
+                else t.removeClass("active");
+
+                t.width(oneSize - 1);
+
+
+            }
+
+            if (t) t.width(allSize - oneSize * (lCount - 1));
+
+            // убираем удаленные объекты
+            var del = this.getLogCol('Layouts') && 'del' in this.getLogCol('Layouts')? this.getLogCol('Layouts').del: {};
+            for (var guid in del)
+                $('#tab_' + del[guid].getLid()).remove();
+
+            btnContent.children(".system-toolbar-icon.button").off("click").click(function() {
+                vDesigner._addRootLayout.call(that);
+            });
+
+            if (this._widthPointer === undefined)
+                this._widthPointer = Math.floor(minSizes.length/2);
+            var pointer = toolContent.find(".width-pointer");
+            var pWidth = pointer.width();
+            if (this._widthPointer < 0) this._widthPointer = 0;
+            if (this._widthPointer >= minSizes.length) this._widthPointer = minSizes.length -1;
+            var pointerL = null;
+            var prevL = null;
+            for (var i = this._widthPointer; i < minSizes.length; i++)
+                if (minSizes[i]) {
+                    pointerL = minSizes[i];
+                    break;
+                }
+            for (var i = this._widthPointer - 1; i >= 0; i--)
+                if (minSizes[i]) {
+                    prevL = minSizes[i];
+                    break;
+                }
+
+            var t = $("#tab_" + pointerL.getLid());
+            var lMax = +(pointerL.maxTargetWidth() ? pointerL.maxTargetWidth() : ((prevL ? prevL.maxTargetWidth() : 0) + 1000));
+            var lMin = (prevL ? prevL.maxTargetWidth() : 0);
+            var ratio = (lMax - lMin) ? t.width()/(lMax - lMin) : 0;
+            var lOffset = t.offset().left - t.offsetParent().offset().left;
+            var x = Math.floor((this._widthPointer - lMin)*ratio + lOffset);
+            pointer.css("left", x + "px");
+            pointer.find(".label").text(this._widthPointer + "px");
+
+            if (!this._dragPointer) {
+                this._dragPointer = pointer.draggable({
+                    axis: "x",
+                    containment: toolContent,
+                    drag: function(e, obj) {
+                        console.log("drag", arguments);
+                        var minSizes = vDesigner._getRootsByMinSize.call(that);
+                        var w = 0;
+                        var left = obj.position.left;
+                        var guid = null;
+                        var div = null;
+                        toolContent.children(".layout-tab").each(function() {
+                            if (w < left) {
+                                w += $(this).width();
+                                if (w >= left) {
+                                    guid = $(this).attr("guid");
+                                    div = $(this);
+                                }
+                            }
+                        });
+
+                        if (guid) {
+                            var ls  = that.getCol("Layouts");
+                            var pointerL = ls.get(ls.indexOfGuid(guid));
+                            var prevL = null;
+                            var start = pointerL.maxTargetWidth() ? pointerL.maxTargetWidth() : minSizes.length - 1;
+                            for (var i = start - 1; i >= 0; i--)
+                                if (minSizes[i]) {
+                                    prevL = minSizes[i];
+                                    break;
+                                }
+                            var lMax = +(pointerL.maxTargetWidth() ? pointerL.maxTargetWidth() : ((prevL ? prevL.maxTargetWidth() : 0) + 1000));
+                            var lMin = (prevL ? prevL.maxTargetWidth() : 0);
+                            var ratio = (lMax - lMin) ? t.width()/(lMax - lMin) : 0;
+                            var lOffset = div.offset().left - div.offsetParent().offset().left;
+                            var val = Math.floor(lMin + (left - lOffset)/ratio);
+                            pointer.find(".label").text(val + "px");
+                            that._widthPointer = val;
+                        }
+                    },
+                    stop: function() {
+                        $(window).trigger("genetix:resize");
+                    }
+                });
+            }
+        }
+
+        vDesigner._setDimension = function(guid, val, role) {
+            var propName = role == "from-val" ? "minTargetWidth" : "maxTargetWidth";
+            var that = this;
+            var c = that.getCol("Layouts");
+            var toSetL = c.get(c.indexOfGuid(guid));
+
+            val = +val.replace("px", "");
+
+            that.getControlMgr().userEventHandler(that, function () {
+                toSetL.maxTargetWidth(val);
+                that._isRendered(false);
+                that.hasChanges(true);
+            });
+
+            return true;
+        }
+
+        vDesigner._deleteRootLayout = function(guid) {
+            var that = this;
+            var c = that.getCol("Layouts");
+            var toSetL = c.get(c.indexOfGuid(guid));
+            that.getControlMgr().userEventHandler(that, function () {
+                c._del(toSetL);
+                that._isRendered(false);
+                that.hasChanges(true);
+            });
+        }
+
+        vDesigner._getRootsByMinSize = function() {
+            var col = this.getCol("Layouts");
+            var lCount = col.count();
+            var minSizes = [];
+            var undefL = null;
+            for(var i = 0; i < lCount; i++) {
+                var l = col.get(i);
+                if (l.maxTargetWidth() == null || l.maxTargetWidth() === undefined)
+                    undefL = l;
+                else
+                    minSizes[l.maxTargetWidth()] = l;
+            }
+            if (undefL) {
+                minSizes[minSizes.length + 1000] = undefL;
+            }
+
+            return minSizes;
+
+        }
+
+        vDesigner._addRootLayout = function(beforeLGuid) {
+            var that = this;
+            var dir = "vertical";
+            var newGuid = Utils.guid();
+            var sObj = {
+                "$sys": {
+                    "guid": newGuid,
+                    "typeGuid": UCCELLO_CONFIG.classGuids.Layout
+                },
+                "fields": {
+                    "Id": newGuid,
+                    "Name": newGuid,
+                    "Width": "100%",
+                    "Height": "100%",
+                    "ResElemName": "Layout_" + that.getDB().getNewLid(),
+                    "Direction": dir
+                }
+            };
+
+            var colName = "Layouts";
+            var parent = {
+                colName: colName,
+                obj: that
+            };
+            var mg = that.getGuid();
+
+            that.getControlMgr().userEventHandler(that, function () {
+                var minSizes = vDesigner._getRootsByMinSize.call(that);
+                var col = that.getCol("Layouts");
+                var beforeL = col.get(col.indexOfGuid(beforeLGuid));
+                if (!beforeL) return;
+                var afterL = null;
+
+                var beforeSize = beforeL.maxTargetWidth() ? +beforeL.maxTargetWidth() : minSizes.length - 1;
+                for (var i = beforeSize - 1; i >= 0; i--) {
+                    if (minSizes[i]) {
+                        afterL = minSizes[i];
+                        break;
+                    }
+                }
+
+                var afterSize = afterL ? +afterL.maxTargetWidth() : 0;
+
+                sObj.fields.MaxTargetWidth = Math.floor(afterSize + (beforeSize - afterSize)/2);
+
+                var db = that.getDB();
+                var resObj = db.deserialize(sObj, parent, db.pvt.defaultCompCallback);
+
+
+
+
+                // Логгируем добавление поддерева
+                var newObj = sObj;
+                var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
+                that.getLog().add(o);
+                that.logColModif("add", colName, resObj);
+                that.currentLayout(resObj);
+                that.getControlMgr().allDataInit(resObj);
+                that.cursor(resObj);
+
+
+
+                that._isRendered(false);
+                that.hasChanges(true);
+            });
+        }
 
         vDesigner._renderToolbar = function() {
             var that = this;
             var item = $("#" + this.getLid());
-            var ctrlsDiv = item.find(".designer-toolbar.controls")
+            var ctrlsDiv = item.find(".designer-toolbar.controls").children(".system-panel-section-left");
             var mainToolbar = item.find(".designer-toolbar.main");
 
-            ctrlsDiv.empty();
-
             var controls = this.getCol("Controls");
+            var dots = item.find(".designer-toolbar.controls").find(".is-dots");
+            var btnsWidth = 0;
+            var availableWidth = item.find(".designer-toolbar.controls").width() - 36;
+
+            this._hiddenControls = [];
+
             for (var i = 0; i < controls.count(); i++) {
                 var control = controls.get(i);
-                var opt = $('<div class="button" role="ext-layout" title="' + control.resElemName() + '" value="'+ control.getGuid() + '"></div>');
-                ctrlsDiv.append(opt);
-                if (vDesigner._isInCurrentLayout.call(this, control)) {
-                    opt.addClass("disabled");
+
+                var opt = ctrlsDiv.children(".ext-control[guid='" + control.getGuid() +"']");
+                if (opt.length == 0) {
+                    var className = "icon-control";
+
+                    switch (control.typeGuid()) {
+                        case UCCELLO_CONFIG.classGuids.GenDataGrid:
+                            className = "grid";
+                            break;
+                        case UCCELLO_CONFIG.classGuids.Toolbar:
+                            className = "toolbar";
+                            break;
+                        case UCCELLO_CONFIG.classGuids.GenForm:
+                            className = "form";
+                            break;
+                        case UCCELLO_CONFIG.classGuids.DbTreeView:
+                            className = "tree";
+                            break;
+                    }
+
+                    var ctrlStr = vDesigner._templates["button"];
+                    ctrlStr = ctrlStr.replace("<<ICON_NAME>>", className)
+                        .replace("<<CONTROL_NAME>>", control.resElemName())
+                        .replace("<<CONTROL_NAME>>", control.resElemName())
+                        .replace("<<GUID>>", control.getGuid());
+
+                    var opt = $(ctrlStr);
+                    ctrlsDiv.append(opt);
+                    //opt.insertBefore(dots);
+                    btnsWidth += opt.width();
+                    if (btnsWidth >= availableWidth) {
+                        opt.hide();
+                        this._hiddenControls.push(control);
+                    }
+                } else {
+                    btnsWidth += opt.width();
+                    if (btnsWidth >= availableWidth) {
+                        opt.hide();
+                        this._hiddenControls.push(control);
+                    } else opt.show();
                 }
 
-                var className = "icon-control";
-
-                switch (control.typeGuid()) {
-                    case UCCELLO_CONFIG.classGuids.GenDataGrid: className = "icon-grid"; break;
-                    case UCCELLO_CONFIG.classGuids.Toolbar: className = "icon-toolbar"; break;
-                    case UCCELLO_CONFIG.classGuids.GenForm: className = "icon-form"; break;
-                    case UCCELLO_CONFIG.classGuids.DbTreeView: className = "icon-tree"; break;
-                }
-
-                opt.addClass(className);
+                if (vDesigner._isInCurrentLayout.call(this, control)) opt.addClass("disabled");
+                else opt.removeClass("disabled");
             }
+
+            if (btnsWidth >= availableWidth) dots.show();
+            else dots.hide();
+
+
+            ctrlsDiv.children(".ext-control").each(function() {
+                var guid = $(this).attr("guid");
+                if (controls.indexOfGuid(guid) === undefined)
+                    $(this).remove();
+            });
+
             var lPanel = mainToolbar.find("[role='changeLayout']");
             lPanel.empty();
 
@@ -200,7 +653,8 @@ define(
                     opt.addClass("active");
             }
 
-            var propsPanel = mainToolbar.children(".panel[role='layout-props']");
+            var propsPanel = mainToolbar.find(".props-wrapper[role='layout-props']");
+            var orient = item.find(".orient-icon");
             var curr = this.cursor();
             var info = curr ? this._renderInfo[curr.getLid()] : null;
 
@@ -229,11 +683,257 @@ define(
                     if (info.layout.getParentComp().direction() == "vertical") lStr = "Height";
                     propsPanel.children(".size-label").text(lStr);
                 }
+
+                var dir = info.layout.direction();
+                orient.children().hide();
+                orient.children("." + dir).show();
             }
 
 
             vDesigner._enableToolbarButtons.call(this);
 
+
+
+            if (!this._orientPopup) {
+                var popupDiv = $("<div role='orient-popup'/>");
+                $("body").append(popupDiv);
+                this._orientPopup = popupDiv.genetixPopup({
+                    buttonControl: orient,
+                    offsetX: -25,
+                    offsetY: 3,
+                    click: function (event, data) {
+                        var cur = that.cursor();
+                        if (!cur) return;
+                        var info = that._renderInfo[cur.getLid()];
+                        if (info.layout.control()) return;
+                        var newDir = "vertical";
+                        if (data.id.indexOf("horizontal") >= 0) newDir = "horizontal";
+                        else if (data.id.indexOf("layer") >= 0) newDir = "layer";
+                        that.getControlMgr().userEventHandler(that, function () {
+                            info.layout.direction(newDir);
+                            var col = info.layout.getCol("Layouts");
+                            for (var i = 0; i < col.count(); i++) {
+                                var l = col.get(i);
+                                if (newDir == "horizontal") l.height("100%");
+                                else if (newDir == "vertical") {
+                                    if (info.layout.height() == "auto") l.height("auto");
+                                    else l.height("100%");
+                                } else {
+                                    if (info.layout.height() == "auto") l.height("auto");
+                                    else l.height("100%");
+                                    l.width("100%");
+                                }
+                            }
+                            that._isRendered(false);
+                            that.hasChanges(true);
+                        });
+                            //case "units": vDesigner._changeSize.call(that); break;
+                    },
+                    leftIcons: true,
+                    rightIcons: false,
+                    bigArrowInterval: true,
+                    leftViewBoxSize: 16,
+                    extendedClass: "is-gray-menu",
+                    menuItems: [{
+                        id: "vertical-menu_" + this.getLid(),
+                        title: "Вертикально",
+                        subTree: [],
+                        leftIcon: "/images/Genetix.svg#arrows_vertical",
+                        leftIconColor: "#ffffff",
+                        custom: {}
+                    }, {
+                        id: "horizontal-menu_" + this.getLid(),
+                        title: "Горизонтально",
+                        subTree: [],
+                        leftIcon: "/images/Genetix.svg#arrows_horizontal",
+                        leftIconColor: "#ffffff",
+                        custom: {}
+                    }, {
+                        id: "layer-menu_" + this.getLid(),
+                        title: "Слоями",
+                        subTree: [],
+                        leftIcon: "/images/Genetix.svg#layer",
+                        leftIconColor: "#ffffff",
+                        custom: {}
+                    }]
+                });
+            }
+
+            var units = item.find(".units");
+            if (!this._unitsPopup) {
+                var popupDiv = $("<div role='orient-popup'/>");
+                $("body").append(popupDiv);
+                this._unitsPopup = popupDiv.genetixPopup({
+                    buttonControl: units,
+                    offsetX: -25,
+                    offsetY: 3,
+                    click: function (event, data) {
+                        var text = data.id.split("-")[0];
+                        if (text == "parts") text = "*";
+                        units.children().text(text);
+                        vDesigner._changeSize.call(that);
+                    },
+                    leftIcons: false,
+                    rightIcons: false,
+                    bigArrowInterval: true,
+                    leftViewBoxSize: 16,
+                    extendedClass: "is-gray-menu",
+                    menuItems: [{
+                        id: "em-menu_" + this.getLid(),
+                        title: "em",
+                        subTree: [],
+                        leftIcon: "/images/Genetix.svg#userInfo",
+                        leftIconColor: "#ffffff",
+                        custom: {}
+                    }, {
+                        id: "parts-menu_" + this.getLid(),
+                        title: "*",
+                        subTree: [],
+                        leftIcon: "/images/Genetix.svg#userInfo",
+                        leftIconColor: "#ffffff",
+                        custom: {}
+                    }, {
+                        id: "auto-menu_" + this.getLid(),
+                        title: "auto",
+                        subTree: [],
+                        leftIcon: "/images/Genetix.svg#userInfo",
+                        leftIconColor: "#ffffff",
+                        custom: {}
+                    }]
+                });
+            }
+
+            if (!this._deletePopup) {
+                var popupDiv = $("<div role='delete-popup'/>");
+                $("body").append(popupDiv);
+                this._deletePopup = popupDiv.genetixPopup({
+                    buttonControl: null,
+                    offsetX: 20,
+                    offsetY: 3,
+                    click: function (event, data) {
+                        var text = data.id;
+                        var guid = data.custom.buttonControl.attr("guid");
+                        var col = that.getCol("Controls");
+                        var ctrl  = col.get(col.indexOfGuid(guid));
+                        if (text == "del-menu-layout") {
+                            that.getControlMgr().userEventHandler(that, function () {
+                                var info = that._renderInfo[ctrl.getLid()];
+                                var lCol = that.getCol("Layouts");
+                                for (var i = 0; i < lCol.count(); i++)
+                                    vDesigner._deleteFromLayout(lCol.get(i), ctrl);
+                                col._del(ctrl);
+                                that._isRendered(false);
+                                that.hasChanges(true);
+                            });
+                        } else if (text == "del-menu-all") {
+                            that.getControlMgr().userEventHandler(that, function () {
+                                while (col.count() > 0) {
+                                    ctrl = col.get(0);
+                                    var info = that._renderInfo[ctrl.getLid()];
+                                    var lCol = that.getCol("Layouts");
+                                    for (var i = 0; i < lCol.count(); i++)
+                                        vDesigner._deleteFromLayout(lCol.get(i), ctrl);
+                                    col._del(ctrl);
+                                }
+                                that._isRendered(false);
+                                that.hasChanges(true);
+                            });
+                        } else {
+                            that.getControlMgr().userEventHandler(that, function () {
+                                var lCol = that.getCol("Layouts");
+                                while (lCol.count() > 1) lCol._del(lCol.get(0));
+                                var curL = lCol.get(0);
+                                curL.maxTargetWidth(null);
+
+                                while (col.count() > 0) {
+                                    ctrl = col.get(0);
+                                    vDesigner._deleteFromLayout(curL, ctrl);
+                                    col._del(ctrl);
+                                }
+
+                                var lCol = curL.getCol("Layouts");
+                                while (lCol.count() > 0) lCol._del(lCol.get(0));
+
+                                that.currentLayout();
+                                that._isRendered(false);
+                                that.hasChanges(true);
+                            });
+                        }
+                    },
+                    leftIcons: false,
+                    rightIcons: false,
+                    bigArrowInterval: true,
+                    leftViewBoxSize: 16,
+                    extendedClass: "is-gray-menu",
+                    menuItems: [{
+                        id: "del-menu-layout",
+                        title: "Delete",
+                        subTree: [],
+                        leftIcon: "/images/Genetix.svg#userInfo",
+                        leftIconColor: "#ffffff",
+                        custom: {}
+                    }, {
+                        id: "del-menu-all",
+                        title: "Delete all",
+                        subTree: [],
+                        leftIcon: "/images/Genetix.svg#userInfo",
+                        leftIconColor: "#ffffff",
+                        custom: {}
+                    }, {
+                        id: "clear-form",
+                        title: "Clear form",
+                        subTree: [],
+                        leftIcon: "/images/Genetix.svg#userInfo",
+                        leftIconColor: "#ffffff",
+                        custom: {}
+                    }]
+                });
+            }
+
+            if (!this._controlsDotsPopup) {
+                var popupDiv = $("<div role='delete-popup'/>");
+                $("body").append(popupDiv);
+                this._controlsDotsPopup = popupDiv.genetixPopup({
+                    buttonControl: dots,
+                    offsetX: -17,
+                    offsetY: -20,
+                    click: function (event, data) {
+                        var control = data.custom.control;
+                        var isInCurrent = vDesigner._isInCurrentLayout.call(that, control);
+                        if (isInCurrent) return;
+                        var guid = control.getGuid();
+                        var cur = that.cursor();
+                        if (cur) {
+                            var info = that._renderInfo[cur.getLid()];
+                            if (info.layout.getCol("Layouts").count() == 0 && !info.layout.control()) {
+                                that.getControlMgr().userEventHandler(that, function () {
+                                    info.layout.control(guid);
+                                    that._isRendered(false);
+                                    that.hasChanges(true);
+                                });
+                            }
+                        }
+                    },
+                    leftIcons: true,
+                    rightIcons: false,
+                    bigArrowInterval: true,
+                    leftViewBoxSize: 16,
+                    extendedClass: "is-gray-menu",
+                    menuItems: []
+                });
+            }
+
+            var curControlsVisible = controls.count() > 0 && layouts.count() > 1;
+            if (curControlsVisible != this._controlToolbarVisible) {
+                this._controlToolbarVisible = curControlsVisible;
+                if (curControlsVisible) {
+                    ctrlsDiv.parent().height(61);
+                    item.find(".prop-edit").height(item.find(".prop-edit").height() - 61);
+                } else {
+                    ctrlsDiv.parent().height(0);
+                    item.find(".prop-edit").height(item.find(".prop-edit").height() + 61);
+                }
+            }
         }
 
         vDesigner._enableToolbarButtons = function() {
@@ -273,7 +973,7 @@ define(
 
             });
 
-            var propsPanel = mainToolbar.children(".panel[role='layout-props']");
+            var propsPanel = mainToolbar.find(".props-wrapper[role='layout-props']");
             if (!info || info.control) propsPanel.hide();
             else propsPanel.show();
 
@@ -292,6 +992,9 @@ define(
                 propsPanel.find("select[role='transform']").attr("disabled", "true");
             else
                 propsPanel.find("select[role='transform']").attr("disabled", null);
+
+            if (this.getModel()) item.find(".model-content").addClass("disabled");
+            else item.find(".model-content").removeClass("disabled");
         }
 
         vDesigner._isInCurrentLayout = function(control) {
@@ -324,58 +1027,28 @@ define(
             }
         }
 
+        vDesigner._deleteFromLayout = function(layout, control) {
+            if (layout.control() == control) {
+                layout.control(null);
+                return true;
+            } else {
+                var col = layout.getCol("Layouts");
+                for (var i = 0; i < col.count(); i++) {
+                    var l = col.get(i);
+                    var res = vDesigner._deleteFromLayout.call(this, l, control);
+                    if (res) break;
+                }
+                return res;
+            }
+        }
+
         vDesigner._setToolbarEvents = function() {
             var item = $("#" + this.getLid());
             var that = this;
             item.find(".designer-toolbar.main").find(".button").off("click").click(function() {
                 if ($(this).hasClass("disabled")) return;
                 var role = $(this).attr("role");
-                if (role == "layout") {
-                    var dir = "vertical";
-                    var newGuid = Utils.guid();
-                    var sObj = {
-                        "$sys": {
-                            "guid": newGuid,
-                            "typeGuid": UCCELLO_CONFIG.classGuids.Layout
-                        },
-                        "fields": {
-                            "Id": newGuid,
-                            "Name": newGuid,
-                            "Width": "100%",
-                            "Height": "100%",
-                            "ResElemName": "Layout_" + that.getDB().getNewLid(),
-                            "Direction": dir
-                        }
-                    };
-
-                    var colName = "Layouts";
-                    var parent = {
-                        colName: colName,
-                        obj: that
-                    };
-                    var mg = that.getGuid();
-
-                    that.getControlMgr().userEventHandler(that, function () {
-                        var db = that.getDB();
-                        var resObj = db.deserialize(sObj, parent, db.pvt.defaultCompCallback);
-
-                        // Логгируем добавление поддерева
-                        var newObj = sObj;
-                        var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
-                        that.getLog().add(o);
-                        that.logColModif("add", colName, resObj);
-                        that.currentLayout(resObj);
-                        that.getControlMgr().allDataInit(resObj);
-                        that.cursor(resObj);
-                        that._isRendered(false);
-                    });
-
-                } else if (role == "refresh") {
-                    that.getControlMgr().userEventHandler(that, function () {
-                        that.generateFrom();
-                        that._isRendered(false);
-                    });
-                } else if (role == "load-model") {
+                if (role == "load-model") {
                     if (!that.getModel()) {
                         var pComp = that.getParentComp();
                         that.getControlMgr().userEventHandler(that, function () {
@@ -398,6 +1071,7 @@ define(
                             that.getControlMgr().allDataInit(resObj);
                             PropEditManager.setModel(resObj);
                             that._isRendered(false);
+                            that.hasChanges(true);
                         });
                     }
                 } else if (role == "vertical" || role == "horizontal" || role == "layer") {
@@ -436,31 +1110,38 @@ define(
                             //info.group.remove();
                             //delete that._renderInfo[cur.getLid()];
                             that._isRendered(false);
+                            that.hasChanges(true);
                         });
                     } else {
                         that.getControlMgr().userEventHandler(that, function () {
                             var par = info.layout.getParentComp();
-                            var col = par.getCol("Layouts");
-                            col._del(info.layout);
-                            if (info.layout == that.currentLayout()) {
-                                that.currentLayout(null);
-                                that.cursor(null);
+                            if (par == that) {
+                                var col = info.layout.getCol("Layouts");
+                                while (col.count() > 0) col._del(col.get(0));
+                                info.layout.control(null);
                             } else {
-                                var par = info.layout.getParentComp();
-                                that.cursor(par);
+                                var col = par.getCol("Layouts");
+                                col._del(info.layout);
+                                if (info.layout == that.currentLayout()) {
+                                    that.currentLayout(null);
+                                    that.cursor(null);
+                                } else {
+                                    var par = info.layout.getParentComp();
+                                    that.cursor(par);
+                                }
                             }
-                            //info.group.remove();
-                            //delete that._renderInfo[info.layout.getLid()];
+
                             that._isRendered(false);
+                            that.hasChanges(true);
                         });
                     }
                 }
             });
 
-            var ctrlsDiv = item.find(".designer-toolbar.controls")
-            ctrlsDiv.children().click(function() {
+            var ctrlsDiv = item.find(".designer-toolbar.controls").children();
+            ctrlsDiv.children(".ext-control").click(function() {
                 if ($(this).hasClass("disabled")) return;
-                var guid = $(this).attr("value");
+                var guid = $(this).attr("guid");
                 var cur = that.cursor();
                 if (cur) {
                     var info = that._renderInfo[cur.getLid()];
@@ -469,9 +1150,14 @@ define(
                             var item = $("#" + that.getLid());
                             info.layout.control(guid);
                             that._isRendered(false);
+                            that.hasChanges(true);
                         });
                     }
                 }
+            }).contextmenu(function (e) {
+                var guid = $(this).attr("guid");
+                that._deletePopup.genetixPopup("show", null, $(this));
+                return false;
             });
 
             var lPanel = item.find(".designer-toolbar.main").find("[role='changeLayout']");
@@ -481,56 +1167,178 @@ define(
                     that.currentLayout(val == -1 ? null : val);
                     that.cursor(null);
                     that._isRendered(false);
+                    that.hasChanges(true);
                 });
             });
 
-
-
-            var propsPanel = item.find(".designer-toolbar.main").children(".panel[role='layout-props']");
-            propsPanel.children(".control").children("select").off("change").change(function() {
-                var cur = that.cursor();
-                if (!cur) return;
-                var info = that._renderInfo[cur.getLid()];
-                if (info.layout.control()) return;
-                var role = $(this).attr("role");
-                var newDir = "vertical";
-                switch (role) {
-                    case "transform":
-                        newDir = $(this).val();
-                        that.getControlMgr().userEventHandler(that, function () {
-                            info.layout.direction(newDir);
-                            var col = info.layout.getCol("Layouts");
-                            for (var i = 0; i < col.count(); i++) {
-                                var l = col.get(i);
-                                if (newDir == "horizontal") l.height("100%");
-                                else if (newDir == "vertical") {
-                                    if (info.layout.height() == "auto") l.height("auto");
-                                    else l.height("100%");
-                                } else {
-                                    if (info.layout.height() == "auto") l.height("auto");
-                                    else l.height("100%");
-                                    l.width("100%");
-                                }
-                            }
-                            that._isRendered(false);
-                        });
-                        break;
-                    case "units": vDesigner._changeSize.call(that); break;
-                }
-            });
+            var propsPanel = item.find(".designer-toolbar.main").find(".props-wrapper[role='layout-props']");
 
             propsPanel.children().find("input").change(function() {
                 vDesigner._changeSize.call(that);
             });
 
+            item.find(".close-button").off("click").click(function () {
+                var left = item.find(".designer-left");
+                var right = item.find(".designer-right");
+                var hide = that._mode != DesignerModes.form;
+                $(this).children().hide();
+                item.find(".gen-form").show();
+                item.find(".close-form-button").children().hide();
+                if (hide) {
+                    that._mode = DesignerModes.form;
+                    item.find(".c-content.designer-content-wrp").css("overflow", "hidden");
+                    left.css("min-width", 0);
+                    left.animate({width: 0}, 300, function() {
+                        $(window).trigger("genetix:resize");
+                    });
+                    $(this).children("[role='right']").show();
+                    item.find(".close-form-button").children("[role='right1']").show();
+                } else {
+                    that._mode = DesignerModes.both;
+                    item.find(".c-content.designer-content-wrp").css("overflow", null);
+                    var allSize = right.width();
+                    var w = 33*16;
+                    var designer = item.find(".c-content.designer-content-wrp");
+                    designer.children(".side-padding").width(w - 32);
+                    left.animate({width: w}, 300, function() {
+                        left.css("min-width", w);
+                        $(window).trigger("genetix:resize");
+                    });
+                    $(this).children("[role='left']").show();
+                    item.find(".close-form-button").children("[role='right']").show();
+                }
+            });
+
+            item.find(".close-form-button").off("click").click(function () {
+                var left = item.find(".designer-left");
+                var right = item.find(".designer-right");
+                var hide = that._mode != DesignerModes.designer;
+                $(this).children().hide();
+                var designer = item.find(".c-content.designer-content-wrp");
+                designer.css("overflow", null);
+                item.find(".close-button").children().hide();
+                if (hide) {
+                    designer.css("overflow", "visible");
+                    var twoStep = that._mode == DesignerModes.form;
+                    that._mode = DesignerModes.designer;
+                    if (twoStep) {
+                        var w = 33*16;
+                        left.css("min-width", w);
+                        left.animate({width: w}, 300, function() {
+                            designer.children(".side-padding").width(w);
+                            designer.children(".side-padding").animate({width: left.parent().parent().width() - 32}, 300, function() {
+                                $(window).trigger("genetix:resize");
+                            });
+                        });
+                    } else {
+                        designer.children(".side-padding").width(left.width());
+                        designer.children(".side-padding").animate({width: left.parent().parent().width() - 32}, 300, function() {
+                            $(window).trigger("genetix:resize");
+                        });
+                    }
+                    item.find(".close-button").children("[role='left1']").show();
+                    item.find(".close-form-button").children("[role='left']").show();
+                } else {
+                    that._mode = DesignerModes.both;
+                    var allSize = right.width();
+                    var w = 33*16;
+                    designer.children(".side-padding").animate({width: w - 32}, 300, function() {
+                        item.find(".gen-form").show();
+                        $(window).trigger("genetix:resize");
+                    });
+                    item.find(".close-button").children("[role='left']").show();
+                    item.find(".close-form-button").children("[role='right']").show();
+                }
+            });
+
+            item.find(".refresh-button").click(function() {
+                that.getControlMgr().userEventHandler(that, function () {
+                    that.generateFrom();
+                    that._isRendered(false);
+                });
+            });
+
+            item.find(".orient-icon").off("click").click(function () {
+                that._orientPopup.genetixPopup("show", null, item.find(".orient-icon"));
+            });
+
+            item.find(".units").off("click").click(function () {
+                that._unitsPopup.genetixPopup("show", null, item.find(".units"));
+            });
+
+            item.find(".model-content").off("click").click(function () {
+                if (!that.getModel()) {
+                    var pComp = that.getParentComp();
+                    that.getControlMgr().userEventHandler(that, function () {
+                        var db = that.getDB();
+                        var sObj = JSON.parse(vDesigner._templates["model"]);
+                        var newObj = sObj;
+                        var colName = "Children";
+                        var p = {
+                            colName: colName,
+                            obj: pComp
+                        };
+
+                        var resObj = db.deserialize(sObj, p, db.pvt.defaultCompCallback);
+
+                        // Логгируем добавление поддерева
+                        var mg = pComp.getGuid();
+                        var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
+                        pComp.getLog().add(o);
+                        pComp.logColModif("add", colName, resObj);
+                        that.getControlMgr().allDataInit(resObj);
+                        PropEditManager.setModel(resObj);
+                        that._isRendered(false);
+                        that.hasChanges(true);
+                    });
+                }
+            });
+
+            var dots = item.find(".designer-toolbar.controls").find(".is-dots");
+            dots.off("contextmenu").contextmenu(function (e) {
+                var data = [];
+                for (var i = 0; i < that._hiddenControls.length; i++) {
+                    var control = that._hiddenControls[i];
+
+                    var className = "icon-control";
+
+                    switch (control.typeGuid()) {
+                        case UCCELLO_CONFIG.classGuids.GenDataGrid:
+                            className = "grid";
+                            break;
+                        case UCCELLO_CONFIG.classGuids.Toolbar:
+                            className = "toolbar";
+                            break;
+                        case UCCELLO_CONFIG.classGuids.GenForm:
+                            className = "form";
+                            break;
+                        case UCCELLO_CONFIG.classGuids.DbTreeView:
+                            className = "tree";
+                            break;
+                    }
+
+                    var item = {
+                        id: "mi-hidden-cintrol-" + control.getLid(),
+                        title: control.resElemName(),
+                        subTree: [],
+                        leftIcon: "/images/Genetix.svg#" + className,
+                        leftIconColor: "#ffffff",
+                        custom: {control: control}
+                    };
+
+                    data.push(item);
+                }
+                that._controlsDotsPopup.genetixPopup("show", data, $(this));
+                return false;
+            });
         };
 
         vDesigner._changeSize = function() {
             var item = $("#" + this.getLid());
             var that = this;
-            var propsPanel = item.find(".designer-toolbar.main").children(".panel[role='layout-props']");
-            var un = propsPanel.find("select[role='units']");
+            var propsPanel = item.find(".designer-toolbar.main").find(".props-wrapper[role='layout-props']");
             var inpt = propsPanel.find("input[role='size']");
+            var val = item.find(".units").children().text();
             if (!$.isNumeric(inpt.val()) && inpt.val() != "auto") return;
 
             var cur = that.cursor();
@@ -544,15 +1352,16 @@ define(
                 if (p.direction() == "vertical") dimName = "height";
 
                 var size = "auto";
-                if (un.val() != "auto") {
+                if (val != "auto") {
                     if (!$.isNumeric(inpt.val())) inpt.val("100");
-                    if (un.val() == "parts") size = inpt.val() + "%";
+                    if (val == "*") size = inpt.val() + "%";
                     else size = inpt.val() + "em";
                 }
 
                 that.getControlMgr().userEventHandler(that, function () {
                     info.layout[dimName](size);
                     that._isRendered(false);
+                    that.hasChanges(true);
                 });
             }
 
@@ -582,7 +1391,7 @@ define(
                 "fields": {
                     "Id": newGuid,
                     "Name": newGuid,
-                    "ResElemName": "DesignerControl_" + that.getDB().getNewLid(),
+                    "ResElemName": "DControl_" + that.getDB().getNewLid(),
                     "TypeGuid": ctrlGuid
                 }
             };
@@ -609,6 +1418,7 @@ define(
                 that.getControlMgr().allDataInit(resObj);
                 that.cursor(resObj);
                 that._isRendered(false);
+                that.hasChanges(true);
             });
         }
 
@@ -683,6 +1493,7 @@ define(
                 }
 
                 that._isRendered(false);
+                that.hasChanges(true);
             });
 
         }
@@ -699,6 +1510,25 @@ define(
                 }
             }
         };
+
+        vDesigner._getLayoutLevel = function(layout) {
+            var l = 0;
+            var cur = layout;
+            while (cur.getParentComp() != this) {
+                cur = cur.getParentComp();
+                l++;
+            }
+            return l;
+        }
+
+        vDesigner._getLayoutFillColor = function(layout) {
+            if (!layout) return "#000000"
+            var level = vDesigner._getLayoutLevel.call(this, layout);
+            var color = "#" + (START_COLOR1 + level * COLOR_INC1).toString(16) +
+                (START_COLOR2 + level * COLOR_INC2).toString(16) +
+                (START_COLOR3 + level * COLOR_INC3).toString(16);
+            return color;
+        }
 
         vDesigner._renderLayout = function(layout) {
             if (!layout) return;
@@ -717,9 +1547,10 @@ define(
                 info.invisible = this._snap.rect();
                 info.invisible.addClass("invisible");
                 info.border = this._snap.rect();
-                info.border.addClass("border");
-                info.label = this._snap.text(MARGIN_LEFT, MARGIN_TOP - 5, "");
-                info.label.addClass("layer-header-text").addClass("black");
+                info.border.addClass("border").addClass("d-layout");
+                info.border.attr({rx: "5px", ry: "5px"});
+                info.label = this._snap.text(MARGIN_LEFT + 20, MARGIN_TOP - 5, "");
+                info.label.addClass("layer-header-text"); //.addClass("black");
                 info.group.add(info.border, info.label, info.invisible);
                 info.layout = layout;
                 parentGrp.add(info.group);
@@ -727,11 +1558,13 @@ define(
                 vDesigner._setEvents.call(this, info);
             }
 
+            var color = vDesigner._getLayoutFillColor.call(this, layout);
+            info.border.attr({fill: color});
+
             var headText = ""; //"O: " + (layout.direction() ? layout.direction() : "V")[0].toUpperCase();
             if (pComp != this) {
-                headText += pComp.direction() == "horizontal" ? "W: " + layout.width() : "";
-                headText += pComp.direction() == "vertical" ? "H: " + layout.height() : "";
-
+                headText += pComp.direction() == "horizontal" ? layout.width() : "";
+                headText += pComp.direction() == "vertical" ? layout.height() : "";
             }
             info.label.attr({text: headText});
             var dims = vDesigner._getLayoutDimensions.call(this, layout);
@@ -745,6 +1578,21 @@ define(
 
             if (this.cursor() == layout) info.group.addClass("cursor");
             else info.group.removeClass("cursor");
+
+            if (info.icon) info.icon.remove();
+            if (pComp != this) {
+                var svgStr = vDesigner._templates["layer-icon"];
+                if (pComp.direction() == "horizontal") svgStr = vDesigner._templates["arrows-horizontal"];
+                else if (pComp.direction() == "vertical") svgStr = vDesigner._templates["arrows-vertical"];
+                info.icon = this._snap.group();
+                var icon = Snap.parse(svgStr);
+                info.icon.add(icon);
+                info.icon.attr({
+                    transform: "translate(" + MARGIN_LEFT + "," + 2 + ")"
+                });
+                info.group.add(info.icon);
+            }
+
 
             // если парент слоенный, то показываем только текущую закладку
             if (pComp != this && pComp.direction() == "layer") {
@@ -797,22 +1645,28 @@ define(
                 var layouts = layout.getCol("Layouts");
                 for (var i = 0; i < layouts.count(); i++) {
                     var l = layouts.get(i);
+                    var nextColor = vDesigner._getLayoutFillColor.call(this, l);
                     var header = info.tabs.headers[l.getGuid()];
                     if (!header) {
                         header = {};
                         info.tabs.headers[l.getGuid()] = header;
-                        header.rect = this._snap.rect(i * 20, y = 0, 20, 20);
+                        header.rect = this._snap.rect(i * 20, y = 0, 20, MARGIN_TOP);
                         header.rect.addClass("layer-header");
-                        header.text = this._snap.text(6 + i * 20, 15, i);
+                        header.text = this._snap.text(6 + i * 20, 13, i);
                         header.text.addClass("layer-header-text");
-                        header.invisible = this._snap.rect(i * 20, y = 0, 20, 20);
+                        header.invisible = this._snap.rect(i * 20, y = 0, 20, MARGIN_TOP);
                         header.invisible.addClass("invisible");
                         info.tabs.group.add(header.rect, header.text, header.invisible);
-
                         vDesigner._setTabHeaderEvent.call(this, info, l);
                     }
-                    if (layout.tabNumber() == i || (!layout.tabNumber() && i == 0)) header.rect.addClass("active");
-                    else header.rect.removeClass("active");
+                    header.rect.attr({fill: color});
+                    if (layout.tabNumber() == i || (!layout.tabNumber() && i == 0)) {
+                        header.rect.addClass("active");
+                        header.rect.attr({fill: nextColor});
+                    } else {
+                        header.rect.removeClass("active");
+                        header.rect.attr({fill: color});
+                    }
                     header.text.attr({text: i});
                 }
 
@@ -849,6 +1703,7 @@ define(
                     var i = col.indexOf(layout);
                     info.layout.tabNumber(i);
                     that._isRendered(false);
+                    that.hasChanges(true);
                 });
             });
         }
@@ -857,6 +1712,18 @@ define(
             var control = layout.control();
             if (!control) return;
             var info = this._renderInfo[control.getLid()];
+            var lInfo = this._renderInfo[layout.getLid()];
+            var imgUrl = "/images/form-32.png";
+
+            var iw = 22;
+            switch (control.typeGuid()) {
+                case UCCELLO_CONFIG.classGuids.GenDataGrid: imgUrl = "grid"; break;
+                case UCCELLO_CONFIG.classGuids.Toolbar: imgUrl = "toolbar"; iw = 26; break;
+                case UCCELLO_CONFIG.classGuids.GenForm: imgUrl = "form"; break;
+                case UCCELLO_CONFIG.classGuids.DbTreeView: imgUrl = "tree"; break;
+
+            }
+
             if (!info || !info.group) {
                 if (!info) {
                     info = {};
@@ -864,21 +1731,32 @@ define(
                 }
 
                 info.group = this._snap.group();
+                info.group.addClass("d-control");
                 info.group.attr({id: control.getLid()});
                 info.invisible = this._snap.rect();
                 info.invisible.addClass("invisible");
                 info.border = this._snap.rect();
-                info.border.addClass("border");
-                var imgUrl = "/images/form-32.png";
-                switch (control.typeGuid()) {
-                    case UCCELLO_CONFIG.classGuids.GenDataGrid: imgUrl = "/images/grid-32.png"; break;
-                    case UCCELLO_CONFIG.classGuids.Toolbar: imgUrl = "/images/toolbar-32.png"; break;
-                    case UCCELLO_CONFIG.classGuids.GenForm: imgUrl = "/images/form-32.png"; break;
-                    case UCCELLO_CONFIG.classGuids.DbTreeView: imgUrl = "/images/tree-32.png"; break;
+                info.border.addClass("border").addClass("d-control");
+                info.border.attr({rx: "5px", ry: "5px"});
+                info.border2 = this._snap.rect();
+                info.border2.attr({rx: "5px", ry: "5px"});
+                info.border2.addClass("border").addClass("d-control");
+                info.largeIconGrp = this._snap.group();
 
-                }
-                info.icon = this._snap.image(imgUrl, 0, 0, 32, 32, null);
-                info.group.add(info.border, info.icon, info.invisible);
+                info.lTitle = this._snap.text(0, 35, control.resElemName());
+                info.lTitle.addClass("c-title")
+                info.smallIconGroup = this._snap.group();
+                info.group.add(info.border, info.border2, info.largeIconGrp, info.smallIconGroup, info.invisible);
+                info.largeIconGrp.add(info.lTitle);
+
+                info.icon = this._snap.image("/images/" +imgUrl + "_" + iw + ".svg", 0, 0, iw, 22, null);
+                info.largeIconGrp.add(info.icon);
+
+                info.sTitle = this._snap.text(21, 12, control.resElemName());
+                info.sTitle.addClass("c-title");
+                info.smallIcon = this._snap.image("/images/" +imgUrl + ".svg", 0, 0, 16, 16, null);
+                info.smallIconGroup.add(info.smallIcon, info.sTitle);
+
                 info.layout = layout;
                 info.control = control;
                 var parentGrp = this._renderInfo[layout.getLid()].group;
@@ -887,7 +1765,7 @@ define(
                 this._renderInfo[control.getLid()] = info;
                 vDesigner._setControlEvents.call(this, info)
             } else {
-                var lInfo = this._renderInfo[layout.getLid()];
+
                 info.group.remove();
                 lInfo.group.add(info.group);
                 info.layout = layout;
@@ -900,7 +1778,51 @@ define(
                 transform: "translate(" + dims.x + "," + dims.y + ")"
             });
             info.border.attr({width: dims.w, height: dims.h});
+            var tBB = lInfo.label.getBBox();
+            info.border2.attr({
+                x: tBB.width + 5 + MARGIN_LEFT + 22,
+                y: -MARGIN_TOP,
+                width: dims.w - tBB.width - 5 - MARGIN_LEFT - 22,
+                height: MARGIN_TOP + 8});
+
+            info.smallIconGroup.attr({
+                transform: "translate(" + (tBB.width + 10 + MARGIN_LEFT + 22) + "," + (-MARGIN_TOP + 3) + ")"
+            });
+
             info.invisible.attr({width: dims.w, height: dims.h});
+
+            var bBB = info.border.getBBox();
+            var liBB = info.largeIconGrp.getBBox();
+            var x = bBB.width/2 - liBB.width/2;
+            var y = bBB.height/2 - liBB.height/2;
+            var displaySmall = (x <= 2 || y <= 2);
+            info.largeIconGrp.attr({
+                transform: "translate(" + x + "," + y + ")",
+                display: displaySmall ? "none" : null
+            });
+
+            var lBB = info.lTitle.getBBox();
+            info.icon.attr({x:lBB.width/2 - iw/2});
+            info.largeIconGrp.add(info.icon);
+
+
+            if (displaySmall) {
+                info.smallIconGroup.attr({display: null});
+
+                info.sTitle.attr({display: null});
+                var slx = tBB.width + 10 + MARGIN_LEFT + 22;
+                var text = control.resElemName();
+                info.sTitle.attr({text: text});
+
+                var sBB = info.smallIconGroup.getBBox();
+                while (slx + sBB.width >= (info.dim.w - 5) && text != "") {
+                    sBB = info.smallIconGroup.getBBox();
+                    text = text.slice(0, -1);
+                    info.sTitle.attr({text: text + "..."});
+                }
+                if (text == "") info.sTitle.attr({display: "none"});
+            } else
+                info.smallIconGroup.attr({display: "none"});
 
             if (this.cursor() == control) info.group.addClass("cursor");
             else info.group.removeClass("cursor");
@@ -961,6 +1883,7 @@ define(
                         dropInfo.layout.control(info.control);
                         p.control(null);
                         that._isRendered(false);
+                        that.hasChanges(true);
                     });
                 } else
                     that._isRendered(false);
@@ -1105,6 +2028,7 @@ define(
                             that.getControlMgr().allDataInit(resObj);
 
                             that._isRendered(false);
+                            that.hasChanges(true);
                         });
                     } else
                         that.getControlMgr().userEventHandler(that, function () {
@@ -1145,6 +2069,7 @@ define(
                         obj[fName](value);
                         e.preventDefault();
                         e.stopPropagation();
+                        that.hasChanges(true);
                         return false;
                     });
                 }
@@ -1258,17 +2183,17 @@ define(
                         if (pDir == "vertical") {
                             result.x = MARGIN_LEFT;
                             result.y = MARGIN_TOP;
-                            result.h = +lSize - (MARGIN_TOP + MARGIN_BUT);
+                            result.h = +lSize;
                             result.w = pDims.w - (MARGIN_LEFT + MARGIN_RIGHT);
                         } else {
                             result.x = MARGIN_LEFT;
                             result.y = MARGIN_TOP;
-                            result.w = +lSize -  (MARGIN_LEFT + MARGIN_RIGHT);
+                            result.w = +lSize;
                             result.h = pDims.h - (MARGIN_TOP + MARGIN_BUT);
                         }
                     } else if (String(lSize).indexOf("%") >= 0) {
                         lSize = +(lSize.replace("%", ""));
-                        var fixedSize = pDir == "vertical" ? (MARGIN_TOP + MARGIN_BUT) : (MARGIN_LEFT + MARGIN_RIGHT);
+                        var fixedSize = pDir == "vertical" ? (MARGIN_TOP + MARGIN_BUT + CELL_SPACING*(siblings.count()-1)) : (MARGIN_LEFT + MARGIN_RIGHT);
                         var percSize = 0;
                         for (var i = 0; i < siblings.count(); i++) {
                             var sib = siblings.get(i);
@@ -1301,6 +2226,7 @@ define(
                         var rSib = this._renderInfo[sib.getLid()];
                         if (sib == layout) break;
                         takedSize += ((pDir == "vertical") ? (rSib.dim.h) : (rSib.dim.w + (MARGIN_LEFT + MARGIN_RIGHT)));
+                        takedSize += CELL_SPACING;
                         if (takedSize >= allSize) {
                             takedSize = 0;
                             break;
@@ -1368,6 +2294,45 @@ define(
                 var child = children.get(i);
                 vDesigner._handleResize.call(this, child);
             }
+        }
+
+        vDesigner._refreshScroll = function() {
+            var item = $('#' + this.getLid());
+            item.find(".designer-scroll").height(item.find(".designer-scroll").parent().height());
+            if (this._iscroll) {
+                this._iscroll.destroy();
+                this._iscroll = null;
+            }
+
+            var parentDivSel = item.find(".designer-scroll")[0];
+            var _iscroll = new IScroll(parentDivSel, {
+                snapStepY: 23,
+                scrollX: false,
+                scrollY: true,
+                bottomPadding: 0,
+                topPadding: 0,
+                resize: true,
+                scrollbars: true,
+                mouseWheel: true,
+                disableMouse: true,
+                interactiveScrollbars: true,
+                keyBindings: false,
+                click: true,
+                probeType: 3,
+                rightPadding: 0
+            });
+            //_iscroll.on('scroll', function () {
+            //    //gr.data("grid").updatePosition(this.y);
+            //    if (this._grid)
+            //        this._grid.grid("updatePosition", this.y);
+            //});
+            _iscroll.on('scrollStart', function() {
+                $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: 1});
+            });
+            _iscroll.on('scrollEnd', function() {
+                $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: ""});
+            });
+            this._iscroll = _iscroll;
         }
 
         return vDesigner;
