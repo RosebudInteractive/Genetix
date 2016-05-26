@@ -26,6 +26,7 @@ define(
         var COLOR_INC2 = 9;
         var COLOR_INC3 = 23;
         var CELL_SPACING = 6;
+        var FIXED_COEF = 2;
 
         var autoHeight = 150;
         for (var i in Base)
@@ -65,6 +66,7 @@ define(
                 svg.height(svg.parent().parent().height() - 5);
 
                 $(window).on("genetix:resize", function () {
+                    var stDate = new Date();
                     var cont = item.find(".gen-form").children(".v-container").children(".c-content");
                     var fContent =  cont.children(".control-wrapper");
                     fContent.width(0);
@@ -102,6 +104,8 @@ define(
                     vDesigner._renderTabsToolbar.call(that);
                     vDesigner._renderToolbar.call(that);
 
+                    var enDate = new Date();
+                    console.log("form designer render time: ", enDate - stDate);
                 });
 
             } else {
@@ -229,12 +233,13 @@ define(
             if (Math.floor(allSize) == allSize) allSize--;
             var col = this.getCol("Layouts");
             var lCount = col.count();
-            var oneSize = Math.floor(allSize/lCount);
-
             var minSizes = vDesigner._getRootsByMinSize.call(that);
+            var coeff = allSize/minSizes.length;
 
             var infin = String.fromCharCode(0x221E);
             var prevT = null;
+            var prevRootL = null;
+            var takedSize = 0;
             for (var i in minSizes) {
                 var l = minSizes[i];
                 var t = $("#tab_" + l.getLid());
@@ -244,7 +249,7 @@ define(
                     t.attr("id", "tab_" + l.getLid());
                     t.attr("guid", l.getGuid());
                     if (!prevT)
-                        toolContent.append(t);
+                        toolContent.prepend(t);
                     else
                         prevT.after(t);
 
@@ -279,46 +284,65 @@ define(
                             $(this).change();
                     });
 
-                    toVal.find(".value-l").on("mousedown", function(e) {
-                        var p = $(e.target).parent().parent();
-                        var next = p.next();
-                        that._draggable = { target: $(e.target), w: p.width(), nw: next.width(),  ex: e.screenX, ey: e.screenY, delta: 0 };
-                    }).on("mousemove", function(e) {
-                        if (that._draggable) {
-                            var p = that._draggable.target.parent().parent();
+                    toVal.draggable({
+                        axis: "x",
+                        containment: toolContent,
+                        drag: function(e) {
+                            if (that._draggable) {
+                                if (!coeff) coeff = 1;
+
+                                var p = that._draggable.target.parent().parent();
+                                var next = p.next();
+                                var offX = e.screenX - that._draggable.ex;
+                                if ((offX > 0 && next.width() - 35 > offX) ||
+                                    (offX < 0 && p.width() - 35 > offX)) {
+                                    next.width(that._draggable.nw - offX);
+                                    p.width(that._draggable.w + offX);
+                                }
+                                if (Math.abs(offX) > 2) {
+                                    that._dragEnd = true;
+                                    that._draggable.delta = offX;
+
+                                    var guid = p.attr("guid");
+                                    var col = that.getCol("Layouts");
+                                    var tab = col.get(col.indexOfGuid(guid));
+                                    that._draggable.target.text((+tab.maxTargetWidth() + Math.floor(that._draggable.delta/coeff)) + "px");
+                                }
+                            }
+                        },
+                        start: function(e) {
+                            var p = $(e.target).parent();
                             var next = p.next();
-                            var offX = e.screenX - that._draggable.ex;
-                            if ((offX > 0 && next.width() - 35 > offX) ||
-                                (offX < 0 && p.width() - 35 > offX)) {
-                                next.width(that._draggable.nw - offX);
-                                p.width(that._draggable.w + offX);
-                            }
-                            if (Math.abs(offX) > 2) {
-                                that._dragEnd = true;
-                                that._draggable.delta = offX;
+                            that._draggable = { target: $(e.target).find(".value-l"), w: p.width(), nw: next.width(),  ex: e.screenX, ey: e.screenY, delta: 0 };
+                        },
+                        stop: function(e) {
+                            if (that._draggable) {
+                                var p = that._draggable.target.parent().parent();
+                                var next = p.next();
+                                var offX = e.screenX - that._draggable.ex;
+                                if ((offX > 0 && next.width() - 35 > offX) ||
+                                    (offX < 0 && p.width() - 35 > offX)) {
+                                    next.width(that._draggable.nw - offX);
+                                    p.width(that._draggable.w + offX);
+                                }
+                                if (Math.abs(offX) > 2) {
+                                    that._dragEnd = true;
+                                    that._draggable.delta = offX;
 
-                                var guid = p.attr("guid");
-                                var col = that.getCol("Layouts");
-                                var tab = col.get(col.indexOfGuid(guid));
-                                that._draggable.target.text((+tab.maxTargetWidth() + that._draggable.delta) + "px");
+                                    var guid = p.attr("guid");
+                                    var col = that.getCol("Layouts");
+                                    var tab = col.get(col.indexOfGuid(guid));
+                                    that._draggable.target.text((+tab.maxTargetWidth() + Math.floor(that._draggable.delta/coeff)) + "px");
+                                    that.getControlMgr().userEventHandler(that, function () {
+                                        tab.maxTargetWidth(+tab.maxTargetWidth() + Math.floor(that._draggable.delta/coeff));
+                                    });
+
+                                }
                             }
                         }
-                    }).on("mouseup", function(e) {
-                        if (that._draggable && that._dragEnd) {
-                            var p = that._draggable.target.parent().parent();
-                            var guid = p.attr("guid");
-                            var col = that.getCol("Layouts");
-                            var tab = col.get(col.indexOfGuid(guid));
+                    });
 
-                            that.getControlMgr().userEventHandler(that, function () {
-                                tab.maxTargetWidth(+tab.maxTargetWidth() + that._draggable.delta);
-                                that._draggable = null;
-                                that._isRendered(false);
-                                that.hasChanges(true);
-                            });
-
-                        }
-                    }).click(function () {
+                    toVal.find(".value-l").click(function () {
                         if (!that._dragEnd) {
                             $(this).parent().addClass("edit-mode");
                         } else
@@ -331,9 +355,13 @@ define(
                         e.stopPropagation();
                         return false;
                     });
+                } else {
+                    var toVal = t.find("div.to-value");
+                    toVal.css({left: "", right: "-1.5em"});
                 }
 
-                prevT = t;
+                if (i == minSizes.length - 1) t.css("border-right", "none");
+                else t.css("border-right", "");
 
                 if (lCount == 1) t.find("div[role='delete']").hide();
                 else t.find("div[role='delete']").show();
@@ -356,20 +384,21 @@ define(
                 toVal.find(".value-l").text(txt);
                 toVal.find("input").val(txt.replace("px", ""));
 
-                /*var fromInpt = t.find("input[role='from-val']");
-                var toInpt = t.find("input[role='to-val']");
-                fromInpt.val(l.minTargetWidth() + "px");
-                if (!l.maxTargetWidth()) toInpt.val(infin);
-                else toInpt.val(l.maxTargetWidth() + "px");*/
                 if (l == this.currentLayout()) t.addClass("active");
                 else t.removeClass("active");
 
-                t.width(oneSize - 1);
-
-
+                var prevW = prevRootL ? +prevRootL.maxTargetWidth() : 0;
+                var tSize = +(l.maxTargetWidth() ? l.maxTargetWidth() : minSizes.length) - prevW;
+                var tw = Math.floor(tSize * coeff) - 1;
+                if (i == minSizes.length - 1)
+                    tw = allSize - takedSize - lCount + 1;
+                takedSize += tw;
+                t.width(tw);
+                prevT = t;
+                prevRootL = l;
             }
 
-            if (t) t.width(allSize - oneSize * (lCount - 1));
+            //if (t) t.width(allSize - oneSize * (lCount - 1));
 
             // убираем удаленные объекты
             var del = this.getLogCol('Layouts') && 'del' in this.getLogCol('Layouts')? this.getLogCol('Layouts').del: {};
@@ -383,28 +412,10 @@ define(
             if (this._widthPointer === undefined)
                 this._widthPointer = Math.floor(minSizes.length/2);
             var pointer = toolContent.find(".width-pointer");
-            var pWidth = pointer.width();
             if (this._widthPointer < 0) this._widthPointer = 0;
             if (this._widthPointer >= minSizes.length) this._widthPointer = minSizes.length -1;
-            var pointerL = null;
-            var prevL = null;
-            for (var i = this._widthPointer; i < minSizes.length; i++)
-                if (minSizes[i]) {
-                    pointerL = minSizes[i];
-                    break;
-                }
-            for (var i = this._widthPointer - 1; i >= 0; i--)
-                if (minSizes[i]) {
-                    prevL = minSizes[i];
-                    break;
-                }
 
-            var t = $("#tab_" + pointerL.getLid());
-            var lMax = +(pointerL.maxTargetWidth() ? pointerL.maxTargetWidth() : ((prevL ? prevL.maxTargetWidth() : 0) + 1000));
-            var lMin = (prevL ? prevL.maxTargetWidth() : 0);
-            var ratio = (lMax - lMin) ? t.width()/(lMax - lMin) : 0;
-            var lOffset = t.offset().left - t.offsetParent().offset().left;
-            var x = Math.floor((this._widthPointer - lMin)*ratio + lOffset);
+            var x = Math.floor(this._widthPointer*coeff);
             pointer.css("left", x + "px");
             pointer.find(".label").text(this._widthPointer + "px");
 
@@ -413,40 +424,13 @@ define(
                     axis: "x",
                     containment: toolContent,
                     drag: function(e, obj) {
-                        console.log("drag", arguments);
+                        if (coeff == 0) coeff = 1;
                         var minSizes = vDesigner._getRootsByMinSize.call(that);
                         var w = 0;
                         var left = obj.position.left;
-                        var guid = null;
-                        var div = null;
-                        toolContent.children(".layout-tab").each(function() {
-                            if (w < left) {
-                                w += $(this).width();
-                                if (w >= left) {
-                                    guid = $(this).attr("guid");
-                                    div = $(this);
-                                }
-                            }
-                        });
-
-                        if (guid) {
-                            var ls  = that.getCol("Layouts");
-                            var pointerL = ls.get(ls.indexOfGuid(guid));
-                            var prevL = null;
-                            var start = pointerL.maxTargetWidth() ? pointerL.maxTargetWidth() : minSizes.length - 1;
-                            for (var i = start - 1; i >= 0; i--)
-                                if (minSizes[i]) {
-                                    prevL = minSizes[i];
-                                    break;
-                                }
-                            var lMax = +(pointerL.maxTargetWidth() ? pointerL.maxTargetWidth() : ((prevL ? prevL.maxTargetWidth() : 0) + 1000));
-                            var lMin = (prevL ? prevL.maxTargetWidth() : 0);
-                            var ratio = (lMax - lMin) ? t.width()/(lMax - lMin) : 0;
-                            var lOffset = div.offset().left - div.offsetParent().offset().left;
-                            var val = Math.floor(lMin + (left - lOffset)/ratio);
-                            pointer.find(".label").text(val + "px");
-                            that._widthPointer = val;
-                        }
+                        var val = Math.floor(left/coeff);
+                        pointer.find(".label").text(val + "px");
+                        that._widthPointer = val;
                     },
                     stop: function() {
                         $(window).trigger("genetix:resize");
@@ -477,7 +461,36 @@ define(
             var c = that.getCol("Layouts");
             var toSetL = c.get(c.indexOfGuid(guid));
             that.getControlMgr().userEventHandler(that, function () {
+                var minSizes = vDesigner._getRootsByMinSize.call(that);
+                var isLast = minSizes[minSizes.length - 1] == toSetL;
+                var isCurrent = that.currentLayout() == toSetL;
                 c._del(toSetL);
+                var newCur = null;
+                if (isCurrent) {
+                    var startIdx = toSetL.maxTargetWidth() || minSizes.length - 1;
+                    for (var i = startIdx - 1; i >= 0; i--)
+                        if (minSizes[i]) {
+                            newCur = minSizes[i];
+                            break;
+                        }
+
+                    if (!newCur) {
+                        for (var i = startIdx + 1; i < minSizes.length; i++)
+                            if (minSizes[i]) {
+                                newCur = minSizes[i];
+                                break;
+                            }
+                    }
+
+                    that.currentLayout(newCur);
+                }
+
+                if (isLast) {
+                    var minSizes = vDesigner._getRootsByMinSize.call(that);
+                    if (minSizes[minSizes.length - 1])
+                        minSizes[minSizes.length - 1].maxTargetWidth(null);
+                }
+
                 that._isRendered(false);
                 that.hasChanges(true);
             });
@@ -620,6 +633,7 @@ define(
                         this._hiddenControls.push(control);
                     }
                 } else {
+                    opt.show();
                     btnsWidth += opt.width();
                     if (btnsWidth >= availableWidth) {
                         opt.hide();
@@ -667,14 +681,14 @@ define(
                 if (sizeVal != "auto") {
                     if (String(sizeVal).indexOf("%") >= 0) {
                         sizeVal = +(sizeVal.replace("%", ""));
-                        unitVal = "parts";
+                        unitVal = "*";
                     } else if (String(sizeVal).indexOf("px") >= 0 || String(sizeVal).indexOf("em") >= 0 ) {
                         sizeVal = +(sizeVal.replace("px", "").replace("em", ""));
-                        unitVal = "units";
+                        unitVal = "px";
                     }
                 }
                 propsPanel.children().find("input[role='size']").val(sizeVal);
-                propsPanel.children().find("select[role='units']").val(unitVal);
+                propsPanel.children().find("div[role='units']").text(unitVal);
 
                 propsPanel.find("select[role='transform']").val(info.layout.direction());
 
@@ -770,8 +784,7 @@ define(
                     click: function (event, data) {
                         var text = data.id.split("-")[0];
                         if (text == "parts") text = "*";
-                        units.children().text(text);
-                        vDesigner._changeSize.call(that);
+                        vDesigner._changeSize.call(that, text);
                     },
                     leftIcons: false,
                     rightIcons: false,
@@ -779,8 +792,8 @@ define(
                     leftViewBoxSize: 16,
                     extendedClass: "is-gray-menu",
                     menuItems: [{
-                        id: "em-menu_" + this.getLid(),
-                        title: "em",
+                        id: "px-menu_" + this.getLid(),
+                        title: "px",
                         subTree: [],
                         leftIcon: "/images/Genetix.svg#userInfo",
                         leftIconColor: "#ffffff",
@@ -815,7 +828,7 @@ define(
                         var guid = data.custom.buttonControl.attr("guid");
                         var col = that.getCol("Controls");
                         var ctrl  = col.get(col.indexOfGuid(guid));
-                        if (text == "del-menu-layout") {
+                        if (text.indexOf("del-menu-layout") >= 0) {
                             that.getControlMgr().userEventHandler(that, function () {
                                 var info = that._renderInfo[ctrl.getLid()];
                                 var lCol = that.getCol("Layouts");
@@ -825,7 +838,7 @@ define(
                                 that._isRendered(false);
                                 that.hasChanges(true);
                             });
-                        } else if (text == "del-menu-all") {
+                        } else if (text.indexOf("del-menu-all") >= 0) {
                             that.getControlMgr().userEventHandler(that, function () {
                                 while (col.count() > 0) {
                                     ctrl = col.get(0);
@@ -866,21 +879,21 @@ define(
                     leftViewBoxSize: 16,
                     extendedClass: "is-gray-menu",
                     menuItems: [{
-                        id: "del-menu-layout",
+                        id: "del-menu-layout-" + this.getLid(),
                         title: "Delete",
                         subTree: [],
                         leftIcon: "/images/Genetix.svg#userInfo",
                         leftIconColor: "#ffffff",
                         custom: {}
                     }, {
-                        id: "del-menu-all",
+                        id: "del-menu-all-" + this.getLid(),
                         title: "Delete all",
                         subTree: [],
                         leftIcon: "/images/Genetix.svg#userInfo",
                         leftIconColor: "#ffffff",
                         custom: {}
                     }, {
-                        id: "clear-form",
+                        id: "clear-form-" + this.getLid(),
                         title: "Clear form",
                         subTree: [],
                         leftIcon: "/images/Genetix.svg#userInfo",
@@ -1180,75 +1193,89 @@ define(
             item.find(".close-button").off("click").click(function () {
                 var left = item.find(".designer-left");
                 var right = item.find(".designer-right");
-                var hide = that._mode != DesignerModes.form;
-                $(this).children().hide();
-                item.find(".gen-form").show();
-                item.find(".close-form-button").children().hide();
-                if (hide) {
-                    that._mode = DesignerModes.form;
-                    item.find(".c-content.designer-content-wrp").css("overflow", "hidden");
-                    left.css("min-width", 0);
-                    left.animate({width: 0}, 300, function() {
-                        $(window).trigger("genetix:resize");
-                    });
-                    $(this).children("[role='right']").show();
-                    item.find(".close-form-button").children("[role='right1']").show();
-                } else {
-                    that._mode = DesignerModes.both;
-                    item.find(".c-content.designer-content-wrp").css("overflow", null);
-                    var allSize = right.width();
-                    var w = 33*16;
-                    var designer = item.find(".c-content.designer-content-wrp");
-                    designer.children(".side-padding").width(w - 32);
-                    left.animate({width: w}, 300, function() {
-                        left.css("min-width", w);
-                        $(window).trigger("genetix:resize");
-                    });
-                    $(this).children("[role='left']").show();
-                    item.find(".close-form-button").children("[role='right']").show();
-                }
-            });
 
-            item.find(".close-form-button").off("click").click(function () {
-                var left = item.find(".designer-left");
-                var right = item.find(".designer-right");
-                var hide = that._mode != DesignerModes.designer;
-                $(this).children().hide();
+                var toggledButton = $(this).attr("role");
+
+                var hide = that._mode != DesignerModes.form;
+                item.find(".gen-form").show();
+
+                var closeDesignerBtn = $(this).parent().children("[role='left']");
+                var closeFormBtn = $(this).parent().children("[role='right']");
+
+                var curDesignerVisible = that._mode == DesignerModes.both || that._mode == DesignerModes.designer;
+                var curFormVisible = that._mode == DesignerModes.both || that._mode == DesignerModes.form;
+
+                $(this).toggleClass("active");
+                if (toggledButton == "left" && curDesignerVisible && !curFormVisible) {
+                    closeFormBtn.toggleClass("active");
+                } else if (toggledButton == "right" && !curDesignerVisible && curFormVisible) {
+                    closeDesignerBtn.toggleClass("active");
+                }
+
+                var newMode;
+
+                if (closeDesignerBtn.hasClass("active") && closeFormBtn.hasClass("active"))
+                    newMode = DesignerModes.both;
+                else if (closeDesignerBtn.hasClass("active"))
+                    newMode = DesignerModes.designer;
+                else if (closeFormBtn.hasClass("active"))
+                    newMode = DesignerModes.form;
+
                 var designer = item.find(".c-content.designer-content-wrp");
-                designer.css("overflow", null);
-                item.find(".close-button").children().hide();
-                if (hide) {
-                    designer.css("overflow", "visible");
-                    var twoStep = that._mode == DesignerModes.form;
-                    that._mode = DesignerModes.designer;
-                    if (twoStep) {
-                        var w = 33*16;
-                        left.css("min-width", w);
-                        left.animate({width: w}, 300, function() {
-                            designer.children(".side-padding").width(w);
-                            designer.children(".side-padding").animate({width: left.parent().parent().width() - 32}, 300, function() {
-                                $(window).trigger("genetix:resize");
-                            });
+
+                if (that._mode == DesignerModes.both) {
+                    if (newMode == DesignerModes.form) {
+                        designer.css("overflow", "hidden");
+                        left.css("min-width", 0);
+                        left.animate({width: 0}, 300, function() {
+                            $(window).trigger("genetix:resize");
                         });
                     } else {
+                        designer.css("overflow", "visible");
                         designer.children(".side-padding").width(left.width());
                         designer.children(".side-padding").animate({width: left.parent().parent().width() - 32}, 300, function() {
                             $(window).trigger("genetix:resize");
                         });
                     }
-                    item.find(".close-button").children("[role='left1']").show();
-                    item.find(".close-form-button").children("[role='left']").show();
-                } else {
-                    that._mode = DesignerModes.both;
+                } else if (that._mode == DesignerModes.form && newMode == DesignerModes.designer) {
+                    var w = 35*16;
+                    //left.css("min-width", w);
+                    designer.css("overflow", "hidden");
+                    left.animate({width: w}, 300, function() {
+                        designer.children(".side-padding").width(w);
+                        designer.css("overflow", "visible");
+                        designer.children(".side-padding").animate({width: left.parent().parent().width() - 32}, 300, function() {
+                            $(window).trigger("genetix:resize");
+                        });
+                    });
+                } else if (that._mode == DesignerModes.designer && newMode == DesignerModes.form) {
                     var allSize = right.width();
-                    var w = 33*16;
+                    var w = 35*16;
+                    designer.children(".side-padding").animate({width: w - 32}, 300, function() {
+                        item.find(".gen-form").show();
+                        designer.css("overflow", "hidden");
+                        left.css("min-width", 0);
+                        left.animate({width: 0}, 300, function() {
+                            $(window).trigger("genetix:resize");
+                        });
+                    });
+                } else if (that._mode == DesignerModes.form && newMode == DesignerModes.both) {
+                    designer.css("overflow", "hidden");
+                    var w = 35*16;
+                    designer.children(".side-padding").width(w - 32);
+                    left.animate({width: w}, 300, function() {
+                        left.css("min-width", w);
+                        $(window).trigger("genetix:resize");
+                    });
+                } else if (that._mode == DesignerModes.designer && newMode == DesignerModes.both) {
+                    var w = 35*16;
                     designer.children(".side-padding").animate({width: w - 32}, 300, function() {
                         item.find(".gen-form").show();
                         $(window).trigger("genetix:resize");
                     });
-                    item.find(".close-button").children("[role='left']").show();
-                    item.find(".close-form-button").children("[role='right']").show();
                 }
+
+                that._mode = newMode;
             });
 
             item.find(".refresh-button").click(function() {
@@ -1295,7 +1322,7 @@ define(
             });
 
             var dots = item.find(".designer-toolbar.controls").find(".is-dots");
-            dots.off("contextmenu").contextmenu(function (e) {
+            dots.off("click").click(function (e) {
                 var data = [];
                 for (var i = 0; i < that._hiddenControls.length; i++) {
                     var control = that._hiddenControls[i];
@@ -1333,37 +1360,77 @@ define(
             });
         };
 
-        vDesigner._changeSize = function() {
+        vDesigner._changeSize = function(text) {
             var item = $("#" + this.getLid());
             var that = this;
             var propsPanel = item.find(".designer-toolbar.main").find(".props-wrapper[role='layout-props']");
             var inpt = propsPanel.find("input[role='size']");
-            var val = item.find(".units").children().text();
+            var val = text;
             if (!$.isNumeric(inpt.val()) && inpt.val() != "auto") return;
 
             var cur = that.cursor();
             if (!cur) return;
             var info = that._renderInfo[cur.getLid()];
-            if (info.layout.control()) return;
+            if (info.control) return;
+
             var p = info.layout.getParentComp();
             if (p == that) return;
-            {
-                var dimName = "width";
-                if (p.direction() == "vertical") dimName = "height";
 
-                var size = "auto";
-                if (val != "auto") {
-                    if (!$.isNumeric(inpt.val())) inpt.val("100");
-                    if (val == "*") size = inpt.val() + "%";
-                    else size = inpt.val() + "em";
+            if (p.direction() != "vertical" && val == "auto") return;
+
+            var dimName = "width";
+            if (p.direction() == "vertical") dimName = "height";
+
+            var size = "auto";
+            if (val != "auto") {
+                if (!$.isNumeric(inpt.val())) inpt.val("100");
+                if (val == "*") size = inpt.val() + "%";
+                else size = inpt.val() + "px";
+            }
+            var s = size;
+
+            var units = item.find(".units");
+            units.children().text(text);
+
+            that.getControlMgr().userEventHandler(that, function () {
+                info.layout[dimName](s);
+
+                if (text == "auto") {
+                    var siblings = p.getCol("Layouts");
+                    for (var i = 0; i < siblings.count(); i ++) {
+                        var l = siblings.get(i);
+                        if (l == cur) continue;
+                        var size = l[dimName]();
+                        if (size && String(size).indexOf("%") >= 0)
+                            l[dimName]("100px");
+                    }
+
+                    var children = cur.getCol("Layouts");
+                    for (var i = 0; i < children.count(); i ++) {
+                        var l = children.get(i);
+                        if (l == cur) continue;
+                        var size = l[dimName]();
+                        if (size && String(size).indexOf("%") >= 0)
+                            l[dimName]("100px");
+                    }
+                } else if (text = "*") {
+                    var siblings = p.getCol("Layouts");
+                    for (var i = 0; i < siblings.count(); i ++) {
+                        var l = siblings.get(i);
+                        if (l == cur) continue;
+                        var size = l[dimName]();
+                        if (size && String(size).indexOf("%") >= 0)
+                            l[dimName]("100px");
+                    }
+
+                    if (p.getParentComp() != that && p[dimName]() && String(p[dimName]()).indexOf("auto") >= 0) {
+                        p[dimName]("100px");
+                    }
                 }
 
-                that.getControlMgr().userEventHandler(that, function () {
-                    info.layout[dimName](size);
-                    that._isRendered(false);
-                    that.hasChanges(true);
-                });
-            }
+                that._isRendered(false);
+                that.hasChanges(true);
+            });
 
         }
 
@@ -1563,34 +1630,48 @@ define(
 
             var headText = ""; //"O: " + (layout.direction() ? layout.direction() : "V")[0].toUpperCase();
             if (pComp != this) {
-                headText += pComp.direction() == "horizontal" ? layout.width() : "";
-                headText += pComp.direction() == "vertical" ? layout.height() : "";
+                headText += pComp.direction() == "horizontal" ? "W: " + layout.width() : "";
+                headText += pComp.direction() == "vertical" ? "H: " + layout.height() : "";
+                headText = headText.replace("%", "*");
             }
-            info.label.attr({text: headText});
+            if (info.label.attr("text") != headText)
+                info.label.attr({text: headText});
+            var oldX = info.dim.x, oldY = info.dim.y, oldH = info.dim.h, oldW = info.dim.w;
+
             var dims = vDesigner._getLayoutDimensions.call(this, layout);
             info.dim = dims;
 
-            info.group.attr({
-                transform: "translate(" + dims.x + "," + dims.y + ")"
-            });
-            info.border.attr({width: dims.w, height: dims.h});
-            info.invisible.attr({width: dims.w, height: dims.h});
+            //if (oldX != dims.x || oldY != dims.y)
+                info.group.attr({
+                    transform: "translate(" + dims.x + "," + dims.y + ")"
+                });
+
+            if (oldW != dims.w || oldH != dims.h) {
+                info.border.attr({width: dims.w, height: dims.h});
+                info.invisible.attr({width: dims.w, height: dims.h});
+            }
+
 
             if (this.cursor() == layout) info.group.addClass("cursor");
             else info.group.removeClass("cursor");
 
-            if (info.icon) info.icon.remove();
             if (pComp != this) {
-                var svgStr = vDesigner._templates["layer-icon"];
-                if (pComp.direction() == "horizontal") svgStr = vDesigner._templates["arrows-horizontal"];
-                else if (pComp.direction() == "vertical") svgStr = vDesigner._templates["arrows-vertical"];
-                info.icon = this._snap.group();
-                var icon = Snap.parse(svgStr);
-                info.icon.add(icon);
-                info.icon.attr({
-                    transform: "translate(" + MARGIN_LEFT + "," + 2 + ")"
-                });
-                info.group.add(info.icon);
+
+                if (!info.icon || info.icon.direction != layout.direction()) {
+                    if (info.icon) info.icon.remove();
+                    var svgStr = vDesigner._templates["layer-icon"];
+                    if (layout.direction() == "horizontal") svgStr = vDesigner._templates["arrows-horizontal"];
+                    else if (layout.direction() == "vertical") svgStr = vDesigner._templates["arrows-vertical"];
+                    info.icon = this._snap.group();
+                    info.icon.direction = layout.direction();
+
+                    var icon = Snap.parse(svgStr);
+                    info.icon.add(icon);
+                    info.icon.attr({
+                        transform: "translate(" + MARGIN_LEFT + "," + 2 + ")"
+                    });
+                    info.group.add(info.icon);
+                }
             }
 
 
@@ -2119,6 +2200,7 @@ define(
                     if (result.minH < (chDims[i].minH + MARGIN_BUT + MARGIN_TOP)) result.minH = (chDims[i].minH + MARGIN_BUT + MARGIN_TOP);
                 } else if (layout.direction() == "vertical") {
                     result.minH += chDims[i].minH;
+                    if (i + 1 < chDims.length) result.minH += MARGIN_BUT;
                     if (result.minW < (chDims[i].minW + MARGIN_LEFT + MARGIN_RIGHT)) result.minW = (chDims[i].minW + MARGIN_LEFT + MARGIN_RIGHT);
                 } else {
                     if (result.minH < (chDims[i].minH + MARGIN_BUT + MARGIN_TOP)) result.minH = (chDims[i].minH + MARGIN_BUT + MARGIN_TOP);
@@ -2126,12 +2208,26 @@ define(
                 }
             }
 
+
+
             if (pComp == this) {
                 var item = $("#" + this.getLid());
                 var cont = item.children(".c-content").find(".designer-content");
 
                 if (result.minW < cont[0].clientWidth) result.minW = cont[0].clientWidth;
                 if (result.minH < (cont[0].clientHeight - 5)) result.minH = cont[0].clientHeight - 5;
+            } else {
+                var pDir = pComp.direction();
+                var sizeName = pDir == "vertical" ? "height" : "width";
+
+                var sizeVal = layout[sizeName]();
+                if (String(sizeVal).indexOf("px") >= 0 || String(sizeVal).indexOf("px") >= 0) {
+                    sizeVal = +(sizeVal.replace("px", "").replace("em", ""));
+                    if (sizeName == "height" && result.minH < sizeVal) result.minH = sizeVal;
+                    if (sizeName == "width" && result.minW < sizeVal) result.minW = sizeVal;
+                } else if (sizeVal == "auto" && pDir == "vertical") {
+                    if (result.minH < autoHeight) result.minH = autoHeight;
+                }
             }
 
             return result;
@@ -2197,12 +2293,13 @@ define(
                         var percSize = 0;
                         for (var i = 0; i < siblings.count(); i++) {
                             var sib = siblings.get(i);
+                            var sibInfo = this._renderInfo[sib.getLid()];
                             var sibSize = sib[sizeName]() || 0;
                             if (sibSize == "auto") sibSize = autoHeight;
                             if ($.isNumeric(sibSize) || String(sibSize).indexOf("px") >= 0 || String(sibSize).indexOf("em") >= 0) {
                                 if (String(sibSize).indexOf("px") >= 0) sibSize = sibSize.replace("px", "");
                                 if (String(sibSize).indexOf("em") >= 0) sibSize = sibSize.replace("em", "");
-                                fixedSize += +sibSize;
+                                fixedSize += Math.max(+sibSize, (sizeName == "height" ? sibInfo.dim.minH : sibInfo.dim.minW));
                             }  else if (String(sibSize).indexOf("%") >= 0) {
                                 sibSize = +(sibSize.replace("%", ""));
                                 percSize += sibSize;
@@ -2211,11 +2308,37 @@ define(
 
                         var restSize = allSize - fixedSize;
                         var size;
+
+                        // те процентные, которые не влезут в оставшееся пространство, считаем фиксированными
+                        // с высотой равной их минимальной высоте
+
+                        for (var i = 0; i < siblings.count(); i++) {
+                            var sib = siblings.get(i);
+                            var sibSize = sib[sizeName]() || 0;
+                            if (String(sibSize).indexOf("%") <= 0 || sib == layout) continue;
+                            sibSize = +(sibSize.replace("%", ""));
+                            if (restSize <= 0) size = 0;
+                            else size = (restSize / percSize) * lSize;
+                            var sibInfo = this._renderInfo[sib.getLid()];
+                            if (sizeName == "height") {
+                                if (size < sibInfo.dim.minH) {
+                                    restSize -= sibInfo.dim.minH;
+                                    percSize -= sibSize;
+                                }
+                            } else {
+                                if (size < sibInfo.dim.minW) {
+                                    restSize -= sibInfo.dim.minW;
+                                    percSize -= sibSize;
+                                }
+                            }
+                        }
+
                         if (restSize <= 0) size = 0;
                         else size = (restSize / percSize) * lSize;
                         if (pDir == "vertical") {
                             result.h = size;
                             result.w = pDims.w - (MARGIN_LEFT + MARGIN_RIGHT);
+
                         } else {
                             result.w = size;
                             result.h = pDims.h - (MARGIN_TOP + MARGIN_BUT);

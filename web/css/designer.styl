@@ -137,8 +137,8 @@
       > .c-content
         overflow hidden
   .designer-left
-    width 33em
-    min-width 33em
+    width 35em
+    min-width 35em
     background-color #333947
   .designer-toolbar.controls
     height 3.75em
@@ -365,10 +365,12 @@
     cursor default
   .layer-header-text.black
     fill #4d4d4d
+  .close-form-button
+    left 24px
+    border-radius 0 8px 8px 0
   .close-button
     position absolute
     background-color #313744
-    border-radius 0 8px 8px 0
     height 36px
     width 24px
     color #ffffff
@@ -377,12 +379,17 @@
     display table
     cursor pointer
     div
-      opacity 0.8
+      opacity 0.4
       vertical-align middle
       display table-cell
       font-size 1.35em
       margin-left 0.25em
       text-align center
+      &:hover
+        opacity 0.6
+  .close-button.active
+    div
+      opacity 1
   .refresh-button
     z-index 1
     top 0.4em
@@ -390,12 +397,7 @@
     > div
       > div
         margin-top 5px
-  .close-form-button
-    z-index 3
-    top 0.4em
-    right 0.4em
   .refresh-button
-  .close-form-button
     position absolute
     background-color #92959b
     border-radius 8px

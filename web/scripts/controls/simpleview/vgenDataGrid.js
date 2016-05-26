@@ -28,6 +28,7 @@ define(
 
                 var parent = (this.getParentComp()? '#ch_' + this.getLid(): options.rootContainer);
                 $(parent).append(pItem);
+                this._realyRendered = $(parent).length != 0;
 
                 var gCols = vDataGrid._getColumns.call(that);
 

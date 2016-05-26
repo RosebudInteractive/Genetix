@@ -72,6 +72,7 @@ define(
             }
 
             $(window).on("genetix:resize", function () {
+                var stDate = new Date();
                 var p = that.getParentComp()? '#ch_' + that.getLid(): options.rootContainer;
                 $(p).css("height", "");
                 $(p).css("height", $(p).parent().height());
@@ -89,6 +90,9 @@ define(
                     vAContainer._switchLayout.call(that, layout, layout);
                 }
                 vAContainer._handleResize.call(that, layout);
+
+                var enDate = new Date();
+                console.log("adaptive container render time: ", enDate - stDate);
             });
             vAContainer._setVisible.call(this);
             vAContainer._genEventsForParent.call(this);
@@ -103,7 +107,22 @@ define(
                 //var targetLayout = vAContainer._getLayoutByControl(this, rootLayout, layout.control().getGuid());
                 var targetCont = $("#cont_" + rootLayout.getLid() + "_" + child.getLid());
                 var chDiv = $("#ext_" + child.getLid());
-                targetCont.append(chDiv);
+
+                if (chDiv.length == 0) {
+                    chDiv = $('<div class="control-wrapper"><div class="control-separator"/><div class="mid-wrapper"></div></div>').attr('id', 'ext_' + child.getLid());
+                    chDiv.children(".mid-wrapper").attr('id', 'ch_' + child.getLid());
+                    chDiv.css({width: "100%", height: "100%"});
+                    chDiv.on("genetix:childPropChanged", function(event, data) {
+                        vAContainer.handleChildChanged.call(that, event, data);
+                        return false;
+                    });
+                    targetCont.append(chDiv);
+                    this.getControlMgr().userEventHandler(this, function () {
+                        child._isRendered(false);
+                    });
+                } else
+                    targetCont.append(chDiv);
+
             } else {
                 var children = layout.getCol('Layouts');
                 for (var i = 0; i < children.count(); i++) {

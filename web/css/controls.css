@@ -828,8 +828,8 @@ td.container-title {
   overflow: hidden;
 }
 .designer .designer-left {
-  width: 33em;
-  min-width: 33em;
+  width: 35em;
+  min-width: 35em;
   background-color: #333947;
 }
 .designer .designer-toolbar.controls {
@@ -1108,10 +1108,13 @@ td.container-title {
 .container.designer > .c-content .layer-header-text.black {
   fill: #4d4d4d;
 }
+.container.designer > .c-content .close-form-button {
+  left: 24px;
+  border-radius: 0 8px 8px 0;
+}
 .container.designer > .c-content .close-button {
   position: absolute;
   background-color: #313744;
-  border-radius: 0 8px 8px 0;
   height: 36px;
   width: 24px;
   color: #fff;
@@ -1121,12 +1124,18 @@ td.container-title {
   cursor: pointer;
 }
 .container.designer > .c-content .close-button div {
-  opacity: 0.8;
+  opacity: 0.4;
   vertical-align: middle;
   display: table-cell;
   font-size: 1.35em;
   margin-left: 0.25em;
   text-align: center;
+}
+.container.designer > .c-content .close-button div:hover {
+  opacity: 0.6;
+}
+.container.designer > .c-content .close-button.active div {
+  opacity: 1;
 }
 .container.designer > .c-content .refresh-button {
   z-index: 1;
@@ -1136,13 +1145,7 @@ td.container-title {
 .container.designer > .c-content .refresh-button > div > div {
   margin-top: 5px;
 }
-.container.designer > .c-content .close-form-button {
-  z-index: 3;
-  top: 0.4em;
-  right: 0.4em;
-}
-.container.designer > .c-content .refresh-button,
-.container.designer > .c-content .close-form-button {
+.container.designer > .c-content .refresh-button {
   position: absolute;
   background-color: #92959b;
   border-radius: 8px;
@@ -1152,8 +1155,7 @@ td.container-title {
   display: table;
   cursor: pointer;
 }
-.container.designer > .c-content .refresh-button > div,
-.container.designer > .c-content .close-form-button > div {
+.container.designer > .c-content .refresh-button > div {
   opacity: 0.8;
   vertical-align: middle;
   display: table-cell;
@@ -1161,8 +1163,7 @@ td.container-title {
   margin-left: 0.25em;
   text-align: center;
 }
-.container.designer > .c-content .refresh-button > div:hover,
-.container.designer > .c-content .close-form-button > div:hover {
+.container.designer > .c-content .refresh-button > div:hover {
   opacity: 1;
 }
 .control {

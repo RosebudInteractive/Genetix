@@ -277,7 +277,7 @@ define(
 
                 // разберемся с текущим девайсом
                 var cnt = {
-                    id: prefix + "-" + curSessionId,
+                    id: prefix + "-" + curSessionId.replace("@", "_"),
                     title: curSession.deviceName(),
                     subTree: [],
                     leftIcon: (curSession.deviceType() == "C" ? "/images/Genetix.svg#pc" : "/images/Genetix.svg#tablet"),
@@ -296,7 +296,7 @@ define(
                     var session = sessions[id];
                     if (session.countChild("Connects") == 0) continue;
                     var cnt = {
-                        id:  prefix + "-" + session.sessionGuid(),
+                        id:  prefix + "-" + session.sessionGuid().replace("@", "_"),
                         title: session.deviceName(),
                         subTree: [],
                         leftIcon: (session.deviceType() == "C" ? "/images/Genetix.svg#pc" : "/images/Genetix.svg#tablet"),
@@ -322,7 +322,7 @@ define(
                 for (var f = 0, len5 = context.countChild("Resources"); f < len5; f++) {
                     var resource = context.getChild(f, "Resources");
                     var cnt2 = {
-                        id: "OpenFrm-" + resource.resGuid(),
+                        id: "OpenFrm-" + resource.resGuid().replace("@", "_"),
                         title: resource.title(),
                         subTree: [],
                         rightIcon: "/images/controls.svg#hamburger",
@@ -372,7 +372,7 @@ define(
 
 
                                 var cnt = {
-                                    id: item.get('DataBase'),
+                                    id: item.get('DataBase').replace("@", "_"),
                                     title: item.get('Name'),
                                     subTree: [],
                                     rightIcon: "/images/controls.svg#hamburger",
@@ -391,7 +391,7 @@ define(
                                         var subFrmItem = rootForm.getChild(f, "SubForms");
 
                                         var cnt2 = {
-                                            id: "SubFrm-" + item.get('DataBase'),
+                                            id: "SubFrm-" + item.get('DataBase').replace("@", "_"),
                                             title: subFrmItem.name(),
                                             subTree: [],
                                             rightIcon: "/images/controls.svg#hamburger",

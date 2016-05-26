@@ -38,6 +38,59 @@ define(
             },
 
             /**
+             * Рендер контрола
+             * @param viewset
+             * @param options
+             */
+            irender: function(viewset, options) {
+                if (this.getControlMgr().getInitRender() || !this._realyRendered) {
+                    viewset.render.apply(this, [options]);
+                    return;
+                }
+
+                // проверяем ширины столбцов
+                //var columns = this.getObj().getCol('Columns');
+                var columns = this.getCol('Columns');
+                if (columns) {
+                    var modified = false;
+                    for (var i = 0, len = columns.count(); i < len; i++) {
+                        var column = columns.get(i);
+                        if (column.isFldModified("Width")) {
+                            modified = true;
+                            viewset.renderWidth.apply(this, [i, column.width()]);
+                            if (modified)
+                                return;
+                        }
+                    }
+                }
+
+
+                // если надо лишь передвинуть курсор
+                if (this.isOnlyCursor() && !this.editable()) {
+                    viewset.renderCursor.apply(this, [this.dataset().cursor()]);
+                    return;
+                }
+
+                // если только фокус
+                if  (this.isOnlyFocus()) {
+                    if (this.getForm().currentControl() == this)
+                        viewset.setFocus.apply(this);
+                    return;
+                }
+
+                // если передвинули курсор + фокус
+                if (this.isCursorFocus()) {
+                    if (this.getForm().currentControl() == this)
+                        viewset.setFocus.apply(this);
+                    viewset.renderCursor.apply(this, [this.dataset().cursor()]);
+                    return;
+                }
+
+                // рендерим DOM
+                viewset.render.apply(this, [options]);
+            },
+
+            /**
              * Свойсва
              */
             alternate: function(value) {
