@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        (function() {
+            var Promise2 = function(callback) {
+                var thenHandlers = [];
+                var failHandler = null;
+                var that = this;
+
+                this.then = function(thenCallback) {
+                    thenHandlers.push(thenCallback);
+                    return this;
+                };
+
+                this.fail = function(failCallback) {
+                    failHandler = failCallback;
+                    return this;
+                };
+
+                setTimeout(function() {
+                    callback(function (successData) {
+                        var data = successData;
+                        for (var i in thenHandlers) {
+                            try {
+                                var func = thenHandlers[i];
+                                if (typeof func == "function")
+                                    data = func(data);
+                            } catch (err) {
+                                if (typeof failHandler == "function") failHandler(err);
+                                break;
+                            }
+                        }
+                    }, function(failData) {
+                        if (typeof failHandler == "function") fail(failData);
+                    });
+                }, 0);
+            }
+
+
+            var Controller = function() {
+                this.userEventHandler = function() {
+                    return new Promise2(function (resolve, reject) {
+                        console.log("userEventHandler starts transaction");
+                        resolve({anyData: "Any data to return"});
+                        console.log("userEventHandler commits transaction");
+                    });
+                }
+            }
+
+
+            console.log("sart routine");
+            var ctrl = new Controller();
+            ctrl.userEventHandler().then(function(data) {
+                console.log("First user routine updates properties", data);
+                return {data: "First routine data"};
+            }).fail(function (data) {
+                console.log("One of user routine failed. Error:", data);
+            }).then(function (data) {
+                console.log("Second user routine updates properties", data);
+                return {data: "Second routine data"};
+            }).then(function (data) {
+                console.log("Third user routine updates properties and throws exception", data);
+                throw  "Second user routine error";
+            }).then(function (data) {
+                console.log("This routine is not called", data);
+            });
+        })();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1298,15 +1298,92 @@ define(
                     var pComp = that.getParentComp();
                     that.getControlMgr().userEventHandler(that, function () {
                         var db = that.getDB();
-                        var sObj = JSON.parse(vDesigner._templates["model"]);
+                        var cm = that.getControlMgr();
+                        var rootGuid = "99b19dbb-12a2-7901-498e-904e69c01833";
+                        cm.getRoots([rootGuid], { rtype: "res" }, function (guids) {
+
+                            console.log("Request done: " + guids.guids[0]);
+
+                            var db_tree = cm.getObj(guids.guids[0]);
+                            var roots = db_tree.getTreeRoots();
+                            console.log("tree roots", roots);
+
+                            var datasets = {};
+                            var datasetGuids = {};
+
+                            function getFieldDefs(root, name, parent, callback) {
+                                root.getFieldDefs(function (result) {
+                                    datasetGuids[root.getGuid()] = parent;
+                                    datasets[name] = {
+                                        guid: root.getGuid(),
+                                        parent: parent,
+                                        fields: result
+                                    }
+                                    console.log(name + " fields: ", result);
+                                    callback(root, name);
+                                });
+                            }
+
+                            function getSources(root, name, callback) {
+                                var sources = root.getDataSources();
+                                console.log("Root sources", sources);
+                                if (Object.keys(sources).length == 0) {
+                                    callback();
+                                    return;
+                                }
+
+                                for (var item in sources) {
+                                    datasets[item] = null;
+                                    getFieldDefs(sources[item], item, name, function(curRoot, curName) {
+                                        getSources(curRoot, curName, callback);
+                                    });
+                                }
+                            }
+
+
+                            function finishRead() {
+                                var found = false;
+                                for (var item in datasets) {
+                                    if (!datasets[item]) {
+                                        found = true;
+                                        setTimeout(finishRead, 0);
+                                        break;
+                                    }
+                                }
+
+                                console.log("finish read", datasets);
+                                if (!found) {
+                                    vDesigner._genDatamodel.call(that, rootGuid, datasets, datasetGuids);
+                                }
+                            }
+
+
+                            for (var item in roots) {
+                                datasets[item] = null;
+                                var root = db_tree.getTreeRoot(item);
+                                getFieldDefs(root, item, null, function(curRoot, curName) {
+                                    getSources(curRoot, curName, function() {
+
+                                    });
+                                });
+                            }
+
+                            setTimeout(finishRead, 0);
+
+                            /*var root = db_tree.getTreeRoot("DataTstCompany");
+
+                            */
+                        });
+
+                        /*var sObj = JSON.parse(vDesigner._templates["model"]);
                         var newObj = sObj;
                         var colName = "Children";
                         var p = {
                             colName: colName,
                             obj: pComp
-                        };
+                        };*/
 
-                        var resObj = db.deserialize(sObj, p, db.pvt.defaultCompCallback);
+                        /*var resObj = db.deserialize(sObj, p, db.pvt.defaultCompCallback);
 
                         // Логгируем добавление поддерева
                         var mg = pComp.getGuid();
@@ -1316,7 +1393,7 @@ define(
                         that.getControlMgr().allDataInit(resObj);
                         PropEditManager.setModel(resObj);
                         that._isRendered(false);
-                        that.hasChanges(true);
+                        that.hasChanges(true);*/
                     });
                 }
             });
@@ -1357,6 +1434,102 @@ define(
                 }
                 that._controlsDotsPopup.genetixPopup("show", data, $(this));
                 return false;
+            });
+        };
+
+        vDesigner._genDatamodel = function(rootGuid, datasets, treeGuids) {
+            var datasetGuids = {};
+
+            for (var it in datasets) {
+                datasetGuids[it] = Utils.guid();
+            }
+
+            var lid = this.getDB().getNewLid();
+            var sObj = {
+                "$sys": {
+                    "guid": Utils.guid(),
+                    "typeGuid": UCCELLO_CONFIG.classGuids.ADataModel
+                },
+                "fields": {
+                    "Id": lid,
+                    "Name": "DataModel_" + lid,
+                    "ResElemName": "ADataModel_" + lid
+                },
+                "collections": {
+                    "Datasets": []
+                }
+            };
+
+            for (var dsName in datasets) {
+                lid = this.getDB().getNewLid();
+                var dsInfo = datasets[dsName];
+                var dsObj = {
+                        "$sys": {
+                            "guid": datasetGuids[dsName],
+                            "typeGuid": UCCELLO_CONFIG.classGuids.Dataset
+                        },
+                        "fields": {
+                            "Id": lid,
+                            "ObjectTree": {
+                                "guidRes": rootGuid,
+                                "guidElem": dsInfo.guid.split("@")[0]
+                            },
+                            "Name": dsName + "_" + lid,
+                            "Active": true,
+                            "ResElemName": dsName + "_" + lid,
+                        },
+                        "collections": {
+                            "Fields": [
+                            ]
+                        }
+                    };
+
+                if (dsInfo.parent) {
+                    dsObj.fields.Master = datasetGuids[dsInfo.parent];
+                }
+
+                for (var i = 0; i < dsInfo.fields.fields.length; i++) {
+                    var fObj = {
+                        "$sys": {
+                            "guid": Utils.guid(),
+                            "typeGuid": UCCELLO_CONFIG.classGuids.DataField
+                        },
+                        "fields": {
+                            "Id": this.getDB().getNewLid(),
+                            "Name": dsInfo.fields.fields[i].name,
+                            "ResElemName": "fld_" + dsName + "_" + lid + "_" + dsInfo.fields.fields[i].name
+                        }
+                    }
+
+                    dsObj.collections.Fields.push(fObj);
+                }
+
+
+                sObj.collections.Datasets.push(dsObj);
+            }
+
+            var that = this;
+            that.getControlMgr().userEventHandler(that, function () {
+                var db = that.getDB();
+                var colName = "Children";
+                var pComp = that.getParentComp();
+                var p = {
+                    colName: colName,
+                    obj: pComp
+                };
+                var newObj = sObj;
+
+                var resObj = db.deserialize(sObj, p, db.pvt.defaultCompCallback);
+
+                // Логгируем добавление поддерева
+                var mg = pComp.getGuid();
+                var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
+                pComp.getLog().add(o);
+                pComp.logColModif("add", colName, resObj);
+                that.getControlMgr().allDataInit(resObj);
+                PropEditManager.setModel(resObj);
+                that._isRendered(false);
+                that.hasChanges(true);
             });
         };
 
@@ -2423,39 +2596,41 @@ define(
             var item = $('#' + this.getLid());
             item.find(".designer-scroll").height(item.find(".designer-scroll").parent().height());
             if (this._iscroll) {
-                this._iscroll.destroy();
-                this._iscroll = null;
-            }
+                //this._iscroll.destroy();
+                //this._iscroll = null;
+                this._iscroll.refresh();
+            } else {
 
-            var parentDivSel = item.find(".designer-scroll")[0];
-            var _iscroll = new IScroll(parentDivSel, {
-                snapStepY: 23,
-                scrollX: false,
-                scrollY: true,
-                bottomPadding: 0,
-                topPadding: 0,
-                resize: true,
-                scrollbars: true,
-                mouseWheel: true,
-                disableMouse: true,
-                interactiveScrollbars: true,
-                keyBindings: false,
-                click: true,
-                probeType: 3,
-                rightPadding: 0
-            });
-            //_iscroll.on('scroll', function () {
-            //    //gr.data("grid").updatePosition(this.y);
-            //    if (this._grid)
-            //        this._grid.grid("updatePosition", this.y);
-            //});
-            _iscroll.on('scrollStart', function() {
-                $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: 1});
-            });
-            _iscroll.on('scrollEnd', function() {
-                $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: ""});
-            });
-            this._iscroll = _iscroll;
+                var parentDivSel = item.find(".designer-scroll")[0];
+                var _iscroll = new IScroll(parentDivSel, {
+                    snapStepY: 23,
+                    scrollX: false,
+                    scrollY: true,
+                    bottomPadding: 0,
+                    topPadding: 0,
+                    resize: true,
+                    scrollbars: true,
+                    mouseWheel: true,
+                    disableMouse: true,
+                    interactiveScrollbars: true,
+                    keyBindings: false,
+                    click: true,
+                    probeType: 3,
+                    rightPadding: 0
+                });
+                //_iscroll.on('scroll', function () {
+                //    //gr.data("grid").updatePosition(this.y);
+                //    if (this._grid)
+                //        this._grid.grid("updatePosition", this.y);
+                //});
+                _iscroll.on('scrollStart', function () {
+                    $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: 1});
+                });
+                _iscroll.on('scrollEnd', function () {
+                    $(this.wrapper).find(".iScrollLoneScrollbar").find(".iScrollIndicator").css({opacity: ""});
+                });
+                this._iscroll = _iscroll;
+            }
         }
 
         return vDesigner;

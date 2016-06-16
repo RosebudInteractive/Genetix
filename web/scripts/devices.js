@@ -386,7 +386,7 @@ define(
                                 contexts.push(cnt);
 
                                 if (url("#context") == contGuid) {
-                                    var rootForm = uccelloClt.getContextCM().get(this._CurrentRoot);
+                                    var rootForm = uccelloClt.getContextCM().get(this._CurrentRoot).getForm();
                                     for (var f = 0, len5 = rootForm.countChild("SubForms"); f < len5; f++) {
                                         var subFrmItem = rootForm.getChild(f, "SubForms");
 

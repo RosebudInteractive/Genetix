@@ -1,0 +1,111 @@
+{
+    "$sys": {
+        "guid": "99b19dbb-12a2-7901-498e-904e69c01833", 
+        "typeGuid": "c0d078c7-1c7b-4fd1-a8b0-b9f09eea31f8"
+    }, 
+    "ver": 0, 
+    "fields": {
+        "ResName": "DataCompanyTree", 
+        "_Counter": 3
+    }, 
+    "collections": {
+        "TreeRoot": {
+            "0": {
+                "$sys": {
+                    "guid": "1b973ab6-05cb-0f61-2346-504f25a6a76c", 
+                    "typeGuid": "f0138eab-8a62-4cb8-b9f5-33917bec1f59"
+                }, 
+                "ver": 0, 
+                "fields": {
+                    "ResElemName": "RootDS", 
+                    "Alias": "DataTstCompany", 
+                    "ModelRef": {
+                        "guidRes": "f0135ac7-ad8e-7ffd-5c75-db7c50b7f504", 
+                        "guidElem": "f0135ac7-ad8e-7ffd-5c75-db7c50b7f504", 
+                        "resName": "DataTstCompany"
+                    }
+                }, 
+                "collections": {
+                    "Childs": {
+                        "0": {
+                            "$sys": {
+                                "guid": "4c8c2fd2-0d4b-4562-9fc4-514e6f78cbee", 
+                                "typeGuid": "85f03964-5ea7-4743-9c8e-549110f1c154"
+                            }, 
+                            "ver": 0, 
+                            "fields": {
+                                "ResElemName": "DataSource1", 
+                                "ModelRef": {
+                                    "guidRes": "9809d538-17e3-9033-ee7c-88f38c06f441", 
+                                    "guidElem": "9809d538-17e3-9033-ee7c-88f38c06f441", 
+                                    "resName": "DataTstContact"
+                                }, 
+                                "Alias": "DataTstContact", 
+                                "FieldRef": {
+                                    "guidRes": "9809d538-17e3-9033-ee7c-88f38c06f441", 
+                                    "guidElem": "d07b7747-e3dd-77c6-d9c4-4b2b4a631d38", 
+                                    "resName": "DataTstContact", 
+                                    "elemName": "parent"
+                                }
+                            }, 
+                            "collections": {
+                                "Childs": {
+                                    "0": {
+                                        "$sys": {
+                                            "guid": "c35407cd-9dd3-84cf-d65d-ae7fef8b1fbb", 
+                                            "typeGuid": "85f03964-5ea7-4743-9c8e-549110f1c154"
+                                        }, 
+                                        "ver": 0, 
+                                        "fields": {
+                                            "ResElemName": "DataSource3", 
+                                            "ModelRef": {
+                                                "guidRes": "8ae70243-7101-d50d-38ac-9c85aebdee45", 
+                                                "guidElem": "8ae70243-7101-d50d-38ac-9c85aebdee45", 
+                                                "resName": "DataAddress"
+                                            }, 
+                                            "Alias": "DataAddress", 
+                                            "FieldRef": {
+                                                "guidRes": "8ae70243-7101-d50d-38ac-9c85aebdee45", 
+                                                "guidElem": "11f36cc9-b94e-1171-9789-97aad0bc4281", 
+                                                "resName": "DataAddress", 
+                                                "elemName": "parent"
+                                            }
+                                        }, 
+                                        "collections": {
+                                            "Childs": { }
+                                        }
+                                    }
+                                }
+                            }
+                        }, 
+                        "1": {
+                            "$sys": {
+                                "guid": "d2eeee5e-5a6b-5d8e-1fe4-25b5ba8c7a87", 
+                                "typeGuid": "85f03964-5ea7-4743-9c8e-549110f1c154"
+                            }, 
+                            "ver": 0, 
+                            "fields": {
+                                "ResElemName": "DataSource2", 
+                                "ModelRef": {
+                                    "guidRes": "1dc9e913-605b-8939-a700-e7c04271b250", 
+                                    "guidElem": "1dc9e913-605b-8939-a700-e7c04271b250", 
+                                    "resName": "DataContract"
+                                }, 
+                                "Alias": "DataContract", 
+                                "FieldRef": {
+                                    "guidRes": "1dc9e913-605b-8939-a700-e7c04271b250", 
+                                    "guidElem": "8718a445-98d0-b691-4258-c40a0a8c0617", 
+                                    "resName": "DataContract", 
+                                    "elemName": "parent"
+                                }
+                            }, 
+                            "collections": {
+                                "Childs": { }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

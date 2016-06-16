@@ -171,12 +171,10 @@ define(
             var that = this;
             var dataset = this.dataset();
             if (!dataset) return;
-            var rootElem = dataset.root();
+            var col = dataset.getDataCollection();
             var recCount = 1;
-            if (rootElem) {
-                var col = rootElem.getCol('DataElements');
-                recCount = col.count();
-            }
+            if (col) recCount = col.count();
+
             this._grid.loadNext(recCount, 0, function () {
                 if (dataset && dataset.cursor())
                     vDataGrid.renderCursor.call(that, dataset.cursor());
@@ -226,17 +224,17 @@ define(
 
         vDataGrid._getData = function(start, count) {
             var dataset = null;
-            var rootElem = null;
             var datafields = [];
             var data = [];
+            var col = null;
 
             if (this.dataset()) {
                 dataset = this.dataset();
                 if (dataset)
-                    rootElem = dataset.root();
+                    col = dataset.getDataCollection()
             }
 
-            if (rootElem) {
+            if (col) {
                 var idIndex = null;
                 var fieldsArr = {};
                 var fields = dataset.getCol('Fields');
@@ -248,7 +246,6 @@ define(
                     datafields.push({name: field.get('Name')});
                 }
 
-                var col = rootElem.getCol('DataElements');
                 var recCount = col.count();
                 if (start < 0) start = 0;
                 for (var i = start; i < recCount && i < start + count; i++) {
