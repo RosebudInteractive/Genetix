@@ -15,7 +15,7 @@ var uccelloPortWeb = process.argv[3]&&process.argv[3]!='-'?process.argv[3]:1326;
 // порт websocket
 var uccelloPortWsf = process.argv[4]&&process.argv[4]!='-'?process.argv[4]:8082;
 
-DEBUG = true;
+DEBUG = false;
 
 // Модули nodejs
 var http = require('http');
@@ -83,6 +83,10 @@ var config = {
     ] ,
 
     classGuids: {
+        "MemAddressTest": "14134cb5-7caa-44e2-84ac-9d4c208772f8",
+        "MemContractTest": "dd0addee-bf0f-458e-a360-dbfa1682e6a2",
+        "MemContactTest": "bcbd8862-7bdf-42c9-a4cb-634f8a6019a5",
+        "MemCompanyTest": "1821b56b-7446-4428-93b5-c121c265e4bc",
         "RootTstCompany": "c4d626bf-1639-2d27-16df-da3ec0ee364e",
         "DataTstCompany": "34c6f03d-f6ba-2203-b32b-c7d54cd0185a",
         "RootTstContact": "de984440-10bd-f1fd-2d50-9af312e1cd4f",
@@ -111,7 +115,7 @@ var config = {
     dataPath: __dirname+'/data/',
     uccelloPath: __dirname+'/../../'+uccelloDir+'/',
     dataman: {
-        /*connection: {
+        connection: {
             host: "localhost",
             username: "root",
             password: "masterkey",
@@ -124,8 +128,8 @@ var config = {
                 min: 0,
                 idle: 10000
             },
-        },*/
-        connection: {
+        },
+        /*connection: {
             host: "127.0.0.1",
             username: "genetix",
             password: "genetix",
@@ -138,9 +142,9 @@ var config = {
                 min: 0,
                 idle: 10000
             },
-        },
+        },*/
         importData: {
-            autoimport: true,
+            autoimport: false,
             dir: "../web/data/tables"
         },
         trace: {
@@ -149,7 +153,7 @@ var config = {
         }
     },
     resman: {
-        useDb: false,
+        useDb: true,
         defaultProduct: "Genetix",
         sourceDir: [
             {path: _dbPath + 'forms/', type: 'FRM'}
@@ -162,8 +166,8 @@ var config = {
         ],
         destDir : _dbPath + "tables/",
         formResTypeId: 1,
-        productId: 2,
-        currBuildId: 2
+        productId: 3,
+        currBuildId: 3
     }
 };
 

@@ -51,15 +51,20 @@ define(
                     on: {
                         onDataRequest: function (start, count, callback) {
                             var data = vDataGrid._getData.call(that, start, count);
+                            that._idMap = {};
                             that._grid.clearAll();
+                            for (var i = 0; i < data.length; i++) {
+                                that._idMap[data[i]["$sysId"]] = data[i].id;
+                            }
                             that._grid.parse(data, "json");
                             if (callback) callback();
                             return false;
                         },
                         onBeforeSelect: function(data) {
-                            if (that.dataset() && that.dataset().cursor() != data.id) {
+                            var item = this.getItem(data.id);
+                            if (that.dataset() && that.dataset().cursor() != item["$sysId"]) {
                                 that.getControlMgr().userEventHandler(that, function () {
-                                    that.dataset().cursor(data.id);
+                                    that.dataset().cursor(item["$sysId"]);
                                 });
                             }
                             return true;
@@ -261,6 +266,10 @@ define(
                         } else
                             dataRow[fieldsArr[j]] = text;
                     }
+
+                    if (dataset.getTypeGuid() === UCCELLO_CONFIG.classGuids.Dataset)
+                        id = obj.getGuid();
+                    dataRow["$sysId"] = id;
                     data.push(dataRow);
                 }
             }
@@ -315,9 +324,10 @@ define(
          */
         vDataGrid.renderCursor = function(id) {
             if (!id || !(this._grid)) return false;
-            if (this._grid.exists(id)) {
-                this._grid.select(id);
-                this._grid.showItem(id);
+            var gridId = this._idMap[id];
+            if (this._grid.exists(gridId)) {
+                this._grid.select(gridId);
+                this._grid.showItem(gridId);
             }
         }
 

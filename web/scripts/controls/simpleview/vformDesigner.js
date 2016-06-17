@@ -1509,6 +1509,7 @@ define(
             }
 
             var that = this;
+
             that.getControlMgr().userEventHandler(that, function () {
                 var db = that.getDB();
                 var colName = "Children";
@@ -1529,8 +1530,9 @@ define(
                 that.getControlMgr().allDataInit(resObj);
                 PropEditManager.setModel(resObj);
                 that._isRendered(false);
-                that.hasChanges(true);
+                //that.hasChanges(true);
             });
+
         };
 
         vDesigner._changeSize = function(text) {

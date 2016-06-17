@@ -584,20 +584,6 @@
                   },
                   {
                     "$sys": {
-                      "guid": "b35fc71e-7216-f2a2-d222-a88f8f53ccea",
-                      "typeGuid": "a0e02c45-1600-6258-b17a-30a56301d7f1"
-                    },
-                    "fields": {
-                      "Id": "44",
-                      "Name": "PropEditor",
-                      "Top": "193",
-                      "Left": "1055",
-                      "ResElemName": "PropEditor"
-                    },
-                    "collections": {}
-                  },
-                  {
-                    "$sys": {
                       "guid": "996934a2-7b67-b6a4-a01c-398ee08709bb",
                       "typeGuid": "38aec981-30ae-ec1d-8f8f-5004958b4cfa"
                     },
