@@ -322,9 +322,11 @@ define(
                 var dim = child[dimName]() || "auto";
                 var flex = "none";
                 if (dim != "auto") {
-                    if ($.isNumeric(dim))
-                        dim += "px";
-                    else if (dim.length > 0 && dim[dim.length - 1] == "%") {
+                    if ($.isNumeric(dim) || (dim && dim.indexOf("px") >= 0)) {
+                        dim = +(String(dim).replace("px", ""));
+                        var fSize = +(div.css("font-size").replace("px", ""));
+                        dim = (dim/fSize) + "em";
+                    } else if (dim.length > 0 && dim[dim.length - 1] == "%") {
                         var perc = dim.replace("%", "");
                         dim = "auto";
                         flex = perc + " 0 auto";

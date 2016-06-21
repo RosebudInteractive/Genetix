@@ -82,8 +82,10 @@ define(
                 var width=child.width() || "auto";
                 var flex = "none";
                 if (width != "auto") {
-                    if ($.isNumeric(width)) {
-                        width += "px";
+                    if ($.isNumeric(width) || (width && width.indexOf("px") >= 0)) {
+                        width = +(String(width).replace("px", ""));
+                        var fSize = +(div.css("font-size").replace("px", ""));
+                        width = (width/fSize) + "em";
                         div.css({width: width});
                     }
                     else if (width.length > 0 && width[width.length - 1] == "%") {

@@ -173,9 +173,12 @@ define(
                 var height = child.height() || "auto";
                 var flex = "none";
                 if (height != "auto") {
-                    if ($.isNumeric(height))
-                        height += "px";
-                    else if (height.length > 0 && height[height.length - 1] == "%") {
+                    if ($.isNumeric(height) || (height && height.indexOf("px") >= 0)) {
+                        height = +(String(height).replace("px", ""));
+                        var fSize = +(div.css("font-size").replace("px", ""));
+                        height = (height/fSize) + "em";
+                        //height += "px";
+                    } else if (height.length > 0 && height[height.length - 1] == "%") {
                         var perc = height.replace("%", "");
                         height = "auto";
                         flex = perc + " 0 auto";
