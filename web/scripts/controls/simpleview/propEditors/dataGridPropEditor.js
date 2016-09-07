@@ -7,25 +7,44 @@ define(
     function(template, tpl) {
         var _templates = template.parseTemplate(tpl);
 
-        var PropEditorManager = Class.extend({
+        var DataGridPropEditor = Class.extend({
 
-            init: function(model) {
+            init: function(model, propSource) {
                 this._model = model;
+                this._propSource = propSource;
             },
 
             setModel: function(model) {
                 this._model = model;
             },
 
-            render: function(parentDiv, control, callback) {
-                var tbl = parentDiv.find("table");
+            setPropSource: function(propSource) {
+                this._propSource = propSource;
+            },
 
-                var changeHandler = function(obj, funcName, inpt, callback) {
+            _getPropsDataset: function(control) {
+                var propDS = null;
+                var col = this._propSource.getCol("Datasets");
+                for (var i = 0, len = col.count(); i < len; i++) {
+                    var d = col.get(i);
+                    if (d.getCurrentDataObject() == control) {
+                        propDS = d;
+                        break;
+                    }
+                }
+                return propDS;
+            },
+
+            render: function(parentDiv, control, callback) {
+                if (!this._propSource) return;
+                var tbl = parentDiv.find("table");
+                var that = this;
+                var changeHandler = function(control, propName, inpt, callback) {
                     return function (e) {
-                        var opts = {
-                            Dataset: inpt.val() == "null" ? null : inpt.val()
-                        };
-                        callback(e, funcName, JSON.stringify(opts));
+                        var pDS = that._getPropsDataset(control);
+                        var v = (inpt.val() == "null" ? null : inpt.val());
+
+                        callback(e, propName, pDS, v);
                     }
                 };
 
@@ -38,13 +57,14 @@ define(
                 tb.empty();
 
                 var funcName = "controlProperties";
-                var curr = control;
-                if (curr) {
-                    var propsStr = control.controlProperties();
-                    var props = {};
-                    if (propsStr) {
-                        props = JSON.parse(propsStr);
+                if (control) {
+                    var propDS = this._getPropsDataset(control);
+                    if (!propDS) {
+                        console.error("Can not find properties dataset");
+                        return;
                     }
+
+
                     var tmpl = _templates["selectProperty"];
                     var tr = $(tmpl);
                     var propName = "Dataset";
@@ -64,15 +84,26 @@ define(
                     }
                     tb.append(tr);
 
+                    var dsVal = propDS.getField("Dataset");
 
-                    inpt.val(props.Dataset ? props.Dataset : "null");
-                    inpt.change(changeHandler(control, funcName, inpt, callback));
+                    inpt.val(dsVal ? dsVal : "null");
+                    inpt.change(changeHandler(control, propName, inpt, callback));
+
+                    tmpl = _templates["property"];
+                    var tr = $(tmpl);
+                    propName = "Name";
+                    var val = propDS.getField("Name");
+                    inpt = tr.find(".value").find("input");
+                    $.data(inpt[0], "propName", propName);
+                    inpt.val(propDS.getField("Name"));
+                    tb.append(tr);
+                    inpt.change(changeHandler(control, propName, inpt, callback));
                 }
 
 
             }
 
         });
-        return PropEditorManager;
+        return DataGridPropEditor;
     }
 );

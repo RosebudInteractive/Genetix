@@ -7,6 +7,11 @@ define(
         , '/scripts/controls/simpleview/vbase.js', './propEditors/propEditorManager'],
     function(template, tpl, Base, PropEditManager) {
         var KEYCODE_ESC = 27;
+        var KEYCODE_DEL = 46;
+        var KEYCODE_INS = 45;
+        var KEYCODE_C = 67;
+        var KEYCODE_V = 86;
+        var KEYCODE_X = 88;
         var vDesigner = {};
         var ToolbarModes = { pointer: 0, vertical: 1, horizontal: 2, layer: 3, control: 4, existingControl: 5, layout: 6, changeLayout: 7};
         var DesignerModes = {both: 0, designer: 1, form: 2};
@@ -57,6 +62,11 @@ define(
                 cont.bind("keydown", function(e) {
                     vDesigner._onKeyPress.call(that, e);
                 });
+                this._dragElGroup = this._snap.group();
+                this._dragEl = this._snap.rect(0, 0, 20, 20);
+                this._dragElGroup.add(this._dragEl);
+                this._dragEl.addClass("invisible");
+                this._dragElGroup.attr("display", "none");
 
                 var pComp = that.getParentComp();
                 var children = pComp.getCol("Children");
@@ -108,9 +118,16 @@ define(
                     console.log("form designer render time: ", enDate - stDate);
                 });
 
+                setTimeout(function() {
+                    vDesigner._initSource.call(that);
+                }, 0);
+
             } else {
                 pItem = $("#mid_" + this.getLid());
+                cont = item.children(".c-content");
             }
+
+            if (this.getForm().currentControl() == this) cont.focus();
 
             if (this.verticalAlign()) {
                 pItem.css("display", "table-cell");
@@ -207,6 +224,15 @@ define(
             vDesigner._refreshScroll.call(this);
         };
 
+        vDesigner._initSource = function() {
+            var col = this.getCol("PropertySources");
+            var that = this;
+            this.getControlMgr().userEventHandler(that, function () {
+                that._initPropertiesDataSource();
+                PropEditManager.setPropSource(that._PropDM);
+            });
+        }
+
         vDesigner._renderModel = function() {
             var item = $("#" + this.getLid());
             var model = this.getModel();
@@ -259,6 +285,8 @@ define(
                         var toSetL = c.get(c.indexOfGuid(g));
                         that.getControlMgr().userEventHandler(that, function () {
                             that.currentLayout(toSetL);
+                            if (that.getForm().currentControl() != that)
+                                that.setFocused();
                         });
                     });
 
@@ -266,6 +294,10 @@ define(
                         var p = $(this).parent().parent().parent();
                         var guid = p.attr("guid");
                         vDesigner._deleteRootLayout.call(that, guid);
+                        that.getControlMgr().userEventHandler(that, function () {
+                            if (that.getForm().currentControl() != that)
+                                that.setFocused();
+                        });
                     });
 
                     var toVal = t.find("div.to-value");
@@ -564,9 +596,6 @@ define(
                 var db = that.getDB();
                 var resObj = db.deserialize(sObj, parent, db.pvt.defaultCompCallback);
 
-
-
-
                 // Логгируем добавление поддерева
                 var newObj = sObj;
                 var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
@@ -575,8 +604,6 @@ define(
                 that.currentLayout(resObj);
                 that.getControlMgr().allDataInit(resObj);
                 that.cursor(resObj);
-
-
 
                 that._isRendered(false);
                 that.hasChanges(true);
@@ -947,7 +974,7 @@ define(
                     item.find(".prop-edit").height(item.find(".prop-edit").height() + 61);
                 }
             }
-        }
+        };
 
         vDesigner._enableToolbarButtons = function() {
             var that = this;
@@ -1149,6 +1176,9 @@ define(
                         });
                     }
                 }
+                that.getControlMgr().userEventHandler(that, function () {
+                    if (that.getForm().currentControl() != that) that.setFocused();
+                });
             });
 
             var ctrlsDiv = item.find(".designer-toolbar.controls").children();
@@ -1375,25 +1405,6 @@ define(
                             */
                         });
 
-                        /*var sObj = JSON.parse(vDesigner._templates["model"]);
-                        var newObj = sObj;
-                        var colName = "Children";
-                        var p = {
-                            colName: colName,
-                            obj: pComp
-                        };*/
-
-                        /*var resObj = db.deserialize(sObj, p, db.pvt.defaultCompCallback);
-
-                        // Логгируем добавление поддерева
-                        var mg = pComp.getGuid();
-                        var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
-                        pComp.getLog().add(o);
-                        pComp.logColModif("add", colName, resObj);
-                        that.getControlMgr().allDataInit(resObj);
-                        PropEditManager.setModel(resObj);
-                        that._isRendered(false);
-                        that.hasChanges(true);*/
                     });
                 }
             });
@@ -1497,7 +1508,10 @@ define(
                         "fields": {
                             "Id": this.getDB().getNewLid(),
                             "Name": dsInfo.fields.fields[i].name,
-                            "ResElemName": "fld_" + dsName + "_" + lid + "_" + dsInfo.fields.fields[i].name
+                            "ResElemName": "fld_" + dsName + "_" + lid + "_" + dsInfo.fields.fields[i].name,
+                            "FieldType": dsInfo.fields.fields[i].dataType.type,
+                            "FieldLength": dsInfo.fields.fields[i].dataType.length,
+                            "FieldPresision": dsInfo.fields.fields[i].dataType.precision
                         }
                     }
 
@@ -1530,7 +1544,7 @@ define(
                 that.getControlMgr().allDataInit(resObj);
                 PropEditManager.setModel(resObj);
                 that._isRendered(false);
-                //that.hasChanges(true);
+                that.hasChanges(true);
             });
 
         };
@@ -1612,15 +1626,16 @@ define(
         vDesigner._onAddControlClicked = function(cur, role) {
             var that = this;
             var info = that._renderInfo[cur.getLid()];
+            var classGuids = UCCELLO_CONFIG.classGuids;
             if (info.layout.getCol("Layouts").count() != 0 || info.layout.control()) return;
             var ctrlGuid;
             switch (role) {
-                case "control-grid": ctrlGuid = UCCELLO_CONFIG.classGuids.GenDataGrid; break;
-                case "control-toolbar": ctrlGuid = UCCELLO_CONFIG.classGuids.Toolbar; break;
-                case "control-form": ctrlGuid = UCCELLO_CONFIG.classGuids.GenForm; break;
-                case "control-tree": ctrlGuid = UCCELLO_CONFIG.classGuids.DbTreeView; break;
+                case "control-grid": ctrlGuid = classGuids.GenDataGrid; break;
+                case "control-toolbar": ctrlGuid = classGuids.Toolbar; break;
+                case "control-form": ctrlGuid = classGuids.GenForm; break;
+                case "control-tree": ctrlGuid = classGuids.DbTreeView; break;
                 default:
-                    ctrlGuid = UCCELLO_CONFIG.classGuids.GenDataGrid;
+                    ctrlGuid = classGuids.GenDataGrid;
             }
 
 
@@ -1628,7 +1643,9 @@ define(
             var sObj = {
                 "$sys": {
                     "guid": newGuid,
-                    "typeGuid": UCCELLO_CONFIG.classGuids.DesignerControl
+                    "typeGuid": (
+                        ctrlGuid == classGuids.GenDataGrid ? classGuids.DesignerDataGrid : classGuids.DesignerControl
+                    )
                 },
                 "fields": {
                     "Id": newGuid,
@@ -1659,6 +1676,9 @@ define(
 
                 that.getControlMgr().allDataInit(resObj);
                 that.cursor(resObj);
+
+                that._addControlPropSource(resObj);
+
                 that._isRendered(false);
                 that.hasChanges(true);
             });
@@ -1741,14 +1761,117 @@ define(
         }
 
         vDesigner._onKeyPress = function(e) {
+            if (!this.cursor()) {
+                return;
+            }
+            console.log(e);
+
+            var that = this;
+
             if (e.which == KEYCODE_ESC) {
-                if (this.cursor()) {
-                    var curLayout = this.cursor();
-                    var parent = curLayout.getParentComp();
-                    if (parent != this)
-                        vDesigner._moveCursor.call(this, this._renderInfo[parent.getLid()]);
-                    e.preventDefault();
-                    return false;
+                var curLayout = this.cursor();
+                var info = this._renderInfo[curLayout.getLid()];
+                var parent = curLayout.getParentComp();
+                if (info.control) parent = info.layout;
+                if (parent != this)
+                    vDesigner._moveCursor.call(this, this._renderInfo[parent.getLid()]);
+                e.preventDefault();
+                return false;
+            } else if ((e.ctrlKey && (e.which == KEYCODE_INS || e.which == KEYCODE_C || e.which == KEYCODE_X)) ||
+                (e.shiftKey && e.which == KEYCODE_DEL)
+            ) {
+                var info = this._renderInfo[this.cursor().getLid()];
+                var serWrp = {};
+                var isControl = info.control ? true : false;
+                serWrp.isControl = isControl;
+                var db = info.layout.getDB();
+                if (isControl) {
+                    var ser = db.serialize(info.control);
+                    serWrp.control = ser;
+                } else {
+                    var ser = db.serialize(info.layout);
+                    serWrp.layout = ser;
+                    serWrp.controls = [];
+                    var controls = this.getCol("Controls");
+                    for (var i = 0; i < controls.count(); i++) {
+                        var control = controls.get(i);
+                        if (vDesigner._layoutHasRefOn.call(this, info.layout, control)) {
+                            ser = db.serialize(info.layout);
+                            serWrp.controls.push(ser);
+                        }
+                    }
+                }
+
+                this._tempClipboardPlace = JSON.stringify(serWrp);
+
+                if ((e.shiftKey && e.which == KEYCODE_DEL) ||
+                    (e.ctrlKey && e.which == KEYCODE_X)) {
+                    if (isControl) {
+                        that.cursor(info.layout);
+                        vDesigner._deleteFromLayout(info.layout, info.control);
+                    } else {
+                        var par = info.layout.getParentComp();
+                        if (par == that) {
+                            var col = info.layout.getCol("Layouts");
+                            while (col.count() > 0) col._del(col.get(0));
+                            info.layout.control(null);
+                        } else {
+                            var col = par.getCol("Layouts");
+                            col._del(info.layout);
+                            if (info.layout == that.currentLayout()) {
+                                that.currentLayout(null);
+                                that.cursor(null);
+                            } else {
+                                var par = info.layout.getParentComp();
+                                that.cursor(par);
+                            }
+                        }
+                    }
+                    that._isRendered(false);
+                    that.hasChanges(true);
+                }
+
+                e.preventDefault();
+                return false;
+            } else if ((e.ctrlKey && e.which == KEYCODE_V) || (e.shiftKey && e.which == KEYCODE_INS)) {
+                var cur = this.cursor();
+                var info = this._renderInfo[cur.getLid()];
+                if (info.control) return;
+
+                if (this._tempClipboardPlace) {
+                    var serWrp = null;
+                    try {
+                        serWrp = JSON.parse(this._tempClipboardPlace);
+                        if (serWrp.isControl === undefined ||
+                            (serWrp.isControl && serWrp.control === undefined) ||
+                            (!serWrp.isControl && (serWrp.layout === undefined || serWrp.controls === undefined))
+                        )
+                            return;
+                        that.getControlMgr().userEventHandler(that, function () {
+                            var db = that.getDB();
+                            if (serWrp.isControl) {
+                                var colName = "Controls";
+                                var parent = {
+                                    colName: colName,
+                                    obj: that
+                                };
+                                var resObj = db.deserialize(serWrp.control, parent, db.pvt.defaultCompCallback);
+                                var newObj = serWrp.control;
+                                var mg = that.getGuid();
+
+                                var o = {adObj: newObj, obj: resObj, colName: colName, guid: mg, type: "add"};
+                                that.getLog().add(o);
+                                that.logColModif("add", colName, resObj);
+                                info.layout.control(resObj.getGuid());
+                            }
+                            that._isRendered(false);
+                            that.hasChanges(true);
+                        });
+                    } catch (err) {
+                        // ни чего не делаем, просто в клипборде находится что-то, что нам не подходит
+                        console.log(err);
+                    }
+
                 }
             }
         };
@@ -2091,8 +2214,6 @@ define(
             var that = this;
 
             info.invisible.click(function(e) {
-                vDesigner._moveCursor.call(that, info);
-
                 //e.stopPropagation();
                 //e.preventDefault();
                 //return false;
@@ -2112,15 +2233,35 @@ define(
                 //event.stopPropagation();
                 //event.preventDefault();
                 if (!that._resizeData) return false;
-                that._resizeData.resizeStarted = true;
+                if (!that._resizeData.resizeStarted && (Math.abs(deltaX) >= 5 || Math.abs(deltaY) >=5) ) {
+                    var x = info.group.node.getBoundingClientRect().left - that._global.node.getBoundingClientRect().left;
+                    var y = info.group.node.getBoundingClientRect().top - that._global.node.getBoundingClientRect().top;
+                    that._dragElGroup.attr({
+                        display: ""
+                    });
+                    info.group.attr({
+                        transform: "translate(" + x + "," + y + ")"
+                    });
+                    that._resizeData.x = x;
+                    that._resizeData.y = y;
+                    that._dragElGroup.add(info.group);
+                    that._resizeData.resizeStarted = true;
+                } else if (!that._resizeData.resizeStarted)
+                    return;
+
                 info.group.attr({
-                    transform: "translate(" + (info.dim.x + deltaX) + "," + (info.dim.y + deltaY) + ")"
+                    transform: "translate(" + (that._resizeData.x + deltaX) + "," + (that._resizeData.y + deltaY) + ")"
                 });
                 that._resizeData.deltaX = deltaX;
                 that._resizeData.deltaY = deltaY;
                 //return false;
-            }, function(x, y, event) {
+            }, function(/*x, y, event*/) {
                 console.log("Drag start");
+                vDesigner._moveCursor.call(that, info);
+                that.getControlMgr().userEventHandler(that, function () {
+                    if (that.getForm().currentControl() != that) that.setFocused();
+                });
+
                 //event.stopPropagation();
                 //event.preventDefault();
                 //return false;
@@ -2141,9 +2282,12 @@ define(
                         that._isRendered(false);
                         that.hasChanges(true);
                     });
-                } else
-                    that._isRendered(false);
-
+                } else {
+                    dropInfo.group.add(info.group);
+                    that.getControlMgr().userEventHandler(that, function () {
+                        that._isRendered(false);
+                    });
+                }
                 //event.stopPropagation();
                 //event.preventDefault();
                 if (!that._resizeData) return;// false;
@@ -2192,6 +2336,7 @@ define(
         vDesigner._setEvents = function(info) {
             var that = this;
             info.invisible.click(function(e) {
+                console.log("Layout click");
                 if (that._toolbarMode == ToolbarModes.pointer) {
                     var target = info.control || info.layout;
                     if (that._renderInfo[target.getLid()])
@@ -2206,6 +2351,9 @@ define(
                     that._toolbarMode = ToolbarModes.pointer;
 
                 }
+                that.getControlMgr().userEventHandler(that, function () {
+                    if (that.getForm().currentControl() != that) that.setFocused();
+                });
                 //e.stopPropagation();
                 //e.preventDefault();
                 //return false;
@@ -2225,16 +2373,37 @@ define(
                 //event.stopPropagation();
                 //event.preventDefault();
                 if (!that._resizeData) return false;
-                that._resizeData.resizeStarted = true;
+                var p = info.layout.getParentComp();
+                if (p == that) return;
+                if (!that._resizeData.resizeStarted && (Math.abs(deltaX) >= 5 || Math.abs(deltaY) >=5) ) {
+                    var x = info.group.node.getBoundingClientRect().left - that._global.node.getBoundingClientRect().left;
+                    var y = info.group.node.getBoundingClientRect().top - that._global.node.getBoundingClientRect().top;
+                    that._dragElGroup.attr({
+                        display: ""
+                    });
+                    info.group.attr({
+                        transform: "translate(" + x + "," + y + ")"
+                    });
+                    that._resizeData.x = x;
+                    that._resizeData.y = y;
+                    that._dragElGroup.add(info.group);
+                    that._resizeData.resizeStarted = true;
+                } else if (!that._resizeData.resizeStarted)
+                    return;
+
                 console.log("Drag");
                 info.group.attr({
-                    transform: "translate(" + (info.dim.x + deltaX) + "," + (info.dim.y + deltaY) + ")"
+                    transform: "translate(" + (that._resizeData.x + deltaX) + "," + (that._resizeData.y + deltaY) + ")"
                 });
                 that._resizeData.deltaX = deltaX;
                 that._resizeData.deltaY = deltaY;
                 //return false;
             }, function(x, y, event) {
                 console.log("Drag start");
+                vDesigner._moveCursor.call(that, info);
+                that.getControlMgr().userEventHandler(that, function () {
+                    if (that.getForm().currentControl() != that) that.setFocused();
+                });
                 //event.stopPropagation();
                 //event.preventDefault();
                 //return false;
@@ -2242,6 +2411,9 @@ define(
                 console.log("Drag end");
                 var p = info.layout.getParentComp();
 
+                that._dragElGroup.attr({
+                    display: "none"
+                });
                 if (p == that) {
                     that.getControlMgr().userEventHandler(that, function () {
                         that._isRendered(false);
@@ -2259,7 +2431,12 @@ define(
                         dropInfo = that._renderInfo[dropLid];
                     }
 
-                    if (dropInfo.layout != p && !dropInfo.layout.control()) {
+                    if (dropInfo.layout == p) {
+                        dropInfo.group.add(info.group);
+                        that.getControlMgr().userEventHandler(that, function () {
+                            that._isRendered(false);
+                        });
+                    } else if (dropInfo.layout != p && !dropInfo.layout.control()) {
                         that.getControlMgr().userEventHandler(that, function () {
                             var db = info.layout.getDB();
                             var ser = db.serialize(info.layout);
@@ -2319,13 +2496,29 @@ define(
         vDesigner._renderPropEditor = function() {
             var that = this;
             var changeHandler = function(obj) {
-                return function (e, fName, val) {
+                return function (e, fName, dataset, val) {
                     that.getControlMgr().userEventHandler(that, function () {
-                        var value = val;
-                        obj[fName](value);
+                        var value = null;
+                        var ds = null;
+                        if (val === undefined) {
+                            value = dataset;
+                        } else {
+                            ds = dataset;
+                            value = val;
+                        }
+                        if (ds) {
+                            ds.edit(function() {
+                                ds.setField(fName, value);
+                                ds.save({}, function() {
+                                    that.hasChanges(true);
+                                });
+                            });
+                        } else {
+                            obj[fName](value);
+                            that.hasChanges(true);
+                        }
                         e.preventDefault();
                         e.stopPropagation();
-                        that.hasChanges(true);
                         return false;
                     });
                 }
